@@ -1,0 +1,16 @@
+language: php
+php:
+  - 5.5
+  - 5.6
+  - hhvm
+  - nightly
+
+before_script:
+  - composer self-update && composer install
+
+script:
+  - mkdir -p build/logs
+  - php vendor/bin/phpunit -c phpunit.xml.dist
+
+after_script:
+  - php vendor/bin/coveralls
