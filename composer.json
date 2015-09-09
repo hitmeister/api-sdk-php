@@ -1,4 +1,3 @@
-
 {
     "name": "hitmeister/api-sdk",
     "description": "Hitmeister API SDK for PHP",
@@ -11,7 +10,19 @@
     ],
     "license": "MIT",
     "minimum-stability": "stable",
+    "keywords": [
+        "hitmeister",
+        "sdk",
+        "api"
+    ],
+    "homepage": "https://www.hitmeister.de/api/v1/",
+    "support": {
+        "email": "devops@hitmeister.de",
+        "source": "https://github.com/hitmeister/api-sdk-php",
+        "issues": "https://github.com/hitmeister/api-sdk-php/issues"
+    },
     "require": {
+        "php": ">=5.5.0",
         "guzzlehttp/guzzle": "^6.0",
         "psr/log": "^1.0"
     },
@@ -19,5 +30,15 @@
         "mockery/mockery": "^0.9.4",
         "phpunit/phpunit": "^4.8",
         "satooshi/php-coveralls": "^0.6.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Hitmeister\\Component\\Api\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Hitmeister\\Component\\Api\\Tests\\": "tests/"
+        }
     }
 }
