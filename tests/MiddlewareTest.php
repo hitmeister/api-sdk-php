@@ -83,9 +83,6 @@ class MiddlewareTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals(PromiseInterface::REJECTED, $promise->getState());
 	}
 
-	/**
-	 * @expectedException \Hitmeister\Component\Api\Exception\BadResponse
-	 */
 	public function testNotThrowsException()
 	{
 		$middleware = Middleware::httpErrors();

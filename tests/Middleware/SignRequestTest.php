@@ -9,6 +9,7 @@
 namespace Hitmeister\Component\Api\Tests\Middleware;
 
 use GuzzleHttp\Psr7\Request;
+use Hitmeister\Component\Api\Client;
 use Hitmeister\Component\Api\Middleware\SignRequest;
 use Psr\Http\Message\RequestInterface;
 
@@ -36,13 +37,13 @@ class SignRequestTest extends \PHPUnit_Framework_TestCase
 		$signHelper->shouldReceive('sign')->withArgs([
 			'client_key',
 			'POST',
-			'https://www.hitmeister.de/api/v1/categories/',
+			Client::API_URL.'categories/',
 			'the_body',
 			\Mockery::any(),
 		])->andReturn('the_signature');
 
 		// Create some request
-		$request = new Request('POST', 'https://www.hitmeister.de/api/v1/categories/', [], 'the_body');
+		$request = new Request('POST', Client::API_URL.'categories/', [], 'the_body');
 		$signRequest = new SignRequest($testHandler, 'client_name', 'client_key');
 
 		/** @var Request $result */
