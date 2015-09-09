@@ -1,6 +1,6 @@
 
 {
-    "name": "hitmeister/api-sdk-php",
+    "name": "hitmeister/api-sdk",
     "description": "Hitmeister API SDK for PHP",
     "type": "library",
     "authors": [
