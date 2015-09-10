@@ -1,20 +1,17 @@
 <?php
 
-namespace Hitmeister\Component\Api;
+namespace Hitmeister\Component\Api\Exceptions;
 
 /**
- * Class Client
+ * Class BadRequestException
  *
  * @category PHP-SDK
- * @package  Hitmeister\Component\Api
+ * @package  Hitmeister\Component\Api\Exceptions
  * @author   Maksim Naumov <maksim.naumov@hitmeister.de>
  * @license  https://opensource.org/licenses/MIT MIT
  * @link     https://www.hitmeister.de/api/v1/
  */
-class Client
+class BadRequestException extends TransportException
 {
-	public function __construct(Transport $transport)
-	{
 
-	}
 }

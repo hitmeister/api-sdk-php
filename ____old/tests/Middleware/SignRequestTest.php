@@ -1,10 +1,4 @@
 <?php
-/**
- * Created for Hitmeister Project.
- * User: Maksim Naumov <maksim.naumov@hitmeister.de>
- * Date: 09/09/15
- * Time: 13:08
- */
 
 namespace Hitmeister\Component\Api\Tests\Middleware;
 

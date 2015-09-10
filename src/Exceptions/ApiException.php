@@ -1,20 +1,17 @@
 <?php
 
-namespace Hitmeister\Component\Api;
+namespace Hitmeister\Component\Api\Exceptions;
 
 /**
- * Class Client
+ * Generic Exception interface
  *
  * @category PHP-SDK
- * @package  Hitmeister\Component\Api
+ * @package  Hitmeister\Component\Api\Exceptions
  * @author   Maksim Naumov <maksim.naumov@hitmeister.de>
  * @license  https://opensource.org/licenses/MIT MIT
  * @link     https://www.hitmeister.de/api/v1/
  */
-class Client
+interface ApiException
 {
-	public function __construct(Transport $transport)
-	{
 
-	}
 }

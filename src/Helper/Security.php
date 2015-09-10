@@ -1,14 +1,17 @@
 <?php
-/**
- * Created for Hitmeister Project.
- * User: Maksim Naumov <maksim.naumov@hitmeister.de>
- * Date: 09/09/15
- * Time: 11:53
- */
 
 namespace Hitmeister\Component\Api\Helper;
 
-class Request
+/**
+ * Class Security
+ *
+ * @category PHP-SDK
+ * @package  Hitmeister\Component\Api\Helper
+ * @author   Maksim Naumov <maksim.naumov@hitmeister.de>
+ * @license  https://opensource.org/licenses/MIT MIT
+ * @link     https://www.hitmeister.de/api/v1/
+ */
+class Security
 {
 	/**
 	 * Makes signature
@@ -21,7 +24,7 @@ class Request
 	 * @return string
 	 * @codeCoverageIgnore
 	 */
-	public static function sign($clientSecret, $method, $url, $body, $timestamp)
+	public static function signRequest($clientSecret, $method, $url, $body, $timestamp)
 	{
 		// Build string that need to be signed [ METHOD, URL, BODY, UNIX_TIMESTAMP ]
 		$string = implode(PHP_EOL, [$method, $url, $body, $timestamp]);

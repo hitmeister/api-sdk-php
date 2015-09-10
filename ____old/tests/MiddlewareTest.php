@@ -1,10 +1,4 @@
 <?php
-/**
- * Created for Hitmeister Project.
- * User: Maksim Naumov <maksim.naumov@hitmeister.de>
- * Date: 09/09/15
- * Time: 12:55
- */
 
 namespace Hitmeister\Component\Api\Tests;
 
@@ -68,7 +62,7 @@ class MiddlewareTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @expectedException \Hitmeister\Component\Api\Exception\BadResponse
+	 * @expectedException \Hitmeister\Component\Api\Exception\BadRequest
 	 */
 	public function testThrowsBadResponseException()
 	{
