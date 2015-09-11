@@ -4,6 +4,15 @@ namespace Hitmeister\Component\Api\Tests;
 
 use Hitmeister\Component\Api\Middleware;
 
+/**
+ * Class MiddlewareTest
+ *
+ * @category PHP-SDK
+ * @package  Hitmeister\Component\Api\Tests
+ * @author   Maksim Naumov <maksim.naumov@hitmeister.de>
+ * @license  https://opensource.org/licenses/MIT MIT
+ * @link     https://www.hitmeister.de/api/v1/
+ */
 class MiddlewareTest extends \PHPUnit_Framework_TestCase
 {
 	/**
@@ -14,9 +23,6 @@ class MiddlewareTest extends \PHPUnit_Framework_TestCase
 		\Mockery::close();
 	}
 
-	/**
-	 * @runInSeparateProcess
-	 */
 	public function testSignRequest()
 	{
 		/** @var \Mockery\Mock $securityHelper */

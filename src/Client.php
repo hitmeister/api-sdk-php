@@ -2,6 +2,8 @@
 
 namespace Hitmeister\Component\Api;
 
+use Hitmeister\Component\Api\Transport\Transport;
+
 /**
  * Class Client
  *
@@ -13,8 +15,16 @@ namespace Hitmeister\Component\Api;
  */
 class Client
 {
+	const VERSION = 'development';
+
+	/** @var Transport */
+	private $transport;
+
+	/**
+	 * @param Transport $transport
+	 */
 	public function __construct(Transport $transport)
 	{
-
+		$this->transport = $transport;
 	}
 }

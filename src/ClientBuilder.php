@@ -5,6 +5,8 @@ namespace Hitmeister\Component\Api;
 use GuzzleHttp\Ring\Client\CurlHandler;
 use GuzzleHttp\Ring\Client\StreamHandler;
 use Hitmeister\Component\Api\Exceptions\RuntimeException;
+use Hitmeister\Component\Api\Transport\RequestBuilder;
+use Hitmeister\Component\Api\Transport\Transport;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 
@@ -43,14 +45,6 @@ class ClientBuilder
 	public static function create()
 	{
 		return new static();
-	}
-
-	/**
-	 * @return string
-	 */
-	public static function defaultBaseUrl()
-	{
-		return 'https://www.hitmeister.de/api/v1/'; // trailing slash is required
 	}
 
 	/**
@@ -137,23 +131,21 @@ class ClientBuilder
 	 */
 	public function build()
 	{
+		$this->validate();
+
 		if (null === $this->logger) {
 			$this->logger = new NullLogger();
 		}
 
-		if (null === $this->baseUrl) {
-			$this->baseUrl = ClientBuilder::defaultBaseUrl();
-		}
-
-		$this->validate();
-
 		if (null === $this->handler) {
 			$this->handler = ClientBuilder::defaultHandler();
 		}
+
 		$this->handler = Middleware::signRequest($this->handler, $this->clientKey, $this->clientSecret);
+		$this->handler = Middleware::processResponse($this->handler, $this->logger);
 
 		if (null === $this->transport) {
-			$this->transport = new Transport($this->handler, $this->baseUrl, $this->logger);
+			$this->transport = new Transport($this->handler, new RequestBuilder($this->baseUrl));
 		}
 
 		return new Client($this->transport);
@@ -164,8 +156,8 @@ class ClientBuilder
 	 */
 	protected function validate()
 	{
-		if (empty($this->clientKey) || empty($this->clientSecret) || empty($this->baseUrl)) {
-			throw new RuntimeException('');
+		if (empty($this->clientKey) || empty($this->clientSecret)) {
+			throw new RuntimeException('Please specify clientKey and clientSecret');
 		}
 	}
 }

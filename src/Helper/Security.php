@@ -22,7 +22,6 @@ class Security
 	 * @param string $body Request body
 	 * @param int    $timestamp Current timestamp
 	 * @return string
-	 * @codeCoverageIgnore
 	 */
 	public static function signRequest($clientSecret, $method, $url, $body, $timestamp)
 	{

@@ -5,6 +5,7 @@
          bootstrap="vendor/autoload.php"
          stopOnError="true"
          stopOnFailure="true"
+         processIsolation="true"
          colors="true"
          verbose="true">
     <testsuites>
