@@ -1,0 +1,75 @@
+<?php
+
+namespace Hitmeister\Component\Api\Tests;
+
+use GuzzleHttp\Ring\Client\CurlHandler;
+use GuzzleHttp\Ring\Client\CurlMultiHandler;
+use Hitmeister\Component\Api\ClientBuilder;
+
+class ClientBuilderTest extends \PHPUnit_Framework_TestCase
+{
+	/**
+	 * This method is called after a test is executed.
+	 */
+	public function tearDown()
+	{
+		\Mockery::close();
+	}
+
+	public function testInstance()
+	{
+		$builder = ClientBuilder::create();
+		$this->assertInstanceOf(ClientBuilder::class, $builder);
+	}
+
+	public function testDefaultHandlerCurl()
+	{
+		$builder = ClientBuilder::defaultHandler();
+		$this->assertInstanceOf(CurlHandler::class, $builder);
+	}
+
+	public function testDefaultHandlerCurlMulti()
+	{
+		if (version_compare(PHP_VERSION, '5.5.0', '>=')) {
+			$this->markTestSkipped('Could be tested only on PHP < 5.5.0');
+		}
+		$builder = ClientBuilder::defaultHandler();
+		$this->assertInstanceOf(CurlMultiHandler::class, $builder);
+	}
+
+	/**
+	 * @expectedException \Hitmeister\Component\Api\Exceptions\RuntimeException
+	 */
+	public function testValidateFailed()
+	{
+		ClientBuilder::create()->build();
+	}
+
+	public function testSetters()
+	{
+		/** @var \Psr\Log\LoggerInterface $logger */
+		$logger = \Mockery::mock('\Psr\Log\LoggerInterface');
+
+		$handler1 = function(array $request){};
+		$handler2 = function(array $request){};
+
+		/** @var \Hitmeister\Component\Api\Transport\Transport $transport */
+		$transport = \Mockery::mock('\Hitmeister\Component\Api\Transport\Transport');
+
+		/** @var \Mockery\Mock $middleware */
+		$middleware = \Mockery::mock('alias:\Hitmeister\Component\Api\Middleware');
+		$middleware->shouldReceive('signRequest')->withArgs([$handler1, 'client_key', 'client_secret'])->andReturn($handler2);
+		$middleware->shouldReceive('processResponse')->withArgs([$handler2, $logger]);
+
+		$builder = ClientBuilder::create()
+			->setLogger($logger)
+			->setHandler($handler1)
+			->setTransport($transport)
+			->setClientKey('client_key')
+			->setClientSecret('client_secret')
+			->setBaseUrl('https://www.hm.de/api/v20/');
+
+		$client = $builder->build();
+		$this->assertEquals($transport, $client->getTransport());
+	}
+}

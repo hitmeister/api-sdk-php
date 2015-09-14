@@ -3,7 +3,7 @@
 namespace Hitmeister\Component\Api;
 
 use GuzzleHttp\Ring\Client\CurlHandler;
-use GuzzleHttp\Ring\Client\StreamHandler;
+use GuzzleHttp\Ring\Client\CurlMultiHandler;
 use Hitmeister\Component\Api\Exceptions\RuntimeException;
 use Hitmeister\Component\Api\Transport\RequestBuilder;
 use Hitmeister\Component\Api\Transport\Transport;
@@ -54,14 +54,12 @@ class ClientBuilder
 	 */
 	public static function defaultHandler(array $options = [])
 	{
-		if (!extension_loaded('curl')) {
+		if (!extension_loaded('curl'))
 			throw new RuntimeException('Hitmeister SDK requires cURL, or a custom HTTP handler.');
-		}
 
 		// For some reason `CurlHandler` uses `curl_reset` function from PHP 5.5
-		if (!function_exists('curl_reset')) {
-			return new StreamHandler($options);
-		}
+		if (!function_exists('curl_reset'))
+			return new CurlMultiHandler($options);
 
 		return new CurlHandler($options);
 	}
@@ -133,20 +131,17 @@ class ClientBuilder
 	{
 		$this->validate();
 
-		if (null === $this->logger) {
+		if (null === $this->logger)
 			$this->logger = new NullLogger();
-		}
 
-		if (null === $this->handler) {
+		if (null === $this->handler)
 			$this->handler = ClientBuilder::defaultHandler();
-		}
 
 		$this->handler = Middleware::signRequest($this->handler, $this->clientKey, $this->clientSecret);
 		$this->handler = Middleware::processResponse($this->handler, $this->logger);
 
-		if (null === $this->transport) {
+		if (null === $this->transport)
 			$this->transport = new Transport($this->handler, new RequestBuilder($this->baseUrl));
-		}
 
 		return new Client($this->transport);
 	}

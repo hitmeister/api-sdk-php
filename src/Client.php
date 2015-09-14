@@ -27,4 +27,12 @@ class Client
 	{
 		$this->transport = $transport;
 	}
+
+	/**
+	 * @return Transport
+	 */
+	public function getTransport()
+	{
+		return $this->transport;
+	}
 }

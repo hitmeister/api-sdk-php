@@ -4,6 +4,15 @@ namespace Hitmeister\Component\Api\Tests\Transport;
 
 use Hitmeister\Component\Api\Transport\RequestBuilder;
 
+/**
+ * Class RequestBuilderTest
+ *
+ * @category PHP-SDK
+ * @package  Hitmeister\Component\Api\Tests\Transport
+ * @author   Maksim Naumov <maksim.naumov@hitmeister.de>
+ * @license  https://opensource.org/licenses/MIT MIT
+ * @link     https://www.hitmeister.de/api/v1/
+ */
 class RequestBuilderTest extends \PHPUnit_Framework_TestCase
 {
 	public function testRequestDefaultApiUrl()

@@ -2,6 +2,8 @@
 
 namespace Hitmeister\Component\Api\Transport;
 
+use GuzzleHttp\Ring\Future\FutureArrayInterface;
+
 /**
  * Class Transport
  *
@@ -53,6 +55,12 @@ class Transport
 		// Run
 		$handler = $this->handler;
 		$result = $handler($request);
+
+		if ($result instanceof FutureArrayInterface) {
+			do {
+				$result = $result->wait();
+			} while ($result instanceof FutureArrayInterface);
+		}
 
 		return $result;
 	}
