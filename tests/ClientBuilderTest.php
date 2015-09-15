@@ -28,13 +28,13 @@ class ClientBuilderTest extends \PHPUnit_Framework_TestCase
 	public function testInstance()
 	{
 		$builder = ClientBuilder::create();
-		$this->assertInstanceOf(ClientBuilder::class, $builder);
+		$this->assertInstanceOf('\Hitmeister\Component\Api\ClientBuilder', $builder);
 	}
 
 	public function testDefaultHandlerCurl()
 	{
 		$builder = ClientBuilder::defaultHandler();
-		$this->assertInstanceOf(CurlHandler::class, $builder);
+		$this->assertInstanceOf('\GuzzleHttp\Ring\Client\CurlHandler', $builder);
 	}
 
 	public function testDefaultHandlerCurlMulti()
@@ -43,7 +43,7 @@ class ClientBuilderTest extends \PHPUnit_Framework_TestCase
 			$this->markTestSkipped('Could be tested only on PHP < 5.5.0');
 		}
 		$builder = ClientBuilder::defaultHandler();
-		$this->assertInstanceOf(CurlMultiHandler::class, $builder);
+		$this->assertInstanceOf('\GuzzleHttp\Ring\Client\CurlMultiHandler', $builder);
 	}
 
 	/**
