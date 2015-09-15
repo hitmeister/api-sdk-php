@@ -32,7 +32,7 @@ class Logger
 
 		$message = (null === $exception ? 'Request success' : $exception->getMessage());
 		$context = [
-			'method'    => $request['request_method'],
+			'method'    => $request['http_method'],
 			'headers'   => $request['headers'],
 			'uri'       => $response['effective_url'],
 			'duration'  => $response['transfer_stats']['total_time'],

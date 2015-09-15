@@ -66,7 +66,7 @@ class ProcessResponseTest extends \PHPUnit_Framework_TestCase
 	public function testBasic()
 	{
 		$request = [
-			'request_method' => 'PUT',
+			'http_method' => 'PUT',
 			'headers' => [],
 		];
 
@@ -94,7 +94,7 @@ class ProcessResponseTest extends \PHPUnit_Framework_TestCase
 		$this->response['error'] = new \Exception('test');
 
 		$request = [
-			'request_method' => 'PUT',
+			'http_method' => 'PUT',
 			'headers' => [],
 		];
 
@@ -116,7 +116,7 @@ class ProcessResponseTest extends \PHPUnit_Framework_TestCase
 		$this->response['status'] = 403;
 
 		$request = [
-			'request_method' => 'PUT',
+			'http_method' => 'PUT',
 			'headers' => [],
 		];
 
@@ -138,7 +138,7 @@ class ProcessResponseTest extends \PHPUnit_Framework_TestCase
 		$this->response['status'] = 500;
 
 		$request = [
-			'request_method' => 'PUT',
+			'http_method' => 'PUT',
 			'headers' => [],
 		];
 
@@ -156,7 +156,7 @@ class ProcessResponseTest extends \PHPUnit_Framework_TestCase
 		$this->response['status'] = 500;
 
 		$request = [
-			'request_method' => 'PUT',
+			'http_method' => 'PUT',
 			'headers' => [],
 			'client' => [
 				'ignore' => 500,
@@ -181,7 +181,7 @@ class ProcessResponseTest extends \PHPUnit_Framework_TestCase
 		$this->response['status'] = 403;
 
 		$request = [
-			'request_method' => 'PUT',
+			'http_method' => 'PUT',
 			'headers' => [],
 			'client' => [
 				'ignore' => [500, 403],
@@ -210,7 +210,7 @@ class ProcessResponseTest extends \PHPUnit_Framework_TestCase
 		$this->response['body'] = $stream;
 
 		$request = [
-			'request_method' => 'PUT',
+			'http_method' => 'PUT',
 			'headers' => [],
 		];
 
@@ -239,7 +239,7 @@ class ProcessResponseTest extends \PHPUnit_Framework_TestCase
 		$this->response['body'] = $stream;
 
 		$request = [
-			'request_method' => 'PUT',
+			'http_method' => 'PUT',
 			'headers' => [],
 		];
 

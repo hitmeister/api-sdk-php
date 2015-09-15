@@ -34,13 +34,14 @@ class Middleware
 			$now = time();
 
 			// Client and time stamp
-			$request['headers']['HM-Client'] = $clientKey;
-			$request['headers']['HM-Timestamp'] = $now;
+			$request['headers']['HM-Client'] = [$clientKey];
+			$request['headers']['HM-Timestamp'] = [$now];
 
 			// Sign and add
+			$body = isset($request['body']) ? $request['body'] : '';
 			$signature =
-				Security::signRequest($clientSecret, $request['http_method'], Core::url($request), $request['body'], $now);
-			$request['headers']['HM-Signature'] = $signature;
+				Security::signRequest($clientSecret, $request['http_method'], Core::url($request), $body, $now);
+			$request['headers']['HM-Signature'] = [$signature];
 
 			// Send the request using the handler and return the response.
 			return $handler($request);

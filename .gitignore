@@ -8,3 +8,6 @@ build/
 composer.phar
 vendor/
 composer.lock
+
+# Local test
+local.php

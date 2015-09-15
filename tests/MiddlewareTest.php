@@ -59,7 +59,7 @@ class MiddlewareTest extends \PHPUnit_Framework_TestCase
 		$this->assertArrayHasKey('HM-Client', $result['headers']);
 		$this->assertArrayHasKey('HM-Timestamp', $result['headers']);
 		$this->assertArrayHasKey('HM-Signature', $result['headers']);
-		$this->assertEquals('the_signature', $result['headers']['HM-Signature']);
-		$this->assertEquals('client_key', $result['headers']['HM-Client']);
+		$this->assertEquals('the_signature', $result['headers']['HM-Signature'][0]);
+		$this->assertEquals('client_key', $result['headers']['HM-Client'][0]);
 	}
 }
