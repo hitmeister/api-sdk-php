@@ -2,8 +2,6 @@
 
 namespace Hitmeister\Component\Api\Tests;
 
-use GuzzleHttp\Ring\Client\CurlHandler;
-use GuzzleHttp\Ring\Client\CurlMultiHandler;
 use Hitmeister\Component\Api\ClientBuilder;
 
 /**
@@ -33,6 +31,9 @@ class ClientBuilderTest extends \PHPUnit_Framework_TestCase
 
 	public function testDefaultHandlerCurl()
 	{
+		if (version_compare(PHP_VERSION, '5.5.0', '<')) {
+			$this->markTestSkipped('Could be tested only on PHP >= 5.5.0');
+		}
 		$builder = ClientBuilder::defaultHandler();
 		$this->assertInstanceOf('\GuzzleHttp\Ring\Client\CurlHandler', $builder);
 	}
