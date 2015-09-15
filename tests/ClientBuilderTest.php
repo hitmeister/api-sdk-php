@@ -6,6 +6,15 @@ use GuzzleHttp\Ring\Client\CurlHandler;
 use GuzzleHttp\Ring\Client\CurlMultiHandler;
 use Hitmeister\Component\Api\ClientBuilder;
 
+/**
+ * Class ClientBuilderTest
+ *
+ * @category PHP-SDK
+ * @package  Hitmeister\Component\Api\Tests
+ * @author   Maksim Naumov <maksim.naumov@hitmeister.de>
+ * @license  https://opensource.org/licenses/MIT MIT
+ * @link     https://www.hitmeister.de/api/v1/
+ */
 class ClientBuilderTest extends \PHPUnit_Framework_TestCase
 {
 	/**

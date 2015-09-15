@@ -4,6 +4,15 @@ namespace Hitmeister\Component\Api\Tests;
 
 use Hitmeister\Component\Api\Client;
 
+/**
+ * Class ClientTest
+ *
+ * @category PHP-SDK
+ * @package  Hitmeister\Component\Api\Tests
+ * @author   Maksim Naumov <maksim.naumov@hitmeister.de>
+ * @license  https://opensource.org/licenses/MIT MIT
+ * @link     https://www.hitmeister.de/api/v1/
+ */
 class ClientTest extends \PHPUnit_Framework_TestCase
 {
 	/**
