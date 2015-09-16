@@ -1,0 +1,118 @@
+#!/usr/bin/env php
+<?php
+require_once __DIR__ . '/../vendor/autoload.php';
+
+if (count($argv) < 2) {
+	echo "Path to transfers.php was not set.\n";
+	exit(1);
+}
+
+if (!file_exists($argv[2]) || !is_readable($argv[2])) {
+	echo "transfers.php was not found or it is not readable.\n";
+	exit(1);
+}
+
+/** @noinspection PhpIncludeInspection */
+$transfersData = require_once $argv[2];
+if (!is_array($transfersData)) {
+	echo "transfers.php should contain an array.\n";
+	exit(1);
+}
+
+$rootDir = __DIR__ . '/..';
+
+use Memio\Memio\Config\Build;
+use Memio\Model\Object;
+use Memio\Model\File;
+use Memio\Model\Phpdoc\StructurePhpdoc;
+use Memio\Model\Phpdoc\Description;
+use Memio\Model\Method;
+use Memio\Model\Phpdoc\MethodPhpdoc;
+use Memio\Model\Phpdoc\ReturnTag;
+
+$wrongTypes = [
+	'long' => 'int',
+	'integer' => 'int',
+	'double' => 'float',
+	'date' => 'string',
+	'dateTime' => 'string',
+	'text' => 'string',
+];
+
+$baseNamespace = 'Hitmeister\\Component\\Api\\Transfers\\';
+
+foreach ($transfersData as $name => $data) {
+	$obj = Object::make($baseNamespace . $name . 'Transfer');
+	$obj->setPhpdoc(
+		StructurePhpdoc::make()
+			->setDescription(
+				Description::make('This class was auto generated. Please, do not modify it!')
+					->addEmptyLine()
+					->addLine('@codeCoverageIgnore')
+			)
+	);
+	$obj->extend(Object::make($baseNamespace . 'AbstractTransfer'));
+
+	$map = [];
+
+	if (isset($data['core']) && is_array($data['core'])) {
+		processProperties($obj, $map, $data['core']);
+	}
+
+	if (isset($data['embedded']) && is_array($data['embedded'])) {
+		processProperties($obj, $map, $data['embedded'], true);
+	}
+
+	$obj->getPhpdoc()->getDescription()->addEmptyLine();
+	$map = var_export($map, true);
+
+	$obj->addMethod(
+		Method::make('getProperties')
+			->makePublic()
+			->setPhpdoc(
+				MethodPhpdoc::make()
+					->setReturnTag(ReturnTag::make('array'))
+			)
+			->setBody(<<<BODY
+        static \$properties = $map;
+        return \$properties;
+BODY
+)
+	);
+
+	$file = File::make($rootDir . '/src/Transfers/' . $name . 'Transfer.php');
+	$file->setStructure($obj);
+
+	$prettyPrinter = Build::prettyPrinter();
+	$generatedCode = $prettyPrinter->generateCode($file);
+	file_put_contents($file->getFilename(), $generatedCode);
+}
+
+/**
+ * @param Memio\Model\Object $obj
+ * @param array              $map
+ * @param array              $data
+ * @param bool               $embedded
+ */
+function processProperties(Memio\Model\Object $obj, array &$map, array $data, $embedded = false)
+{
+	global $wrongTypes, $transfersData, $baseNamespace;
+
+	$desc = $obj->getPhpdoc()->getDescription()->addEmptyLine();
+
+	foreach ($data as $propName => $propData) {
+		if (isset($wrongTypes[$propData['type']])) {
+			$propData['type'] = $wrongTypes[$propData['type']];
+		}
+		$realType = isset($transfersData[$propData['type']]) ? $propData['type'] . 'Transfer' : $propData['type'];
+		$multi = isset($propData['is_multiple']) ? (bool)$propData['is_multiple'] : false;
+		$map[$propName] = [
+			'embedded' => $embedded,
+			'is_multiple' => $multi
+		];
+		if (isset($transfersData[$propData['type']])) {
+			$map[$propName]['type'] = $baseNamespace . $realType;
+		}
+		$desc->addLine('@property '.($multi ? 'array' : $realType) .' $'.$propName);
+	}
+}

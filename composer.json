@@ -1,48 +1,49 @@
 {
-    "name": "hitmeister/api-sdk",
-    "description": "Hitmeister API SDK for PHP",
-    "type": "library",
-    "authors": [
-        {
-            "name": "Hitmeister GmbH Developers",
-            "email": "devops@hitmeister.de"
-        }
-    ],
-    "license": "MIT",
-    "minimum-stability": "stable",
-    "keywords": [
-        "hitmeister",
-        "sdk",
-        "api"
-    ],
-    "homepage": "https://www.hitmeister.de/api/v1/",
-    "support": {
-        "email": "devops@hitmeister.de",
-        "source": "https://github.com/hitmeister/api-sdk-php",
-        "issues": "https://github.com/hitmeister/api-sdk-php/issues"
-    },
-    "require": {
-        "php": ">=5.4.0",
-        "ext-curl": "*",
-        "guzzlehttp/ringphp": "^1.1",
-        "psr/log": "^1.0"
-    },
-    "require-dev": {
-        "mockery/mockery": "^0.9.4",
-        "phpunit/phpunit": "^4.8",
-        "satooshi/php-coveralls": "^0.6.1"
-    },
-    "suggest": {
-        "monolog/monolog": "Allows more advanced logging of the application flow"
-    },
-    "autoload": {
-        "psr-4": {
-            "Hitmeister\\Component\\Api\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Hitmeister\\Component\\Api\\Tests\\": "tests/"
-        }
-    }
+	"name": "hitmeister/api-sdk",
+	"description": "Hitmeister API SDK for PHP",
+	"type": "library",
+	"authors": [
+		{
+			"name": "Hitmeister GmbH Developers",
+			"email": "devops@hitmeister.de"
+		}
+	],
+	"license": "MIT",
+	"minimum-stability": "stable",
+	"keywords": [
+		"hitmeister",
+		"sdk",
+		"api"
+	],
+	"homepage": "https://www.hitmeister.de/api/v1/",
+	"support": {
+		"email": "devops@hitmeister.de",
+		"source": "https://github.com/hitmeister/api-sdk-php",
+		"issues": "https://github.com/hitmeister/api-sdk-php/issues"
+	},
+	"require": {
+		"php": ">=5.4.0",
+		"ext-curl": "*",
+		"guzzlehttp/ringphp": "^1.1",
+		"psr/log": "^1.0"
+	},
+	"require-dev": {
+		"mockery/mockery": "^0.9.4",
+		"phpunit/phpunit": "^4.8",
+		"satooshi/php-coveralls": "^0.6.1",
+		"memio/memio": "^1.1"
+	},
+	"suggest": {
+		"monolog/monolog": "Allows more advanced logging of the application flow"
+	},
+	"autoload": {
+		"psr-4": {
+			"Hitmeister\\Component\\Api\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Hitmeister\\Component\\Api\\Tests\\": "tests/"
+		}
+	}
 }
