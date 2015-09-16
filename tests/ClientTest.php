@@ -13,21 +13,17 @@ use Hitmeister\Component\Api\Client;
  * @license  https://opensource.org/licenses/MIT MIT
  * @link     https://www.hitmeister.de/api/v1/
  */
-class ClientTest extends \PHPUnit_Framework_TestCase
+class ClientTest extends TransportAwareTestCase
 {
-	/**
-	 * This method is called after a test is executed.
-	 */
-	public function tearDown()
-	{
-		\Mockery::close();
-	}
-
 	public function testTransportInstance()
 	{
-		/** @var \Hitmeister\Component\Api\Transport\Transport $mock */
-		$mock = \Mockery::mock('\Hitmeister\Component\Api\Transport\Transport');
-		$client = new Client($mock);
+		$client = new Client($this->transport);
 		$this->assertInstanceOf('\Hitmeister\Component\Api\Transport\Transport', $client->getTransport());
+	}
+
+	public function testStatusNamespace()
+	{
+		$client = new Client($this->transport);
+		$this->assertInstanceOf('\Hitmeister\Component\Api\Namespaces\StatusNamespace', $client->status());
 	}
 }

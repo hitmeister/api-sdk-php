@@ -1,28 +1,22 @@
 <?php
 
-namespace Hitmeister\Component\Api;
+namespace Hitmeister\Component\Api\Namespaces;
 
-use Hitmeister\Component\Api\Namespaces\StatusNamespace;
 use Hitmeister\Component\Api\Transport\Transport;
 
 /**
- * Class Client
+ * Class AbstractNamespace
  *
  * @category PHP-SDK
- * @package  Hitmeister\Component\Api
+ * @package  Hitmeister\Component\Api\Namespaces
  * @author   Maksim Naumov <maksim.naumov@hitmeister.de>
  * @license  https://opensource.org/licenses/MIT MIT
  * @link     https://www.hitmeister.de/api/v1/
  */
-class Client
+abstract class AbstractNamespace
 {
-	const VERSION = 'development';
-
 	/** @var Transport */
 	private $transport;
-
-	/** @var StatusNamespace */
-	private $statusNs;
 
 	/**
 	 * @param Transport $transport
@@ -30,9 +24,6 @@ class Client
 	public function __construct(Transport $transport)
 	{
 		$this->transport = $transport;
-
-		// Namespaces
-		$this->statusNs = new StatusNamespace($this->transport);
 	}
 
 	/**
@@ -41,13 +32,5 @@ class Client
 	public function getTransport()
 	{
 		return $this->transport;
-	}
-
-	/**
-	 * @return StatusNamespace
-	 */
-	public function status()
-	{
-		return $this->statusNs;
 	}
 }

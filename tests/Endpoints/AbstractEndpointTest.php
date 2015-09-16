@@ -2,6 +2,8 @@
 
 namespace Hitmeister\Component\Api\Tests\Endpoints;
 
+use Hitmeister\Component\Api\Tests\TransportAwareTestCase;
+
 /**
  * Class AbstractEndpointTest
  *
@@ -11,11 +13,8 @@ namespace Hitmeister\Component\Api\Tests\Endpoints;
  * @license  https://opensource.org/licenses/MIT MIT
  * @link     https://www.hitmeister.de/api/v1/
  */
-class AbstractEndpointTest extends \PHPUnit_Framework_TestCase
+class AbstractEndpointTest extends TransportAwareTestCase
 {
-	/** @var \Mockery\Mock|\Hitmeister\Component\Api\Transport\Transport */
-	private $transport;
-
 	/** @var \Mockery\Mock|\Hitmeister\Component\Api\Endpoints\AbstractEndpoint */
 	private $endpoint;
 
@@ -24,8 +23,7 @@ class AbstractEndpointTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function setUp()
 	{
-		// Transport
-		$this->transport = \Mockery::mock('\Hitmeister\Component\Api\Transport\Transport');
+		parent::setUp();
 
 		// Partial mock of abstract class
 		$this->endpoint =
@@ -40,9 +38,8 @@ class AbstractEndpointTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function tearDown()
 	{
-		\Mockery::close();
-		$this->transport = null;
 		$this->endpoint = null;
+		parent::tearDown();
 	}
 
 	public function testGetTransport()
