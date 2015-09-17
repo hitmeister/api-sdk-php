@@ -2,9 +2,13 @@
 
 namespace Hitmeister\Component\Api\Namespaces;
 
+use Hitmeister\Component\Api\Endpoints\Categories\Decide;
 use Hitmeister\Component\Api\Endpoints\Categories\Get;
+use Hitmeister\Component\Api\Exceptions\InvalidArgumentException;
 use Hitmeister\Component\Api\Exceptions\ResourceNotFoundException;
 use Hitmeister\Component\Api\Helper\Response;
+use Hitmeister\Component\Api\Transfers\CategoryDecideTransfer;
+use Hitmeister\Component\Api\Transfers\CategoryTransfer;
 use Hitmeister\Component\Api\Transfers\CategoryWithEmbeddedTransfer;
 
 /**
@@ -19,6 +23,33 @@ use Hitmeister\Component\Api\Transfers\CategoryWithEmbeddedTransfer;
  */
 class CategoriesNamespace extends AbstractNamespace
 {
+	/**
+	 * @param array|CategoryDecideTransfer $data
+	 * @return array|CategoryTransfer[]
+	 */
+	public function decide($data)
+	{
+		if (!$data instanceof CategoryDecideTransfer) {
+			if (!is_array($data)) {
+				throw new InvalidArgumentException('Data argument should be an array of instance of CategoryDecideTransfer');
+			}
+			$data = CategoryDecideTransfer::make($data);
+		}
+
+		$endpoint = new Decide($this->getTransport());
+		$endpoint->setTransfer($data);
+
+		$resultRequest = $endpoint->performRequest();
+		Response::checkBody($resultRequest, $endpoint);
+
+		$result = [];
+		foreach($resultRequest['json'] as $item) {
+			$result[] = CategoryTransfer::make($item);
+		}
+
+		return $result;
+	}
+
 	/**
 	 * @param int   $id
 	 * @param array $embedded
@@ -43,10 +74,6 @@ class CategoriesNamespace extends AbstractNamespace
 		}
 
 		Response::checkBody($result, $endpoint);
-
-		$transfer = new CategoryWithEmbeddedTransfer();
-		$transfer->fromArray($result['json']);
-
-		return $transfer;
+		return CategoryWithEmbeddedTransfer::make($result['json']);
 	}
 }

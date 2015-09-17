@@ -26,10 +26,6 @@ class StatusNamespace extends AbstractNamespace
 		$result = $endpoint->performRequest();
 
 		Response::checkBody($result, $endpoint);
-
-		$transfer = new StatusPingTransfer();
-		$transfer->fromArray($result['json']);
-
-		return $transfer;
+		return StatusPingTransfer::make($result['json']);
 	}
 }

@@ -34,10 +34,6 @@ class AttributesNamespace extends AbstractNamespace
 		}
 
 		Response::checkBody($result, $endpoint);
-
-		$transfer = new AttributeTransfer();
-		$transfer->fromArray($result['json']);
-
-		return $transfer;
+		return AttributeTransfer::make($result['json']);
 	}
 }

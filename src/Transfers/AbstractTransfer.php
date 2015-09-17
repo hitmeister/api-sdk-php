@@ -119,15 +119,8 @@ abstract class AbstractTransfer implements \JsonSerializable
 	public function toArray()
 	{
 		$result = [];
-		$properties = array_keys($this->getProperties());
 
-		foreach ($properties as $name) {
-			if (!isset($this->data[$name])) {
-				$result[$name] = null;
-				continue;
-			}
-
-			$data = $this->data[$name];
+		foreach ($this->data as $name => $data) {
 			if (is_array($data)) {
 				foreach ($data as &$v) {
 					if ($v instanceof AbstractTransfer) {

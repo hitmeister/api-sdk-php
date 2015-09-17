@@ -303,13 +303,12 @@ class AbstractTransferTest extends \PHPUnit_Framework_TestCase
 		$this->transfer->fromArray($data);
 		$result = $this->transfer->toArray();
 
-		$this->assertArrayHasKey('not_in_data', $result);
+		$this->assertArrayNotHasKey('not_in_data', $result);
 		$this->assertArrayHasKey('prop_normal', $result);
 		$this->assertArrayHasKey('prop_multi', $result);
 		$this->assertArrayHasKey('prop_normal_type', $result);
 		$this->assertArrayHasKey('prop_multi_type', $result);
 
-		$this->assertNull($result['not_in_data']);
 		$this->assertTrue(is_array($result['prop_multi']));
 		$this->assertTrue(is_array($result['prop_normal_type']));
 		$this->assertTrue(is_array($result['prop_multi_type']));
