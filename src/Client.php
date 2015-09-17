@@ -3,6 +3,7 @@
 namespace Hitmeister\Component\Api;
 
 use Hitmeister\Component\Api\Namespaces\AttributesNamespace;
+use Hitmeister\Component\Api\Namespaces\CategoriesNamespace;
 use Hitmeister\Component\Api\Namespaces\StatusNamespace;
 use Hitmeister\Component\Api\Transport\Transport;
 
@@ -25,6 +26,9 @@ class Client
 	/** @var AttributesNamespace */
 	private $attributesNs;
 
+	/** @var CategoriesNamespace  */
+	private $categoriesNs;
+
 	/** @var StatusNamespace */
 	private $statusNs;
 
@@ -37,6 +41,7 @@ class Client
 
 		// Namespaces
 		$this->attributesNs = new AttributesNamespace($this->transport);
+		$this->categoriesNs = new CategoriesNamespace($this->transport);
 		$this->statusNs = new StatusNamespace($this->transport);
 	}
 
@@ -54,6 +59,14 @@ class Client
 	public function attributes()
 	{
 		return $this->attributesNs;
+	}
+
+	/**
+	 * @return CategoriesNamespace
+	 */
+	public function categories()
+	{
+		return $this->categoriesNs;
 	}
 
 	/**

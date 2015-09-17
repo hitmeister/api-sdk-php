@@ -2,30 +2,39 @@
 
 namespace Hitmeister\Component\Api\Namespaces;
 
-use Hitmeister\Component\Api\Endpoints\Attributes\Get;
+use Hitmeister\Component\Api\Endpoints\Categories\Get;
 use Hitmeister\Component\Api\Exceptions\ResourceNotFoundException;
 use Hitmeister\Component\Api\Helper\Response;
-use Hitmeister\Component\Api\Transfers\AttributeTransfer;
+use Hitmeister\Component\Api\Transfers\CategoryWithEmbeddedTransfer;
 
 /**
- * Class AttributesNamespace
+ * Class CategoriesNamespace
+
  *
- * @category PHP-SDK
+*@category PHP-SDK
  * @package  Hitmeister\Component\Api\Namespaces
  * @author   Maksim Naumov <maksim.naumov@hitmeister.de>
  * @license  https://opensource.org/licenses/MIT MIT
  * @link     https://www.hitmeister.de/api/v1/
  */
-class AttributesNamespace extends AbstractNamespace
+class CategoriesNamespace extends AbstractNamespace
 {
 	/**
-	 * @param int $id
-	 * @return AttributeTransfer|null
+	 * @param int   $id
+	 * @param array $embedded
+	 * @return CategoryWithEmbeddedTransfer|null
 	 */
-	public function get($id)
+	public function get($id, array $embedded = [])
 	{
 		$endpoint = new Get($this->getTransport());
 		$endpoint->setId($id);
+
+		// Ask for embedded fields
+		if (!empty($embedded)) {
+			$endpoint->setParams([
+				'embedded' => $embedded,
+			]);
+		}
 
 		try {
 			$result = $endpoint->performRequest();
@@ -35,7 +44,7 @@ class AttributesNamespace extends AbstractNamespace
 
 		Response::checkBody($result, $endpoint);
 
-		$transfer = new AttributeTransfer();
+		$transfer = new CategoryWithEmbeddedTransfer();
 		$transfer->fromArray($result['json']);
 
 		return $transfer;

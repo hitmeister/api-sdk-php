@@ -27,6 +27,12 @@ class ClientTest extends TransportAwareTestCase
 		$this->assertInstanceOf('\Hitmeister\Component\Api\Namespaces\AttributesNamespace', $client->attributes());
 	}
 
+	public function testCategoriesNamespace()
+	{
+		$client = new Client($this->transport);
+		$this->assertInstanceOf('\Hitmeister\Component\Api\Namespaces\CategoriesNamespace', $client->categories());
+	}
+
 	public function testStatusNamespace()
 	{
 		$client = new Client($this->transport);
