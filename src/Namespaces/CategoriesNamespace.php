@@ -39,7 +39,7 @@ class CategoriesNamespace extends AbstractNamespace
 		$endpoint->setTransfer($data);
 
 		$resultRequest = $endpoint->performRequest();
-		Response::checkBody($resultRequest, $endpoint);
+		Response::checkBody($resultRequest);
 
 		$result = [];
 		foreach($resultRequest['json'] as $item) {
@@ -72,7 +72,7 @@ class CategoriesNamespace extends AbstractNamespace
 			return null;
 		}
 
-		Response::checkBody($result, $endpoint);
+		Response::checkBody($result);
 		return CategoryWithEmbeddedTransfer::make($result['json']);
 	}
 }

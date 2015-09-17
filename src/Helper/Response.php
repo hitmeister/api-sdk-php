@@ -17,15 +17,35 @@ use Hitmeister\Component\Api\Exceptions\ServerException;
 class Response
 {
 	/**
-	 * @param array            $data
-	 * @param AbstractEndpoint $endpoint
+	 * @param array $data
 	 * @throws ServerException
 	 */
-	public static function checkBody(array &$data, AbstractEndpoint $endpoint)
+	public static function checkBody(array &$data)
 	{
 		if (!isset($data['json'])) {
-			throw new ServerException(sprintf('Unexpected server response on %s %s, body is empty.',
-				$endpoint->getMethod(), $endpoint->getURI()));
+			throw new ServerException('Unexpected server response, body is empty.');
 		}
+	}
+
+	/**
+	 * @param array $data
+	 * @return array
+	 * @throws ServerException
+	 */
+	public static function extractCursorPosition(array &$data)
+	{
+		if (!isset($data['headers']['Hm-Collection-Range'][0])) {
+			throw new ServerException('Response header "Hm-Collection-Range" is missing.');
+		}
+		$matches = [];
+		if (!preg_match('/(\d+)-(\d+)\/(\d+)/', $data['headers']['Hm-Collection-Range'][0], $matches)) {
+			throw new ServerException('Response header "Hm-Collection-Range" has wrong format.');
+		}
+
+		return [
+			'start' => (int)$matches[1],
+			'end' => (int)$matches[2],
+			'total' => (int)$matches[3],
+		];
 	}
 }

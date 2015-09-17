@@ -25,7 +25,7 @@ class StatusNamespace extends AbstractNamespace
 		$endpoint = new Ping($this->getTransport());
 		$result = $endpoint->performRequest();
 
-		Response::checkBody($result, $endpoint);
+		Response::checkBody($result);
 		return StatusPingTransfer::make($result['json']);
 	}
 }

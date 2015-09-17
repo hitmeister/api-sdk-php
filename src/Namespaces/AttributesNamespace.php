@@ -33,7 +33,7 @@ class AttributesNamespace extends AbstractNamespace
 			return null;
 		}
 
-		Response::checkBody($result, $endpoint);
+		Response::checkBody($result);
 		return AttributeTransfer::make($result['json']);
 	}
 }
