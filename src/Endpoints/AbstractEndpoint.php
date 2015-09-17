@@ -91,6 +91,18 @@ abstract class AbstractEndpoint
 	}
 
 	/**
+	 * @return array
+	 */
+	public function getParams()
+	{
+		$result = $this->params;
+		if (isset($this->options['client'])) {
+			$result['client'] = $this->options['client'];
+		}
+		return $result;
+	}
+
+	/**
 	 * @return mixed
 	 */
 	public function getBody()
@@ -143,7 +155,7 @@ abstract class AbstractEndpoint
 	private function convertArraysToStrings(array $params)
 	{
 		foreach ($params as $key => &$value) {
-			if (!$this->isNestedArray($value)) {
+			if (is_array($value) && !$this->isNestedArray($value)) {
 				$value = implode(',', $value);
 			}
 		}

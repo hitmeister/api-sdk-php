@@ -13,9 +13,8 @@ use Hitmeister\Component\Api\Transfers\CategoryWithEmbeddedTransfer;
 
 /**
  * Class CategoriesNamespace
-
  *
-*@category PHP-SDK
+ * @category PHP-SDK
  * @package  Hitmeister\Component\Api\Namespaces
  * @author   Maksim Naumov <maksim.naumov@hitmeister.de>
  * @license  https://opensource.org/licenses/MIT MIT

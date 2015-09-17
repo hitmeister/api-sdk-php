@@ -129,4 +129,27 @@ class AbstractEndpointTest extends TransportAwareTestCase
 		]);
 		$this->endpoint->performRequest();
 	}
+
+	public function testGetParams()
+	{
+		$params = [
+			'status' => 'new',
+		];
+		$this->endpoint->shouldReceive('getParamWhiteList')->andReturn(['status']);
+		$this->endpoint->setParams($params);
+		$this->assertEquals($params, $this->endpoint->getParams());
+	}
+
+	public function testGetParamsWithOptions()
+	{
+		$params = [
+			'status' => 'new',
+			'client' => [
+				'test_me' => 'hard',
+			]
+		];
+		$this->endpoint->shouldReceive('getParamWhiteList')->andReturn(['status']);
+		$this->endpoint->setParams($params);
+		$this->assertEquals($params, $this->endpoint->getParams());
+	}
 }
