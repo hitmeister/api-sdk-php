@@ -38,4 +38,14 @@ class ClaimFileTransfer extends AbstractTransfer
 );
         return $properties;
     }
+
+    /**
+     * @param array $data
+     *
+     * @return ClaimFileTransfer
+     */
+    public static function make(array $data)
+    {
+        return AbstractTransfer::makeTransfer('Hitmeister\Component\Api\Transfers\ClaimFileTransfer', $data);
+    }
 }

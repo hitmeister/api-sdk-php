@@ -62,4 +62,14 @@ class ItemTransfer extends AbstractTransfer
 );
         return $properties;
     }
+
+    /**
+     * @param array $data
+     *
+     * @return ItemTransfer
+     */
+    public static function make(array $data)
+    {
+        return AbstractTransfer::makeTransfer('Hitmeister\Component\Api\Transfers\ItemTransfer', $data);
+    }
 }

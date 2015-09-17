@@ -38,4 +38,14 @@ class OrderSellerTransfer extends AbstractTransfer
 );
         return $properties;
     }
+
+    /**
+     * @param array $data
+     *
+     * @return OrderSellerTransfer
+     */
+    public static function make(array $data)
+    {
+        return AbstractTransfer::makeTransfer('Hitmeister\Component\Api\Transfers\OrderSellerTransfer', $data);
+    }
 }

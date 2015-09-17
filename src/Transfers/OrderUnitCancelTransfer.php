@@ -26,4 +26,14 @@ class OrderUnitCancelTransfer extends AbstractTransfer
 );
         return $properties;
     }
+
+    /**
+     * @param array $data
+     *
+     * @return OrderUnitCancelTransfer
+     */
+    public static function make(array $data)
+    {
+        return AbstractTransfer::makeTransfer('Hitmeister\Component\Api\Transfers\OrderUnitCancelTransfer', $data);
+    }
 }

@@ -146,4 +146,14 @@ class OrderUnitTransfer extends AbstractTransfer
 );
         return $properties;
     }
+
+    /**
+     * @param array $data
+     *
+     * @return OrderUnitTransfer
+     */
+    public static function make(array $data)
+    {
+        return AbstractTransfer::makeTransfer('Hitmeister\Component\Api\Transfers\OrderUnitTransfer', $data);
+    }
 }

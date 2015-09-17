@@ -90,4 +90,14 @@ class ReturnUnitWithEmbeddedTransfer extends AbstractTransfer
 );
         return $properties;
     }
+
+    /**
+     * @param array $data
+     *
+     * @return ReturnUnitWithEmbeddedTransfer
+     */
+    public static function make(array $data)
+    {
+        return AbstractTransfer::makeTransfer('Hitmeister\Component\Api\Transfers\ReturnUnitWithEmbeddedTransfer', $data);
+    }
 }

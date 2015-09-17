@@ -103,4 +103,14 @@ class ClaimWithEmbeddedTransfer extends AbstractTransfer
 );
         return $properties;
     }
+
+    /**
+     * @param array $data
+     *
+     * @return ClaimWithEmbeddedTransfer
+     */
+    public static function make(array $data)
+    {
+        return AbstractTransfer::makeTransfer('Hitmeister\Component\Api\Transfers\ClaimWithEmbeddedTransfer', $data);
+    }
 }

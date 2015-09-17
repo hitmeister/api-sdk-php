@@ -26,4 +26,14 @@ class ClaimRefundTransfer extends AbstractTransfer
 );
         return $properties;
     }
+
+    /**
+     * @param array $data
+     *
+     * @return ClaimRefundTransfer
+     */
+    public static function make(array $data)
+    {
+        return AbstractTransfer::makeTransfer('Hitmeister\Component\Api\Transfers\ClaimRefundTransfer', $data);
+    }
 }

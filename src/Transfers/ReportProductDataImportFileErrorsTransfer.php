@@ -26,4 +26,14 @@ class ReportProductDataImportFileErrorsTransfer extends AbstractTransfer
 );
         return $properties;
     }
+
+    /**
+     * @param array $data
+     *
+     * @return ReportProductDataImportFileErrorsTransfer
+     */
+    public static function make(array $data)
+    {
+        return AbstractTransfer::makeTransfer('Hitmeister\Component\Api\Transfers\ReportProductDataImportFileErrorsTransfer', $data);
+    }
 }

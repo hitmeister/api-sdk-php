@@ -38,4 +38,14 @@ class SubscriptionAddTransfer extends AbstractTransfer
 );
         return $properties;
     }
+
+    /**
+     * @param array $data
+     *
+     * @return SubscriptionAddTransfer
+     */
+    public static function make(array $data)
+    {
+        return AbstractTransfer::makeTransfer('Hitmeister\Component\Api\Transfers\SubscriptionAddTransfer', $data);
+    }
 }

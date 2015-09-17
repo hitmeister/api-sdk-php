@@ -62,4 +62,14 @@ class ReturnUnitTransfer extends AbstractTransfer
 );
         return $properties;
     }
+
+    /**
+     * @param array $data
+     *
+     * @return ReturnUnitTransfer
+     */
+    public static function make(array $data)
+    {
+        return AbstractTransfer::makeTransfer('Hitmeister\Component\Api\Transfers\ReturnUnitTransfer', $data);
+    }
 }

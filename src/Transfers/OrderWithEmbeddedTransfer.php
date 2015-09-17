@@ -60,4 +60,14 @@ class OrderWithEmbeddedTransfer extends AbstractTransfer
 );
         return $properties;
     }
+
+    /**
+     * @param array $data
+     *
+     * @return OrderWithEmbeddedTransfer
+     */
+    public static function make(array $data)
+    {
+        return AbstractTransfer::makeTransfer('Hitmeister\Component\Api\Transfers\OrderWithEmbeddedTransfer', $data);
+    }
 }

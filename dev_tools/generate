@@ -7,13 +7,13 @@ if (count($argv) < 2) {
 	exit(1);
 }
 
-if (!file_exists($argv[2]) || !is_readable($argv[2])) {
+if (!file_exists($argv[1]) || !is_readable($argv[1])) {
 	echo "transfers.php was not found or it is not readable.\n";
 	exit(1);
 }
 
 /** @noinspection PhpIncludeInspection */
-$transfersData = require_once $argv[2];
+$transfersData = require_once $argv[1];
 if (!is_array($transfersData)) {
 	echo "transfers.php should contain an array.\n";
 	exit(1);
@@ -29,6 +29,8 @@ use Memio\Model\Phpdoc\Description;
 use Memio\Model\Method;
 use Memio\Model\Phpdoc\MethodPhpdoc;
 use Memio\Model\Phpdoc\ReturnTag;
+use Memio\Model\Phpdoc\ParameterTag;
+use Memio\Model\Argument;
 
 $wrongTypes = [
 	'long' => 'int',
@@ -78,6 +80,22 @@ foreach ($transfersData as $name => $data) {
         return \$properties;
 BODY
 )
+	);
+
+	$obj->addMethod(
+		Method::make('make')
+			->makePublic()
+			->makeStatic()
+			->setPhpdoc(
+				MethodPhpdoc::make()
+					->setReturnTag(ReturnTag::make($name . 'Transfer'))
+					->addParameterTag(ParameterTag::make('array', 'data'))
+			)
+			->addArgument(Argument::make('array', 'data'))
+			->setBody(<<<BODY
+        return AbstractTransfer::makeTransfer('{$obj->getFullyQualifiedName()}', \$data);
+BODY
+			)
 	);
 
 	$file = File::make($rootDir . '/src/Transfers/' . $name . 'Transfer.php');

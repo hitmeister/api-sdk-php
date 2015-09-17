@@ -32,4 +32,14 @@ class ImportFileAddTransfer extends AbstractTransfer
 );
         return $properties;
     }
+
+    /**
+     * @param array $data
+     *
+     * @return ImportFileAddTransfer
+     */
+    public static function make(array $data)
+    {
+        return AbstractTransfer::makeTransfer('Hitmeister\Component\Api\Transfers\ImportFileAddTransfer', $data);
+    }
 }

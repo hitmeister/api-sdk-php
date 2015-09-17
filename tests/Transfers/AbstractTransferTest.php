@@ -207,12 +207,12 @@ class AbstractTransferTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testMakeTransferWrongType()
 	{
-		AbstractTransfer::make('\stdClass', []);
+		AbstractTransfer::makeTransfer('\stdClass', []);
 	}
 
 	public function testMakeTransferType()
 	{
-		$a = AbstractTransfer::make('\Hitmeister\Component\Api\Transfers\StatusPingTransfer', []);
+		$a = AbstractTransfer::makeTransfer('\Hitmeister\Component\Api\Transfers\StatusPingTransfer', []);
 		$this->assertInstanceOf('\Hitmeister\Component\Api\Transfers\StatusPingTransfer', $a);
 	}
 
