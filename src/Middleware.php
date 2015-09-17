@@ -4,6 +4,7 @@ namespace Hitmeister\Component\Api;
 
 use GuzzleHttp\Ring\Core;
 use Hitmeister\Component\Api\Exceptions\BadRequestException;
+use Hitmeister\Component\Api\Exceptions\ResourceNotFoundException;
 use Hitmeister\Component\Api\Exceptions\ServerException;
 use Hitmeister\Component\Api\Exceptions\TransportException;
 use Hitmeister\Component\Api\Helper\Logger;
@@ -87,7 +88,11 @@ class Middleware
 						$message = isset($response['json']['message']) ? $response['json']['message'] : 'Unknown error';
 
 						if ($response['status'] >= 400 && $response['status'] < 500) {
-							$exception = new BadRequestException($message, $response['status']);
+							if (404 == $response['status']) {
+								$exception = new ResourceNotFoundException();
+							} else {
+								$exception = new BadRequestException($message, $response['status']);
+							}
 						} else {
 							$exception = new ServerException($message, $response['status']);
 						}

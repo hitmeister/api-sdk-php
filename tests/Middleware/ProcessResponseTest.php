@@ -130,6 +130,27 @@ class ProcessResponseTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
+	 * @expectedException \Hitmeister\Component\Api\Exceptions\ResourceNotFoundException
+	 */
+	public function testResourceNotFound()
+	{
+		$this->response['status'] = 404;
+
+		$request = [
+			'http_method' => 'PUT',
+			'headers' => [],
+		];
+
+		$ff = $this->futureFunc;
+		$handler = $ff($this->response);
+
+		$middleware = Middleware::processResponse($handler, $this->logger);
+		/** @var FutureArray $future */
+		$future = $middleware($request);
+		$future->wait();
+	}
+
+	/**
 	 * @expectedException \Hitmeister\Component\Api\Exceptions\ServerException
 	 * @expectedExceptionCode 500
 	 */

@@ -3,7 +3,7 @@
 namespace Hitmeister\Component\Api\Exceptions;
 
 /**
- * Class UnexpectedPropertyException
+ * Class ResourceNotFoundException
  *
  * @category PHP-SDK
  * @package  Hitmeister\Component\Api\Exceptions
@@ -11,7 +11,10 @@ namespace Hitmeister\Component\Api\Exceptions;
  * @license  https://opensource.org/licenses/MIT MIT
  * @link     https://www.hitmeister.de/api/v1/
  */
-class UnexpectedPropertyException extends \RuntimeException implements ApiException
+class ResourceNotFoundException extends BadRequestException
 {
-
+	public function __construct($message = 'Resource not found', \Exception $previous = null)
+	{
+		parent::__construct($message, 404, $previous);
+	}
 }

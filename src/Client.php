@@ -2,6 +2,7 @@
 
 namespace Hitmeister\Component\Api;
 
+use Hitmeister\Component\Api\Namespaces\AttributesNamespace;
 use Hitmeister\Component\Api\Namespaces\StatusNamespace;
 use Hitmeister\Component\Api\Transport\Transport;
 
@@ -21,6 +22,9 @@ class Client
 	/** @var Transport */
 	private $transport;
 
+	/** @var AttributesNamespace */
+	private $attributesNs;
+
 	/** @var StatusNamespace */
 	private $statusNs;
 
@@ -32,6 +36,7 @@ class Client
 		$this->transport = $transport;
 
 		// Namespaces
+		$this->attributesNs = new AttributesNamespace($this->transport);
 		$this->statusNs = new StatusNamespace($this->transport);
 	}
 
@@ -41,6 +46,14 @@ class Client
 	public function getTransport()
 	{
 		return $this->transport;
+	}
+
+	/**
+	 * @return AttributesNamespace
+	 */
+	public function attributes()
+	{
+		return $this->attributesNs;
 	}
 
 	/**
