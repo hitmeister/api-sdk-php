@@ -2,7 +2,9 @@
 
 namespace Hitmeister\Component\Api\Namespaces;
 
+use Hitmeister\Component\Api\Cursor;
 use Hitmeister\Component\Api\Endpoints\Categories\Decide;
+use Hitmeister\Component\Api\Endpoints\Categories\Find;
 use Hitmeister\Component\Api\Endpoints\Categories\Get;
 use Hitmeister\Component\Api\Exceptions\InvalidArgumentException;
 use Hitmeister\Component\Api\Exceptions\ResourceNotFoundException;
@@ -23,6 +25,36 @@ use Hitmeister\Component\Api\Transfers\CategoryWithEmbeddedTransfer;
 class CategoriesNamespace extends AbstractNamespace
 {
 	/**
+	 * @param string $q
+	 * @param int    $idParent
+	 * @param int    $limit
+	 * @param int    $offset
+	 * @return Cursor|CategoryTransfer[]
+	 */
+	public function find($q = null, $idParent = null, $limit = null, $offset = 0)
+	{
+		$params = [];
+
+		if (null !== $q) {
+			$params['q'] = $q;
+		}
+		if (null !== $idParent) {
+			$params['id_parent'] = $idParent;
+		}
+		if (null !== $limit) {
+			$params['limit'] = $limit;
+		}
+		if (null !== $offset) {
+			$params['offset'] = $offset;
+		}
+
+		$endpoint = new Find($this->getTransport());
+		$endpoint->setParams($params);
+
+		return new Cursor($endpoint, '\Hitmeister\Component\Api\Transfers\CategoryTransfer');
+	}
+
+	/**
 	 * @param array|CategoryDecideTransfer $data
 	 * @return array|CategoryTransfer[]
 	 */
@@ -42,7 +74,7 @@ class CategoriesNamespace extends AbstractNamespace
 		Response::checkBody($resultRequest);
 
 		$result = [];
-		foreach($resultRequest['json'] as $item) {
+		foreach ($resultRequest['json'] as $item) {
 			$result[] = CategoryTransfer::make($item);
 		}
 
@@ -68,7 +100,7 @@ class CategoriesNamespace extends AbstractNamespace
 
 		try {
 			$result = $endpoint->performRequest();
-		} catch(ResourceNotFoundException $e) {
+		} catch (ResourceNotFoundException $e) {
 			return null;
 		}
 
