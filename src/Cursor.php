@@ -82,12 +82,7 @@ class Cursor implements \Iterator
 	 */
 	public function current()
 	{
-		$current = $this->getCurrent();
-		if (null === $current) {
-			$this->fetchData();
-			$current = $this->getCurrent();
-		}
-		return $current;
+		return $this->getCurrent();
 	}
 
 	/**
@@ -111,7 +106,10 @@ class Cursor implements \Iterator
 	 */
 	public function valid()
 	{
-		return isset($this->rawData[$this->position]) || $this->apiHasNext;
+		if (!isset($this->rawData[$this->position])) {
+			$this->fetchData();
+		}
+		return isset($this->rawData[$this->position]);
 	}
 
 	/**
@@ -160,7 +158,8 @@ class Cursor implements \Iterator
 				null !== $this->userOffset &&
 				null !== $this->userLimit &&
 				$cursorData['end'] >= ($this->userOffset + $this->userLimit)
-			)
+			) ||
+			0 === count($resultRequest['json'])
 		) {
 			$this->apiHasNext = false;
 		} else {

@@ -100,4 +100,33 @@ class CursorTest extends TransportAwareTestCase
 		$cursor->next();
 		$this->assertNull($cursor->current());
 	}
+
+	public function testIterateEmptyResult()
+	{
+		$this->transport
+			->shouldReceive('performRequest')
+			->once()
+			->withArgs([
+				'GET',
+				'categories/',
+				['limit' => 10, 'offset' => 100],
+				\Mockery::any(),
+				\Mockery::any()
+			])->andReturn([
+				'headers' => [
+					'Hm-Collection-Range' => ['0-0/100'],
+				],
+				'json' => []
+			]);
+
+		$this->endpoint->setParams(['offset' => 100, 'limit' => 10]);
+		$cursor = new Cursor($this->endpoint, '\Hitmeister\Component\Api\Transfers\CategoryTransfer');
+
+		// Iterate again (should not call performRequest)
+		$count = 0;
+		foreach ($cursor as $i => $item) {
+			$count++;
+		}
+		$this->assertEquals(0, $count);
+	}
 }
