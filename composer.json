@@ -31,7 +31,8 @@
 		"mockery/mockery": "^0.9.4",
 		"phpunit/phpunit": "^4.8",
 		"satooshi/php-coveralls": "^0.6.1",
-		"memio/memio": "^1.1"
+		"memio/memio": "^1.1",
+		"monolog/monolog": "^1.17"
 	},
 	"suggest": {
 		"monolog/monolog": "Allows more advanced logging of the application flow"
