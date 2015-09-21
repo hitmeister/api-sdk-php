@@ -4,9 +4,17 @@ namespace Hitmeister\Component\Api\Tests\Helper;
 
 use Hitmeister\Component\Api\Exceptions\ServerException;
 use Hitmeister\Component\Api\Helper\Response;
-use Hitmeister\Component\Api\Tests\TransportAwareTestCase;
 
-class ResponseTest extends TransportAwareTestCase
+/**
+ * Class ResponseTest
+ *
+ * @category PHP-SDK
+ * @package  Hitmeister\Component\Api\Tests\Helper
+ * @author   Maksim Naumov <maksim.naumov@hitmeister.de>
+ * @license  https://opensource.org/licenses/MIT MIT
+ * @link     https://www.hitmeister.de/api/v1/
+ */
+class ResponseTest extends \PHPUnit_Framework_TestCase
 {
 	/**
 	 * @expectedException \Hitmeister\Component\Api\Exceptions\ServerException
@@ -68,5 +76,44 @@ class ResponseTest extends TransportAwareTestCase
 		$this->assertEquals(6, $result['start']);
 		$this->assertEquals(10, $result['end']);
 		$this->assertEquals(5575, $result['total']);
+	}
+
+	/**
+	 * @expectedException \Hitmeister\Component\Api\Exceptions\ServerException
+	 * @expectedExceptionMessage missing
+	 */
+	public function testExtractIdEmpty()
+	{
+		$body = [];
+		Response::extractId($body, '%d');
+	}
+
+	/**
+	 * @expectedException \Hitmeister\Component\Api\Exceptions\ServerException
+	 * @expectedExceptionMessage wrong format
+	 */
+	public function testExtractIdWrongFormat()
+	{
+		$body = [
+			'headers' => [
+				'Location' => [
+					'something unexpected'
+				]
+			]
+		];
+		Response::extractId($body, '/claim-messages/%d/');
+	}
+
+	public function testExtractId()
+	{
+		$body = [
+			'headers' => [
+				'Location' => [
+					'/claim-messages/15/'
+				]
+			]
+		];
+		$id = Response::extractId($body, '/claim-messages/%d/');
+		$this->assertEquals(15, $id);
 	}
 }

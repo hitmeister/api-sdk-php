@@ -24,8 +24,8 @@ class CategoriesNamespaceTest extends TransportAwareTestCase
 			->shouldReceive('performRequest')
 			->once()
 			->withArgs([
-				'GET',
-				'categories/',
+				\Mockery::any(),
+				\Mockery::any(),
 				['q' => 'handy', 'id_parent' => 38441, 'limit' => 1, 'offset' => 2],
 				\Mockery::any(),
 				\Mockery::any(),

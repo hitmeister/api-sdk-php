@@ -48,4 +48,27 @@ class Response
 			'total' => (int)$matches[3],
 		];
 	}
+
+	/**
+	 * @param array  $data
+	 * @param string $pattern
+	 * @return int It is possible to have 0 value, this is an error
+	 * @throws ServerException
+	 */
+	public static function extractId(array &$data, $pattern)
+	{
+		if (!isset($data['headers']['Location'][0])) {
+			throw new ServerException('Response header "Location" is missing.');
+		}
+
+		$id = null;
+		$count = sscanf($data['headers']['Location'][0], $pattern, $id);
+
+		if (1 !== $count) {
+			throw new ServerException(sprintf('Response header "Location" has wrong format. Expected "%s", got "%s".',
+				$pattern, $data['headers']['Location'][0]));
+		}
+
+		return (int)$id;
+	}
 }
