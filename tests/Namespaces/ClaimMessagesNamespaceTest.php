@@ -5,6 +5,7 @@ namespace Hitmeister\Component\Api\Tests\Namespaces;
 use Hitmeister\Component\Api\Exceptions\ResourceNotFoundException;
 use Hitmeister\Component\Api\Helper\Request;
 use Hitmeister\Component\Api\Namespaces\ClaimMessagesNamespace;
+use Hitmeister\Component\Api\Tests\TransportAwareTestCase;
 
 /**
  * Class ClaimMessagesNamespaceTest
@@ -15,7 +16,7 @@ use Hitmeister\Component\Api\Namespaces\ClaimMessagesNamespace;
  * @license  https://opensource.org/licenses/MIT MIT
  * @link     https://www.hitmeister.de/api/v1/
  */
-class ClaimMessagesNamespaceTest extends AbstractNamespaceTest
+class ClaimMessagesNamespaceTest extends TransportAwareTestCase
 {
 	public function testFind()
 	{

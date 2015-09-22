@@ -8,7 +8,7 @@ use Hitmeister\Component\Api\Transfers\AbstractTransfer;
 
 class Cursor implements \Iterator
 {
-	const MAX_API_LIMIT = 100;
+	const MAX_API_LIMIT = 30; // actually it is not max limit but minimal of maximals
 
 	/** @var AbstractEndpoint */
 	private $endpoint;

@@ -43,14 +43,14 @@ class CursorTest extends TransportAwareTestCase
 			->withArgs([
 				'GET',
 				'categories/',
-				['limit' => 100, 'offset' => 2],
+				['limit' => 30, 'offset' => 2],
 				\Mockery::any(),
 				\Mockery::any()
 			])->andReturn([
 				'headers' => [
-					'Hm-Collection-Range' => ['3-102/5575'],
+					'Hm-Collection-Range' => ['3-32/5575'],
 				],
-				'json' => array_fill(0, 100, ['id_category' => 1])
+				'json' => array_fill(0, 30, ['id_category' => 1])
 			]);
 
 		// Second request
@@ -60,16 +60,16 @@ class CursorTest extends TransportAwareTestCase
 			->withArgs([
 				'GET',
 				'categories/',
-				['limit' => 2, 'offset' => 102],
+				['limit' => 2, 'offset' => 32],
 				\Mockery::any(),
 				\Mockery::any()
 			])->andReturn([
 				'headers' => [
-					'Hm-Collection-Range' => ['103-104/5575'],
+					'Hm-Collection-Range' => ['33-34/5575'],
 				],
 				'json' => array_fill(0, 2, ['id_category' => 1])
 			]);
-		$this->endpoint->setParams(['offset' => 2, 'limit' => 102]);
+		$this->endpoint->setParams(['offset' => 2, 'limit' => 32]);
 
 		$cursor = new Cursor($this->endpoint, '\Hitmeister\Component\Api\Transfers\CategoryTransfer');
 		$this->assertInstanceOf('\Hitmeister\Component\Api\Endpoints\AbstractEndpoint', $cursor->getEndpoint());
@@ -81,14 +81,14 @@ class CursorTest extends TransportAwareTestCase
 			$count++;
 		}
 
-		$this->assertEquals(102, $count);
+		$this->assertEquals(32, $count);
 
 		// Iterate again (should not call performRequest)
 		$count = 0;
 		foreach ($cursor as $i => $item) {
 			$count++;
 		}
-		$this->assertEquals(102, $count);
+		$this->assertEquals(32, $count);
 
 		// Try to iterate by hand
 		$cursor->rewind();

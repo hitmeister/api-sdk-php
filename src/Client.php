@@ -5,6 +5,7 @@ namespace Hitmeister\Component\Api;
 use Hitmeister\Component\Api\Namespaces\AttributesNamespace;
 use Hitmeister\Component\Api\Namespaces\CategoriesNamespace;
 use Hitmeister\Component\Api\Namespaces\ClaimMessagesNamespace;
+use Hitmeister\Component\Api\Namespaces\ClaimsNamespace;
 use Hitmeister\Component\Api\Namespaces\StatusNamespace;
 use Hitmeister\Component\Api\Transport\Transport;
 
@@ -33,6 +34,9 @@ class Client
 	/** @var ClaimMessagesNamespace */
 	private $claimMessages;
 
+	/** @var ClaimsNamespace */
+	private $claims;
+
 	/** @var StatusNamespace */
 	private $statusNs;
 
@@ -47,6 +51,7 @@ class Client
 		$this->attributesNs = new AttributesNamespace($this->transport);
 		$this->categoriesNs = new CategoriesNamespace($this->transport);
 		$this->claimMessages = new ClaimMessagesNamespace($this->transport);
+		$this->claims = new ClaimsNamespace($this->transport);
 		$this->statusNs = new StatusNamespace($this->transport);
 	}
 
@@ -80,6 +85,14 @@ class Client
 	public function claimMessages()
 	{
 		return $this->claimMessages;
+	}
+
+	/**
+	 * @return ClaimsNamespace
+	 */
+	public function claims()
+	{
+		return $this->claims;
 	}
 
 	/**

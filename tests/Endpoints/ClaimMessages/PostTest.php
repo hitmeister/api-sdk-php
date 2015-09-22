@@ -3,7 +3,7 @@
 namespace Hitmeister\Component\Api\Tests\Endpoints\ClaimMessages;
 
 use Hitmeister\Component\Api\Endpoints\ClaimMessages\Post;
-use Hitmeister\Component\Api\Tests\Endpoints\AbstractEndpointTest;
+use Hitmeister\Component\Api\Tests\TransportAwareTestCase;
 
 /**
  * Class PostTest
@@ -14,7 +14,7 @@ use Hitmeister\Component\Api\Tests\Endpoints\AbstractEndpointTest;
  * @license  https://opensource.org/licenses/MIT MIT
  * @link     https://www.hitmeister.de/api/v1/
  */
-class PostTest extends AbstractEndpointTest
+class PostTest extends TransportAwareTestCase
 {
 	public function testInstance()
 	{
@@ -22,14 +22,14 @@ class PostTest extends AbstractEndpointTest
 		$transfer = \Mockery::mock('\Hitmeister\Component\Api\Transfers\ClaimMessageAddTransfer');
 		$transfer->shouldReceive('toArray')->once()->andReturn(['id_claim' => 2716841, 'text' => 'message']);
 
-		$decide = new Post($this->transport);
-		$decide->setTransfer($transfer);
-		$this->assertInstanceOf('\Hitmeister\Component\Api\Transfers\ClaimMessageAddTransfer', $decide->getTransfer());
-		$this->assertEquals([], $decide->getParamWhiteList());
-		$this->assertEquals('POST', $decide->getMethod());
-		$this->assertEquals('claim-messages/', $decide->getURI());
+		$post = new Post($this->transport);
+		$post->setTransfer($transfer);
+		$this->assertInstanceOf('\Hitmeister\Component\Api\Transfers\ClaimMessageAddTransfer', $post->getTransfer());
+		$this->assertEquals([], $post->getParamWhiteList());
+		$this->assertEquals('POST', $post->getMethod());
+		$this->assertEquals('claim-messages/', $post->getURI());
 
-		$body = $decide->getBody();
+		$body = $post->getBody();
 		$this->assertArrayHasKey('id_claim', $body);
 		$this->assertArrayHasKey('text', $body);
 	}

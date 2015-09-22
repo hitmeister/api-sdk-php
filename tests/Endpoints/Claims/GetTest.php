@@ -1,15 +1,15 @@
 <?php
 
-namespace Hitmeister\Component\Api\Tests\Endpoints\ClaimMessages;
+namespace Hitmeister\Component\Api\Tests\Endpoints\Claims;
 
-use Hitmeister\Component\Api\Endpoints\ClaimMessages\Get;
+use Hitmeister\Component\Api\Endpoints\Claims\Get;
 use Hitmeister\Component\Api\Tests\TransportAwareTestCase;
 
 /**
  * Class GetTest
  *
  * @category PHP-SDK
- * @package  Hitmeister\Component\Api\Tests\Endpoints\ClaimMessages
+ * @package  Hitmeister\Component\Api\Tests\Endpoints\Claims
  * @author   Maksim Naumov <maksim.naumov@hitmeister.de>
  * @license  https://opensource.org/licenses/MIT MIT
  * @link     https://www.hitmeister.de/api/v1/
@@ -21,9 +21,9 @@ class GetTest extends TransportAwareTestCase
 		$get = new Get($this->transport);
 		$get->setId(10);
 		$this->assertEquals(10, $get->getId());
-		$this->assertEquals([], $get->getParamWhiteList());
+		$this->assertEquals(['embedded'], $get->getParamWhiteList());
 		$this->assertEquals('GET', $get->getMethod());
-		$this->assertEquals('claim-messages/10/', $get->getURI());
+		$this->assertEquals('claims/10/', $get->getURI());
 	}
 
 	/**

@@ -7,6 +7,7 @@ use Hitmeister\Component\Api\Endpoints\ClaimMessages\Find;
 use Hitmeister\Component\Api\Endpoints\ClaimMessages\Get;
 use Hitmeister\Component\Api\Endpoints\ClaimMessages\Post;
 use Hitmeister\Component\Api\Exceptions\ResourceNotFoundException;
+use Hitmeister\Component\Api\FindBuilder;
 use Hitmeister\Component\Api\Helper\Request;
 use Hitmeister\Component\Api\Helper\Response;
 use Hitmeister\Component\Api\Transfers\ClaimMessageAddTransfer;
@@ -48,24 +49,22 @@ class ClaimMessagesNamespace extends AbstractNamespace
 	 * @param int                  $offset
 	 * @return Cursor|ClaimMessageTransfer[]
 	 */
-	public function find($dateTimeFrom = null, $limit = null, $offset = 0)
+	public function find($dateTimeFrom = null, $limit = 30, $offset = 0)
 	{
-		$params = [];
+		return $this->buildFind()
+			->addDateTimeParam('timestamp_from', $dateTimeFrom)
+			->setLimit($limit)
+			->setOffset($offset)
+			->find();
+	}
 
-		if (null !== ($dateTimeFrom = Request::formatDateTime($dateTimeFrom))) {
-			$params['timestamp_from'] = $dateTimeFrom;
-		}
-		if (null !== $limit) {
-			$params['limit'] = $limit;
-		}
-		if (null !== $offset) {
-			$params['offset'] = $offset;
-		}
-
+	/**
+	 * @return FindBuilder
+	 */
+	public function buildFind()
+	{
 		$endpoint = new Find($this->getTransport());
-		$endpoint->setParams($params);
-
-		return new Cursor($endpoint, '\Hitmeister\Component\Api\Transfers\ClaimMessageTransfer');
+		return new FindBuilder($endpoint, '\Hitmeister\Component\Api\Transfers\ClaimMessageTransfer');
 	}
 
 	/**

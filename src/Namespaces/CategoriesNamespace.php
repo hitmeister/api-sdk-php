@@ -8,6 +8,7 @@ use Hitmeister\Component\Api\Endpoints\Categories\Find;
 use Hitmeister\Component\Api\Endpoints\Categories\Get;
 use Hitmeister\Component\Api\Exceptions\InvalidArgumentException;
 use Hitmeister\Component\Api\Exceptions\ResourceNotFoundException;
+use Hitmeister\Component\Api\FindBuilder;
 use Hitmeister\Component\Api\Helper\Response;
 use Hitmeister\Component\Api\Transfers\CategoryDecideTransfer;
 use Hitmeister\Component\Api\Transfers\CategoryTransfer;
@@ -31,27 +32,23 @@ class CategoriesNamespace extends AbstractNamespace
 	 * @param int    $offset
 	 * @return Cursor|CategoryTransfer[]
 	 */
-	public function find($q = null, $idParent = null, $limit = null, $offset = 0)
+	public function find($q = null, $idParent = null, $limit = 100, $offset = 0)
 	{
-		$params = [];
+		return $this->buildFind()
+			->addParam('q', $q)
+			->addParam('id_parent', $idParent)
+			->setLimit($limit)
+			->setOffset($offset)
+			->find();
+	}
 
-		if (null !== $q) {
-			$params['q'] = $q;
-		}
-		if (null !== $idParent) {
-			$params['id_parent'] = $idParent;
-		}
-		if (null !== $limit) {
-			$params['limit'] = $limit;
-		}
-		if (null !== $offset) {
-			$params['offset'] = $offset;
-		}
-
+	/**
+	 * @return FindBuilder
+	 */
+	public function buildFind()
+	{
 		$endpoint = new Find($this->getTransport());
-		$endpoint->setParams($params);
-
-		return new Cursor($endpoint, '\Hitmeister\Component\Api\Transfers\CategoryTransfer');
+		return new FindBuilder($endpoint, '\Hitmeister\Component\Api\Transfers\CategoryTransfer');
 	}
 
 	/**

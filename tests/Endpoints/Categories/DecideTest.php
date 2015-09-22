@@ -3,9 +3,9 @@
 namespace Hitmeister\Component\Api\Tests\Endpoints\Categories;
 
 use Hitmeister\Component\Api\Endpoints\Categories\Decide;
-use Hitmeister\Component\Api\Tests\Endpoints\AbstractEndpointTest;
+use Hitmeister\Component\Api\Tests\TransportAwareTestCase;
 
-class DecideTest extends AbstractEndpointTest
+class DecideTest extends TransportAwareTestCase
 {
 	public function testInstance()
 	{
