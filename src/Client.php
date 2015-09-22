@@ -7,6 +7,7 @@ use Hitmeister\Component\Api\Namespaces\CategoriesNamespace;
 use Hitmeister\Component\Api\Namespaces\ClaimMessagesNamespace;
 use Hitmeister\Component\Api\Namespaces\ClaimsNamespace;
 use Hitmeister\Component\Api\Namespaces\ImportFilesNamespace;
+use Hitmeister\Component\Api\Namespaces\ItemsNamespace;
 use Hitmeister\Component\Api\Namespaces\StatusNamespace;
 use Hitmeister\Component\Api\Transport\Transport;
 
@@ -33,13 +34,16 @@ class Client
 	private $categoriesNs;
 
 	/** @var ClaimMessagesNamespace */
-	private $claimMessages;
+	private $claimMessagesNs;
 
 	/** @var ClaimsNamespace */
-	private $claims;
+	private $claimsNs;
 
 	/** @var ImportFilesNamespace */
-	private $importFiles;
+	private $importFilesNs;
+
+	/** @var ItemsNamespace */
+	private $itemsNs;
 
 	/** @var StatusNamespace */
 	private $statusNs;
@@ -54,9 +58,10 @@ class Client
 		// Namespaces
 		$this->attributesNs = new AttributesNamespace($this->transport);
 		$this->categoriesNs = new CategoriesNamespace($this->transport);
-		$this->claimMessages = new ClaimMessagesNamespace($this->transport);
-		$this->claims = new ClaimsNamespace($this->transport);
-		$this->importFiles = new ImportFilesNamespace($this->transport);
+		$this->claimMessagesNs = new ClaimMessagesNamespace($this->transport);
+		$this->claimsNs = new ClaimsNamespace($this->transport);
+		$this->importFilesNs = new ImportFilesNamespace($this->transport);
+		$this->itemsNs = new ItemsNamespace($this->transport);
 		$this->statusNs = new StatusNamespace($this->transport);
 	}
 
@@ -89,7 +94,7 @@ class Client
 	 */
 	public function claimMessages()
 	{
-		return $this->claimMessages;
+		return $this->claimMessagesNs;
 	}
 
 	/**
@@ -97,7 +102,7 @@ class Client
 	 */
 	public function claims()
 	{
-		return $this->claims;
+		return $this->claimsNs;
 	}
 
 	/**
@@ -105,7 +110,15 @@ class Client
 	 */
 	public function importFiles()
 	{
-		return $this->importFiles;
+		return $this->importFilesNs;
+	}
+
+	/**
+	 * @return ItemsNamespace
+	 */
+	public function items()
+	{
+		return $this->itemsNs;
 	}
 
 	/**
