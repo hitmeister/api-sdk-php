@@ -6,6 +6,7 @@ use Hitmeister\Component\Api\Namespaces\AttributesNamespace;
 use Hitmeister\Component\Api\Namespaces\CategoriesNamespace;
 use Hitmeister\Component\Api\Namespaces\ClaimMessagesNamespace;
 use Hitmeister\Component\Api\Namespaces\ClaimsNamespace;
+use Hitmeister\Component\Api\Namespaces\ImportFilesNamespace;
 use Hitmeister\Component\Api\Namespaces\StatusNamespace;
 use Hitmeister\Component\Api\Transport\Transport;
 
@@ -37,6 +38,9 @@ class Client
 	/** @var ClaimsNamespace */
 	private $claims;
 
+	/** @var ImportFilesNamespace */
+	private $importFiles;
+
 	/** @var StatusNamespace */
 	private $statusNs;
 
@@ -52,6 +56,7 @@ class Client
 		$this->categoriesNs = new CategoriesNamespace($this->transport);
 		$this->claimMessages = new ClaimMessagesNamespace($this->transport);
 		$this->claims = new ClaimsNamespace($this->transport);
+		$this->importFiles = new ImportFilesNamespace($this->transport);
 		$this->statusNs = new StatusNamespace($this->transport);
 	}
 
@@ -93,6 +98,14 @@ class Client
 	public function claims()
 	{
 		return $this->claims;
+	}
+
+	/**
+	 * @return ImportFilesNamespace
+	 */
+	public function importFiles()
+	{
+		return $this->importFiles;
 	}
 
 	/**
