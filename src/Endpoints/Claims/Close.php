@@ -3,7 +3,9 @@
 namespace Hitmeister\Component\Api\Endpoints\Claims;
 
 use Hitmeister\Component\Api\Endpoints\AbstractEndpoint;
-use Hitmeister\Component\Api\Exceptions\RuntimeException;
+use Hitmeister\Component\Api\Endpoints\Traits\EmptyParamWhiteList;
+use Hitmeister\Component\Api\Endpoints\Traits\UriPatternId;
+use Hitmeister\Component\Api\Endpoints\Traits\RequestPatch;
 
 /**
  * Class Close
@@ -16,49 +18,15 @@ use Hitmeister\Component\Api\Exceptions\RuntimeException;
  */
 class Close extends AbstractEndpoint
 {
-	/** @var  */
-	private $id;
-
-	/**
-	 * @param int $id
-	 */
-	public function setId($id)
-	{
-		$this->id = (int)$id;
-	}
-
-	/**
-	 * @return int
-	 */
-	public function getId()
-	{
-		return $this->id;
-	}
+	use RequestPatch;
+	use UriPatternId;
+	use EmptyParamWhiteList;
 
 	/**
 	 * {@inheritdoc}
 	 */
-	public function getParamWhiteList()
+	protected function getUriPattern()
 	{
-		return [];
-	}
-
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getMethod()
-	{
-		return 'PATCH';
-	}
-
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getURI()
-	{
-		if (empty($this->id)) {
-			throw new RuntimeException('Required params id is not set');
-		}
-		return sprintf('claims/%d/close/', $this->id);
+		return 'claims/%d/close/';
 	}
 }

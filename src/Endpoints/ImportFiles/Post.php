@@ -3,6 +3,9 @@
 namespace Hitmeister\Component\Api\Endpoints\ImportFiles;
 
 use Hitmeister\Component\Api\Endpoints\AbstractEndpoint;
+use Hitmeister\Component\Api\Endpoints\Traits\BodyTransfer;
+use Hitmeister\Component\Api\Endpoints\Traits\EmptyParamWhiteList;
+use Hitmeister\Component\Api\Endpoints\Traits\RequestPost;
 use Hitmeister\Component\Api\Transfers\ImportFileAddTransfer;
 
 /**
@@ -16,8 +19,9 @@ use Hitmeister\Component\Api\Transfers\ImportFileAddTransfer;
  */
 class Post extends AbstractEndpoint
 {
-	/** @var ImportFileAddTransfer */
-	private $transfer;
+	use RequestPost;
+	use EmptyParamWhiteList;
+	use BodyTransfer;
 
 	/**
 	 * @param ImportFileAddTransfer $transfer
@@ -25,38 +29,6 @@ class Post extends AbstractEndpoint
 	public function setTransfer(ImportFileAddTransfer $transfer)
 	{
 		$this->transfer = $transfer;
-	}
-
-	/**
-	 * @return ImportFileAddTransfer
-	 */
-	public function getTransfer()
-	{
-		return $this->transfer;
-	}
-
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getBody()
-	{
-		return $this->transfer->toArray();
-	}
-
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getParamWhiteList()
-	{
-		return [];
-	}
-
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getMethod()
-	{
-		return 'POST';
 	}
 
 	/**

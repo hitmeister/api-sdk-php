@@ -3,6 +3,7 @@
 namespace Hitmeister\Component\Api\Endpoints\ClaimMessages;
 
 use Hitmeister\Component\Api\Endpoints\AbstractEndpoint;
+use Hitmeister\Component\Api\Endpoints\Traits\RequestGet;
 
 /**
  * Class Find
@@ -15,20 +16,14 @@ use Hitmeister\Component\Api\Endpoints\AbstractEndpoint;
  */
 class Find extends AbstractEndpoint
 {
+	use RequestGet;
+
 	/**
 	 * {@inheritdoc}
 	 */
 	public function getParamWhiteList()
 	{
 		return ['timestamp_from', 'limit', 'offset'];
-	}
-
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getMethod()
-	{
-		return 'GET';
 	}
 
 	/**

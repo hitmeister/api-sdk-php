@@ -3,6 +3,9 @@
 namespace Hitmeister\Component\Api\Endpoints\ClaimMessages;
 
 use Hitmeister\Component\Api\Endpoints\AbstractEndpoint;
+use Hitmeister\Component\Api\Endpoints\Traits\BodyTransfer;
+use Hitmeister\Component\Api\Endpoints\Traits\EmptyParamWhiteList;
+use Hitmeister\Component\Api\Endpoints\Traits\RequestPost;
 use Hitmeister\Component\Api\Transfers\ClaimMessageAddTransfer;
 
 /**
@@ -16,8 +19,9 @@ use Hitmeister\Component\Api\Transfers\ClaimMessageAddTransfer;
  */
 class Post extends AbstractEndpoint
 {
-	/** @var ClaimMessageAddTransfer */
-	private $transfer;
+	use RequestPost;
+	use EmptyParamWhiteList;
+	use BodyTransfer;
 
 	/**
 	 * @param ClaimMessageAddTransfer $transfer
@@ -25,38 +29,6 @@ class Post extends AbstractEndpoint
 	public function setTransfer(ClaimMessageAddTransfer $transfer)
 	{
 		$this->transfer = $transfer;
-	}
-
-	/**
-	 * @return ClaimMessageAddTransfer
-	 */
-	public function getTransfer()
-	{
-		return $this->transfer;
-	}
-
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getBody()
-	{
-		return $this->transfer->toArray();
-	}
-
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getParamWhiteList()
-	{
-		return [];
-	}
-
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getMethod()
-	{
-		return 'POST';
 	}
 
 	/**

@@ -3,7 +3,10 @@
 namespace Hitmeister\Component\Api\Endpoints\Claims;
 
 use Hitmeister\Component\Api\Endpoints\AbstractEndpoint;
-use Hitmeister\Component\Api\Exceptions\RuntimeException;
+use Hitmeister\Component\Api\Endpoints\Traits\BodyTransfer;
+use Hitmeister\Component\Api\Endpoints\Traits\EmptyParamWhiteList;
+use Hitmeister\Component\Api\Endpoints\Traits\UriPatternId;
+use Hitmeister\Component\Api\Endpoints\Traits\RequestPatch;
 use Hitmeister\Component\Api\Transfers\ClaimRefundTransfer;
 
 /**
@@ -17,27 +20,10 @@ use Hitmeister\Component\Api\Transfers\ClaimRefundTransfer;
  */
 class Refund extends AbstractEndpoint
 {
-	/** @var  */
-	private $id;
-
-	/** @var ClaimRefundTransfer */
-	private $transfer;
-
-	/**
-	 * @param int $id
-	 */
-	public function setId($id)
-	{
-		$this->id = (int)$id;
-	}
-
-	/**
-	 * @return int
-	 */
-	public function getId()
-	{
-		return $this->id;
-	}
+	use RequestPatch;
+	use UriPatternId;
+	use EmptyParamWhiteList;
+	use BodyTransfer;
 
 	/**
 	 * @param ClaimRefundTransfer $transfer
@@ -48,45 +34,10 @@ class Refund extends AbstractEndpoint
 	}
 
 	/**
-	 * @return ClaimRefundTransfer
-	 */
-	public function getTransfer()
-	{
-		return $this->transfer;
-	}
-
-	/**
 	 * {@inheritdoc}
 	 */
-	public function getBody()
+	protected function getUriPattern()
 	{
-		return $this->transfer->toArray();
-	}
-
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getParamWhiteList()
-	{
-		return [];
-	}
-
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getMethod()
-	{
-		return 'PATCH';
-	}
-
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getURI()
-	{
-		if (empty($this->id)) {
-			throw new RuntimeException('Required params id is not set');
-		}
-		return sprintf('claims/%d/refund/', $this->id);
+		return 'claims/%d/refund/';
 	}
 }

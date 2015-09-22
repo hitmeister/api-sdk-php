@@ -3,7 +3,9 @@
 namespace Hitmeister\Component\Api\Endpoints\Claims;
 
 use Hitmeister\Component\Api\Endpoints\AbstractEndpoint;
-use Hitmeister\Component\Api\Exceptions\RuntimeException;
+use Hitmeister\Component\Api\Endpoints\Traits\EmbeddedParamWhiteList;
+use Hitmeister\Component\Api\Endpoints\Traits\RequestGet;
+use Hitmeister\Component\Api\Endpoints\Traits\UriPatternId;
 
 /**
  * Class Get
@@ -16,49 +18,15 @@ use Hitmeister\Component\Api\Exceptions\RuntimeException;
  */
 class Get extends AbstractEndpoint
 {
-	/** @var  */
-	private $id;
-
-	/**
-	 * @param int $id
-	 */
-	public function setId($id)
-	{
-		$this->id = (int)$id;
-	}
-
-	/**
-	 * @return int
-	 */
-	public function getId()
-	{
-		return $this->id;
-	}
+	use RequestGet;
+	use UriPatternId;
+	use EmbeddedParamWhiteList;
 
 	/**
 	 * {@inheritdoc}
 	 */
-	public function getParamWhiteList()
+	protected function getUriPattern()
 	{
-		return ['embedded'];
-	}
-
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getMethod()
-	{
-		return 'GET';
-	}
-
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getURI()
-	{
-		if (empty($this->id)) {
-			throw new RuntimeException('Required params id is not set');
-		}
-		return sprintf('claims/%d/', $this->id);
+		return 'claims/%d/';
 	}
 }

@@ -3,12 +3,16 @@
 namespace Hitmeister\Component\Api\Endpoints\Categories;
 
 use Hitmeister\Component\Api\Endpoints\AbstractEndpoint;
+use Hitmeister\Component\Api\Endpoints\Traits\BodyTransfer;
+use Hitmeister\Component\Api\Endpoints\Traits\EmptyParamWhiteList;
+use Hitmeister\Component\Api\Endpoints\Traits\RequestPost;
 use Hitmeister\Component\Api\Transfers\CategoryDecideTransfer;
 
 class Decide extends AbstractEndpoint
 {
-	/** @var CategoryDecideTransfer */
-	private $transfer;
+	use RequestPost;
+	use EmptyParamWhiteList;
+	use BodyTransfer;
 
 	/**
 	 * @param CategoryDecideTransfer $transfer
@@ -16,38 +20,6 @@ class Decide extends AbstractEndpoint
 	public function setTransfer(CategoryDecideTransfer $transfer)
 	{
 		$this->transfer = $transfer;
-	}
-
-	/**
-	 * @return CategoryDecideTransfer
-	 */
-	public function getTransfer()
-	{
-		return $this->transfer;
-	}
-
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getBody()
-	{
-		return $this->transfer->toArray();
-	}
-
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getParamWhiteList()
-	{
-		return [];
-	}
-
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getMethod()
-	{
-		return 'POST';
 	}
 
 	/**

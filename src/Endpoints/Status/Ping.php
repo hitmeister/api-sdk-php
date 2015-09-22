@@ -3,6 +3,8 @@
 namespace Hitmeister\Component\Api\Endpoints\Status;
 
 use Hitmeister\Component\Api\Endpoints\AbstractEndpoint;
+use Hitmeister\Component\Api\Endpoints\Traits\EmptyParamWhiteList;
+use Hitmeister\Component\Api\Endpoints\Traits\RequestGet;
 
 /**
  * Class Ping
@@ -15,21 +17,8 @@ use Hitmeister\Component\Api\Endpoints\AbstractEndpoint;
  */
 class Ping extends AbstractEndpoint
 {
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getParamWhiteList()
-	{
-		return [];
-	}
-
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getMethod()
-	{
-		return 'GET';
-	}
+	use RequestGet;
+	use EmptyParamWhiteList;
 
 	/**
 	 * {@inheritdoc}

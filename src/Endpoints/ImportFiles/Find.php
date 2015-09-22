@@ -3,6 +3,7 @@
 namespace Hitmeister\Component\Api\Endpoints\ImportFiles;
 
 use Hitmeister\Component\Api\Endpoints\AbstractEndpoint;
+use Hitmeister\Component\Api\Endpoints\Traits\RequestGet;
 
 /**
  * Class Find
@@ -15,20 +16,14 @@ use Hitmeister\Component\Api\Endpoints\AbstractEndpoint;
  */
 class Find extends AbstractEndpoint
 {
+	use RequestGet;
+
 	/**
 	 * {@inheritdoc}
 	 */
 	public function getParamWhiteList()
 	{
 		return ['status', 'type', 'ts_created:from', 'ts_updated:from', 'sort', 'limit', 'offset'];
-	}
-
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getMethod()
-	{
-		return 'GET';
 	}
 
 	/**
