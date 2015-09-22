@@ -19,10 +19,11 @@ class RequestTest extends \PHPUnit_Framework_TestCase
 	public function testDateTime()
 	{
 		$now = time();
+		$dt = new \DateTime();
 		$expected = date(Request::DATE_TIME_FORMAT);
 
 		$this->assertNull(Request::formatDateTime(null));
-		$this->assertEquals($expected, Request::formatDateTime((new \DateTime())->setTimestamp($now)));
+		$this->assertEquals($dt->format(Request::DATE_TIME_FORMAT), Request::formatDateTime($dt));
 		$this->assertEquals($expected, Request::formatDateTime($now));
 		$this->assertEquals($expected, Request::formatDateTime($expected));
 		$this->assertEquals(date(Request::DATE_FORMAT), Request::formatDate($now));
