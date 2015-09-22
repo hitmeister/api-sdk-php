@@ -15,58 +15,19 @@ use Hitmeister\Component\Api\Client;
  */
 class ClientTest extends TransportAwareTestCase
 {
-	public function testTransportInstance()
+	public function testNamespaceInstances()
 	{
 		$client = new Client($this->transport);
 		$this->assertInstanceOf('\Hitmeister\Component\Api\Transport\Transport', $client->getTransport());
-	}
-
-	public function testAttributesNamespace()
-	{
-		$client = new Client($this->transport);
 		$this->assertInstanceOf('\Hitmeister\Component\Api\Namespaces\AttributesNamespace', $client->attributes());
-	}
-
-	public function testCategoriesNamespace()
-	{
-		$client = new Client($this->transport);
 		$this->assertInstanceOf('\Hitmeister\Component\Api\Namespaces\CategoriesNamespace', $client->categories());
-	}
-
-	public function testClaimMessages()
-	{
-		$client = new Client($this->transport);
 		$this->assertInstanceOf('\Hitmeister\Component\Api\Namespaces\ClaimMessagesNamespace',
 			$client->claimMessages());
-	}
-
-	public function testClaims()
-	{
-		$client = new Client($this->transport);
 		$this->assertInstanceOf('\Hitmeister\Component\Api\Namespaces\ClaimsNamespace', $client->claims());
-	}
-
-	public function testImportFiles()
-	{
-		$client = new Client($this->transport);
 		$this->assertInstanceOf('\Hitmeister\Component\Api\Namespaces\ImportFilesNamespace', $client->importFiles());
-	}
-
-	public function testItems()
-	{
-		$client = new Client($this->transport);
 		$this->assertInstanceOf('\Hitmeister\Component\Api\Namespaces\ItemsNamespace', $client->items());
-	}
-
-	public function testOrders()
-	{
-		$client = new Client($this->transport);
 		$this->assertInstanceOf('\Hitmeister\Component\Api\Namespaces\OrdersNamespace', $client->orders());
-	}
-
-	public function testStatusNamespace()
-	{
-		$client = new Client($this->transport);
+		$this->assertInstanceOf('\Hitmeister\Component\Api\Namespaces\OrderUnitsNamespace', $client->orderUnits());
 		$this->assertInstanceOf('\Hitmeister\Component\Api\Namespaces\StatusNamespace', $client->status());
 	}
 }
