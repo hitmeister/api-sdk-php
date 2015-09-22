@@ -6,10 +6,9 @@ use Hitmeister\Component\Api\Cursor;
 use Hitmeister\Component\Api\Endpoints\ClaimMessages\Find;
 use Hitmeister\Component\Api\Endpoints\ClaimMessages\Get;
 use Hitmeister\Component\Api\Endpoints\ClaimMessages\Post;
-use Hitmeister\Component\Api\Exceptions\ResourceNotFoundException;
 use Hitmeister\Component\Api\FindBuilder;
-use Hitmeister\Component\Api\Helper\Request;
 use Hitmeister\Component\Api\Helper\Response;
+use Hitmeister\Component\Api\Namespaces\Traits\PerformWithId;
 use Hitmeister\Component\Api\Transfers\ClaimMessageAddTransfer;
 use Hitmeister\Component\Api\Transfers\ClaimMessageTransfer;
 
@@ -24,6 +23,8 @@ use Hitmeister\Component\Api\Transfers\ClaimMessageTransfer;
  */
 class ClaimMessagesNamespace extends AbstractNamespace
 {
+	use PerformWithId;
+
 	/**
 	 * @param int    $claimId
 	 * @param string $text
@@ -74,15 +75,7 @@ class ClaimMessagesNamespace extends AbstractNamespace
 	public function get($id)
 	{
 		$endpoint = new Get($this->getTransport());
-		$endpoint->setId($id);
-
-		try {
-			$result = $endpoint->performRequest();
-		} catch (ResourceNotFoundException $e) {
-			return null;
-		}
-
-		Response::checkBody($result);
-		return ClaimMessageTransfer::make($result['json']);
+		$result = $this->performWithId($endpoint, $id);
+		return $result ? ClaimMessageTransfer::make($result) : null;
 	}
 }

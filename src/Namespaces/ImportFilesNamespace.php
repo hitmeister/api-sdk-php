@@ -6,9 +6,9 @@ use Hitmeister\Component\Api\Cursor;
 use Hitmeister\Component\Api\Endpoints\ImportFiles\Find;
 use Hitmeister\Component\Api\Endpoints\ImportFiles\Get;
 use Hitmeister\Component\Api\Endpoints\ImportFiles\Post;
-use Hitmeister\Component\Api\Exceptions\ResourceNotFoundException;
 use Hitmeister\Component\Api\FindBuilder;
 use Hitmeister\Component\Api\Helper\Response;
+use Hitmeister\Component\Api\Namespaces\Traits\PerformWithId;
 use Hitmeister\Component\Api\Transfers\ImportFileAddTransfer;
 use Hitmeister\Component\Api\Transfers\ImportFileTransfer;
 
@@ -23,6 +23,8 @@ use Hitmeister\Component\Api\Transfers\ImportFileTransfer;
  */
 class ImportFilesNamespace extends AbstractNamespace
 {
+	use PerformWithId;
+
 	/**
 	 * @param string $url
 	 * @param string $type
@@ -88,15 +90,7 @@ class ImportFilesNamespace extends AbstractNamespace
 	public function get($id)
 	{
 		$endpoint = new Get($this->getTransport());
-		$endpoint->setId($id);
-
-		try {
-			$result = $endpoint->performRequest();
-		} catch (ResourceNotFoundException $e) {
-			return null;
-		}
-
-		Response::checkBody($result);
-		return ImportFileTransfer::make($result['json']);
+		$result = $this->performWithId($endpoint, $id);
+		return $result ? ImportFileTransfer::make($result) : null;
 	}
 }

@@ -11,6 +11,7 @@ use Hitmeister\Component\Api\Endpoints\Claims\Refund;
 use Hitmeister\Component\Api\Exceptions\ResourceNotFoundException;
 use Hitmeister\Component\Api\FindBuilder;
 use Hitmeister\Component\Api\Helper\Response;
+use Hitmeister\Component\Api\Namespaces\Traits\PerformWithId;
 use Hitmeister\Component\Api\Transfers\ClaimAddTransfer;
 use Hitmeister\Component\Api\Transfers\ClaimRefundTransfer;
 use Hitmeister\Component\Api\Transfers\ClaimTransfer;
@@ -27,6 +28,8 @@ use Hitmeister\Component\Api\Transfers\ClaimWithEmbeddedTransfer;
  */
 class ClaimsNamespace extends AbstractNamespace
 {
+	use PerformWithId;
+
 	/**
 	 * @param int    $orderUnitId
 	 * @param string $text
@@ -96,7 +99,6 @@ class ClaimsNamespace extends AbstractNamespace
 	public function get($id, array $embedded = [])
 	{
 		$endpoint = new Get($this->getTransport());
-		$endpoint->setId($id);
 
 		// Ask for embedded fields
 		if (!empty($embedded)) {
@@ -105,14 +107,8 @@ class ClaimsNamespace extends AbstractNamespace
 			]);
 		}
 
-		try {
-			$result = $endpoint->performRequest();
-		} catch (ResourceNotFoundException $e) {
-			return null;
-		}
-
-		Response::checkBody($result);
-		return ClaimWithEmbeddedTransfer::make($result['json']);
+		$result = $this->performWithId($endpoint, $id);
+		return $result ? ClaimWithEmbeddedTransfer::make($result) : null;
 	}
 
 	/**

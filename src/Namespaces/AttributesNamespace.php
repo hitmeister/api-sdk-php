@@ -3,8 +3,7 @@
 namespace Hitmeister\Component\Api\Namespaces;
 
 use Hitmeister\Component\Api\Endpoints\Attributes\Get;
-use Hitmeister\Component\Api\Exceptions\ResourceNotFoundException;
-use Hitmeister\Component\Api\Helper\Response;
+use Hitmeister\Component\Api\Namespaces\Traits\PerformWithId;
 use Hitmeister\Component\Api\Transfers\AttributeTransfer;
 
 /**
@@ -18,6 +17,8 @@ use Hitmeister\Component\Api\Transfers\AttributeTransfer;
  */
 class AttributesNamespace extends AbstractNamespace
 {
+	use PerformWithId;
+
 	/**
 	 * @param int $id
 	 * @return AttributeTransfer|null
@@ -25,15 +26,7 @@ class AttributesNamespace extends AbstractNamespace
 	public function get($id)
 	{
 		$endpoint = new Get($this->getTransport());
-		$endpoint->setId($id);
-
-		try {
-			$result = $endpoint->performRequest();
-		} catch(ResourceNotFoundException $e) {
-			return null;
-		}
-
-		Response::checkBody($result);
-		return AttributeTransfer::make($result['json']);
+		$result = $this->performWithId($endpoint, $id);
+		return $result ? AttributeTransfer::make($result) : null;
 	}
 }

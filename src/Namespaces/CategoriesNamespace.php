@@ -10,6 +10,7 @@ use Hitmeister\Component\Api\Exceptions\InvalidArgumentException;
 use Hitmeister\Component\Api\Exceptions\ResourceNotFoundException;
 use Hitmeister\Component\Api\FindBuilder;
 use Hitmeister\Component\Api\Helper\Response;
+use Hitmeister\Component\Api\Namespaces\Traits\PerformWithId;
 use Hitmeister\Component\Api\Transfers\CategoryDecideTransfer;
 use Hitmeister\Component\Api\Transfers\CategoryTransfer;
 use Hitmeister\Component\Api\Transfers\CategoryWithEmbeddedTransfer;
@@ -25,6 +26,8 @@ use Hitmeister\Component\Api\Transfers\CategoryWithEmbeddedTransfer;
  */
 class CategoriesNamespace extends AbstractNamespace
 {
+	use PerformWithId;
+
 	/**
 	 * @param string $q
 	 * @param int    $idParent
@@ -86,7 +89,6 @@ class CategoriesNamespace extends AbstractNamespace
 	public function get($id, array $embedded = [])
 	{
 		$endpoint = new Get($this->getTransport());
-		$endpoint->setId($id);
 
 		// Ask for embedded fields
 		if (!empty($embedded)) {
@@ -95,13 +97,7 @@ class CategoriesNamespace extends AbstractNamespace
 			]);
 		}
 
-		try {
-			$result = $endpoint->performRequest();
-		} catch (ResourceNotFoundException $e) {
-			return null;
-		}
-
-		Response::checkBody($result);
-		return CategoryWithEmbeddedTransfer::make($result['json']);
+		$result = $this->performWithId($endpoint, $id);
+		return $result ? CategoryWithEmbeddedTransfer::make($result) : null;
 	}
 }

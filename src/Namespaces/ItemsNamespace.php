@@ -5,9 +5,8 @@ namespace Hitmeister\Component\Api\Namespaces;
 use Hitmeister\Component\Api\Cursor;
 use Hitmeister\Component\Api\Endpoints\Items\Find;
 use Hitmeister\Component\Api\Endpoints\Items\Get;
-use Hitmeister\Component\Api\Exceptions\ResourceNotFoundException;
 use Hitmeister\Component\Api\FindBuilder;
-use Hitmeister\Component\Api\Helper\Response;
+use Hitmeister\Component\Api\Namespaces\Traits\PerformWithId;
 use Hitmeister\Component\Api\Transfers\ItemWithEmbeddedTransfer;
 
 /**
@@ -21,6 +20,8 @@ use Hitmeister\Component\Api\Transfers\ItemWithEmbeddedTransfer;
  */
 class ItemsNamespace extends AbstractNamespace
 {
+	use PerformWithId;
+
 	/**
 	 * @param string $q
 	 * @param array  $embedded
@@ -72,7 +73,6 @@ class ItemsNamespace extends AbstractNamespace
 	public function get($id, array $embedded = [])
 	{
 		$endpoint = new Get($this->getTransport());
-		$endpoint->setId($id);
 
 		// Ask for embedded fields
 		if (!empty($embedded)) {
@@ -81,13 +81,7 @@ class ItemsNamespace extends AbstractNamespace
 			]);
 		}
 
-		try {
-			$result = $endpoint->performRequest();
-		} catch (ResourceNotFoundException $e) {
-			return null;
-		}
-
-		Response::checkBody($result);
-		return ItemWithEmbeddedTransfer::make($result['json']);
+		$result = $this->performWithId($endpoint, $id);
+		return $result ? ItemWithEmbeddedTransfer::make($result) : null;
 	}
 }
