@@ -10,6 +10,7 @@ use Hitmeister\Component\Api\Namespaces\ImportFilesNamespace;
 use Hitmeister\Component\Api\Namespaces\ItemsNamespace;
 use Hitmeister\Component\Api\Namespaces\OrdersNamespace;
 use Hitmeister\Component\Api\Namespaces\OrderUnitsNamespace;
+use Hitmeister\Component\Api\Namespaces\ReportsNamespace;
 use Hitmeister\Component\Api\Namespaces\StatusNamespace;
 use Hitmeister\Component\Api\Transport\Transport;
 
@@ -53,6 +54,9 @@ class Client
 	/** @var OrderUnitsNamespace */
 	private $orderUnitsNs;
 
+	/** @var ReportsNamespace */
+	private $reportsNs;
+
 	/** @var StatusNamespace */
 	private $statusNs;
 
@@ -72,6 +76,7 @@ class Client
 		$this->itemsNs = new ItemsNamespace($this->transport);
 		$this->ordersNs = new OrdersNamespace($this->transport);
 		$this->orderUnitsNs = new OrderUnitsNamespace($this->transport);
+		$this->reportsNs = new ReportsNamespace($this->transport);
 		$this->statusNs = new StatusNamespace($this->transport);
 	}
 
@@ -145,6 +150,14 @@ class Client
 	public function orderUnits()
 	{
 		return $this->orderUnitsNs;
+	}
+
+	/**
+	 * @return ReportsNamespace
+	 */
+	public function reports()
+	{
+		return $this->reportsNs;
 	}
 
 	/**
