@@ -12,6 +12,7 @@ use Hitmeister\Component\Api\Namespaces\OrdersNamespace;
 use Hitmeister\Component\Api\Namespaces\OrderUnitsNamespace;
 use Hitmeister\Component\Api\Namespaces\ReportsNamespace;
 use Hitmeister\Component\Api\Namespaces\ReturnsNamespace;
+use Hitmeister\Component\Api\Namespaces\ReturnUnitsNamespace;
 use Hitmeister\Component\Api\Namespaces\StatusNamespace;
 use Hitmeister\Component\Api\Transport\Transport;
 
@@ -61,6 +62,9 @@ class Client
 	/** @var ReturnsNamespace */
 	private $returnsNs;
 
+	/** @var ReturnUnitsNamespace */
+	private $returnUnitsNs;
+
 	/** @var StatusNamespace */
 	private $statusNs;
 
@@ -82,6 +86,7 @@ class Client
 		$this->orderUnitsNs = new OrderUnitsNamespace($this->transport);
 		$this->reportsNs = new ReportsNamespace($this->transport);
 		$this->returnsNs = new ReturnsNamespace($this->transport);
+		$this->returnUnitsNs = new ReturnUnitsNamespace($this->transport);
 		$this->statusNs = new StatusNamespace($this->transport);
 	}
 
@@ -171,6 +176,14 @@ class Client
 	public function returns()
 	{
 		return $this->returnsNs;
+	}
+
+	/**
+	 * @return ReturnUnitsNamespace
+	 */
+	public function returnUnits()
+	{
+		return $this->returnUnitsNs;
 	}
 
 	/**
