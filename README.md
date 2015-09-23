@@ -23,7 +23,7 @@ Before starting, you will need the API keys from your [API settings page](https:
 
 Include the autoloader in your main project (if you haven’t already), and instantiate a new client.
 
-```
+```php
 require 'vendor/autoload.php';
 
 use Hitmeister\Component\Api\ClientBuilder;
@@ -59,7 +59,7 @@ The client has a number of "namespaces", which generally expose API functionalit
 
 You can search for categories:
 
-```
+```php
 $categories = $client->categories()->find('handy');
 foreach ($categories as $category) {
 	echo "Category ID: {$category->id_category}\n";
@@ -69,7 +69,7 @@ foreach ($categories as $category) {
 
 Or get the information about one of them:
 
-```
+```php
 $category = $client->categories()->get(1);
 echo "Category ID: {$category->id_category}\n";
 echo "Category Name: {$category->name}\n";
@@ -79,7 +79,7 @@ echo "Category Name: {$category->name}\n";
 
 Search for items:
 
-```
+```php
 $items = $client->items()->find('iphone');
 foreach ($items as $item) {
 	$eans = implode(',', $item->eans);
@@ -92,20 +92,21 @@ foreach ($items as $item) {
 
 Also you can find the items by EAN:
 
-```
+```php
 $items = $client->items()->findByEan('0885909781652');
 ```
 
 ### Send inventory data
 
-Accordint to Hitmeister [API documentation](https://www.hitmeister.de/api/v1/?page=product-data#uploading-and-updating-items) you have two options:
+According to Hitmeister [API documentation](https://www.hitmeister.de/api/v1/?page=product-data#uploading-and-updating-items) you have two options:
 
 #### To upload your product data as CSV file
 
-```
+```php
 // Post the task to import your file. You will have the ID of the task.
 $importFileId = $client->importFiles()
 	->post('http://www.example.com/my_products.csv', 'PRODUCT_FEED');
+
 // Retrieve the information about your task
 $data = $client->importFiles()->get($importFileId);
 echo "URL: {$data->uri}\n";
@@ -114,7 +115,7 @@ echo "Status: {$data->status}\n";
 
 #### To update a single unit
 
-```
+```php
 // $result will true or false
 $result = $client->units()->update(10, ['condition' => 'new']);
 ```
