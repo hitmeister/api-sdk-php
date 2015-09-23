@@ -29,7 +29,7 @@ use Hitmeister\Component\Api\Transport\Transport;
  */
 class Client
 {
-	const VERSION = 'development';
+	const VERSION = '0.1';
 
 	/** @var Transport */
 	private $transport;
