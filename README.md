@@ -8,7 +8,113 @@ PHP client for [Hitmeister API](https://www.hitmeister.de/api/v1/).
 
 ## Installation
 
-You can install the component in two different ways:
+You can install SDK in two different ways:
 
-* Install it via Composer: **hitmeister/api-sdk** on [Packagist](https://packagist.org/packages/hitmeister/api-sdk);
+* **Recommended**: Install it via Composer: **hitmeister/api-sdk** on [Packagist](https://packagist.org/packages/hitmeister/api-sdk);
 * Use the [official Git repository](https://github.com/hitmeister/api-sdk-php): `git clone git@github.com:hitmeister/api-sdk-php.git`.
+
+## Quickstart
+
+This section will give you a quick overview of the client and how the major functions work.
+
+### Create client
+
+Before starting, you will need the API keys from your [API settings page](https://www.hitmeister.de/account/apisettings/).
+
+Include the autoloader in your main project (if you haven’t already), and instantiate a new client.
+
+```
+require 'vendor/autoload.php';
+
+use Hitmeister\Component\Api\ClientBuilder;
+
+$client = ClientBuilder::create()
+	->setClientKey('YOUR_CLIENT_KEY')
+	->setClientSecret('YOUR_CLIENT_SECRET')
+	->build();
+```
+
+### Namespaces overview
+
+The client has a number of "namespaces", which generally expose API functionality. The namespaces correspond to the various API endpoints. This is a complete list of namespaces:
+
+| Namespace         | Functionality                                     |
+|-------------------|---------------------------------------------------|
+| `attributes()`    | Retrieve the attributes data                      |
+| `categories()`    | Retrieve the categories data                      |
+| `claimMessages()` | Post messages to the claim                        |
+| `claims()`        | Retrieve and manage the claims on your sales      |
+| `importFiles()`   | To send inventory data for multiple items at once |
+| `items()`         | Retrieve the product data                         |
+| `orders()`        | Retrieve the orders data                          |
+| `orderUnits()`    | Retrieve and manage your order units              |
+| `reports()`       | Generate and retrieve summary reports             |
+| `returns()`       | Retrieve the returns from your sales              | 
+| `returnUnits()`   | Accept or reject returns from your sales          | 
+| `status()`        | System status                                     |
+| `subscriptions()` | Push notifications management                     |
+| `units()`         | To upload inventory data one item at a time       |
+
+### Retrieve the categories data
+
+You can search for categories:
+
+```
+$categories = $client->categories()->find('handy');
+foreach ($categories as $category) {
+	echo "Category ID: {$category->id_category}\n";
+	echo "Category Name: {$category->name}\n";
+}
+```
+
+Or get the information about one of them:
+
+```
+$category = $client->categories()->get(1);
+echo "Category ID: {$category->id_category}\n";
+echo "Category Name: {$category->name}\n";
+```
+
+### Retrieve the product data
+
+Search for items:
+
+```
+$items = $client->items()->find('iphone');
+foreach ($items as $item) {
+	$eans = implode(',', $item->eans);
+	echo "Item ID: {$item->id_item}\n";
+	echo "Category ID: {$item->id_category}\n";
+	echo "Title: {$item->title}\n";
+	echo "EANs: {$eans}\n";
+}
+```
+
+Also you can find the items by EAN:
+
+```
+$items = $client->items()->findByEan('0885909781652');
+```
+
+### Send inventory data
+
+Accordint to Hitmeister [API documentation](https://www.hitmeister.de/api/v1/?page=product-data#uploading-and-updating-items) you have two options:
+
+#### To upload your product data as CSV file
+
+```
+// Post the task to import your file. You will have the ID of the task.
+$importFileId = $client->importFiles()
+	->post('http://www.example.com/my_products.csv', 'PRODUCT_FEED');
+// Retrieve the information about your task
+$data = $client->importFiles()->get($importFileId);
+echo "URL: {$data->uri}\n";
+echo "Status: {$data->status}\n";
+```
+
+#### To update a single unit
+
+```
+// $result will true or false
+$result = $client->units()->update(10, ['condition' => 'new']);
+```
