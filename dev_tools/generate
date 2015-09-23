@@ -31,6 +31,7 @@ use Memio\Model\Phpdoc\MethodPhpdoc;
 use Memio\Model\Phpdoc\ReturnTag;
 use Memio\Model\Phpdoc\ParameterTag;
 use Memio\Model\Argument;
+use Memio\Model\Constant;
 
 $wrongTypes = [
 	'long' => 'int',
@@ -42,6 +43,7 @@ $wrongTypes = [
 ];
 
 $baseNamespace = 'Hitmeister\\Component\\Api\\Transfers\\';
+$enum = [];
 
 foreach ($transfersData as $name => $data) {
 	$obj = Object::make($baseNamespace . $name . 'Transfer');
@@ -58,11 +60,11 @@ foreach ($transfersData as $name => $data) {
 	$map = [];
 
 	if (isset($data['core']) && is_array($data['core'])) {
-		processProperties($obj, $map, $data['core']);
+		processProperties($obj, $map, $data['core'], $enum, $name);
 	}
 
 	if (isset($data['embedded']) && is_array($data['embedded'])) {
-		processProperties($obj, $map, $data['embedded'], true);
+		processProperties($obj, $map, $data['embedded'], $enum, $name, true);
 	}
 
 	$obj->getPhpdoc()->getDescription()->addEmptyLine();
@@ -106,13 +108,37 @@ BODY
 	file_put_contents($file->getFilename(), $generatedCode);
 }
 
+// Some constants
+$obj = Object::make($baseNamespace . 'Constants');
+$obj->setPhpdoc(
+	StructurePhpdoc::make()
+		->setDescription(
+			Description::make('This class was auto generated. Please, do not modify it!')
+				->addEmptyLine()
+				->addLine('@codeCoverageIgnore')
+		)
+);
+
+$file = File::make($rootDir . '/src/Transfers/Constants.php');
+$file->setStructure($obj);
+
+foreach ($enum as $n => $v) {
+	$obj->addConstant(Constant::make($n, var_export($v, true)));
+}
+
+$prettyPrinter = Build::prettyPrinter();
+$generatedCode = $prettyPrinter->generateCode($file);
+file_put_contents($file->getFilename(), $generatedCode);
+
 /**
  * @param Memio\Model\Object $obj
  * @param array              $map
  * @param array              $data
+ * @param array              $enum
+ * @param string             $name
  * @param bool               $embedded
  */
-function processProperties(Memio\Model\Object $obj, array &$map, array $data, $embedded = false)
+function processProperties(Memio\Model\Object $obj, array &$map, array $data, array &$enum, $name, $embedded = false)
 {
 	global $wrongTypes, $transfersData, $baseNamespace;
 
@@ -132,5 +158,36 @@ function processProperties(Memio\Model\Object $obj, array &$map, array $data, $e
 			$map[$propName]['type'] = $baseNamespace . $realType;
 		}
 		$desc->addLine('@property '.($multi ? 'array' : $realType) .' $'.$propName);
+
+		// Const
+		if (isset($propData['enum']) && is_array($propData['enum'])) {
+			foreach ($propData['enum'] as $variant) {
+				$constVariant = preg_replace('/[^a-z0-9_]+/i', '_', toSnake($variant));
+				$constVariant = preg_replace('/_+/i', '_', $constVariant);
+				$constVariant = strtoupper($propName.'_'.$constVariant);
+				if (!isset($enum[$constVariant])) {
+					$enum[$constVariant] = $variant;
+				} else {
+					if ($enum[$constVariant] == $variant) {
+						continue;
+					}
+					$constVariant = strtoupper(toSnake($name)).'_'.$constVariant;
+					if (!isset($enum[$constVariant])) {
+						$enum[$constVariant] = $variant;
+					} else {
+						if ($enum[$constVariant] == $variant) {
+							continue;
+						}
+						die('Error');
+					}
+				}
+			}
+		}
 	}
+}
+
+function toSnake($string)
+{
+	$string = preg_replace('/(?<=\\w)(?=[A-Z][a-z])/', '_$1', $string);
+	return strtolower($string);
 }
