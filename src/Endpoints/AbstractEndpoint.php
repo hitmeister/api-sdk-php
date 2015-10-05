@@ -62,6 +62,14 @@ abstract class AbstractEndpoint
 	}
 
 	/**
+	 * @return int
+	 */
+	public function getApiLimit()
+	{
+		return 30;
+	}
+
+	/**
 	 * @return array
 	 */
 	public function performRequest()

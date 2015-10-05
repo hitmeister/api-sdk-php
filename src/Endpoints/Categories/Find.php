@@ -24,4 +24,12 @@ class Find extends AbstractEndpoint
 	{
 		return 'categories/';
 	}
+
+	/**
+	 * {@inheritdoc}
+	 */
+	public function getApiLimit()
+	{
+		return 1000;
+	}
 }

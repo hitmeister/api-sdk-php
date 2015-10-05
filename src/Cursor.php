@@ -8,8 +8,6 @@ use Hitmeister\Component\Api\Transfers\AbstractTransfer;
 
 class Cursor implements \Iterator
 {
-	const MAX_API_LIMIT = 30; // actually it is not max limit but minimal of maximals
-
 	/** @var AbstractEndpoint */
 	private $endpoint;
 
@@ -20,7 +18,7 @@ class Cursor implements \Iterator
 	private $userOffset = 0;
 
 	/** @var int */
-	private $apiLimit = Cursor::MAX_API_LIMIT;
+	private $apiLimit;
 
 	/** @var int */
 	private $apiOffset = 0;
@@ -52,6 +50,7 @@ class Cursor implements \Iterator
 		$this->transferClass = $transferClass;
 		$this->endpoint = $endpoint;
 		$this->apiParams = $this->endpoint->getParams();
+		$this->apiLimit = $endpoint->getApiLimit();
 
 		if (isset($this->apiParams['offset'])) {
 			$this->userOffset = (int)$this->apiParams['offset'];
@@ -63,8 +62,8 @@ class Cursor implements \Iterator
 			$this->apiLimit = $this->userLimit;
 
 			// Not that much
-			if ($this->apiLimit > Cursor::MAX_API_LIMIT) {
-				$this->apiLimit = Cursor::MAX_API_LIMIT;
+			if ($this->apiLimit > $endpoint->getApiLimit()) {
+				$this->apiLimit = $endpoint->getApiLimit();
 			}
 		}
 	}
