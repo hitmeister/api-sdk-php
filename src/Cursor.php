@@ -139,6 +139,11 @@ class Cursor implements \Iterator
 			if ($newCount > $expectedCount) {
 				$dx = $newCount - $expectedCount;
 				$this->apiParams['limit'] -= $dx;
+
+				if (!$this->apiParams['limit']) {
+					$this->apiHasNext = false;
+					return;
+				}
 			}
 		}
 
