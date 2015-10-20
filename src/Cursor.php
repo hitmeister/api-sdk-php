@@ -41,6 +41,9 @@ class Cursor implements \Iterator
 	/** @var string */
 	private $transferClass;
 
+	/** @var int */
+	private $total;
+
 	/**
 	 * @param AbstractEndpoint $endpoint
 	 * @param string           $transferClass
@@ -152,6 +155,7 @@ class Cursor implements \Iterator
 
 		Response::checkBody($resultRequest);
 		$cursorData = Response::extractCursorPosition($resultRequest);
+		$this->total = $cursorData['total'];
 
 		// The end
 		if (
@@ -191,5 +195,16 @@ class Cursor implements \Iterator
 		}
 
 		return null;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function total()
+	{
+		if (null === $this->total) {
+			$this->fetchData();
+		}
+		return (int)$this->total;
 	}
 }
