@@ -432,4 +432,5 @@ class Constants
     const LOCATION_ZW = 'ZW';
     const EVENT_NAME_ORDER_NEW = 'order_new';
     const EVENT_NAME_ORDER_UNIT_NEW = 'order_unit_new';
+    const EVENT_NAME_ORDER_UNIT_STATUS_CHANGED = 'order_unit_status_changed';
 }
