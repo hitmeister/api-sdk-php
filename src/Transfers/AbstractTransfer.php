@@ -104,10 +104,10 @@ abstract class AbstractTransfer implements \JsonSerializable
 			}
 
 			if (!$this->isMulti($name)) {
-				$this->data[$name] = AbstractTransfer::makeTransfer($type, $value);
+				$this->data[$name] = is_array($value) ? AbstractTransfer::makeTransfer($type, $value) : null;
 			} else {
 				foreach ($value as $i => $item) {
-					$this->data[$name][$i] = AbstractTransfer::makeTransfer($type, $item);
+					$this->data[$name][$i] = is_array($item) ? AbstractTransfer::makeTransfer($type, $item) : null;
 				}
 			}
 		}
