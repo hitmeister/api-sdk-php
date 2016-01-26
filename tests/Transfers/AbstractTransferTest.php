@@ -262,6 +262,31 @@ class AbstractTransferTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals('hello', $this->transfer->prop_multi_type[0]->message);
 	}
 
+	public function testFromArrayNull()
+	{
+		$this->transfer->shouldReceive('getProperties')->andReturn([
+			'prop_normal' => [
+				'is_multiple' => false,
+			],
+			'prop_normal_type' => [
+				'is_multiple' => false,
+				'type' => '\Hitmeister\Component\Api\Transfers\StatusPingTransfer',
+			],
+		]);
+
+		$data = [
+			'prop_normal' => null,
+			'prop_normal_type' => null,
+		];
+
+		$this->transfer->fromArray($data);
+		$result = $this->transfer->toArray();
+		$this->assertArrayHasKey('prop_normal', $result);
+		$this->assertArrayHasKey('prop_normal_type', $result);
+		$this->assertNull($this->transfer->prop_normal);
+		$this->assertNull($this->transfer->prop_normal_type);
+	}
+
 	public function testToArray()
 	{
 		$this->transfer->shouldReceive('getProperties')->andReturn([
