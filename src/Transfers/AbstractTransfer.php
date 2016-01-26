@@ -93,23 +93,24 @@ abstract class AbstractTransfer implements \JsonSerializable
 	 */
 	public function fromArray(array $data)
 	{
-		foreach ($data as $name => $value) {
+		foreach ($data as $name => $rawValue) {
 			$this->validateProperty($name);
-			$this->validateMulti($name, $value);
+			$this->validateMulti($name, $rawValue);
 			$type = $this->getCustomType($name);
 
 			if (null === $type) {
-				$this->data[$name] = $value;
-				continue;
-			}
-
-			if (!$this->isMulti($name)) {
-				$this->data[$name] = is_array($value) ? AbstractTransfer::makeTransfer($type, $value) : null;
+				$value = $rawValue;
 			} else {
-				foreach ($value as $i => $item) {
-					$this->data[$name][$i] = is_array($item) ? AbstractTransfer::makeTransfer($type, $item) : null;
+				if (!$this->isMulti($name)) {
+					$value = is_null($rawValue) ? null : AbstractTransfer::makeTransfer($type, $rawValue);
+				} else {
+					$value = [];
+					foreach ($rawValue as $item) {
+						$value []= AbstractTransfer::makeTransfer($type, $item);
+					}
 				}
 			}
+			$this->data[$name] = $value;
 		}
 	}
 
