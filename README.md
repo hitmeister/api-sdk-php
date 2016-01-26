@@ -130,7 +130,7 @@ $result = $client->units()->update(10, ['condition' => 'new']);
 ## Testing
 
 ``` bash
-$ phpunit
+$ composer test
 ```
 
 ## License
