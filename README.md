@@ -6,12 +6,19 @@
 
 PHP client for [Hitmeister API](https://www.hitmeister.de/api/v1/).
 
-## Installation
+## Install
 
-You can install SDK in two different ways:
+Via Composer
 
-* **Recommended**: Install it via Composer: **hitmeister/api-sdk** on [Packagist](https://packagist.org/packages/hitmeister/api-sdk);
-* Use the [official Git repository](https://github.com/hitmeister/api-sdk-php): `git clone git@github.com:hitmeister/api-sdk-php.git`.
+``` bash
+$ composer require hitmeister/api-sdk
+```
+
+Via GitHub
+
+``` bash
+$ git clone git@github.com:hitmeister/api-sdk-php.git
+```
 
 ## Quickstart
 
@@ -116,6 +123,16 @@ echo "Status: {$data->status}\n";
 #### To update a single unit
 
 ```php
-// $result will true or false
+// $result will be true or false
 $result = $client->units()->update(10, ['condition' => 'new']);
 ```
+
+## Testing
+
+``` bash
+$ phpunit
+```
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
