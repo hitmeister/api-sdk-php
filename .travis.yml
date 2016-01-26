@@ -6,6 +6,8 @@ php:
   #- hhvm
   - nightly
 
+sudo: false
+
 before_script:
   - composer self-update && composer install
 
