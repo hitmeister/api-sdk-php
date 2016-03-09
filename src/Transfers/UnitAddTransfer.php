@@ -1,4 +1,5 @@
 <?php
+
 namespace Hitmeister\Component\Api\Transfers;
 
 /**
@@ -15,7 +16,9 @@ namespace Hitmeister\Component\Api\Transfers;
  * @property string $id_offer
  * @property string $note
  * @property string $delivery_time
+ * @property string $shipping_group
  * @property string $location
+ * @property string $warehouse
  *
  *
  */
@@ -72,7 +75,17 @@ class UnitAddTransfer extends AbstractTransfer
     'embedded' => false,
     'is_multiple' => false,
   ),
+  'shipping_group' => 
+  array (
+    'embedded' => false,
+    'is_multiple' => false,
+  ),
   'location' => 
+  array (
+    'embedded' => false,
+    'is_multiple' => false,
+  ),
+  'warehouse' => 
   array (
     'embedded' => false,
     'is_multiple' => false,

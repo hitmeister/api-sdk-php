@@ -1,4 +1,5 @@
 <?php
+
 namespace Hitmeister\Component\Api\Transfers;
 
 /**
@@ -55,7 +56,6 @@ class Constants
     const STATUS_SELLER_CLOSED = 'seller_closed';
     const STATUS_BOTH_CLOSED = 'both_closed';
     const STATUS_CUSTOMER_SERVICE_CLOSED_FINAL = 'customer_service_closed_final';
-    const STATUS_CUSTOMER_SERVICE_HAS_TO_ACT = 'customer_service_has_to_act';
     const OPEN_REASON_PRODUCT_NOT_AS_DESCRIBED = 'product_not_as_described';
     const OPEN_REASON_PRODUCT_DEFECT = 'product_defect';
     const OPEN_REASON_PRODUCT_NOT_DELIVERED = 'product_not_delivered';
@@ -133,6 +133,7 @@ class Constants
     const CARRIER_CODE_COMPUTERUNIVERSE = 'Computeruniverse';
     const CARRIER_CODE_DHL = 'DHL';
     const CARRIER_CODE_DHL_2_MH = 'DHL 2 MH';
+    const CARRIER_CODE_DHL_EXPRESS = 'DHL Express';
     const CARRIER_CODE_DHL_FREIGHT = 'DHL Freight';
     const CARRIER_CODE_DTL = 'dtl';
     const CARRIER_CODE_DPD = 'DPD';

@@ -1,4 +1,5 @@
 <?php
+
 namespace Hitmeister\Component\Api\Transfers;
 
 /**
