@@ -30,7 +30,7 @@
 	},
 	"require-dev": {
 		"mockery/mockery": "^0.9.4",
-		"phpunit/phpunit": "^5.2",
+		"phpunit/phpunit": "^4.8",
 		"satooshi/php-coveralls": "^1.0",
 		"memio/memio": "^1.1"
 	},
