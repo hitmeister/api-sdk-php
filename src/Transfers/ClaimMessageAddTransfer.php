@@ -9,6 +9,7 @@ namespace Hitmeister\Component\Api\Transfers;
  *
  * @property int $id_claim
  * @property string $text
+ * @property boolean $interim_notice
  *
  *
  */
@@ -26,6 +27,11 @@ class ClaimMessageAddTransfer extends AbstractTransfer
     'is_multiple' => false,
   ),
   'text' => 
+  array (
+    'embedded' => false,
+    'is_multiple' => false,
+  ),
+  'interim_notice' => 
   array (
     'embedded' => false,
     'is_multiple' => false,

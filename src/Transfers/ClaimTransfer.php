@@ -15,6 +15,7 @@ namespace Hitmeister\Component\Api\Transfers;
  * @property string $status
  * @property string $open_reason
  * @property string $callback_phone
+ * @property boolean $is_marketplace_seller_responsible
  *
  *
  */
@@ -62,6 +63,11 @@ class ClaimTransfer extends AbstractTransfer
     'is_multiple' => false,
   ),
   'callback_phone' => 
+  array (
+    'embedded' => false,
+    'is_multiple' => false,
+  ),
+  'is_marketplace_seller_responsible' => 
   array (
     'embedded' => false,
     'is_multiple' => false,
