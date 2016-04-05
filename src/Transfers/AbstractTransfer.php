@@ -97,29 +97,26 @@ abstract class AbstractTransfer implements \JsonSerializable
 
 			try {
 				$this->validateProperty($name);
-				$bValidProperty = true;
 			} catch (UnexpectedPropertyException $e) {
-				$bValidProperty = false;
+				continue;
 			}
 
-			if ($bValidProperty) {
-				$this->validateMulti($name, $rawValue);
-				$type = $this->getCustomType($name);
+			$this->validateMulti($name, $rawValue);
+			$type = $this->getCustomType($name);
 
-				if (null === $type) {
-					$value = $rawValue;
+			if (null === $type) {
+				$value = $rawValue;
+			} else {
+				if (!$this->isMulti($name)) {
+					$value = is_null($rawValue) ? null : AbstractTransfer::makeTransfer($type, $rawValue);
 				} else {
-					if (!$this->isMulti($name)) {
-						$value = is_null($rawValue) ? null : AbstractTransfer::makeTransfer($type, $rawValue);
-					} else {
-						$value = [];
-						foreach ($rawValue as $item) {
-							$value []= AbstractTransfer::makeTransfer($type, $item);
-						}
+					$value = [];
+					foreach ($rawValue as $item) {
+						$value []= AbstractTransfer::makeTransfer($type, $item);
 					}
 				}
-				$this->data[$name] = $value;
 			}
+			$this->data[$name] = $value;
 		}
 	}
 
