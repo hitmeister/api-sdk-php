@@ -323,6 +323,7 @@ class AbstractTransferTest extends \PHPUnit_Framework_TestCase
 					'message' => 'world',
 				]
 			],
+			'prop_is_invalid' => 'hello',
 		];
 
 		$this->transfer->fromArray($data);
@@ -333,6 +334,7 @@ class AbstractTransferTest extends \PHPUnit_Framework_TestCase
 		$this->assertArrayHasKey('prop_multi', $result);
 		$this->assertArrayHasKey('prop_normal_type', $result);
 		$this->assertArrayHasKey('prop_multi_type', $result);
+		$this->assertArrayNotHasKey('prop_is_invalid', $result);
 
 		$this->assertTrue(is_array($result['prop_multi']));
 		$this->assertTrue(is_array($result['prop_normal_type']));

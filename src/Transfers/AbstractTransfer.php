@@ -94,7 +94,13 @@ abstract class AbstractTransfer implements \JsonSerializable
 	public function fromArray(array $data)
 	{
 		foreach ($data as $name => $rawValue) {
-			$this->validateProperty($name);
+
+			try {
+				$this->validateProperty($name);
+			} catch (UnexpectedPropertyException $e) {
+				continue;
+			}
+
 			$this->validateMulti($name, $rawValue);
 			$type = $this->getCustomType($name);
 
