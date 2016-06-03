@@ -154,6 +154,8 @@ class Constants
     const CARRIER_CODE_TNT = 'TNT';
     const CARRIER_CODE_TRANS_O_FLEX = 'trans-o-flex';
     const CARRIER_CODE_UPS = 'UPS';
+    const CARRIER_CODE_CARGOLINE = 'Cargoline';
+    const CARRIER_CODE_ZUFALL = 'Zufall';
     const REPORT_STATUS_NEW = 'new';
     const STATUS_PROCESSING = 'processing';
     const STATUS_PROCESSING_FAILED = 'processing_failed';

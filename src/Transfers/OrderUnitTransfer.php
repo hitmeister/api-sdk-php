@@ -20,6 +20,7 @@ namespace Hitmeister\Component\Api\Transfers;
  * @property string $unit_condition
  * @property string $delivery_time
  * @property string $delivery_time_expires
+ * @property string $order_sent_expires
  * @property int $shipping_rate
  * @property BuyerTransfer $buyer
  * @property ClaimTransfer $claim
@@ -99,6 +100,11 @@ class OrderUnitTransfer extends AbstractTransfer
     'is_multiple' => false,
   ),
   'delivery_time_expires' => 
+  array (
+    'embedded' => false,
+    'is_multiple' => false,
+  ),
+  'order_sent_expires' => 
   array (
     'embedded' => false,
     'is_multiple' => false,
