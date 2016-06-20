@@ -5,6 +5,7 @@ namespace Hitmeister\Component\Api\Namespaces;
 use Hitmeister\Component\Api\Endpoints\ProductData\Get;
 use Hitmeister\Component\Api\Endpoints\ProductData\Put;
 use Hitmeister\Component\Api\Endpoints\ProductData\Update;
+use Hitmeister\Component\Api\Endpoints\ProductData\Delete;
 use Hitmeister\Component\Api\Exceptions\InvalidArgumentException;
 use Hitmeister\Component\Api\Namespaces\Traits\PerformWithId;
 use Hitmeister\Component\Api\Transfers\ProductDataTransfer;
@@ -78,6 +79,20 @@ class ProductDataNamespace extends AbstractNamespace
 
 		$result = $endpoint->performRequest();
 		
+		return $result['status'] == 204;
+	}
+
+	/**
+	 * @param string $ean
+	 * @return bool
+	 */
+	public function delete($ean)
+	{
+		$endpoint = new Delete($this->getTransport());
+		$endpoint->setId($ean);
+
+		$result = $endpoint->performRequest();
+
 		return $result['status'] == 204;
 	}
 }

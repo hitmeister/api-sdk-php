@@ -159,4 +159,15 @@ class ProductDataNamespaceTest extends TransportAwareTestCase
 		]));
 		$this->assertTrue($result);
 	}
+
+	public function testDelete()
+	{
+		$this->transport->shouldReceive('performRequest')->once()->andReturn([
+			'status' => 204,
+		]);
+
+		$namespace = new ProductDataNamespace($this->transport);
+		$result = $namespace->delete("1231231231232");
+		$this->assertTrue($result);
+	}
 }
