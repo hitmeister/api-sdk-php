@@ -2,6 +2,11 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.6.1 - 2016-07-01
+
+### Fixed
+- Fix client version number
+
 ## 1.6.0 - 2016-07-01
 
 ### Added
