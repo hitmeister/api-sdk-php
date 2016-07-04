@@ -13,7 +13,7 @@ namespace Hitmeister\Component\Api\Transfers;
  * @property string $company_name
  * @property string $street
  * @property string $house_number
- * @property int $postcode
+ * @property string $postcode
  * @property string $additional_field
  * @property string $city
  * @property string $phone
