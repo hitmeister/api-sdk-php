@@ -15,6 +15,11 @@ class ShippingGroupsNamespaceTest extends TransportAwareTestCase
 			->shouldReceive('performRequest')
 			->once()
 			->withArgs([
+				'GET',
+				'shipping-groups/seller/',
+				\Mockery::any(),
+				\Mockery::any(),
+				\Mockery::any(),
 			])
 			->andReturn([
 				'headers' => [
