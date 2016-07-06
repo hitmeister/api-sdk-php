@@ -45,25 +45,26 @@ $client = ClientBuilder::create()
 
 The client has a number of "namespaces", which generally expose API functionality. The namespaces correspond to the various API endpoints. This is a complete list of namespaces:
 
-| Namespace         | Functionality                                     |
-|-------------------|---------------------------------------------------|
-| `attributes()`    | Retrieve the attributes data                      |
-| `categories()`    | Retrieve the categories data                      |
-| `claimMessages()` | Post messages to the claim                        |
-| `claims()`        | Retrieve and manage the claims on your sales      |
-| `importFiles()`   | To send inventory data for multiple items at once |
-| `items()`         | Retrieve the product data                         |
-| `orders()`        | Retrieve the orders data                          |
-| `orderUnits()`    | Retrieve and manage your order units              |
-| `productData()`   | Retrieve and manage your product data             |
-| `reports()`       | Generate and retrieve summary reports             |
-| `returns()`       | Retrieve the returns from your sales              | 
-| `returnUnits()`   | Accept or reject returns from your sales          | 
-| `shippingGroups()`| Retrieve the shipping groups data                 |
-| `status()`        | System status                                     |
-| `subscriptions()` | Push notifications management                     |
-| `warehouses()`    | Warehouses management                             |
-| `units()`         | To upload inventory data one item at a time       |
+| Namespace             | Functionality                                     |
+|-----------------------|---------------------------------------------------|
+| `attributes()`        | Retrieve the attributes data                      |
+| `categories()`        | Retrieve the categories data                      |
+| `claimMessages()`     | Post messages to the claim                        |
+| `claims()`            | Retrieve and manage the claims on your sales      |
+| `importFiles()`       | To send inventory data for multiple items at once |
+| `items()`             | Retrieve the product data                         |
+| `orders()`            | Retrieve the orders data                          |
+| `orderUnits()`        | Retrieve and manage your order units              |
+| `productData()`       | Retrieve and manage your product data             |
+| `productDataStatus()` | Retrieve and manage your product data             |
+| `reports()`           | Generate and retrieve summary reports             |
+| `returns()`           | Retrieve the returns from your sales              |
+| `returnUnits()`       | Accept or reject returns from your sales          |
+| `shippingGroups()`    | Retrieve the shipping groups data                 |
+| `status()`            | System status                                     |
+| `subscriptions()`     | Push notifications management                     |
+| `warehouses()`        | Warehouses management                             |
+| `units()`             | To upload inventory data one item at a time       |
 
 ### Retrieve the categories data
 
