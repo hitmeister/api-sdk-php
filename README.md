@@ -55,6 +55,7 @@ The client has a number of "namespaces", which generally expose API functionalit
 | `items()`         | Retrieve the product data                         |
 | `orders()`        | Retrieve the orders data                          |
 | `orderUnits()`    | Retrieve and manage your order units              |
+| `productData()`   | Retrieve and manage your product data             |
 | `reports()`       | Generate and retrieve summary reports             |
 | `returns()`       | Retrieve the returns from your sales              | 
 | `returnUnits()`   | Accept or reject returns from your sales          | 
