@@ -7,7 +7,6 @@ use Hitmeister\Component\Api\Endpoints\ProductData\Get;
 use Hitmeister\Component\Api\Endpoints\ProductData\Upsert;
 use Hitmeister\Component\Api\Endpoints\ProductData\Update;
 use Hitmeister\Component\Api\Exceptions\ResourceNotFoundException;
-use Hitmeister\Component\Api\Helper\Response;
 use Hitmeister\Component\Api\Namespaces\Traits\PerformWithId;
 use Hitmeister\Component\Api\Transfers\ProductDataTransfer;
 
@@ -16,7 +15,7 @@ use Hitmeister\Component\Api\Transfers\ProductDataTransfer;
  *
  * @category PHP-SDK
  * @package  Hitmeister\Component\Api\Namespaces
- * @author   Alex Litvinenko <alex.litvinenko@hitmeister.de>
+ * @author   Julian Ecknig <julian.ecknig@hitmeister.de>
  * @license  https://opensource.org/licenses/MIT MIT
  * @link     https://www.hitmeister.de/api/v1/
  */
@@ -33,6 +32,7 @@ class ProductDataNamespace extends AbstractNamespace
 	{
 		$endpoint = new Get($this->getTransport());
 		$result = $this->performWithId($endpoint, $ean);
+		
 		return $result ? ProductDataTransfer::make($result) : null;
 	}
 
@@ -76,19 +76,16 @@ class ProductDataNamespace extends AbstractNamespace
 	}
 
 	/**
-	 * @param int $id
+	 * @param string $ean
+	 * 
 	 * @return bool
 	 */
-	public function delete($id)
+	public function delete($ean)
 	{
 		$endpoint = new Delete($this->getTransport());
-		$endpoint->setId($id);
+		$endpoint->setId($ean);
 
-		try {
-			$result = $endpoint->performRequest();
-		} catch (ResourceNotFoundException $e) {
-			return false;
-		}
+		$result = $endpoint->performRequest();
 
 		return $result['status'] == 204;
 	}

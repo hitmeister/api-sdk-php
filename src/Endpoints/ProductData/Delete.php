@@ -13,7 +13,7 @@ use Hitmeister\Component\Api\Endpoints\Traits\UriPatternId;
  *
  * @category PHP-SDK
  * @package  Hitmeister\Component\Api\Endpoints\ProductData
- * @author   Alex Litvinenko <alex.litvinenko@hitmeister.de>
+ * @author   Julian Ecknig <julian.ecknig@hitmeister.de>
  * @license  https://opensource.org/licenses/MIT MIT
  * @link     https://www.hitmeister.de/api/v1/
  */

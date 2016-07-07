@@ -14,8 +14,8 @@ use Hitmeister\Component\Api\Transfers\ProductDataTransfer;
  * Class Update
  *
  * @category PHP-SDK
- * @package  Hitmeister\Component\Api\Endpoints\ProductData
- * @author   Alex Litvinenko <alex.litvinenko@hitmeister.de>
+ * @package  Hitmeister\Component\Api\Endpoints\Units
+ * @author   Julian Ecknig <julian.ecknig@hitmeister.de>
  * @license  https://opensource.org/licenses/MIT MIT
  * @link     https://www.hitmeister.de/api/v1/
  */
