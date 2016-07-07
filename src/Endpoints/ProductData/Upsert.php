@@ -40,6 +40,6 @@ class Upsert extends AbstractEndpoint implements IdAware
 	 */
 	protected function getUriPattern()
 	{
-		return 'product-data/%s/';
+		return 'product-data/%d/';
 	}
 }
