@@ -3,10 +3,11 @@
 namespace Hitmeister\Component\Api\Tests\Endpoints\ProductData;
 
 use Hitmeister\Component\Api\Endpoints\ProductData\Put;
+use Hitmeister\Component\Api\Endpoints\ProductData\Upsert;
 use Hitmeister\Component\Api\Tests\TransportAwareTestCase;
 
 /**
- * Class UpdateTest
+ * Class UpsertTest
  *
  * @category PHP-SDK
  * @package  Hitmeister\Component\Api\Tests\Endpoints\ProductData
@@ -14,7 +15,7 @@ use Hitmeister\Component\Api\Tests\TransportAwareTestCase;
  * @license  https://opensource.org/licenses/MIT MIT
  * @link     https://www.hitmeister.de/api/v1/
  */
-class PutTest extends TransportAwareTestCase
+class UpsertTest extends TransportAwareTestCase
 {
 	public function testInstance()
 	{
@@ -22,7 +23,7 @@ class PutTest extends TransportAwareTestCase
 		$transfer = \Mockery::mock('\Hitmeister\Component\Api\Transfers\ProductDataTransfer');
 		$transfer->shouldReceive('toArray')->once()->andReturn(['condition' => 'new']);
 
-		$update = new Put($this->transport);
+		$update = new Upsert($this->transport);
 		$update->setId('1231231231232');
 		$update->setTransfer($transfer);
 
@@ -42,7 +43,7 @@ class PutTest extends TransportAwareTestCase
 	 */
 	public function testExceptionOnEmptyId()
 	{
-		$update = new Put($this->transport);
+		$update = new Upsert($this->transport);
 		$update->getURI();
 	}
 }
