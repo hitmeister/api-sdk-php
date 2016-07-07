@@ -15,9 +15,11 @@ use Hitmeister\Component\Api\Namespaces\ProductDataStatusNamespace;
 use Hitmeister\Component\Api\Namespaces\ReportsNamespace;
 use Hitmeister\Component\Api\Namespaces\ReturnsNamespace;
 use Hitmeister\Component\Api\Namespaces\ReturnUnitsNamespace;
+use Hitmeister\Component\Api\Namespaces\ShippingGroupsNamespace;
 use Hitmeister\Component\Api\Namespaces\StatusNamespace;
 use Hitmeister\Component\Api\Namespaces\SubscriptionsNamespace;
 use Hitmeister\Component\Api\Namespaces\UnitsNamespace;
+use Hitmeister\Component\Api\Namespaces\WarehousesNamespace;
 use Hitmeister\Component\Api\Transport\Transport;
 
 /**
@@ -31,7 +33,7 @@ use Hitmeister\Component\Api\Transport\Transport;
  */
 class Client
 {
-	const VERSION = '1.6.1';
+	const VERSION = '1.7.0';
 
 	/** @var Transport */
 	private $transport;
@@ -60,7 +62,7 @@ class Client
 	/** @var OrderUnitsNamespace */
 	private $orderUnitsNs;
 
-	 /** @var ProductDataNamespace */
+	/** @var ProductDataNamespace */
 	private $productDataNs;
 
 	/** @var ProductDataStatusNamespace */
@@ -75,11 +77,17 @@ class Client
 	/** @var ReturnUnitsNamespace */
 	private $returnUnitsNs;
 
+	/** @var ShippingGroupsNamespace */
+	private $shippingGroupsNs;
+
 	/** @var StatusNamespace */
 	private $statusNs;
 
 	/** @var SubscriptionsNamespace */
 	private $subscriptionsNs;
+
+	/** @var WarehousesNamespace */
+	private $warehousesNs;
 
 	/** @var UnitsNamespace */
 	private $unitsNs;
@@ -105,8 +113,10 @@ class Client
 		$this->reportsNs = new ReportsNamespace($this->transport);
 		$this->returnsNs = new ReturnsNamespace($this->transport);
 		$this->returnUnitsNs = new ReturnUnitsNamespace($this->transport);
+		$this->shippingGroupsNs = new ShippingGroupsNamespace($this->transport);
 		$this->statusNs = new StatusNamespace($this->transport);
 		$this->subscriptionsNs = new SubscriptionsNamespace($this->transport);
+		$this->warehousesNs = new WarehousesNamespace($this->transport);
 		$this->unitsNs = new UnitsNamespace($this->transport);
 	}
 
@@ -223,6 +233,14 @@ class Client
 	}
 
 	/**
+	 * @return ShippingGroupsNamespace
+	 */
+	public function shippingGroups()
+	{
+		return $this->shippingGroupsNs;
+	}
+
+	/**
 	 * @return StatusNamespace
 	 */
 	public function status()
@@ -236,6 +254,14 @@ class Client
 	public function subscriptions()
 	{
 		return $this->subscriptionsNs;
+	}
+
+	/**
+	 * @return WarehousesNamespace
+	 */
+	public function warehouses()
+	{
+		return $this->warehousesNs;
 	}
 
 	/**

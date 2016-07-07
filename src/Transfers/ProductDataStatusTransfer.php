@@ -77,7 +77,7 @@ class ProductDataStatusTransfer extends AbstractTransfer
   array (
     'embedded' => false,
     'is_multiple' => true,
-    'type' => 'Hitmeister\\Component\\Api\\Transfers\\AttributeValueStatusTransfer',
+    'type' => 'Hitmeister\\Component\\Api\\Transfers\\ProductDataStatusAttributeValueTransfer',
   ),
 );
         return $properties;

@@ -42,41 +42,7 @@ class ProductDataNamespaceTest extends TransportAwareTestCase
 		$this->assertNull($result);
 	}
 
-	/**
-	 * @expectedException \Hitmeister\Component\Api\Exceptions\InvalidArgumentException
-	 */
-	public function testPutInvalidParam()
-	{
-		$namespace = new ProductDataNamespace($this->transport);
-		$namespace->put('1231231231232', 'hello');
-	}
-
-	public function testPutArrayParam()
-	{
-		$this->transport
-			->shouldReceive('performRequest')
-			->once()
-			->withArgs([
-				'PUT',
-				'product-data/1231231231232/',
-				[], // no params
-				[
-					'category' => ['alpin-skier']
-				],
-				\Mockery::any(),
-			])->andReturn([
-				'status' => 201,
-			]);
-
-		$namespace = new ProductDataNamespace($this->transport);
-		$result = $namespace->put('1231231231232', [
-			'category' => ['alpin-skier']
-		]);
-
-		$this->assertTrue($result);
-	}
-
-	public function testPut()
+	public function testUpsert()
 	{
 		$this->transport
 			->shouldReceive('performRequest')
@@ -95,19 +61,10 @@ class ProductDataNamespaceTest extends TransportAwareTestCase
 			]);
 
 		$namespace = new ProductDataNamespace($this->transport);
-		$result = $namespace->put("1231231231232", ProductDataTransfer::make([
+		$result = $namespace->upsert("1231231231232", ProductDataTransfer::make([
 			'category' => ['alpin-skier'],
 		]));
 		$this->assertTrue($result);
-	}
-
-	/**
-	 * @expectedException \Hitmeister\Component\Api\Exceptions\InvalidArgumentException
-	 */
-	public function testUpdateInvalidParam()
-	{
-		$namespace = new ProductDataNamespace($this->transport);
-		$namespace->update('1231231231232', 'hello');
 	}
 
 	public function testUpdateArrayParam()
@@ -129,9 +86,9 @@ class ProductDataNamespaceTest extends TransportAwareTestCase
 			]);
 
 		$namespace = new ProductDataNamespace($this->transport);
-		$result = $namespace->update("1231231231232", [
+		$result = $namespace->update("1231231231232", ProductDataTransfer::make([
 			'category' => ['alpin-skier']
-		]);
+		]));
 		$this->assertTrue($result);
 	}
 

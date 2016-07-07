@@ -2,6 +2,23 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.7.0 - 2016-07-06
+
+### Added
+- New endpoints `product-data`
+- New endpoint `product-data-status`
+- New endpoint `shipping-groups`
+- New endpoint `warehouses`
+- Support of `PUT` methods
+
+### Fixed
+- Missing constants have been added
+
+### Deprecated
+- Field `location` in `POST /units/` endpoint will be overwritten by `warehouse.country`
+
+
+
 ## 1.6.1 - 2016-07-01
 
 ### Fixed

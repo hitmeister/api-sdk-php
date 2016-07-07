@@ -1,35 +1,35 @@
 <?php
 
-namespace Hitmeister\Component\Api\Endpoints\ProductData;
+namespace Hitmeister\Component\Api\Endpoints\Warehouses;
 
 use Hitmeister\Component\Api\Endpoints\AbstractEndpoint;
 use Hitmeister\Component\Api\Endpoints\Interfaces\IdAware;
 use Hitmeister\Component\Api\Endpoints\Traits\BodyTransfer;
 use Hitmeister\Component\Api\Endpoints\Traits\EmptyParamWhiteList;
-use Hitmeister\Component\Api\Endpoints\Traits\RequestPut;
+use Hitmeister\Component\Api\Endpoints\Traits\RequestPatch;
 use Hitmeister\Component\Api\Endpoints\Traits\UriPatternId;
-use Hitmeister\Component\Api\Transfers\ProductDataTransfer;
+use Hitmeister\Component\Api\Transfers\WarehouseUpdateTransfer;
 
 /**
- * Class Put
+ * Class Update
  *
  * @category PHP-SDK
- * @package  Hitmeister\Component\Api\Endpoints\Units
- * @author   Maksim Naumov <maksim.naumov@hitmeister.de>
+ * @package  Hitmeister\Component\Api\Endpoints\Warehouses
+ * @author   Alex Litvinenko <alex.litvinenko@hitmeister.de>
  * @license  https://opensource.org/licenses/MIT MIT
  * @link     https://www.hitmeister.de/api/v1/
  */
-class Put extends AbstractEndpoint implements IdAware
+class Update extends AbstractEndpoint implements IdAware
 {
-	use RequestPut;
+	use RequestPatch;
 	use UriPatternId;
 	use EmptyParamWhiteList;
 	use BodyTransfer;
 
 	/**
-	 * @param ProductDataTransfer $transfer
+	 * @param WarehouseUpdateTransfer $transfer
 	 */
-	public function setTransfer(ProductDataTransfer $transfer)
+	public function setTransfer(WarehouseUpdateTransfer $transfer)
 	{
 		$this->transfer = $transfer;
 	}
@@ -39,6 +39,6 @@ class Put extends AbstractEndpoint implements IdAware
 	 */
 	protected function getUriPattern()
 	{
-		return 'product-data/%d/';
+		return 'warehouses/%d/';
 	}
 }

@@ -21,13 +21,14 @@ class ProductDataStatusNamespace extends AbstractNamespace
 
 	/**
 	 * @param string   $ean
+	 * 
 	 * @return ProductDataStatusTransfer|null
 	 */
 	public function get($ean)
 	{
 		$endpoint = new Get($this->getTransport());
-
 		$result = $this->performWithId($endpoint, $ean);
+		
 		return $result ? ProductDataStatusTransfer::make($result) : null;
 	}
 }
