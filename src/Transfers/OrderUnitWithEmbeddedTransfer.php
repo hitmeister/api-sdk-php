@@ -21,6 +21,8 @@ namespace Hitmeister\Component\Api\Transfers;
  * @property string $delivery_time
  * @property string $delivery_time_expires
  * @property int $shipping_rate
+ * @property string $cancel_reason
+ * @property string $cancel_comment
  * @property BuyerTransfer $buyer
  * @property ClaimTransfer $claim
  * @property AddressTransfer $billing_address
@@ -104,6 +106,16 @@ class OrderUnitWithEmbeddedTransfer extends AbstractTransfer
     'is_multiple' => false,
   ),
   'shipping_rate' => 
+  array (
+    'embedded' => false,
+    'is_multiple' => false,
+  ),
+  'cancel_reason' => 
+  array (
+    'embedded' => false,
+    'is_multiple' => false,
+  ),
+  'cancel_comment' => 
   array (
     'embedded' => false,
     'is_multiple' => false,
