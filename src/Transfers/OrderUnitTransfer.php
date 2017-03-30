@@ -23,6 +23,7 @@ namespace Hitmeister\Component\Api\Transfers;
  * @property int $shipping_rate
  * @property string $cancel_reason
  * @property string $cancel_comment
+ * @property boolean $is_cancelled
  * @property BuyerTransfer $buyer
  * @property ClaimTransfer $claim
  * @property AddressTransfer $billing_address
@@ -116,6 +117,11 @@ class OrderUnitTransfer extends AbstractTransfer
     'is_multiple' => false,
   ),
   'cancel_comment' => 
+  array (
+    'embedded' => false,
+    'is_multiple' => false,
+  ),
+  'is_cancelled' => 
   array (
     'embedded' => false,
     'is_multiple' => false,
