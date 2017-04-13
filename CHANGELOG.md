@@ -2,6 +2,12 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.11.0 - 2017-04-03
+
+### Added
+
+- New field `cancel_reason`
+
 ## 1.7.0 - 2016-07-06
 
 ### Added
