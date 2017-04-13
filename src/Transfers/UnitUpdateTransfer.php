@@ -17,6 +17,7 @@ namespace Hitmeister\Component\Api\Transfers;
  * @property string $shipping_group
  * @property string $location
  * @property string $warehouse
+ * @property int $reference_price
  *
  *
  */
@@ -74,6 +75,11 @@ class UnitUpdateTransfer extends AbstractTransfer
     'is_multiple' => false,
   ),
   'warehouse' => 
+  array (
+    'embedded' => false,
+    'is_multiple' => false,
+  ),
+  'reference_price' => 
   array (
     'embedded' => false,
     'is_multiple' => false,
