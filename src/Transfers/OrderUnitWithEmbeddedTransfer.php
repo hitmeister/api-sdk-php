@@ -29,6 +29,7 @@ namespace Hitmeister\Component\Api\Transfers;
  * @property InvoiceTransfer $invoice
  * @property ItemTransfer $item
  *
+ * @property array $tickets
  *
  */
 class OrderUnitWithEmbeddedTransfer extends AbstractTransfer
@@ -149,6 +150,12 @@ class OrderUnitWithEmbeddedTransfer extends AbstractTransfer
     'embedded' => false,
     'is_multiple' => false,
     'type' => 'Hitmeister\\Component\\Api\\Transfers\\ItemTransfer',
+  ),
+  'tickets' => 
+  array (
+    'embedded' => true,
+    'is_multiple' => true,
+    'type' => 'Hitmeister\\Component\\Api\\Transfers\\TicketTransfer',
   ),
 );
         return $properties;
