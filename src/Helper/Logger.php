@@ -32,12 +32,13 @@ class Logger
 
 		$message = (null === $exception ? 'Request success' : $exception->getMessage());
 		$context = [
-			'method'    => $request['http_method'],
-			'headers'   => $request['headers'],
-			'uri'       => $response['effective_url'],
-			'duration'  => $response['transfer_stats']['total_time'],
-			'status'    => $response['status'],
-			'exception' => ($exception?:[])
+			'method'           => $request['http_method'],
+			'headers'          => $request['headers'],
+			'uri'              => $response['effective_url'],
+			'duration'         => $response['transfer_stats']['total_time'],
+			'status'           => $response['status'],
+			'response_headers' => $response['headers'],
+			'exception'        => ($exception ?: []),
 		];
 
 		static::log($logger, $message, $context, $level);
