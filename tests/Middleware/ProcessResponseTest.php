@@ -282,10 +282,11 @@ class ProcessResponseTest extends \PHPUnit_Framework_TestCase
 
 	public function testRequestIdInException()
 	{
+		$requestId = 'ololo';
 		$this->response['status'] = 444;
 		$this->response['headers'] = [
 			'X-Request-ID' => [
-				'ololo'
+				$requestId
 			],
 		];
 
@@ -303,7 +304,7 @@ class ProcessResponseTest extends \PHPUnit_Framework_TestCase
 			$future = $middleware($request);
 			$result = $future->wait();
 		} catch (TransportException $e) {
-			$this->assertEquals('ololo', $e->getRequestId());
+			$this->assertEquals($requestId, $e->getRequestId());
 		}
 	}
 }
