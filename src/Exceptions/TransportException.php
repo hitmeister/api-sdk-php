@@ -13,5 +13,22 @@ namespace Hitmeister\Component\Api\Exceptions;
  */
 class TransportException extends \Exception implements ApiException
 {
+    /** @var  string */
+    protected $requestId = '';
 
+    /**
+     * @return string
+     */
+    public function getRequestId()
+    {
+        return $this->requestId;
+    }
+
+    /**
+     * @param string $requestId
+     */
+    public function setRequestId($requestId)
+    {
+        $this->requestId = $requestId;
+    }
 }

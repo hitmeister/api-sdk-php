@@ -4,6 +4,7 @@ namespace Hitmeister\Component\Api\Tests\Middleware;
 
 use GuzzleHttp\Ring\Future\CompletedFutureArray;
 use GuzzleHttp\Ring\Future\FutureArray;
+use Hitmeister\Component\Api\Exceptions\TransportException;
 use Hitmeister\Component\Api\Middleware;
 
 /**
@@ -277,5 +278,33 @@ class ProcessResponseTest extends \PHPUnit_Framework_TestCase
 		$this->assertJson($result['body']);
 		$this->assertArrayHasKey('json', $result);
 		$this->assertNotNull($result['json']);
+	}
+
+	public function testRequestIdInException()
+	{
+		$requestId = 'ololo';
+		$this->response['status'] = 444;
+		$this->response['headers'] = [
+			'X-Request-ID' => [
+				$requestId
+			],
+		];
+
+		$request = [
+			'http_method' => 'PUT',
+			'headers'     => [],
+		];
+
+		$ff = $this->futureFunc;
+		$handler = $ff($this->response);
+		$middleware = Middleware::processResponse($handler, $this->logger);
+
+		try {
+			/** @var FutureArray $future */
+			$future = $middleware($request);
+			$result = $future->wait();
+		} catch (TransportException $e) {
+			$this->assertEquals($requestId, $e->getRequestId());
+		}
 	}
 }
