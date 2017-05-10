@@ -68,6 +68,12 @@ class Constants
     const ROLE_BUYER = 'buyer';
     const ROLE_SYSTEM = 'system';
     const ROLE_CUSTOMER_SERVICE = 'customer_service';
+    const REASON_DELIVERY_DAMAGE = 'delivery_damage';
+    const REASON_DELIVERY_DELAY = 'delivery_delay';
+    const REASON_INCOMPLETE_DELIVERY = 'incomplete_delivery';
+    const REASON_INCORRECT_DELIVERY = 'incorrect_delivery';
+    const REASON_REFUND_POSTAGE_FEE = 'refund_postage_fee';
+    const REASON_OTHER_REFUND = 'other_refund';
     const STATUS_ABORTED = 'ABORTED';
     const STATUS_CHECKED = 'CHECKED';
     const STATUS_CHECKING = 'CHECKING';
