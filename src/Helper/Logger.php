@@ -37,7 +37,7 @@ class Logger
 			'uri'              => $response['effective_url'],
 			'duration'         => $response['transfer_stats']['total_time'],
 			'status'           => $response['status'],
-			'response_headers' => $response['headers'],
+			'response_headers' => isset($response['headers']) ? $response['headers'] : [],
 			'exception'        => ($exception ?: []),
 		];
 
