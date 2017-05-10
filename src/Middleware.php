@@ -85,17 +85,22 @@ class Middleware
 					// It is possible to ignore some status codes
 					if (!in_array($response['status'], $ignore)) {
 						// Is there any message?
-						$message = isset($response['json']['message']) ? $response['json']['message'] : 'Unknown error';
 
 						if ($response['status'] >= 400 && $response['status'] < 500) {
+							$message = isset($response['json']['message']) ? $response['json']['message'] : 'Unknown error';
 							if (404 == $response['status']) {
 								$exception = new ResourceNotFoundException();
 							} else {
 								$exception = new BadRequestException($message, $response['status']);
 							}
 						} else {
+							$message = isset($response['json']['message']) ? $response['json']['message'] : 'Internal Server Error';
 							$exception = new ServerException($message, $response['status']);
 						}
+
+						// Save unique request ID to the exception
+						$requestId = isset($response['headers']['X-Request-ID'][0]) ? $response['headers']['X-Request-ID'][0] : '';
+						$exception->setRequestId($requestId);
 
 						Logger::logState($logger, $request, $response, $exception, LogLevel::ERROR);
 						throw $exception;
