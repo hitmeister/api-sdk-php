@@ -18,6 +18,8 @@ use Hitmeister\Component\Api\Namespaces\ReturnUnitsNamespace;
 use Hitmeister\Component\Api\Namespaces\ShippingGroupsNamespace;
 use Hitmeister\Component\Api\Namespaces\StatusNamespace;
 use Hitmeister\Component\Api\Namespaces\SubscriptionsNamespace;
+use Hitmeister\Component\Api\Namespaces\TicketMessagesNamespace;
+use Hitmeister\Component\Api\Namespaces\TicketsNamespace;
 use Hitmeister\Component\Api\Namespaces\UnitsNamespace;
 use Hitmeister\Component\Api\Namespaces\WarehousesNamespace;
 use Hitmeister\Component\Api\Transport\Transport;
@@ -86,6 +88,12 @@ class Client
 	/** @var SubscriptionsNamespace */
 	private $subscriptionsNs;
 
+	/** @var TicketMessagesNamespace */
+	private $ticketMessagesNs;
+
+	/** @var TicketsNamespace */
+	private $ticketsNs;
+
 	/** @var WarehousesNamespace */
 	private $warehousesNs;
 
@@ -116,6 +124,8 @@ class Client
 		$this->shippingGroupsNs = new ShippingGroupsNamespace($this->transport);
 		$this->statusNs = new StatusNamespace($this->transport);
 		$this->subscriptionsNs = new SubscriptionsNamespace($this->transport);
+		$this->ticketMessagesNs = new TicketMessagesNamespace($this->transport);
+		$this->ticketsNs = new TicketsNamespace($this->transport);
 		$this->warehousesNs = new WarehousesNamespace($this->transport);
 		$this->unitsNs = new UnitsNamespace($this->transport);
 	}
@@ -254,6 +264,22 @@ class Client
 	public function subscriptions()
 	{
 		return $this->subscriptionsNs;
+	}
+
+	/**
+	 * @return ClaimMessagesNamespace
+	 */
+	public function ticketMessages()
+	{
+		return $this->claimMessagesNs;
+	}
+
+	/**
+	 * @return TicketsNamespace
+	 */
+	public function tickets()
+	{
+		return $this->ticketsNs;
 	}
 
 	/**
