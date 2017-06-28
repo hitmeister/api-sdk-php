@@ -6,11 +6,13 @@ use Hitmeister\Component\Api\Cursor;
 use Hitmeister\Component\Api\Endpoints\OrderUnits\Cancel;
 use Hitmeister\Component\Api\Endpoints\OrderUnits\Find;
 use Hitmeister\Component\Api\Endpoints\OrderUnits\Get;
+use Hitmeister\Component\Api\Endpoints\OrderUnits\Refund;
 use Hitmeister\Component\Api\Endpoints\OrderUnits\Send;
 use Hitmeister\Component\Api\Exceptions\ResourceNotFoundException;
 use Hitmeister\Component\Api\FindBuilder;
 use Hitmeister\Component\Api\Namespaces\Traits\PerformWithId;
 use Hitmeister\Component\Api\Transfers\OrderUnitCancelTransfer;
+use Hitmeister\Component\Api\Transfers\OrderUnitRefundTransfer;
 use Hitmeister\Component\Api\Transfers\OrderUnitSendTransfer;
 use Hitmeister\Component\Api\Transfers\OrderUnitTransfer;
 use Hitmeister\Component\Api\Transfers\OrderUnitWithEmbeddedTransfer;
@@ -120,6 +122,34 @@ class OrderUnitsNamespace extends AbstractNamespace
 		}
 
 		$endpoint = new Send($this->getTransport());
+		$endpoint->setId($id);
+		$endpoint->setTransfer($data);
+
+		try {
+			$result = $endpoint->performRequest();
+		} catch (ResourceNotFoundException $e) {
+			return false;
+		}
+
+		return $result['status'] == 204;
+	}
+
+	/**
+	 * @param  int $id
+	 * @param int  $amount
+	 * @param string $reason
+	 *
+	 * @return bool
+	 */
+	public function refund($id, $amount, $reason = null)
+	{
+		$data = new OrderUnitRefundTransfer();
+		$data->amount = $amount;
+		if (null !== $reason) {
+			$data->reason = $reason;
+		}
+
+		$endpoint = new Refund($this->getTransport());
 		$endpoint->setId($id);
 		$endpoint->setTransfer($data);
 
