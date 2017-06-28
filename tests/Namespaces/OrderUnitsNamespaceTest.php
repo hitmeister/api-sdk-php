@@ -128,4 +128,16 @@ class OrderUnitsNamespaceTest extends TransportAwareTestCase
 		$result = $namespace->get(10);
 		$this->assertNull($result);
 	}
+
+	public function testRefund()
+	{
+		$this->transport->shouldReceive('performRequest')->once()->andReturn([
+			'status' => 204,
+		]);
+
+		$namespace = new OrderUnitsNamespace($this->transport);
+		$result = $namespace->refund(10, 42, 'Something went wrong');
+		$this->assertTrue($result);
+	}
+
 }
