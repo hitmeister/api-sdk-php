@@ -63,6 +63,8 @@ The client has a number of "namespaces", which generally expose API functionalit
 | `shippingGroups()`    | Retrieve the shipping groups data                 |
 | `status()`            | System status                                     |
 | `subscriptions()`     | Push notifications management                     |
+| `ticketMessages( )`   | Post messages to the tickets                      |
+| `tickets( )`          | Manage tickets on your sales                      |
 | `warehouses()`        | Warehouses management                             |
 | `units()`             | To upload inventory data one item at a time       |
 
