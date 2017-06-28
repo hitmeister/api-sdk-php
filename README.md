@@ -49,8 +49,8 @@ The client has a number of "namespaces", which generally expose API functionalit
 |-----------------------|----------------------------------------------------------------------|
 | `attributes()`        | Retrieve the attributes data                                         |
 | `categories()`        | Retrieve the categories data                                         |
-| `claimMessages()`     | **DEPRECATED** Post messages to the claim                            |
-| `claims()`            | **DEPRECATED** Retrieve and manage the claims on your sales          |
+| `claimMessages()`     | Post messages to the claim **DEPRECATED**, use `ticketMessages`      |
+| `claims()`            | Retrieve and manage the claims **DEPRECATED**, use `tickets`         |
 | `importFiles()`       | To send inventory data for multiple items at once                    |
 | `items()`             | Retrieve the product data                                            |
 | `orders()`            | Retrieve the orders data                                             |
