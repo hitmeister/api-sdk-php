@@ -18,6 +18,7 @@ namespace Hitmeister\Component\Api\Transfers;
  * @property float $variable_fee
  * @property int $fixed_fee
  * @property float $vat
+ * @property int $real_main_category_id
  *
  * @property CategoryTransfer $parent
  * @property array $children
@@ -84,6 +85,11 @@ class CategoryWithEmbeddedTransfer extends AbstractTransfer
     'is_multiple' => false,
   ),
   'vat' => 
+  array (
+    'embedded' => false,
+    'is_multiple' => false,
+  ),
+  'real_main_category_id' => 
   array (
     'embedded' => false,
     'is_multiple' => false,
