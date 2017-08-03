@@ -2,6 +2,17 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.13.4 - 2017-08-03
+
+### Added
+
+- Field `real_main_category_id` to `CategoryTransfer`
+- Field `real_mgb_article_number` to `ItemTransfer`
+
+### Fixed
+
+- Typo in carrier name `Bursped`
+
 ## 1.11.0 - 2017-04-03
 
 ### Added
