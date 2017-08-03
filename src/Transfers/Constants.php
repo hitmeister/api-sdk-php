@@ -173,7 +173,7 @@ class Constants
     const REASON_UNDELIVERABLE_REGION = 'UndeliverableRegion';
     const CARRIER_CODE_OTHER = 'Other';
     const CARRIER_CODE_OTHER_HAULER = 'Other Hauler';
-    const CARRIER_CODE_BURSPRED = 'Burspred';
+    const CARRIER_CODE_BURSPED = 'Bursped';
     const CARRIER_CODE_CARGOLINE = 'Cargoline';
     const CARRIER_CODE_COMPUTERUNIVERSE = 'Computeruniverse';
     const CARRIER_CODE_DHL = 'DHL';
