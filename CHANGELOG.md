@@ -2,7 +2,14 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
-## 1.13.4 - 2017-08-03
+## 1.15.0 - 2017-10-12
+
+### Removed
+
+- endpoint `POST /claims`
+- endpoint `/claims/{id_claim}/refund`
+
+## 1.14.0 - 2017-08-03
 
 ### Added
 
