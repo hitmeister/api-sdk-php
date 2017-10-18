@@ -58,19 +58,6 @@ class ClaimsNamespaceTest extends TransportAwareTestCase
 		$this->assertEquals('buyer_closed', $result[0]->status);
 	}
 
-	public function testPost()
-	{
-		$this->transport->shouldReceive('performRequest')->once()->andReturn([
-			'headers' => [
-				'Location' => ['/claims/15798348/'],
-			],
-		]);
-
-		$namespace = new ClaimsNamespace($this->transport);
-		$result = $namespace->post(2939276, 'message');
-		$this->assertEquals(15798348, $result);
-	}
-
 	public function testGetEmbedded()
 	{
 		$this->transport->shouldReceive('performRequest')->once()->andReturn([
@@ -116,26 +103,6 @@ class ClaimsNamespaceTest extends TransportAwareTestCase
 
 		$namespace = new ClaimsNamespace($this->transport);
 		$result = $namespace->close(10);
-		$this->assertFalse($result);
-	}
-
-	public function testRefund()
-	{
-		$this->transport->shouldReceive('performRequest')->once()->andReturn([
-			'status' => 204,
-		]);
-
-		$namespace = new ClaimsNamespace($this->transport);
-		$result = $namespace->refund(10, 100);
-		$this->assertTrue($result);
-	}
-
-	public function testRefundNotFound()
-	{
-		$this->transport->shouldReceive('performRequest')->once()->andThrow(new ResourceNotFoundException());
-
-		$namespace = new ClaimsNamespace($this->transport);
-		$result = $namespace->refund(10, 100);
 		$this->assertFalse($result);
 	}
 }
