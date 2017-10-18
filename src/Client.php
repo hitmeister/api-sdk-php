@@ -37,7 +37,7 @@ class Client
 {
 	const VERSION = '1.16.0';
 
-	/** @var Transport */
+  /** @var Transport */
 	private $transport;
 
 	/** @var AttributesNamespace */

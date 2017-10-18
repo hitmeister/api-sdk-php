@@ -8,6 +8,13 @@ All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this
 
 - Filter Field `id_order_unit` to `GET /return-units/seller/` endpoint
 
+## 1.15.0 - 2017-10-12
+
+### Removed
+
+- endpoint `/claims`
+- endpoint `/claims/{id_claim}/refund`
+
 ## 1.14.0 - 2017-08-03
 
 ### Added
