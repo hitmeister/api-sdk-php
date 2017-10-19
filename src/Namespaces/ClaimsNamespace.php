@@ -6,14 +6,9 @@ use Hitmeister\Component\Api\Cursor;
 use Hitmeister\Component\Api\Endpoints\Claims\Close;
 use Hitmeister\Component\Api\Endpoints\Claims\Find;
 use Hitmeister\Component\Api\Endpoints\Claims\Get;
-use Hitmeister\Component\Api\Endpoints\Claims\Post;
-use Hitmeister\Component\Api\Endpoints\Claims\Refund;
 use Hitmeister\Component\Api\Exceptions\ResourceNotFoundException;
 use Hitmeister\Component\Api\FindBuilder;
-use Hitmeister\Component\Api\Helper\Response;
 use Hitmeister\Component\Api\Namespaces\Traits\PerformWithId;
-use Hitmeister\Component\Api\Transfers\ClaimAddTransfer;
-use Hitmeister\Component\Api\Transfers\ClaimRefundTransfer;
 use Hitmeister\Component\Api\Transfers\ClaimTransfer;
 use Hitmeister\Component\Api\Transfers\ClaimWithEmbeddedTransfer;
 
@@ -29,25 +24,6 @@ use Hitmeister\Component\Api\Transfers\ClaimWithEmbeddedTransfer;
 class ClaimsNamespace extends AbstractNamespace
 {
 	use PerformWithId;
-
-	/**
-	 * @param int    $orderUnitId
-	 * @param string $text
-	 * @return int
-	 */
-	public function post($orderUnitId, $text)
-	{
-		$data = new ClaimAddTransfer();
-		$data->id_order_unit = (int)$orderUnitId;
-		$data->text = $text;
-
-		$endpoint = new Post($this->getTransport());
-		$endpoint->setTransfer($data);
-
-		$resultRequest = $endpoint->performRequest();
-
-		return Response::extractId($resultRequest, '/claims/%d/');
-	}
 
 	/**
 	 * @param string[]             $status
@@ -119,29 +95,6 @@ class ClaimsNamespace extends AbstractNamespace
 	{
 		$endpoint = new Close($this->getTransport());
 		$endpoint->setId($id);
-
-		try {
-			$result = $endpoint->performRequest();
-		} catch (ResourceNotFoundException $e) {
-			return false;
-		}
-
-		return $result['status'] == 204;
-	}
-
-	/**
-	 * @param int $id
-	 * @param int $amount
-	 * @return bool
-	 */
-	public function refund($id, $amount)
-	{
-		$data = new ClaimRefundTransfer();
-		$data->amount = (int)$amount;
-
-		$endpoint = new Refund($this->getTransport());
-		$endpoint->setId($id);
-		$endpoint->setTransfer($data);
 
 		try {
 			$result = $endpoint->performRequest();
