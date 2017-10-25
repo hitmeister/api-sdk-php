@@ -33,6 +33,7 @@ class ReturnUnitsNamespace extends AbstractNamespace
 	 * @param string               $sort
 	 * @param int                  $limit
 	 * @param int                  $offset
+     * @param null                 $idOrderUnit
 	 * @return Cursor|ReturnUnitTransfer[]
 	 */
 	public function find(
@@ -40,7 +41,8 @@ class ReturnUnitsNamespace extends AbstractNamespace
 		$createdFrom = null,
 		$sort = 'ts_created:desc',
 		$limit = 30,
-		$offset = 0
+		$offset = 0,
+        $idOrderUnit = null
 	) {
 		return $this->buildFind()
 			->addParam('status', $status)
@@ -48,6 +50,7 @@ class ReturnUnitsNamespace extends AbstractNamespace
 			->setSort($sort)
 			->setLimit($limit)
 			->setOffset($offset)
+			->addParam('id_order_unit', $idOrderUnit)
 			->find();
 	}
 

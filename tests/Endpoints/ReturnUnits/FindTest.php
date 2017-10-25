@@ -19,7 +19,7 @@ class FindTest extends TransportAwareTestCase
 	public function testInstance()
 	{
 		$find = new Find($this->transport);
-		$this->assertEquals(['ts_created:from', 'status', 'sort', 'limit', 'offset'], $find->getParamWhiteList());
+		$this->assertEquals(['ts_created:from', 'status', 'sort', 'limit', 'offset', 'id_order_unit'], $find->getParamWhiteList());
 		$this->assertEquals('GET', $find->getMethod());
 		$this->assertEquals('return-units/seller/', $find->getURI());
 	}
