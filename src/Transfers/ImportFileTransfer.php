@@ -19,6 +19,7 @@ namespace Hitmeister\Component\Api\Transfers;
  * @property string $ts_last_row_updated
  * @property string $ts_completed
  * @property int $error_count
+ * @property int $product_feed_async_done
  *
  *
  */
@@ -86,6 +87,11 @@ class ImportFileTransfer extends AbstractTransfer
     'is_multiple' => false,
   ),
   'error_count' => 
+  array (
+    'embedded' => false,
+    'is_multiple' => false,
+  ),
+  'product_feed_async_done' => 
   array (
     'embedded' => false,
     'is_multiple' => false,

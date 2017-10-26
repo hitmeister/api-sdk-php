@@ -2,6 +2,12 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.17.0 - 2017-10-26
+
+### Added
+
+- Embedded field `product_feed_async_done` to the `ImportFileTransfer`
+
 ## 1.16.0 - 2017-10-26
 
 ### Added
