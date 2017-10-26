@@ -30,6 +30,7 @@ namespace Hitmeister\Component\Api\Transfers;
  * @property ItemTransfer $item
  *
  * @property array $tickets
+ * @property ReturnUnitTransfer $return_unit
  *
  */
 class OrderUnitWithEmbeddedTransfer extends AbstractTransfer
@@ -156,6 +157,12 @@ class OrderUnitWithEmbeddedTransfer extends AbstractTransfer
     'embedded' => true,
     'is_multiple' => true,
     'type' => 'Hitmeister\\Component\\Api\\Transfers\\TicketTransfer',
+  ),
+  'return_unit' => 
+  array (
+    'embedded' => true,
+    'is_multiple' => false,
+    'type' => 'Hitmeister\\Component\\Api\\Transfers\\ReturnUnitTransfer',
   ),
 );
         return $properties;
