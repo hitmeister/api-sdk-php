@@ -2,7 +2,7 @@
 	"name": "hitmeister/api-sdk",
 	"description": "Hitmeister API SDK for PHP",
 	"type": "library",
-	"version": "1.16.0",
+	"version": "1.17.0",
 	"authors": [
 		{
 			"name": "Hitmeister GmbH Developers",
