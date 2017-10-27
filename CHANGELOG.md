@@ -2,6 +2,12 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.17.1 - 2017-10-27
+
+### Fixed
+
+- Possibility to used embedded transfers for `GET order-units/{id}` endpoint
+
 ## 1.17.0 - 2017-10-26
 
 ### Added

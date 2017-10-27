@@ -70,12 +70,21 @@ class OrderUnitsNamespace extends AbstractNamespace
 	}
 
 	/**
-	 * @param int $id
+	 * @param int   $id
+	 * @param array $embedded
 	 * @return OrderUnitWithEmbeddedTransfer|null
 	 */
-	public function get($id)
+	public function get($id, array $embedded = [])
 	{
 		$endpoint = new Get($this->getTransport());
+
+		// Ask for embedded fields
+		if (!empty($embedded)) {
+			$endpoint->setParams([
+				'embedded' => $embedded,
+			]);
+		}
+
 		$result = $this->performWithId($endpoint, $id);
 		return $result ? OrderUnitWithEmbeddedTransfer::make($result) : null;
 	}
