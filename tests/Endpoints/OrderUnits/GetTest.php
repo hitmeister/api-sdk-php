@@ -21,7 +21,7 @@ class GetTest extends TransportAwareTestCase
 		$get = new Get($this->transport);
 		$get->setId(10);
 		$this->assertEquals(10, $get->getId());
-		$this->assertEquals([], $get->getParamWhiteList());
+		$this->assertEquals(['embedded'], $get->getParamWhiteList());
 		$this->assertEquals('GET', $get->getMethod());
 		$this->assertEquals('order-units/10/', $get->getURI());
 	}
