@@ -2,6 +2,12 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.17.2 - 2017-11-15
+
+### Fixed
+
+- Use correct separator to generate signatures under Windows
+
 ## 1.17.1 - 2017-10-27
 
 ### Fixed
