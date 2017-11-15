@@ -25,8 +25,9 @@ class Security
 	 */
 	public static function signRequest($clientSecret, $method, $url, $body, $timestamp)
 	{
+		$separator = "\n";
 		// Build string that need to be signed [ METHOD, URL, BODY, UNIX_TIMESTAMP ]
-		$string = implode(PHP_EOL, [$method, $url, $body, $timestamp]);
+		$string = implode($separator, [$method, $url, $body, $timestamp]);
 
 		// Sign
 		return hash_hmac('sha256', $string, $clientSecret);
