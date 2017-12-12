@@ -159,8 +159,10 @@ class Constants
     const CANCEL_REASON_WRONG_CATALOG_DATA = 'WrongCatalogData';
     const CANCEL_REASON_MERCHANDISE_NOT_RECEIVED = 'MerchandiseNotReceived';
     const CANCEL_REASON_NO_INVENTORY = 'NoInventory';
+    const CANCEL_REASON_DELAYED_INVENTORY = 'DelayedInventory';
     const CANCEL_REASON_WRONG_PRICE = 'WrongPrice';
     const CANCEL_REASON_UNDELIVERABLE_REGION = 'UndeliverableRegion';
+    const CANCEL_REASON_NO_REACTION_BUYER = 'NoReactionBuyer';
     const REASON_GENERAL_ADJUSTMENT = 'GeneralAdjustment';
     const REASON_BUYER_CANCELLED = 'BuyerCancelled';
     const REASON_CUSTOMER_EXCHANGE = 'CustomerExchange';
@@ -169,8 +171,10 @@ class Constants
     const REASON_WRONG_CATALOG_DATA = 'WrongCatalogData';
     const REASON_MERCHANDISE_NOT_RECEIVED = 'MerchandiseNotReceived';
     const REASON_NO_INVENTORY = 'NoInventory';
+    const REASON_DELAYED_INVENTORY = 'DelayedInventory';
     const REASON_WRONG_PRICE = 'WrongPrice';
     const REASON_UNDELIVERABLE_REGION = 'UndeliverableRegion';
+    const REASON_NO_REACTION_BUYER = 'NoReactionBuyer';
     const CARRIER_CODE_OTHER = 'Other';
     const CARRIER_CODE_OTHER_HAULER = 'Other Hauler';
     const CARRIER_CODE_BURSPED = 'Bursped';
