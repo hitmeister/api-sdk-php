@@ -2,6 +2,12 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.17.3 - 2018-02-05
+
+### Fixed
+
+- Method `ItemsNamespace::findByEan()` returns either `ItemWithEmbeddedTransfer` or `null` instead of `ItemWithEmbeddedTransfer[]`
+
 ## 1.17.2 - 2017-11-15
 
 ### Fixed
