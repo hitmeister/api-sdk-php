@@ -42,18 +42,16 @@ class ItemsNamespace extends AbstractNamespace
 	/**
 	 * @param string $ean
 	 * @param array  $embedded
-	 * @param int    $limit
-	 * @param int    $offset
-	 * @return Cursor|ItemWithEmbeddedTransfer[]
+	 * @return ItemWithEmbeddedTransfer|null
 	 */
-	public function findByEan($ean, $embedded = null, $limit = 30, $offset = 0)
+	public function findByEan($ean, array $embedded = null)
 	{
-		return $this->buildFind()
+		$list = $this->buildFind()
 			->addParam('ean', $ean)
 			->addParam('embedded', $embedded)
-			->setLimit($limit)
-			->setOffset($offset)
 			->find();
+
+		return $list->total() ? $list->current() : null;
 	}
 
 	/**
