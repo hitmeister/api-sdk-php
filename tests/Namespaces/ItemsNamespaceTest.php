@@ -97,14 +97,10 @@ class ItemsNamespaceTest extends TransportAwareTestCase
 		$namespace = new ItemsNamespace($this->transport);
 		$result = $namespace->findByEan('0888462062947', ['units']);
 
-		$this->assertInstanceOf('\Iterator', $result);
-		$result = iterator_to_array($result);
-
-		/** @var \Hitmeister\Component\Api\Transfers\ItemWithEmbeddedTransfer[] $result */
-		$this->assertEquals(1, count($result));
-		$this->assertInstanceOf('\Hitmeister\Component\Api\Transfers\ItemWithEmbeddedTransfer', $result[0]);
-		$this->assertEquals(301583769, $result[0]->id_item);
-		$this->assertTrue(is_array($result[0]->eans));
+		/** @var \Hitmeister\Component\Api\Transfers\ItemWithEmbeddedTransfer $result */
+		$this->assertInstanceOf('\Hitmeister\Component\Api\Transfers\ItemWithEmbeddedTransfer', $result);
+		$this->assertEquals(301583769, $result->id_item);
+		$this->assertInternalType('array', $result->eans);
 	}
 
 	public function testGetEmbedded()
