@@ -15,7 +15,7 @@ use Hitmeister\Component\Api\Endpoints\Traits\RequestPatch;
  * @package  Hitmeister\Component\Api\Endpoints\Claims
  * @author   Maksim Naumov <maksim.naumov@hitmeister.de>
  * @license  https://opensource.org/licenses/MIT MIT
- * @link     https://www.hitmeister.de/api/v1/
+ * @link     https://www.real.de/api/v1/
  */
 class Close extends AbstractEndpoint implements IdAware
 {

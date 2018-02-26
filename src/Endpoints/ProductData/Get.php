@@ -15,7 +15,7 @@ use Hitmeister\Component\Api\Endpoints\Traits\UriPatternId;
  * @package  Hitmeister\Component\Api\Endpoints\Units
  * @author   Julian Ecknig <julian.ecknig@hitmeister.de>
  * @license  https://opensource.org/licenses/MIT MIT
- * @link     https://www.hitmeister.de/api/v1/
+ * @link     https://www.real.de/api/v1/
  */
 class Get extends AbstractEndpoint implements IdAware
 {

@@ -14,7 +14,7 @@ use Hitmeister\Component\Api\Transfers\ProductDataTransfer;
  * @package  Hitmeister\Component\Api\Tests\Namespaces
  * @author   Julian Ecknig <julian.ecknig@hitmeister.de>
  * @license  https://opensource.org/licenses/MIT MIT
- * @link     https://www.hitmeister.de/api/v1/
+ * @link     https://www.real.de/api/v1/
  */
 class ProductDataNamespaceTest extends TransportAwareTestCase
 {

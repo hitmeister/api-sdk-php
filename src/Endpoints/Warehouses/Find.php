@@ -12,7 +12,7 @@ use Hitmeister\Component\Api\Endpoints\Traits\RequestGet;
  * @package  Hitmeister\Component\Api\Endpoints\Warehouses
  * @author   Alex Litvinenko <alex.litvinenko@hitmeister.de>
  * @license  https://opensource.org/licenses/MIT MIT
- * @link     https://www.hitmeister.de/api/v1/
+ * @link     https://www.real.de/api/v1/
  */
 class Find extends AbstractEndpoint
 {

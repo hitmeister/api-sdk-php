@@ -9,7 +9,7 @@ namespace Hitmeister\Component\Api\Endpoints\Reports;
  * @package  Hitmeister\Component\Api\Endpoints\Reports
  * @author   Maksim Naumov <maksim.naumov@hitmeister.de>
  * @license  https://opensource.org/licenses/MIT MIT
- * @link     https://www.hitmeister.de/api/v1/
+ * @link     https://www.real.de/api/v1/
  */
 class AccountListing extends Post
 {

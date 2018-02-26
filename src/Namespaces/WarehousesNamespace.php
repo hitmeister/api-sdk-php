@@ -23,7 +23,7 @@ use Hitmeister\Component\Api\Transfers\WarehouseUpdateTransfer;
  * @package  Hitmeister\Component\Api\Namespaces
  * @author   Alex Litvinenko <alex.litvinenko@hitmeister.de>
  * @license  https://opensource.org/licenses/MIT MIT
- * @link     https://www.hitmeister.de/api/v1/
+ * @link     https://www.real.de/api/v1/
  */
 class WarehousesNamespace extends AbstractNamespace
 {

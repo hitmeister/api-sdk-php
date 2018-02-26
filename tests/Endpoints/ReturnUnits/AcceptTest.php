@@ -12,7 +12,7 @@ use Hitmeister\Component\Api\Tests\TransportAwareTestCase;
  * @package  Hitmeister\Component\Api\Tests\Endpoints\ReturnUnits
  * @author   Maksim Naumov <maksim.naumov@hitmeister.de>
  * @license  https://opensource.org/licenses/MIT MIT
- * @link     https://www.hitmeister.de/api/v1/
+ * @link     https://www.real.de/api/v1/
  */
 class AcceptTest extends TransportAwareTestCase
 {

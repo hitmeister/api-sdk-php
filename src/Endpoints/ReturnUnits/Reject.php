@@ -17,7 +17,7 @@ use Hitmeister\Component\Api\Transfers\ReturnUnitRejectTransfer;
  * @package  Hitmeister\Component\Api\Endpoints\ReturnUnits
  * @author   Maksim Naumov <maksim.naumov@hitmeister.de>
  * @license  https://opensource.org/licenses/MIT MIT
- * @link     https://www.hitmeister.de/api/v1/
+ * @link     https://www.real.de/api/v1/
  */
 class Reject extends AbstractEndpoint implements IdAware
 {
