@@ -11,7 +11,7 @@ use Hitmeister\Component\Api\Helper\Security;
  * @package  Hitmeister\Component\Api\Tests\Helper
  * @author   Maksim Naumov <maksim.naumov@hitmeister.de>
  * @license  https://opensource.org/licenses/MIT MIT
- * @link     https://www.hitmeister.de/api/v1/
+ * @link     https://www.real.de/api/v1/
  */
 class SecurityTest extends \PHPUnit_Framework_TestCase
 {

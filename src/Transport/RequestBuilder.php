@@ -11,7 +11,7 @@ use Hitmeister\Component\Api\Client;
  * @package  Hitmeister\Component\Api\Transport
  * @author   Maksim Naumov <maksim.naumov@hitmeister.de>
  * @license  https://opensource.org/licenses/MIT MIT
- * @link     https://www.hitmeister.de/api/v1/
+ * @link     https://www.real.de/api/v1/
  */
 class RequestBuilder
 {
@@ -55,7 +55,7 @@ class RequestBuilder
 	 */
 	public static function defaultApiUrl()
 	{
-		return 'https://www.hitmeister.de/api/v1/'; // trailing slash is required
+		return 'https://www.real.de/api/v1/'; // trailing slash is required
 	}
 
 	/**

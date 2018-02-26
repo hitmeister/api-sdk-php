@@ -17,7 +17,7 @@ use Hitmeister\Component\Api\Transfers\UnitUpdateTransfer;
  * @package  Hitmeister\Component\Api\Endpoints\Units
  * @author   Maksim Naumov <maksim.naumov@hitmeister.de>
  * @license  https://opensource.org/licenses/MIT MIT
- * @link     https://www.hitmeister.de/api/v1/
+ * @link     https://www.real.de/api/v1/
  */
 class Update extends AbstractEndpoint implements IdAware
 {

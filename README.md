@@ -4,7 +4,7 @@
 [![Coverage Status](http://img.shields.io/coveralls/hitmeister/api-sdk-php.svg)](https://coveralls.io/r/hitmeister/api-sdk-php?branch=master)
 [![Total Downloads](http://img.shields.io/packagist/dt/hitmeister/api-sdk.svg)](https://packagist.org/packages/hitmeister/api-sdk)
 
-PHP client for [Hitmeister API](https://www.hitmeister.de/api/v1/).
+PHP client for [Hitmeister API](https://www.real.de/api/v1/).
 
 ## Install
 
@@ -111,7 +111,7 @@ $items = $client->items()->findByEan('0885909781652');
 
 ### Send inventory data
 
-According to Hitmeister [API documentation](https://www.hitmeister.de/api/v1/?page=product-data#uploading-and-updating-items) you have two options:
+According to Hitmeister [API documentation](https://www.real.de/api/v1/?page=product-data#uploading-and-updating-items) you have two options:
 
 #### To upload your product data as CSV file
 

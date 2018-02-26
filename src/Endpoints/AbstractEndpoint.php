@@ -12,7 +12,7 @@ use Hitmeister\Component\Api\Transport\Transport;
  * @package  Hitmeister\Component\Api\Endpoints
  * @author   Maksim Naumov <maksim.naumov@hitmeister.de>
  * @license  https://opensource.org/licenses/MIT MIT
- * @link     https://www.hitmeister.de/api/v1/
+ * @link     https://www.real.de/api/v1/
  */
 abstract class AbstractEndpoint
 {

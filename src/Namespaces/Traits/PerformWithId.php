@@ -14,7 +14,7 @@ use Hitmeister\Component\Api\Helper\Response;
  * @package  Hitmeister\Component\Api\Namespaces\Traits
  * @author   Maksim Naumov <maksim.naumov@hitmeister.de>
  * @license  https://opensource.org/licenses/MIT MIT
- * @link     https://www.hitmeister.de/api/v1/
+ * @link     https://www.real.de/api/v1/
  */
 trait PerformWithId
 {

@@ -11,7 +11,7 @@ use Hitmeister\Component\Api\Exceptions\RuntimeException;
  * @package  Hitmeister\Component\Api\Endpoints\Traits
  * @author   Maksim Naumov <maksim.naumov@hitmeister.de>
  * @license  https://opensource.org/licenses/MIT MIT
- * @link     https://www.hitmeister.de/api/v1/
+ * @link     https://www.real.de/api/v1/
  */
 trait UriPatternId
 {

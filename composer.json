@@ -16,7 +16,7 @@
 		"sdk",
 		"api"
 	],
-	"homepage": "https://www.hitmeister.de/api/v1/",
+	"homepage": "https://www.real.de/api/v1/",
 	"support": {
 		"email": "devops@hitmeister.de",
 		"source": "https://github.com/hitmeister/api-sdk-php",

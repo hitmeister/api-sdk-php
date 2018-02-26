@@ -11,7 +11,7 @@ use GuzzleHttp\Ring\Future\FutureArrayInterface;
  * @package  Hitmeister\Component\Api\Transport
  * @author   Maksim Naumov <maksim.naumov@hitmeister.de>
  * @license  https://opensource.org/licenses/MIT MIT
- * @link     https://www.hitmeister.de/api/v1/
+ * @link     https://www.real.de/api/v1/
  */
 class Transport
 {

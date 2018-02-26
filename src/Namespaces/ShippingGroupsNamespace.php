@@ -15,7 +15,7 @@ use Hitmeister\Component\Api\Transfers\ShippingGroupTransfer;
  * @package  Hitmeister\Component\Api\Namespaces
  * @author   Alex Litvinenko <alex.litvinenko@hitmeister.de>
  * @license  https://opensource.org/licenses/MIT MIT
- * @link     https://www.hitmeister.de/api/v1/
+ * @link     https://www.real.de/api/v1/
  */
 class ShippingGroupsNamespace extends AbstractNamespace
 {
