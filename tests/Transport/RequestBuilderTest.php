@@ -27,7 +27,7 @@ class RequestBuilderTest extends \PHPUnit_Framework_TestCase
 		$this->assertArrayHasKey('headers', $request);
 		$this->assertTrue(is_array($request['headers']));
 		$this->assertArrayHasKey('Host', $request['headers']);
-		$this->assertEquals(['www.hitmeister.de'], $request['headers']['Host']);
+		$this->assertEquals(['www.real.de'], $request['headers']['Host']);
 	}
 
 	public function testRequest()
