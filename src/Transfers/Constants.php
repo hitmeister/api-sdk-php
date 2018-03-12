@@ -123,6 +123,7 @@ class Constants
     const STATE_PENDING = 'PENDING';
     const STATE_MISSING = 'MISSING';
     const STATE_MIN_ONE_MISSING = 'MIN_ONE_MISSING';
+    const STATUS_OPEN = 'open';
     const STATUS_NEED_TO_BE_SENT = 'need_to_be_sent';
     const STATUS_SENT = 'sent';
     const STATUS_RECEIVED = 'received';
@@ -161,6 +162,8 @@ class Constants
     const CANCEL_REASON_NO_INVENTORY = 'NoInventory';
     const CANCEL_REASON_WRONG_PRICE = 'WrongPrice';
     const CANCEL_REASON_UNDELIVERABLE_REGION = 'UndeliverableRegion';
+    const CANCEL_REASON_DELAYED_INVENTORY = 'DelayedInventory';
+    const CANCEL_REASON_NO_REACTION_BUYER = 'NoReactionBuyer';
     const REASON_GENERAL_ADJUSTMENT = 'GeneralAdjustment';
     const REASON_BUYER_CANCELLED = 'BuyerCancelled';
     const REASON_CUSTOMER_EXCHANGE = 'CustomerExchange';
@@ -171,6 +174,8 @@ class Constants
     const REASON_NO_INVENTORY = 'NoInventory';
     const REASON_WRONG_PRICE = 'WrongPrice';
     const REASON_UNDELIVERABLE_REGION = 'UndeliverableRegion';
+    const REASON_DELAYED_INVENTORY = 'DelayedInventory';
+    const REASON_NO_REACTION_BUYER = 'NoReactionBuyer';
     const CARRIER_CODE_OTHER = 'Other';
     const CARRIER_CODE_OTHER_HAULER = 'Other Hauler';
     const CARRIER_CODE_BURSPED = 'Bursped';
@@ -219,6 +224,7 @@ class Constants
     const STATUS_RETURN_ACCEPTED = 'return_accepted';
     const STATUS_RETURN_REJECTED = 'return_rejected';
     const STATUS_RETURN_CLOSED = 'return_closed';
+    const STATUS_RETURN_IN_REPAIR = 'return_in_repair';
     const REASON_RETURN = 'return';
     const REASON_OTHER = 'other';
     const REASON_NO_REASON = 'no_reason';
@@ -494,6 +500,9 @@ class Constants
     const EVENT_NAME_ORDER_UNIT_STATUS_CHANGED = 'order_unit_status_changed';
     const EVENT_NAME_ITEM_CHANGED = 'item_changed';
     const EVENT_NAME_CATEGORY_CHANGED = 'category_changed';
+    const EVENT_NAME_RETURN_NEW = 'return_new';
+    const EVENT_NAME_RETURN_STATUS_CHANGED = 'return_status_changed';
+    const EVENT_NAME_RETURN_UNIT_STATUS_CHANGED = 'return_unit_status_changed';
     const COUNTRY_AD = 'AD';
     const COUNTRY_AE = 'AE';
     const COUNTRY_AF = 'AF';
