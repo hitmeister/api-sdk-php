@@ -1,12 +1,12 @@
 {
 	"name": "hitmeister/api-sdk",
-	"description": "Hitmeister API SDK for PHP",
+	"description": "Real.de onlineshop API SDK for PHP",
 	"type": "library",
 	"version": "1.17.3",
 	"authors": [
 		{
-			"name": "Hitmeister GmbH Developers",
-			"email": "devops@hitmeister.de"
+			"name": "Real.de Onlineshop Developers",
+			"email": "devops@real-digital.de"
 		}
 	],
 	"license": "MIT",
@@ -16,9 +16,9 @@
 		"sdk",
 		"api"
 	],
-	"homepage": "https://www.hitmeister.de/api/v1/",
+	"homepage": "https://www.real.de/api/v1/",
 	"support": {
-		"email": "devops@hitmeister.de",
+		"email": "devops@real-digital.de",
 		"source": "https://github.com/hitmeister/api-sdk-php",
 		"issues": "https://github.com/hitmeister/api-sdk-php/issues"
 	},
