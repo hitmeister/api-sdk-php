@@ -2,6 +2,22 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.19.0 - 2018-03-12
+
+### Added
+
+- New return status `return_in_repair`
+- New events for subscriptions (`return_new`, `return_status_changed`, `return_unit_status_changed`)
+- New cancelation reasons (`DelayedInventory`, `NoReactionBuyer`)
+
+### Deprecated
+
+- Requests sent to `www.htimeister.de` will stop working on March 26th
+
+### Changed
+
+- Switch the default hostname from `www.hitmeister.de` to `www.real.de`
+
 ## 1.17.3 - 2018-02-05
 
 ### Fixed
