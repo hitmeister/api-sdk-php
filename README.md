@@ -59,7 +59,7 @@ The client has a number of "namespaces", which generally expose API functionalit
 | `productDataStatus()` | Retrieve the status of your product data                             |
 | `reports()`           | Generate and retrieve summary reports                                |
 | `returns()`           | Retrieve the returns from your sales                                 |
-| `returnUnits()`       | Accept or reject returns from your sales                             |
+| `returnUnits()`       | Accept, reject or repair returns from your sales                     |
 | `shippingGroups()`    | Retrieve the shipping groups data                                    |
 | `status()`            | System status                                                        |
 | `subscriptions()`     | Push notifications management                                        |
