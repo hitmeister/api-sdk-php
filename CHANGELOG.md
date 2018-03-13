@@ -2,6 +2,12 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.19.1 - 2018-03-13
+
+### Added
+
+- New return-unit endpoint `repair`, which will set the returnUnit-status to `return_in_repair`
+
 ## 1.19.0 - 2018-03-12
 
 ### Added
