@@ -10,6 +10,7 @@ use Hitmeister\Component\Api\Endpoints\Units\Post;
 use Hitmeister\Component\Api\Endpoints\Units\Update;
 use Hitmeister\Component\Api\Exceptions\InvalidArgumentException;
 use Hitmeister\Component\Api\Exceptions\ResourceNotFoundException;
+use Hitmeister\Component\Api\Exceptions\ServerException;
 use Hitmeister\Component\Api\FindBuilder;
 use Hitmeister\Component\Api\Helper\Response;
 use Hitmeister\Component\Api\Namespaces\Traits\PerformWithId;
@@ -101,6 +102,9 @@ class UnitsNamespace extends AbstractNamespace
 	/**
 	 * @param array|UnitAddTransfer $data
 	 * @return int
+	 *
+	 * @throws InvalidArgumentException
+	 * @throws ServerException
 	 */
 	public function post($data)
 	{
@@ -123,6 +127,8 @@ class UnitsNamespace extends AbstractNamespace
 	 * @param int                      $id
 	 * @param array|UnitUpdateTransfer $data
 	 * @return bool
+	 *
+	 * @throws InvalidArgumentException
 	 */
 	public function update($id, $data)
 	{
