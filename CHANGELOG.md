@@ -2,6 +2,14 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.19.2 - 2018-04-20
+
+### Added
+
+- Tests are executed using PHP 7.2 as well
+- More precise annotations to the thrown exceptions
+
+
 ## 1.19.1 - 2018-03-13
 
 ### Added
