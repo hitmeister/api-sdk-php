@@ -5,6 +5,15 @@ namespace Hitmeister\Component\Api\Tests\Endpoints\OrderUnits;
 use Hitmeister\Component\Api\Endpoints\OrderUnits\Fulfil;
 use Hitmeister\Component\Api\Tests\TransportAwareTestCase;
 
+/**
+ * Class FulfilTest
+ *
+ * @category PHP-SDK
+ * @package  Hitmeister\Component\Api\Tests\Endpoints\OrderUnits
+ * @author   Oleksandr Dombrovskyi <oleksandr.dombrovskyi@real-digital.de>
+ * @license  https://opensource.org/licenses/MIT MIT
+ * @link     https://www.hitmeister.de/api/v1/
+ */
 class FulfilTest extends TransportAwareTestCase
 {
     public function testInstance()

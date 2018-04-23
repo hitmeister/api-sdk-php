@@ -10,7 +10,7 @@ use Hitmeister\Component\Api\Tests\TransportAwareTestCase;
  *
  * @category PHP-SDK
  * @package  Hitmeister\Component\Api\Tests\Endpoints\ReturnUnits
- * @author   Philipp Schreiber <philipp.schreiber@real-digital.de>
+ * @author   Oleksandr Dombrovskyi <oleksandr.dombrovskyi@real-digital.de>
  * @license  https://opensource.org/licenses/MIT MIT
  * @link     https://www.hitmeister.de/api/v1/
  */
