@@ -15,7 +15,7 @@ use Hitmeister\Component\Api\Transfers\ReturnUnitClarifyTransfer;
  *
  * @category PHP-SDK
  * @package  Hitmeister\Component\Api\Endpoints\ReturnUnits
- * @author   Philipp Schreiber <philipp.schreiber@real-digital.de>
+ * @author   Oleksandr Dombrovskyi <oleksandr.dombrovskyi@real-digital.de>
  * @license  https://opensource.org/licenses/MIT MIT
  * @link     https://www.hitmeister.de/api/v1/
  */
