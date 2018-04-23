@@ -5,6 +5,7 @@ namespace Hitmeister\Component\Api\Namespaces;
 use Hitmeister\Component\Api\Cursor;
 use Hitmeister\Component\Api\Endpoints\OrderUnits\Cancel;
 use Hitmeister\Component\Api\Endpoints\OrderUnits\Find;
+use Hitmeister\Component\Api\Endpoints\OrderUnits\Fulfil;
 use Hitmeister\Component\Api\Endpoints\OrderUnits\Get;
 use Hitmeister\Component\Api\Endpoints\OrderUnits\Refund;
 use Hitmeister\Component\Api\Endpoints\OrderUnits\Send;
@@ -115,7 +116,7 @@ class OrderUnitsNamespace extends AbstractNamespace
 	}
 
 	/**
-	 * @param  int        $id
+	 * @param int         $id
 	 * @param string|null $carrierCode
 	 * @param string|null $trackingNumber
 	 * @return bool
@@ -144,8 +145,8 @@ class OrderUnitsNamespace extends AbstractNamespace
 	}
 
 	/**
-	 * @param  int $id
-	 * @param int  $amount
+	 * @param int    $id
+	 * @param int    $amount
 	 * @param string $reason
 	 *
 	 * @return bool
@@ -161,6 +162,25 @@ class OrderUnitsNamespace extends AbstractNamespace
 		$endpoint = new Refund($this->getTransport());
 		$endpoint->setId($id);
 		$endpoint->setTransfer($data);
+
+		try {
+			$result = $endpoint->performRequest();
+		} catch (ResourceNotFoundException $e) {
+			return false;
+		}
+
+		return $result['status'] == 204;
+	}
+
+	/**
+	 * @param int $id
+	 *
+	 * @return bool
+	 */
+	public function fulfil($id)
+	{
+		$endpoint = new Fulfil($this->getTransport());
+		$endpoint->setId($id);
 
 		try {
 			$result = $endpoint->performRequest();

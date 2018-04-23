@@ -140,4 +140,24 @@ class OrderUnitsNamespaceTest extends TransportAwareTestCase
 		$this->assertTrue($result);
 	}
 
+	public function testFulfil()
+	{
+		$this->transport->shouldReceive('performRequest')->once()->andReturn([
+			'status' => 204,
+		]);
+
+		$namespace = new OrderUnitsNamespace($this->transport);
+		$result = $namespace->fulfil(10);
+		$this->assertTrue($result);
+	}
+
+	public function testFulfilNotFound()
+	{
+		$this->transport->shouldReceive('performRequest')->once()->andThrow(new ResourceNotFoundException());
+
+		$namespace = new OrderUnitsNamespace($this->transport);
+		$result = $namespace->fulfil(10);
+		$this->assertFalse($result);
+	}
+
 }
