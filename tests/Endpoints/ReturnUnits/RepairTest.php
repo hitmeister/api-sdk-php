@@ -6,7 +6,7 @@ use Hitmeister\Component\Api\Endpoints\ReturnUnits\Repair;
 use Hitmeister\Component\Api\Tests\TransportAwareTestCase;
 
 /**
- * Class AcceptTest
+ * Class RepairTest
  *
  * @category PHP-SDK
  * @package  Hitmeister\Component\Api\Tests\Endpoints\ReturnUnits
