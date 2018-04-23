@@ -225,6 +225,7 @@ class Constants
     const STATUS_RETURN_REJECTED = 'return_rejected';
     const STATUS_RETURN_CLOSED = 'return_closed';
     const STATUS_RETURN_IN_REPAIR = 'return_in_repair';
+    const STATUS_RETURN_IN_CLARIFICATION = 'return_in_clarification';
     const REASON_RETURN = 'return';
     const REASON_OTHER = 'other';
     const REASON_NO_REASON = 'no_reason';
