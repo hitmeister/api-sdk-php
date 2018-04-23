@@ -2,6 +2,15 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.20.0 - 2018-04-23
+
+### Added
+
+- `/return-units/{id_return_unit}/clarify` endpoint
+- `/return-units/{id_return_unit}/repair` endpoint
+- `/order_units/{id_order_unit}/fulfil` endpoint
+
+
 ## 1.19.2 - 2018-04-20
 
 ### Added
