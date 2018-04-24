@@ -2,7 +2,7 @@
 	"name": "hitmeister/api-sdk",
 	"description": "Real.de onlineshop API SDK for PHP",
 	"type": "library",
-	"version": "1.20.0",
+	"version": "1.21.0",
 	"authors": [
 		{
 			"name": "Real.de Onlineshop Developers",

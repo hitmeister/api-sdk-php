@@ -34,11 +34,11 @@ class Clarify extends AbstractEndpoint implements IdAware
         $this->transfer = $transfer;
     }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	protected function getUriPattern()
-	{
-		return 'return-units/%d/clarify/';
-	}
+    /**
+     * {@inheritdoc}
+     */
+    protected function getUriPattern()
+    {
+        return 'return-units/%d/clarify/';
+    }
 }
