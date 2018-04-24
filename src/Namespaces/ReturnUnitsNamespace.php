@@ -4,12 +4,15 @@ namespace Hitmeister\Component\Api\Namespaces;
 
 use Hitmeister\Component\Api\Cursor;
 use Hitmeister\Component\Api\Endpoints\ReturnUnits\Accept;
+use Hitmeister\Component\Api\Endpoints\ReturnUnits\Clarify;
 use Hitmeister\Component\Api\Endpoints\ReturnUnits\Find;
 use Hitmeister\Component\Api\Endpoints\ReturnUnits\Get;
 use Hitmeister\Component\Api\Endpoints\ReturnUnits\Reject;
+use Hitmeister\Component\Api\Endpoints\ReturnUnits\Repair;
 use Hitmeister\Component\Api\Exceptions\ResourceNotFoundException;
 use Hitmeister\Component\Api\FindBuilder;
 use Hitmeister\Component\Api\Namespaces\Traits\PerformWithId;
+use Hitmeister\Component\Api\Transfers\ReturnUnitClarifyTransfer;
 use Hitmeister\Component\Api\Transfers\ReturnUnitRejectTransfer;
 use Hitmeister\Component\Api\Transfers\ReturnUnitTransfer;
 use Hitmeister\Component\Api\Transfers\ReturnUnitWithEmbeddedTransfer;
@@ -120,4 +123,46 @@ class ReturnUnitsNamespace extends AbstractNamespace
 
 		return $result['status'] == 204;
 	}
+
+    /**
+     * @param int $id
+     * @return bool
+     */
+    public function repair($id)
+    {
+        $endpoint = new Repair($this->getTransport());
+        $endpoint->setId($id);
+
+        try {
+            $result = $endpoint->performRequest();
+        } catch (ResourceNotFoundException $e) {
+            return false;
+        }
+
+        return $result['status'] == 204;
+    }
+
+    /**
+     * @param int $id
+     * @param string $message
+     *
+     * @return bool
+     */
+    public function clarify($id, $message)
+    {
+        $data = new ReturnUnitClarifyTransfer();
+        $data->message = $message;
+
+        $endpoint = new Clarify($this->getTransport());
+        $endpoint->setId($id);
+        $endpoint->setTransfer($data);
+
+        try {
+            $result = $endpoint->performRequest();
+        } catch (ResourceNotFoundException $e) {
+            return false;
+        }
+
+        return $result['status'] == 204;
+    }
 }
