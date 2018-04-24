@@ -20,6 +20,8 @@ namespace Hitmeister\Component\Api\Transfers;
  * @property int $reference_price
  * @property SellerTransfer $seller
  * @property int $shipping_rate
+ * @property string $date_inserted
+ * @property string $date_lastchange
  *
  *
  */
@@ -93,6 +95,16 @@ class UnitTransfer extends AbstractTransfer
     'type' => 'Hitmeister\\Component\\Api\\Transfers\\SellerTransfer',
   ),
   'shipping_rate' => 
+  array (
+    'embedded' => false,
+    'is_multiple' => false,
+  ),
+  'date_inserted' => 
+  array (
+    'embedded' => false,
+    'is_multiple' => false,
+  ),
+  'date_lastchange' => 
   array (
     'embedded' => false,
     'is_multiple' => false,
