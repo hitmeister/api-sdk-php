@@ -6,7 +6,7 @@
 	"authors": [
 		{
 			"name": "Real.de Onlineshop Developers",
-			"email": "devops@real-digital.de"
+			"email": "opensource@real-digital.de"
 		}
 	],
 	"license": "MIT",
@@ -21,7 +21,7 @@
 	],
 	"homepage": "https://www.real.de/api/v1/",
 	"support": {
-		"email": "devops@real-digital.de",
+		"email": "opensource@real-digital.de",
 		"source": "https://github.com/hitmeister/api-sdk-php",
 		"issues": "https://github.com/hitmeister/api-sdk-php/issues"
 	},
