@@ -51,6 +51,6 @@
 		}
 	},
 	"scripts": {
-		"test": "phpunit"
+        "test": "vendor/bin/phpunit"
 	}
 }
