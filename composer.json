@@ -1,56 +1,56 @@
 {
-	"name": "hitmeister/api-sdk",
-	"description": "Real.de onlineshop API SDK for PHP",
-	"type": "library",
-	"version": "1.21.0",
-	"authors": [
-		{
-			"name": "Real.de Onlineshop Developers",
-			"email": "opensource@real-digital.de"
-		}
-	],
-	"license": "MIT",
-	"minimum-stability": "stable",
-	"keywords": [
-		"hitmeister",
-		"sdk",
-		"api",
-		"real.de",
-		"real.digital",
-		"real-digital"
-	],
-	"homepage": "https://www.real.de/api/v1/",
-	"support": {
-		"email": "opensource@real-digital.de",
-		"source": "https://github.com/hitmeister/api-sdk-php",
-		"issues": "https://github.com/hitmeister/api-sdk-php/issues"
-	},
-	"require": {
-		"php": ">=5.4.0",
-		"ext-curl": "*",
-		"guzzlehttp/ringphp": "^1.1",
-		"psr/log": "^1.0"
-	},
-	"require-dev": {
-		"mockery/mockery": "^0.9.4",
-		"phpunit/phpunit": "^4.8",
+    "name": "hitmeister/api-sdk",
+    "description": "Real.de onlineshop API SDK for PHP",
+    "type": "library",
+    "version": "1.21.0",
+    "authors": [
+        {
+            "name": "Real.de Onlineshop Developers",
+            "email": "opensource@real-digital.de"
+        }
+    ],
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "keywords": [
+        "hitmeister",
+        "sdk",
+        "api",
+        "real.de",
+        "real.digital",
+        "real-digital"
+    ],
+    "homepage": "https://www.real.de/api/v1/",
+    "support": {
+        "email": "opensource@real-digital.de",
+        "source": "https://github.com/hitmeister/api-sdk-php",
+        "issues": "https://github.com/hitmeister/api-sdk-php/issues"
+    },
+    "require": {
+        "php": ">=5.4.0",
+        "ext-curl": "*",
+        "guzzlehttp/ringphp": "^1.1",
+        "psr/log": "^1.0"
+    },
+    "require-dev": {
+        "mockery/mockery": "^0.9.4",
+        "phpunit/phpunit": "^4.8",
         "php-coveralls/php-coveralls": "^1.1",
-		"memio/memio": "^1.1"
-	},
-	"suggest": {
-		"monolog/monolog": "Allows more advanced logging of the application flow"
-	},
-	"autoload": {
-		"psr-4": {
-			"Hitmeister\\Component\\Api\\": "src/"
-		}
-	},
-	"autoload-dev": {
-		"psr-4": {
-			"Hitmeister\\Component\\Api\\Tests\\": "tests/"
-		}
-	},
-	"scripts": {
+        "memio/memio": "^1.1"
+    },
+    "suggest": {
+        "monolog/monolog": "Allows more advanced logging of the application flow"
+    },
+    "autoload": {
+        "psr-4": {
+            "Hitmeister\\Component\\Api\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Hitmeister\\Component\\Api\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
         "test": "vendor/bin/phpunit"
-	}
+    }
 }
