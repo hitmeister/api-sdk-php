@@ -2,6 +2,14 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.22.0 - 2018-04-28
+
+### Updated
+
+- New format for field `uri` when requesting ticket files via `/tickets/getTicket{id_ticket}`. Now the
+  absolute uri for the given file is returned alongside with a key, so file downloading is possible without being
+  logged in.
+
 ## 1.21.0 - 2018-04-23
 
 ### Added
