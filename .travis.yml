@@ -5,6 +5,7 @@ php:
   - '5.6'
   - '7.0'
   - '7.1'
+  - '7.2'
 
 sudo: false
 
@@ -15,5 +16,5 @@ script:
   - mkdir -p build/logs
   - vendor/bin/phpunit -c phpunit.xml.dist
 
-after_script:
-  - php vendor/bin/coveralls
+after_success:
+  - travis_retry php vendor/bin/coveralls

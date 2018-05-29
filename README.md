@@ -1,7 +1,7 @@
 # Real.de Onlineshop - API SDK for PHP [![Build Status](https://travis-ci.org/hitmeister/api-sdk-php.svg?branch=master)](https://travis-ci.org/hitmeister/api-sdk-php)
 
 [![Latest Stable Version](http://img.shields.io/github/release/hitmeister/api-sdk-php.svg)](https://packagist.org/packages/hitmeister/api-sdk)
-[![Coverage Status](http://img.shields.io/coveralls/hitmeister/api-sdk-php.svg)](https://coveralls.io/r/hitmeister/api-sdk-php?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/hitmeister/api-sdk-php/badge.svg?branch=master)](https://coveralls.io/github/hitmeister/api-sdk-php?branch=master)
 [![Total Downloads](http://img.shields.io/packagist/dt/hitmeister/api-sdk.svg)](https://packagist.org/packages/hitmeister/api-sdk)
 
 PHP client for [Real.de Onlineshop API](https://www.real.de/api/v1/).
@@ -59,7 +59,7 @@ The client has a number of "namespaces", which generally expose API functionalit
 | `productDataStatus()` | Retrieve the status of your product data                             |
 | `reports()`           | Generate and retrieve summary reports                                |
 | `returns()`           | Retrieve the returns from your sales                                 |
-| `returnUnits()`       | Accept or reject returns from your sales                             |
+| `returnUnits()`       | Accept, reject or repair returns from your sales                     |
 | `shippingGroups()`    | Retrieve the shipping groups data                                    |
 | `status()`            | System status                                                        |
 | `subscriptions()`     | Push notifications management                                        |

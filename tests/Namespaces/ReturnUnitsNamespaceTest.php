@@ -129,4 +129,44 @@ class ReturnUnitsNamespaceTest extends TransportAwareTestCase
 		$result = $namespace->reject(10, 'message');
 		$this->assertFalse($result);
 	}
+
+	public function testRepair()
+	{
+		$this->transport->shouldReceive('performRequest')->once()->andReturn([
+			'status' => 204,
+		]);
+
+		$namespace = new ReturnUnitsNamespace($this->transport);
+		$result = $namespace->repair(10);
+		$this->assertTrue($result);
+	}
+
+	public function testRepairNotFound()
+	{
+		$this->transport->shouldReceive('performRequest')->once()->andThrow(new ResourceNotFoundException());
+
+		$namespace = new ReturnUnitsNamespace($this->transport);
+		$result = $namespace->repair(10);
+		$this->assertFalse($result);
+	}
+
+	public function testClarify()
+	{
+		$this->transport->shouldReceive('performRequest')->once()->andReturn([
+			'status' => 204,
+		]);
+
+		$namespace = new ReturnUnitsNamespace($this->transport);
+		$result = $namespace->clarify(10, 'message');
+		$this->assertTrue($result);
+	}
+
+	public function testClarifyNotFound()
+	{
+		$this->transport->shouldReceive('performRequest')->once()->andThrow(new ResourceNotFoundException());
+
+		$namespace = new ReturnUnitsNamespace($this->transport);
+        $result = $namespace->clarify(10, 'message');
+		$this->assertFalse($result);
+	}
 }

@@ -2,6 +2,37 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.22.0 - 2018-04-28
+
+### Updated
+
+- New format for field `uri` when requesting ticket files via `/tickets/getTicket{id_ticket}`. Now the
+  absolute uri for the given file is returned alongside with a key, so file downloading is possible without being
+  logged in.
+
+## 1.21.0 - 2018-04-23
+
+### Added
+
+- `/return-units/{id_return_unit}/clarify` endpoint
+- `/return-units/{id_return_unit}/repair` endpoint
+- `/order_units/{id_order_unit}/fulfil` endpoint
+
+
+## 1.19.2 - 2018-04-20
+
+### Added
+
+- Tests are executed using PHP 7.2 as well
+- More precise annotations to the thrown exceptions
+
+
+## 1.19.1 - 2018-03-13
+
+### Added
+
+- New return-unit endpoint `repair`, which will set the returnUnit-status to `return_in_repair`
+
 ## 1.19.0 - 2018-03-12
 
 ### Added
