@@ -11,7 +11,7 @@ class RefundTest extends TransportAwareTestCase
 	{
 		/** @var \Mockery\Mock|\Hitmeister\Component\Api\Transfers\OrderUnitRefundTransfer $transfer */
 		$transfer = \Mockery::mock('\Hitmeister\Component\Api\Transfers\OrderUnitRefundTransfer');
-		$transfer->shouldReceive('toArray')->once()->andReturn(['amount' => 100500]);
+		$transfer->shouldReceive('toArray')->once()->andReturn(['amount' => 100500, 'reason' => 'other_refund']);
 
 		$send = new Refund($this->transport);
 		$send->setId(1);
@@ -23,6 +23,7 @@ class RefundTest extends TransportAwareTestCase
 
 		$body = $send->getBody();
 		$this->assertArrayHasKey('amount', $body);
+		$this->assertArrayHasKey('reason', $body);
 	}
 
 	/**
