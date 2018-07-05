@@ -2,6 +2,13 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.22.1 - 2018-07-05
+
+### Fixed
+
+- The field `reason` is mandatory when sending a refund to the customer for a particular
+  order unit via `/order-units/{id_order_unit}/refund/`.
+
 ## 1.22.0 - 2018-04-28
 
 ### Updated
