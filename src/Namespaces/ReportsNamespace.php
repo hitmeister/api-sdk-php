@@ -5,19 +5,23 @@ namespace Hitmeister\Component\Api\Namespaces;
 use Hitmeister\Component\Api\Cursor;
 use Hitmeister\Component\Api\Endpoints\Reports\AccountListing;
 use Hitmeister\Component\Api\Endpoints\Reports\Bookings;
+use Hitmeister\Component\Api\Endpoints\Reports\BookingsNew;
 use Hitmeister\Component\Api\Endpoints\Reports\Cancellations;
 use Hitmeister\Component\Api\Endpoints\Reports\CompetitorsComparer;
 use Hitmeister\Component\Api\Endpoints\Reports\Find;
 use Hitmeister\Component\Api\Endpoints\Reports\Get;
 use Hitmeister\Component\Api\Endpoints\Reports\ProductDataImportErrors;
 use Hitmeister\Component\Api\Endpoints\Reports\Sales;
+use Hitmeister\Component\Api\Endpoints\Reports\SalesNew;
 use Hitmeister\Component\Api\FindBuilder;
 use Hitmeister\Component\Api\Helper\Request;
 use Hitmeister\Component\Api\Helper\Response;
 use Hitmeister\Component\Api\Namespaces\Traits\PerformWithId;
 use Hitmeister\Component\Api\Transfers\ReportProductDataImportFileErrorsTransfer;
 use Hitmeister\Component\Api\Transfers\ReportRequestBookingsTransfer;
+use Hitmeister\Component\Api\Transfers\ReportRequestBookingsNewTransfer;
 use Hitmeister\Component\Api\Transfers\ReportRequestSalesTransfer;
+use Hitmeister\Component\Api\Transfers\ReportRequestSalesNewTransfer;
 use Hitmeister\Component\Api\Transfers\ReportTransfer;
 
 /**
@@ -121,6 +125,26 @@ class ReportsNamespace extends AbstractNamespace
 	}
 
 	/**
+	 * @param \DateTime|int|string $dateFrom
+	 * @param \DateTime|int|string $dateTo
+	 * @return int
+	 * @throws \Hitmeister\Component\Api\Exceptions\ServerException
+	 */
+	public function bookingsNew($dateFrom, $dateTo)
+	{
+		$data = new ReportRequestBookingsNewTransfer();
+		$data->ts_from = Request::formatDateTime($dateFrom);
+		$data->ts_to = Request::formatDateTime($dateTo);
+
+		$endpoint = new BookingsNew($this->getTransport());
+		$endpoint->setTransfer($data);
+
+		$resultRequest = $endpoint->performRequest();
+
+		return Response::extractId($resultRequest, '/reports/%d/');
+	}
+
+	/**
 	 * @param int $importFileId
 	 * @return int
 	 */
@@ -152,6 +176,26 @@ class ReportsNamespace extends AbstractNamespace
 		$data->ts_to = Request::formatDateTime($dateTimeTo);
 
 		$endpoint = new Sales($this->getTransport());
+		$endpoint->setTransfer($data);
+
+		$resultRequest = $endpoint->performRequest();
+
+		return Response::extractId($resultRequest, '/reports/%d/');
+	}
+
+	/**
+	 * @param \DateTime|int|string $dateTimeFrom
+	 * @param \DateTime|int|string $dateTimeTo
+	 * @return int
+	 * @throws \Hitmeister\Component\Api\Exceptions\ServerException
+	 */
+	public function salesNew($dateTimeFrom, $dateTimeTo)
+	{
+		$data = new ReportRequestSalesNewTransfer();
+		$data->ts_from = Request::formatDateTime($dateTimeFrom);
+		$data->ts_to = Request::formatDateTime($dateTimeTo);
+
+		$endpoint = new SalesNew($this->getTransport());
 		$endpoint->setTransfer($data);
 
 		$resultRequest = $endpoint->performRequest();
