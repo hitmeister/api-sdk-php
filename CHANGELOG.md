@@ -2,6 +2,12 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.23.0 - 2018-07-12
+
+### Added
+
+- New endpoints for reports `/reports/bookings-new/` and `/reports/sales-new/`
+
 ## 1.22.0 - 2018-04-28
 
 ### Updated
