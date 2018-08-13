@@ -18,7 +18,7 @@ class PostTest extends TransportAwareTestCase
 				1234569,
 			],
 			'reason' => 'defect',
-			'note' => 'Note'
+			'note' => 'Note',
 		]);
 
 		$post = new Post($this->transport);
@@ -32,5 +32,8 @@ class PostTest extends TransportAwareTestCase
 		$this->assertEquals('returns/', $post->getURI());
 
 		$body = $post->getBody();
+		$this->assertArrayHasKey('id_order_unit', $body);
+		$this->assertArrayHasKey('reason', $body);
+		$this->assertArrayHasKey('note', $body);
 	}
 }

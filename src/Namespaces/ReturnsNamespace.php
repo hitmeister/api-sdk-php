@@ -86,13 +86,10 @@ class ReturnsNamespace extends AbstractNamespace
 	}
 
 	/**
-	 * @param array $orderUnits
-	 * @param $reason
-	 * @param $note
-	 * @return mixed
+	 * @param integer[] $orderUnits
 	 * @throws \Hitmeister\Component\Api\Exceptions\ServerException
 	 */
-	public function post(array $orderUnits, $reason, $note)
+	public function post(array $orderUnits, string $reason, string $note)
 	{
 		$data = new OrderUnitReturnTransfer();
 		$data->id_order_unit = $orderUnits;
