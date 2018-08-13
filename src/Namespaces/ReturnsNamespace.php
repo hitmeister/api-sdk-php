@@ -87,7 +87,10 @@ class ReturnsNamespace extends AbstractNamespace
 
 	/**
 	 * @param integer[] $orderUnits
+	 * @param string $reason
+	 * @param string $note
 	 * @throws \Hitmeister\Component\Api\Exceptions\ServerException
+	 * @return array
 	 */
 	public function post(array $orderUnits, string $reason, string $note)
 	{
