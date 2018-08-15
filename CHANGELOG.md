@@ -2,6 +2,17 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.24.0 - 2018-08-15
+
+### Fixed
+
+- Changed a pattern for `/product-data/{ean}/` endpoint, [PR #46](https://github.com/hitmeister/api-sdk-php/pull/46/)
+
+### Added
+
+- New fields `age_rating` and `is_valid` in `Item`
+- New field `vat` in `OrderUnit`
+
 ## 1.23.0 - 2018-07-12
 
 ### Added
