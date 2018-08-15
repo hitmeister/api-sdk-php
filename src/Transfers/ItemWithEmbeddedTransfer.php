@@ -15,6 +15,8 @@ namespace Hitmeister\Component\Api\Transfers;
  * @property string $manufacturer
  * @property string $url
  * @property string $real_mgb_article_number
+ * @property int $age_rating
+ * @property boolean $is_valid
  *
  * @property CategoryTransfer $category
  * @property array $units
@@ -64,6 +66,16 @@ class ItemWithEmbeddedTransfer extends AbstractTransfer
     'is_multiple' => false,
   ),
   'real_mgb_article_number' => 
+  array (
+    'embedded' => false,
+    'is_multiple' => false,
+  ),
+  'age_rating' =>
+  array (
+    'embedded' => false,
+    'is_multiple' => false,
+  ),
+  'is_valid' =>
   array (
     'embedded' => false,
     'is_multiple' => false,

@@ -22,6 +22,7 @@ namespace Hitmeister\Component\Api\Transfers;
  * @property string $delivery_time_expires
  * @property int $shipping_rate
  * @property string $cancel_reason
+ * @property int $vat
  * @property BuyerTransfer $buyer
  * @property ClaimTransfer $claim
  * @property AddressTransfer $billing_address
@@ -110,6 +111,11 @@ class OrderUnitTransfer extends AbstractTransfer
     'is_multiple' => false,
   ),
   'cancel_reason' => 
+  array (
+    'embedded' => false,
+    'is_multiple' => false,
+  ),
+  'vat' =>
   array (
     'embedded' => false,
     'is_multiple' => false,
