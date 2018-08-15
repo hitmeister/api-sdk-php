@@ -45,11 +45,11 @@ All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this
 
 - New return status `return_in_repair`
 - New events for subscriptions (`return_new`, `return_status_changed`, `return_unit_status_changed`)
-- New cancelation reasons (`DelayedInventory`, `NoReactionBuyer`)
+- New cancellation reasons (`DelayedInventory`, `NoReactionBuyer`)
 
 ### Deprecated
 
-- Requests sent to `www.htimeister.de` will stop working on March 26th
+- Requests sent to `www.hitmeister.de` will stop working on March 26th
 
 ### Changed
 
