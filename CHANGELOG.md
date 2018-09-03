@@ -2,6 +2,13 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.25.0 - 2018-09-03
+
+### Added
+
+- Report on not found EANs
+- Report on product data changes
+
 ## 1.24.0 - 2018-08-15
 
 ### Fixed

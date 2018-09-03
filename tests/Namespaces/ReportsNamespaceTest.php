@@ -236,4 +236,50 @@ class ReportsNamespaceTest extends TransportAwareTestCase
 		$result = $namespace->productDataImportErrors(10);
 		$this->assertEquals(123456, $result);
 	}
+
+	public function testProductDataChanges()
+	{
+		$this->transport
+			->shouldReceive('performRequest')
+			->once()
+			->withArgs([
+				'POST',
+				'reports/product-data-changes/',
+				[], // no params
+				null, // no body
+				\Mockery::any(),
+			])
+			->andReturn([
+				'headers' => [
+					'Location' => ['/reports/42/'],
+				],
+			]);
+
+		$namespace = new ReportsNamespace($this->transport);
+		$result = $namespace->productDataChanges();
+		$this->assertEquals(42, $result);
+	}
+
+	public function testEansNotFound()
+	{
+		$this->transport
+			->shouldReceive('performRequest')
+			->once()
+			->withArgs([
+				'POST',
+				'reports/eans-not-found/',
+				[], // no params
+				null, // no body
+				\Mockery::any(),
+			])
+			->andReturn([
+				'headers' => [
+					'Location' => ['/reports/42/'],
+				],
+			]);
+
+		$namespace = new ReportsNamespace($this->transport);
+		$result = $namespace->eansNotFound();
+		$this->assertEquals(42, $result);
+	}
 }
