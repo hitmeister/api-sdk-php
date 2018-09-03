@@ -8,8 +8,10 @@ use Hitmeister\Component\Api\Endpoints\Reports\Bookings;
 use Hitmeister\Component\Api\Endpoints\Reports\BookingsNew;
 use Hitmeister\Component\Api\Endpoints\Reports\Cancellations;
 use Hitmeister\Component\Api\Endpoints\Reports\CompetitorsComparer;
+use Hitmeister\Component\Api\Endpoints\Reports\EansNotFound;
 use Hitmeister\Component\Api\Endpoints\Reports\Find;
 use Hitmeister\Component\Api\Endpoints\Reports\Get;
+use Hitmeister\Component\Api\Endpoints\Reports\ProductDataChanges;
 use Hitmeister\Component\Api\Endpoints\Reports\ProductDataImportErrors;
 use Hitmeister\Component\Api\Endpoints\Reports\Sales;
 use Hitmeister\Component\Api\Endpoints\Reports\SalesNew;
@@ -198,6 +200,28 @@ class ReportsNamespace extends AbstractNamespace
 		$endpoint = new SalesNew($this->getTransport());
 		$endpoint->setTransfer($data);
 
+		$resultRequest = $endpoint->performRequest();
+
+		return Response::extractId($resultRequest, '/reports/%d/');
+	}
+
+	/**
+	 * @return int
+	 */
+	public function eansNotFound()
+	{
+		$endpoint = new EansNotFound($this->getTransport());
+		$resultRequest = $endpoint->performRequest();
+
+		return Response::extractId($resultRequest, '/reports/%d/');
+	}
+
+	/**
+	 * @return int
+	 */
+	public function productDataChanges()
+	{
+		$endpoint = new ProductDataChanges($this->getTransport());
 		$resultRequest = $endpoint->performRequest();
 
 		return Response::extractId($resultRequest, '/reports/%d/');
