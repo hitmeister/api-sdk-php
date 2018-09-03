@@ -1,4 +1,4 @@
-# Real.de Onlineshop - API SDK for PHP [![Build Status](https://travis-ci.org/hitmeister/api-sdk-php.svg?branch=master)](https://travis-ci.org/hitmeister/api-sdk-php)
+# Real.de Onlineshop - API SDK for PHP [![Build Status](https://travis-ci.org/hitmeister/api-sdk-php.svg?branch=develop)](https://travis-ci.org/hitmeister/api-sdk-php)
 
 [![Latest Stable Version](http://img.shields.io/github/release/hitmeister/api-sdk-php.svg)](https://packagist.org/packages/hitmeister/api-sdk)
 [![Coverage Status](https://coveralls.io/repos/github/hitmeister/api-sdk-php/badge.svg?branch=master)](https://coveralls.io/github/hitmeister/api-sdk-php?branch=master)
