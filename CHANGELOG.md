@@ -2,6 +2,12 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.26.0 - 2018-09-17
+
+### Added
+
+- A new endpoint `/returns/` with a possibility to [initialize returns manually](https://www.real.de/api/v1/?page=returns#returning-order-units).
+
 ## 1.25.0 - 2018-09-03
 
 ### Added
