@@ -6,9 +6,12 @@ use Hitmeister\Component\Api\Cursor;
 use Hitmeister\Component\Api\Endpoints\Tickets\Close;
 use Hitmeister\Component\Api\Endpoints\Tickets\Find;
 use Hitmeister\Component\Api\Endpoints\Tickets\Get;
+use Hitmeister\Component\Api\Endpoints\Tickets\Post;
 use Hitmeister\Component\Api\Exceptions\ResourceNotFoundException;
 use Hitmeister\Component\Api\FindBuilder;
+use Hitmeister\Component\Api\Helper\Response;
 use Hitmeister\Component\Api\Namespaces\Traits\PerformWithId;
+use Hitmeister\Component\Api\Transfers\TicketOpenTransfer;
 use Hitmeister\Component\Api\Transfers\TicketTransfer;
 use Hitmeister\Component\Api\Transfers\TicketWithEmbeddedTransfer;
 
@@ -101,4 +104,26 @@ class TicketsNamespace extends AbstractNamespace
 
 		return $result['status'] == 204;
 	}
+
+    /**
+     * @param integer[] $idsOrderUnit
+     * @param string $topic
+     * @param string $message
+     * @return mixed
+     * @throws \Hitmeister\Component\Api\Exceptions\ServerException
+     */
+	public function post(array $idsOrderUnit, string $topic, string $message)
+    {
+        $data = new TicketOpenTransfer();
+        $data->id_order_unit = $idsOrderUnit;
+        $data->topic = $topic;
+        $data->message = $message;
+
+        $endpoint = new Post($this->getTransport());
+        $endpoint->setTransfer($data);
+        $resultRequest = $endpoint->performRequest();
+
+        Response::checkBody($resultRequest);
+        return $resultRequest['json'];
+    }
 }
