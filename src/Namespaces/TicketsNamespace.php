@@ -112,7 +112,7 @@ class TicketsNamespace extends AbstractNamespace
      * @return mixed
      * @throws \Hitmeister\Component\Api\Exceptions\ServerException
      */
-	public function post(array $idsOrderUnit, string $topic, string $message)
+	public function post(array $idsOrderUnit, $topic, $message)
     {
         $data = new TicketOpenTransfer();
         $data->id_order_unit = $idsOrderUnit;
