@@ -8,7 +8,7 @@ namespace Hitmeister\Component\Api\Transfers;
  * @codeCoverageIgnore
  *
  * @property array $id_order_unit
- * @property string $topic
+ * @property string $reason
  * @property string $message
  *
  *
@@ -26,7 +26,7 @@ class TicketOpenTransfer extends AbstractTransfer
     'embedded' => false,
     'is_multiple' => true,
   ),
-  'topic' => 
+  'reason' => 
   array (
     'embedded' => false,
     'is_multiple' => false,

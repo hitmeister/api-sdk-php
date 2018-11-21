@@ -17,7 +17,7 @@ class PostTest extends TransportAwareTestCase
                 1234568,
                 1234569,
             ],
-            'topic' => 'other_question',
+            'reason' => 'contact_other',
             'message' => 'I have a problem',
         ]);
 
@@ -33,7 +33,7 @@ class PostTest extends TransportAwareTestCase
 
         $body = $post->getBody();
         $this->assertArrayHasKey('id_order_unit', $body);
-        $this->assertArrayHasKey('topic', $body);
+        $this->assertArrayHasKey('reason', $body);
         $this->assertArrayHasKey('message', $body);
     }
 }

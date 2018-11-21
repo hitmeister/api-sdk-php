@@ -121,7 +121,7 @@ class TicketsNamespaceTest extends TransportAwareTestCase
                         1234568,
                         1234569
                     ],
-                    'topic' => 'other_question',
+                    'reason' => 'contact_other',
                     'message' => 'I have a problem'
                 ],
                 \Mockery::any(),
@@ -139,7 +139,7 @@ class TicketsNamespaceTest extends TransportAwareTestCase
                 1234568,
                 1234569
             ],
-            'other_question',
+            'contact_other',
             'I have a problem'
         );
 

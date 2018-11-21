@@ -107,16 +107,16 @@ class TicketsNamespace extends AbstractNamespace
 
     /**
      * @param integer[] $idsOrderUnit
-     * @param string $topic
+     * @param string $reason
      * @param string $message
      * @return mixed
      * @throws \Hitmeister\Component\Api\Exceptions\ServerException
      */
-	public function post(array $idsOrderUnit, $topic, $message)
+	public function post(array $idsOrderUnit, $reason, $message)
     {
         $data = new TicketOpenTransfer();
         $data->id_order_unit = $idsOrderUnit;
-        $data->topic = $topic;
+        $data->reason = $reason;
         $data->message = $message;
 
         $endpoint = new Post($this->getTransport());
