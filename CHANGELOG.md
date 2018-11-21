@@ -2,6 +2,12 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.26.1 - 2018-11-21
+
+### Changed
+
+- SDK forces HTTP/1.1 connection to be back compatible with older versions of curl
+
 ## 1.26.0 - 2018-09-17
 
 ### Added

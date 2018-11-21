@@ -95,6 +95,7 @@ class RequestBuilder
 				'connect_timeout' => 30,
 				'timeout' => 60,
 			],
+			'version' => 1.1,
 		];
 
 		// Build query
