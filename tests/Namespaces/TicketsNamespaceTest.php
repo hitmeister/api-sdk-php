@@ -105,4 +105,44 @@ class TicketsNamespaceTest extends TransportAwareTestCase
 		$result = $namespace->close(10);
 		$this->assertFalse($result);
 	}
+
+	public function testPost()
+    {
+        $this->transport
+            ->shouldReceive('performRequest')
+            ->once()
+            ->withArgs([
+                'POST',
+                'tickets/',
+                [],
+                [
+                    'id_order_unit' => [
+                        1234567,
+                        1234568,
+                        1234569
+                    ],
+                    'reason' => 'contact_other',
+                    'message' => 'I have a problem'
+                ],
+                \Mockery::any(),
+            ])
+            ->andReturn([
+                'headers' => [
+                    'Location' => ['/tickets/123456']
+                ]
+            ]);
+
+        $namespace = new TicketsNamespace($this->transport);
+        $result = $namespace->post(
+            [
+                1234567,
+                1234568,
+                1234569
+            ],
+            'contact_other',
+            'I have a problem'
+        );
+
+        $this->assertEquals(123456, $result);
+    }
 }

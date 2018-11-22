@@ -115,7 +115,7 @@ class OrderUnitTransfer extends AbstractTransfer
     'embedded' => false,
     'is_multiple' => false,
   ),
-  'vat' =>
+  'vat' => 
   array (
     'embedded' => false,
     'is_multiple' => false,
