@@ -123,6 +123,6 @@ class TicketsNamespace extends AbstractNamespace
         $endpoint->setTransfer($data);
         $resultRequest = $endpoint->performRequest();
 
-        return Response::extractId($resultRequest, '/Claim/%d/');
+        return Response::extractId($resultRequest, '/tickets/%d/');
     }
 }

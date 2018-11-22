@@ -128,7 +128,7 @@ class TicketsNamespaceTest extends TransportAwareTestCase
             ])
             ->andReturn([
                 'headers' => [
-                    'Location' => ['/Claim/123456']
+                    'Location' => ['/tickets/123456']
                 ]
             ]);
 
