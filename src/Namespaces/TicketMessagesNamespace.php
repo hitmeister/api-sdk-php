@@ -24,7 +24,7 @@ class TicketMessagesNamespace extends AbstractNamespace
 	 *
 	 * @return int
 	 */
-	public function post($ticketId, $text, $interimNotice = false, $claimMessageFiles = null)
+	public function post($ticketId, $text, $interimNotice = false, $claimMessageFiles = [])
 	{
 		$data = new TicketMessageAddTransfer();
 		$data->id_ticket = (int)$ticketId;
