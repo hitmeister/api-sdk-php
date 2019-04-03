@@ -11,6 +11,7 @@ namespace Hitmeister\Component\Api\Transfers;
  * @property string $text
  * @property boolean $interim_notice
  *
+ * @property array $claim_message_files
  *
  */
 class TicketMessageAddTransfer extends AbstractTransfer
@@ -35,6 +36,12 @@ class TicketMessageAddTransfer extends AbstractTransfer
   array (
     'embedded' => false,
     'is_multiple' => false,
+  ),
+  'claim_message_files' => 
+  array (
+    'embedded' => true,
+    'is_multiple' => true,
+    'type' => 'Hitmeister\\Component\\Api\\Transfers\\MessageClaimFileTransfer',
   ),
 );
         return $properties;
