@@ -7,14 +7,13 @@ namespace Hitmeister\Component\Api\Transfers;
  *
  * @codeCoverageIgnore
  *
- * @property string $id_ticket
- * @property string $text
- * @property boolean $interim_notice
+ * @property string $filename
+ * @property string $mime_type
+ * @property string $data
  *
- * @property array $claim_message_files
  *
  */
-class TicketMessageAddTransfer extends AbstractTransfer
+class MessageClaimFileTransfer extends AbstractTransfer
 {
     /**
      * @return array
@@ -22,26 +21,20 @@ class TicketMessageAddTransfer extends AbstractTransfer
     public function getProperties()
     {
         static $properties = array (
-  'id_ticket' => 
+  'filename' => 
   array (
     'embedded' => false,
     'is_multiple' => false,
   ),
-  'text' => 
+  'mime_type' => 
   array (
     'embedded' => false,
     'is_multiple' => false,
   ),
-  'interim_notice' => 
+  'data' => 
   array (
     'embedded' => false,
     'is_multiple' => false,
-  ),
-  'claim_message_files' => 
-  array (
-    'embedded' => true,
-    'is_multiple' => true,
-    'type' => 'Hitmeister\\Component\\Api\\Transfers\\MessageClaimFileTransfer',
   ),
 );
         return $properties;
@@ -50,10 +43,10 @@ class TicketMessageAddTransfer extends AbstractTransfer
     /**
      * @param array $data
      *
-     * @return TicketMessageAddTransfer
+     * @return MessageClaimFileTransfer
      */
     public static function make(array $data)
     {
-        return AbstractTransfer::makeTransfer('Hitmeister\Component\Api\Transfers\TicketMessageAddTransfer', $data);
+        return AbstractTransfer::makeTransfer('Hitmeister\Component\Api\Transfers\MessageClaimFileTransfer', $data);
     }
 }

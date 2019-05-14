@@ -9,6 +9,7 @@ use Hitmeister\Component\Api\Endpoints\TicketMessages\Post;
 use Hitmeister\Component\Api\FindBuilder;
 use Hitmeister\Component\Api\Helper\Response;
 use Hitmeister\Component\Api\Namespaces\Traits\PerformWithId;
+use Hitmeister\Component\Api\Transfers\MessageClaimFileTransfer;
 use Hitmeister\Component\Api\Transfers\TicketMessageAddTransfer;
 use Hitmeister\Component\Api\Transfers\TicketMessageTransfer;
 
@@ -20,15 +21,18 @@ class TicketMessagesNamespace extends AbstractNamespace
 	 * @param int    $ticketId
 	 * @param string $text
 	 * @param bool   $interimNotice
-	 *
+     * @param MessageClaimFileTransfer[] $claimMessageFiles
+
+     *
 	 * @return int
 	 */
-	public function post($ticketId, $text, $interimNotice = false)
+	public function post($ticketId, $text, $interimNotice = false, $claimMessageFiles = [])
 	{
 		$data = new TicketMessageAddTransfer();
 		$data->id_ticket = (int)$ticketId;
 		$data->text = $text;
 		$data->interim_notice = $interimNotice;
+		$data->claim_message_files = $claimMessageFiles;
 
 		$endpoint = new Post($this->getTransport());
 		$endpoint->setTransfer($data);

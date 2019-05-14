@@ -180,6 +180,7 @@ class Constants
     const CARRIER_CODE_OTHER_HAULER = 'Other Hauler';
     const CARRIER_CODE_BURSPED = 'Bursped';
     const CARRIER_CODE_CARGOLINE = 'Cargoline';
+    const CARRIER_CODE_CHRONOPOST = 'Chronopost';
     const CARRIER_CODE_CORREOS = 'Correos';
     const CARRIER_CODE_DACHSER = 'Dachser';
     const CARRIER_CODE_MARKTANLIEFERUNG = 'Marktanlieferung';
@@ -515,6 +516,9 @@ class Constants
     const EVENT_NAME_ITEM_UNIT_NEW = 'item_unit_new';
     const EVENT_NAME_ITEM_UNIT_CHANGED = 'item_unit_changed';
     const EVENT_NAME_ITEM_UNIT_DELETED = 'item_unit_deleted';
+    const EVENT_NAME_ITEM_UNIT_OUT_OF_STOCK = 'item_unit_out_of_stock';
+    const EVENT_NAME_ITEM_UNIT_NOT_AVAILABLE = 'item_unit_not_available';
+    const EVENT_NAME_ITEM_UNIT_AVAILABLE = 'item_unit_available';
     const COUNTRY_AD = 'AD';
     const COUNTRY_AE = 'AE';
     const COUNTRY_AF = 'AF';
