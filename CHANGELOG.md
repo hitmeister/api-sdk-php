@@ -2,6 +2,13 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.28.0 - 2019-05-17
+
+### Added
+
+- Open a new claim via `POST /tickets/`
+- Attach Base 64 encoded files to Ticket messages via `POST /ticket-messages/`
+
 ## 1.26.1 - 2018-11-21
 
 ### Changed
