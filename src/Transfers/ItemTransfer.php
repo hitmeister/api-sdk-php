@@ -18,6 +18,7 @@ namespace Hitmeister\Component\Api\Transfers;
  * @property int $age_rating
  * @property boolean $is_valid
  *
+ *
  */
 class ItemTransfer extends AbstractTransfer
 {
@@ -67,12 +68,12 @@ class ItemTransfer extends AbstractTransfer
     'embedded' => false,
     'is_multiple' => false,
   ),
-  'age_rating' =>
+  'age_rating' => 
   array (
     'embedded' => false,
     'is_multiple' => false,
   ),
-  'is_valid' =>
+  'is_valid' => 
   array (
     'embedded' => false,
     'is_multiple' => false,

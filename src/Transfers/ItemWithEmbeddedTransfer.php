@@ -70,12 +70,12 @@ class ItemWithEmbeddedTransfer extends AbstractTransfer
     'embedded' => false,
     'is_multiple' => false,
   ),
-  'age_rating' =>
+  'age_rating' => 
   array (
     'embedded' => false,
     'is_multiple' => false,
   ),
-  'is_valid' =>
+  'is_valid' => 
   array (
     'embedded' => false,
     'is_multiple' => false,
