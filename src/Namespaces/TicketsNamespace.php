@@ -34,6 +34,7 @@ class TicketsNamespace extends AbstractNamespace
 	public function find(
 		$status = null,
 		$openReason = null,
+		$topic = null,
 		$buyerId = null,
 		$createdFrom = null,
 		$updatedFrom = null,
@@ -45,6 +46,7 @@ class TicketsNamespace extends AbstractNamespace
 		return $this->buildFind()
 			->addParam('status', $status)
 			->addParam('open_reason', $openReason)
+            ->addParam('topic', $topic)
 			->addParam('id_buyer', (int)$buyerId)
 			->addDateTimeParam('ts_created:from', $createdFrom)
 			->addDateTimeParam('ts_updated:from', $updatedFrom)

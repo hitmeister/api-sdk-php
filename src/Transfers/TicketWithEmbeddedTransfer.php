@@ -14,6 +14,7 @@ namespace Hitmeister\Component\Api\Transfers;
  * @property string $ts_updated
  * @property string $status
  * @property string $open_reason
+ * @property string $topic
  * @property string $callback_phone
  * @property boolean $is_seller_responsible
  *
@@ -63,6 +64,11 @@ class TicketWithEmbeddedTransfer extends AbstractTransfer
     'is_multiple' => false,
   ),
   'open_reason' => 
+  array (
+    'embedded' => false,
+    'is_multiple' => false,
+  ),
+  'topic' => 
   array (
     'embedded' => false,
     'is_multiple' => false,
