@@ -47,7 +47,7 @@ class TicketsNamespaceTest extends TransportAwareTestCase
 			]);
 
 		$namespace = new TicketsNamespace($this->transport);
-		$result = $namespace->find(['buyer_closed','seller_closed'], ['product_defect'], 10, $createdTime, $updatedTime);
+		$result = $namespace->find(['buyer_closed','seller_closed'], ['product_defect'], ['order_product_defect'],10, $createdTime, $updatedTime);
 
 		$this->assertInstanceOf('\Iterator', $result);
 		$result = iterator_to_array($result);
