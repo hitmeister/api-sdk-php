@@ -23,6 +23,7 @@ class TicketsNamespaceTest extends TransportAwareTestCase
 				[
 					'status' => 'buyer_closed,seller_closed',
 					'open_reason' => 'product_defect',
+					'topic' => 'order_product_defect',
 					'id_buyer' => 10,
 					'ts_created:from' => date(Request::DATE_TIME_FORMAT, $createdTime),
 					'ts_updated:from' => date(Request::DATE_TIME_FORMAT, $updatedTime),
