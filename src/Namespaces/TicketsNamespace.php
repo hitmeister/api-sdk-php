@@ -22,6 +22,7 @@ class TicketsNamespace extends AbstractNamespace
 	/**
 	 * @param string[]             $status
 	 * @param string[]             $openReason
+     * @param string[]             $topic
 	 * @param int                  $buyerId
 	 * @param \DateTime|int|string $createdFrom
 	 * @param \DateTime|int|string $updatedFrom
