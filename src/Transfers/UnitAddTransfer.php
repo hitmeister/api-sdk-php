@@ -16,6 +16,8 @@ namespace Hitmeister\Component\Api\Transfers;
  * @property string $id_offer
  * @property string $note
  * @property string $delivery_time
+ * @property int $delivery_time_min
+ * @property int $delivery_time_max
  * @property string $shipping_group
  * @property string $location
  * @property string $warehouse
@@ -72,6 +74,16 @@ class UnitAddTransfer extends AbstractTransfer
     'is_multiple' => false,
   ),
   'delivery_time' => 
+  array (
+    'embedded' => false,
+    'is_multiple' => false,
+  ),
+  'delivery_time_min' => 
+  array (
+    'embedded' => false,
+    'is_multiple' => false,
+  ),
+  'delivery_time_max' => 
   array (
     'embedded' => false,
     'is_multiple' => false,
