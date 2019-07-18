@@ -373,6 +373,7 @@ class Constants
     const LOCATION_CY = 'CY';
     const LOCATION_CZ = 'CZ';
     const LOCATION_DE = 'DE';
+    const LOCATION_DE_ISLANDS = 'DE-Islands';
     const LOCATION_DJ = 'DJ';
     const LOCATION_DK = 'DK';
     const LOCATION_DM = 'DM';
@@ -637,6 +638,7 @@ class Constants
     const COUNTRY_CY = 'CY';
     const COUNTRY_CZ = 'CZ';
     const COUNTRY_DE = 'DE';
+    const COUNTRY_DE_ISLANDS = 'DE-Islands';
     const COUNTRY_DJ = 'DJ';
     const COUNTRY_DK = 'DK';
     const COUNTRY_DM = 'DM';
