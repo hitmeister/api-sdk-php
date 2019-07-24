@@ -78,4 +78,27 @@ class OrdersNamespaceTest extends TransportAwareTestCase
 		$result = $namespace->get(10);
 		$this->assertNull($result);
 	}
+
+	public function testGetEmbeddedOrderInvoices()
+	{
+		$this->transport->shouldReceive('performRequest')->once()->andReturn([
+			'json' => [
+				'id_order' => 'MT19L51',
+				'order_invoices' => [
+					[
+						'id_invoice' => 1,
+						'id_order' => 'MT19L51',
+						'ts_created' => '2019-06-07 12:11:10',
+					],
+				],
+			]
+		]);
+
+		$namespace = new OrdersNamespace($this->transport);
+		$result = $namespace->get(1, ['order_invoices']);
+
+		$this->assertInstanceOf('\Hitmeister\Component\Api\Transfers\OrderWithEmbeddedTransfer', $result);
+		$this->assertEquals('MT19L51', $result->id_order);
+		$this->assertInstanceOf('\Hitmeister\Component\Api\Transfers\OrderInvoiceListTransfer', $result->order_invoices[0]);
+	}
 }
