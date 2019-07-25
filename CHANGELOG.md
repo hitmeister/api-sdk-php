@@ -2,7 +2,7 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
-### 1.31.1 - 2019-07-30
+### 1.31.0 - 2019-07-30
 
 ### Added
 
@@ -11,6 +11,7 @@ All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this
     - GET `/order-invoices/{id_order_invoice}/`
     - POST `/order-invoices/`
     - DELETE `/order-invoices/{id_order_invoice}/`
+
 
 ## 1.30.1 - 2019-07-19
 
