@@ -1,6 +1,6 @@
 <?php
 
-namespace Hitmeister\Component\Api\Endpoints\Tickets;
+namespace Hitmeister\Component\Api\Endpoints\OrderInvoices;
 
 use Hitmeister\Component\Api\Endpoints\AbstractEndpoint;
 use Hitmeister\Component\Api\Endpoints\Traits\RequestGet;
@@ -14,7 +14,7 @@ class Find extends AbstractEndpoint
 	 */
 	public function getParamWhiteList()
 	{
-		return ['status', 'open_reason', 'topic', 'id_buyer', 'ts_created:from', 'ts_updated:from', 'sort', 'limit', 'offset'];
+		return ['limit', 'offset'];
 	}
 
 	/**
@@ -22,6 +22,6 @@ class Find extends AbstractEndpoint
 	 */
 	public function getURI()
 	{
-		return 'tickets/seller/';
+		return 'order-invoices/seller/';
 	}
 }

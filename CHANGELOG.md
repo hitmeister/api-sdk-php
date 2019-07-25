@@ -2,6 +2,44 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+### 1.31.1 - 2019-07-30
+
+### Added
+
+- Added the following endpoints:<br>
+    - GET `/order-invoices/seller`
+    - GET `/order-invoices/{id_order_invoice}/`
+    - POST `/order-invoices/`
+    - DELETE `/order-invoices/{id_order_invoice}/`
+
+## 1.30.1 - 2019-07-19
+
+### Changed
+
+- The endpoint `/returns/` now responds with a location header containing `/returns/{id_return}/`.
+
+
+## 1.30.0 - 2019-05-28
+
+### Added
+
+- Added `delivery_time_min` and `delivery_time_max` fields to units endpoint.
+
+
+## 1.29.0 - 2019-05-23
+
+### Changed
+
+- Modified `/tickets/seller/` and `/tickets/{id_ticket}/` Endpoints to now deliver a more differentiated set of claim reasons, named claim topics.
+
+
+## 1.28.0 - 2019-05-17
+
+### Added
+
+- Open a new claim via `POST /tickets/`
+- Attach Base 64 encoded files to Ticket messages via `POST /ticket-messages/`
+
 ## 1.26.1 - 2018-11-21
 
 ### Changed

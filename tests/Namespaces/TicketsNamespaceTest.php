@@ -23,6 +23,7 @@ class TicketsNamespaceTest extends TransportAwareTestCase
 				[
 					'status' => 'buyer_closed,seller_closed',
 					'open_reason' => 'product_defect',
+					'topic' => 'order_product_defect',
 					'id_buyer' => 10,
 					'ts_created:from' => date(Request::DATE_TIME_FORMAT, $createdTime),
 					'ts_updated:from' => date(Request::DATE_TIME_FORMAT, $updatedTime),
@@ -46,7 +47,7 @@ class TicketsNamespaceTest extends TransportAwareTestCase
 			]);
 
 		$namespace = new TicketsNamespace($this->transport);
-		$result = $namespace->find(['buyer_closed','seller_closed'], ['product_defect'], 10, $createdTime, $updatedTime);
+		$result = $namespace->find(['buyer_closed','seller_closed'], ['product_defect'], ['order_product_defect'],10, $createdTime, $updatedTime);
 
 		$this->assertInstanceOf('\Iterator', $result);
 		$result = iterator_to_array($result);
