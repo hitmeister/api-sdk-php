@@ -112,7 +112,7 @@ class OrderInvoicesNamespaceTest extends TransportAwareTestCase
 					'id_order' => 'MX12FS',
 					'original_name' => 'invoice123.pdf',
                     'mime_type' => 'application/pdf',
-                    'content' => 'real.digital'
+                    'data' => 'real.digital'
 				],
 				\Mockery::any(),
 			])
@@ -123,7 +123,7 @@ class OrderInvoicesNamespaceTest extends TransportAwareTestCase
 			]);
 
 		$namespace = new OrderInvoicesNamespace($this->transport);
-		$result = $namespace->post('MX12FS', 'invoice123.pdf', 'real.digital');
+		$result = $namespace->post('MX12FS', 'invoice123.pdf', 'application/pdf', 'real.digital');
 		$this->assertSame(1, $result);
 	}
 

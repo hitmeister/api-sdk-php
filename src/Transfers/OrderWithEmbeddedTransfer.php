@@ -25,35 +25,35 @@ class OrderWithEmbeddedTransfer extends AbstractTransfer
     public function getProperties()
     {
         static $properties = array (
-  'id_order' => 
+  'id_order' =>
   array (
     'embedded' => false,
     'is_multiple' => false,
   ),
-  'ts_created' => 
+  'ts_created' =>
   array (
     'embedded' => false,
     'is_multiple' => false,
   ),
-  'billing_address' => 
+  'billing_address' =>
   array (
     'embedded' => true,
     'is_multiple' => false,
     'type' => 'Hitmeister\\Component\\Api\\Transfers\\AddressTransfer',
   ),
-  'buyer' => 
+  'buyer' =>
   array (
     'embedded' => true,
     'is_multiple' => false,
     'type' => 'Hitmeister\\Component\\Api\\Transfers\\BuyerTransfer',
   ),
-  'seller_units' => 
+  'seller_units' =>
   array (
     'embedded' => true,
     'is_multiple' => true,
     'type' => 'Hitmeister\\Component\\Api\\Transfers\\OrderUnitTransfer',
   ),
-  'shipping_address' => 
+  'shipping_address' =>
   array (
     'embedded' => true,
     'is_multiple' => false,

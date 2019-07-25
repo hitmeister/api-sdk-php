@@ -29,7 +29,7 @@ class OrderInvoicesNamespace extends AbstractNamespace
 	 * @return Cursor|OrderInvoiceListTransfer[]
 	 * @throws ApiException
 	 */
-	public function find($limit = 50, $offset = 0)
+	public function find($limit = 30, $offset = 0)
 	{
 		$findBuilder = new FindBuilder(
 			new Find($this->getTransport()),
@@ -63,18 +63,19 @@ class OrderInvoicesNamespace extends AbstractNamespace
 	 *
 	 * @param string $idOrder
 	 * @param string $originalName
+	 * @param string $mimeType
 	 * @param string $content
 	 *
 	 * @return int
 	 * @throws ApiException
 	 */
-	public function post($idOrder, $originalName, $content)
+	public function post($idOrder, $originalName, $mimeType, $content)
 	{
 		$data = new OrderInvoiceAddTransfer();
 		$data->id_order = $idOrder;
 		$data->original_name = $originalName;
-		$data->mime_type = 'application/pdf';
-        $data->content = $content;
+		$data->mime_type = $mimeType;
+        $data->data = $content;
 
 		$endpoint = new Post($this->getTransport());
 		$endpoint->setTransfer($data);

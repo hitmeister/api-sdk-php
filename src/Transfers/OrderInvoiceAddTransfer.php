@@ -10,7 +10,7 @@ namespace Hitmeister\Component\Api\Transfers;
  * @property string $id_order
  * @property string $original_name
  * @property string $mime_type
- * @property string $content
+ * @property string $data
  *
  *
  */
@@ -37,7 +37,7 @@ class OrderInvoiceAddTransfer extends AbstractTransfer
     'embedded' => false,
     'is_multiple' => false,
   ),
-  'content' =>
+  'data' =>
   array (
     'embedded' => false,
     'is_multiple' => false,

@@ -13,7 +13,7 @@ class PostTest extends TransportAwareTestCase
 	    $transfer = new OrderInvoiceAddTransfer();
 	    $transfer->id_order = 'MX12FS';
 	    $transfer->original_name = 'invoice123.pdf';
-	    $transfer->content = 'cmVhbC5kaWdpdGFs';
+	    $transfer->data = 'cmVhbC5kaWdpdGFs';
 	    $transfer->mime_type = 'application/pdf';
 
 		$post = new Post($this->transport);
