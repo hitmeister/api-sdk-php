@@ -8,12 +8,9 @@ use Hitmeister\Component\Api\Endpoints\Traits\BodyTransfer;
 use Hitmeister\Component\Api\Endpoints\Traits\EmptyParamWhiteList;
 use Hitmeister\Component\Api\Endpoints\Traits\RequestPatch;
 use Hitmeister\Component\Api\Endpoints\Traits\UriPatternId;
-use Hitmeister\Component\Api\Transfers\OrderUnitSendTransfer;
 use Hitmeister\Component\Api\Transfers\OrderUnitShipmentTransfer;
 
 /**
- * Class Send
- *
  * @category PHP-SDK
  * @package  Hitmeister\Component\Api\Endpoints\OrderUnits
  * @author   Darius Brückers <darius.brueckers@real-digital.de>
