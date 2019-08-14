@@ -1,6 +1,6 @@
 <?php
 
-namespace Hitmeister\Component\Api\Endpoints\OrderUnits;
+namespace Hitmeister\Component\Api\Endpoints\Shipments;
 
 use Hitmeister\Component\Api\Endpoints\AbstractEndpoint;
 use Hitmeister\Component\Api\Endpoints\Interfaces\IdAware;
@@ -12,12 +12,12 @@ use Hitmeister\Component\Api\Transfers\OrderUnitShipmentTransfer;
 
 /**
  * @category PHP-SDK
- * @package  Hitmeister\Component\Api\Endpoints\OrderUnits
+ * @package  Hitmeister\Component\Api\Endpoints\Shipments
  * @author   Darius Brückers <darius.brueckers@real-digital.de>
  * @license  https://opensource.org/licenses/MIT MIT
  * @link     https://www.hitmeister.de/api/v1/
  */
-class CreateShipments extends AbstractEndpoint implements IdAware
+class Post extends AbstractEndpoint implements IdAware
 {
 	use RequestPatch;
 	use UriPatternId;
@@ -37,6 +37,6 @@ class CreateShipments extends AbstractEndpoint implements IdAware
 	 */
 	protected function getUriPattern()
 	{
-		return 'order-units/%d/shipments/';
+		return '/shipments/';
 	}
 }

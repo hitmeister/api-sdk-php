@@ -4,7 +4,6 @@ namespace Hitmeister\Component\Api\Namespaces;
 
 use Hitmeister\Component\Api\Cursor;
 use Hitmeister\Component\Api\Endpoints\OrderUnits\Cancel;
-use Hitmeister\Component\Api\Endpoints\OrderUnits\CreateShipments;
 use Hitmeister\Component\Api\Endpoints\OrderUnits\Find;
 use Hitmeister\Component\Api\Endpoints\OrderUnits\Fulfil;
 use Hitmeister\Component\Api\Endpoints\OrderUnits\Get;
@@ -134,36 +133,6 @@ class OrderUnitsNamespace extends AbstractNamespace
 		}
 
 		$endpoint = new Send($this->getTransport());
-		$endpoint->setId($id);
-		$endpoint->setTransfer($data);
-
-		try {
-			$result = $endpoint->performRequest();
-		} catch (ResourceNotFoundException $e) {
-			return false;
-		}
-
-		return $result['status'] == 204;
-	}
-
-	/**
-	 * @param int $id
-	 * @param array $shipments
-	 * @return bool
-	 */
-	public function createShipments($id, array $shipments)
-	{
-		$data = new OrderUnitShipmentTransfer();
-		$dataArr = [];
-		foreach($shipments as $shipment) {
-			$dataArr[] = [
-				'carrier_code' => $shipment['carrier_code'],
-				'tracking_number' => $shipment['tracking_number'],
-			];
-		}
-		$data->fromArray($dataArr);
-
-		$endpoint = new CreateShipments($this->getTransport());
 		$endpoint->setId($id);
 		$endpoint->setTransfer($data);
 
