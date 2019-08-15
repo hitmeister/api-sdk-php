@@ -36,7 +36,6 @@ class ShipmentsNamespace extends AbstractNamespace
 
 		$endpoint = new Post($this->getTransport());
 		$endpoint->setTransfer($data);
-		$endpoint->setId($orderUnitId);
 		$resultRequest = $endpoint->performRequest();
 
 		return Response::extractId($resultRequest, '/shipments/%d/');

@@ -3,11 +3,9 @@
 namespace Hitmeister\Component\Api\Endpoints\Shipments;
 
 use Hitmeister\Component\Api\Endpoints\AbstractEndpoint;
-use Hitmeister\Component\Api\Endpoints\Interfaces\IdAware;
 use Hitmeister\Component\Api\Endpoints\Traits\BodyTransfer;
 use Hitmeister\Component\Api\Endpoints\Traits\EmptyParamWhiteList;
-use Hitmeister\Component\Api\Endpoints\Traits\RequestPatch;
-use Hitmeister\Component\Api\Endpoints\Traits\UriPatternId;
+use Hitmeister\Component\Api\Endpoints\Traits\RequestPost;
 use Hitmeister\Component\Api\Transfers\OrderUnitShipmentTransfer;
 
 /**
@@ -17,10 +15,9 @@ use Hitmeister\Component\Api\Transfers\OrderUnitShipmentTransfer;
  * @license  https://opensource.org/licenses/MIT MIT
  * @link     https://www.hitmeister.de/api/v1/
  */
-class Post extends AbstractEndpoint implements IdAware
+class Post extends AbstractEndpoint
 {
-	use RequestPatch;
-	use UriPatternId;
+	use RequestPost;
 	use EmptyParamWhiteList;
 	use BodyTransfer;
 
@@ -35,8 +32,8 @@ class Post extends AbstractEndpoint implements IdAware
 	/**
 	 * {@inheritdoc}
 	 */
-	protected function getUriPattern()
+	public function getURI()
 	{
-		return '/shipments/';
+		return 'shipments/';
 	}
 }
