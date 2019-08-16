@@ -22,22 +22,22 @@ class OrderInvoiceAddTransfer extends AbstractTransfer
     public function getProperties()
     {
         static $properties = array (
-  'id_order' =>
+  'id_order' => 
   array (
     'embedded' => false,
     'is_multiple' => false,
   ),
-  'original_name' =>
+  'original_name' => 
   array (
     'embedded' => false,
     'is_multiple' => false,
   ),
-  'mime_type' =>
+  'mime_type' => 
   array (
     'embedded' => false,
     'is_multiple' => false,
   ),
-  'data' =>
+  'data' => 
   array (
     'embedded' => false,
     'is_multiple' => false,

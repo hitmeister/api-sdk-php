@@ -99,6 +99,6 @@ class OrdersNamespaceTest extends TransportAwareTestCase
 
 		$this->assertInstanceOf('\Hitmeister\Component\Api\Transfers\OrderWithEmbeddedTransfer', $result);
 		$this->assertEquals('MT19L51', $result->id_order);
-		$this->assertInstanceOf('\Hitmeister\Component\Api\Transfers\OrderInvoiceListTransfer', $result->order_invoices[0]);
+		$this->assertInstanceOf('\Hitmeister\Component\Api\Transfers\OrderInvoiceTransfer', $result->order_invoices[0]);
 	}
 }
