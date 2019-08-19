@@ -97,6 +97,26 @@ class OrderUnitsNamespaceTest extends TransportAwareTestCase
 		$this->assertTrue($result);
 	}
 
+	public function testCreateShipments()
+	{
+		$this->transport->shouldReceive('performRequest')->once()->andReturn([
+			'status' => 204,
+		]);
+
+		$namespace = new OrderUnitsNamespace($this->transport);
+		$result = $namespace->createShipments(10, [
+			[
+				'carrier_code'=> 'DHL',
+				'tracking_number' => '012345678'
+			],
+			[
+				'carrier_code'=> 'DPD',
+				'tracking_number' => '987654321'
+			],
+		]);
+		$this->assertTrue($result);
+	}
+
 	public function testSendNotFound()
 	{
 		$this->transport->shouldReceive('performRequest')->once()->andThrow(new ResourceNotFoundException());

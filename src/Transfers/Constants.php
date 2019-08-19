@@ -216,6 +216,7 @@ class Constants
     const CARRIER_CODE_DHL_EXPRESS = 'DHL Express';
     const CARRIER_CODE_DHL_FREIGHT = 'DHL Freight';
     const CARRIER_CODE_DPD = 'DPD';
+    const CARRIER_CODE_DPD_FRANCE = 'DPD France';
     const CARRIER_CODE_DTL = 'dtl';
     const CARRIER_CODE_EMONS = 'Emons';
     const CARRIER_CODE_FEDEX = 'Fedex';
