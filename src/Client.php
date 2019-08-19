@@ -16,6 +16,7 @@ use Hitmeister\Component\Api\Namespaces\ProductDataStatusNamespace;
 use Hitmeister\Component\Api\Namespaces\ReportsNamespace;
 use Hitmeister\Component\Api\Namespaces\ReturnsNamespace;
 use Hitmeister\Component\Api\Namespaces\ReturnUnitsNamespace;
+use Hitmeister\Component\Api\Namespaces\ShipmentsNamespace;
 use Hitmeister\Component\Api\Namespaces\ShippingGroupsNamespace;
 use Hitmeister\Component\Api\Namespaces\StatusNamespace;
 use Hitmeister\Component\Api\Namespaces\SubscriptionsNamespace;
@@ -36,7 +37,8 @@ use Hitmeister\Component\Api\Transport\Transport;
  */
 class Client
 {
-	const VERSION = '1.31.0';
+  
+  const VERSION = '1.32.1';
 
 	/** @var Transport */
 	private $transport;
@@ -83,6 +85,9 @@ class Client
 	/** @var ReturnUnitsNamespace */
 	private $returnUnitsNs;
 
+	/** @var ShipmentsNamespace */
+	private $shipmentsNs;
+
 	/** @var ShippingGroupsNamespace */
 	private $shippingGroupsNs;
 
@@ -126,6 +131,7 @@ class Client
 		$this->reportsNs = new ReportsNamespace($this->transport);
 		$this->returnsNs = new ReturnsNamespace($this->transport);
 		$this->returnUnitsNs = new ReturnUnitsNamespace($this->transport);
+		$this->shipmentsNs = new ShipmentsNamespace($this->transport);
 		$this->shippingGroupsNs = new ShippingGroupsNamespace($this->transport);
 		$this->statusNs = new StatusNamespace($this->transport);
 		$this->subscriptionsNs = new SubscriptionsNamespace($this->transport);
@@ -253,6 +259,14 @@ class Client
 	public function returnUnits()
 	{
 		return $this->returnUnitsNs;
+	}
+
+	/**
+	 * @return ShipmentsNamespace
+	 */
+	public function shipments()
+	{
+		return $this->shipmentsNs;
 	}
 
 	/**

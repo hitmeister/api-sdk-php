@@ -60,6 +60,7 @@ The client has a number of "namespaces", which generally expose API functionalit
 | `reports()`           | Generate and retrieve summary reports                                |
 | `returns()`           | Retrieve the returns from your sales                                 |
 | `returnUnits()`       | Accept, reject or repair returns from your sales                     |
+| `shipments()`         | Add shipment information to order units                              |
 | `shippingGroups()`    | Retrieve the shipping groups data                                    |
 | `status()`            | System status                                                        |
 | `subscriptions()`     | Push notifications management                                        |
