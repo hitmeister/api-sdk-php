@@ -6,7 +6,7 @@ All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this
 
 ### Added
 
-- Added the following endpoints:<br>
+- Added the following endpoints:
     - GET `/order-invoices/seller`
     - GET `/order-invoices/{id_order_invoice}/`
     - POST `/order-invoices/`
