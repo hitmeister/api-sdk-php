@@ -12,7 +12,7 @@ class OrdersNamespaceTest extends TransportAwareTestCase
 	public function testFind()
 	{
 		$createdTime = time() - 100;
-
+		$updatedTime = time() - 50;
 		$this->transport
 			->shouldReceive('performRequest')
 			->once()
@@ -21,6 +21,7 @@ class OrdersNamespaceTest extends TransportAwareTestCase
 				\Mockery::any(),
 				[
 					'ts_created:from' => date(Request::DATE_TIME_FORMAT, $createdTime),
+					'ts_updated:from' => date(Request::DATE_TIME_FORMAT, $updatedTime),
 					'limit' => 30,
 					'offset' => 0,
 				],

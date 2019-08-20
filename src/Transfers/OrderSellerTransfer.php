@@ -9,6 +9,7 @@ namespace Hitmeister\Component\Api\Transfers;
  *
  * @property string $id_order
  * @property string $ts_created
+ * @property string $ts_updated
  * @property int $seller_units_count
  *
  *
@@ -27,6 +28,11 @@ class OrderSellerTransfer extends AbstractTransfer
     'is_multiple' => false,
   ),
   'ts_created' => 
+  array (
+    'embedded' => false,
+    'is_multiple' => false,
+  ),
+  'ts_updated' => 
   array (
     'embedded' => false,
     'is_multiple' => false,

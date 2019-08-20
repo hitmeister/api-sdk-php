@@ -9,6 +9,7 @@ namespace Hitmeister\Component\Api\Transfers;
  *
  * @property string $id_order
  * @property string $ts_created
+ * @property string $ts_updated
  *
  *
  */
@@ -26,6 +27,11 @@ class OrderTransfer extends AbstractTransfer
     'is_multiple' => false,
   ),
   'ts_created' => 
+  array (
+    'embedded' => false,
+    'is_multiple' => false,
+  ),
+  'ts_updated' => 
   array (
     'embedded' => false,
     'is_multiple' => false,

@@ -9,12 +9,12 @@ namespace Hitmeister\Component\Api\Transfers;
  *
  * @property string $id_order
  * @property string $ts_created
+ * @property string $ts_updated
  *
  * @property AddressTransfer $billing_address
  * @property BuyerTransfer $buyer
  * @property array $seller_units
  * @property AddressTransfer $shipping_address
- * @property array $order_invoices
  *
  */
 class OrderWithEmbeddedTransfer extends AbstractTransfer
@@ -31,6 +31,11 @@ class OrderWithEmbeddedTransfer extends AbstractTransfer
     'is_multiple' => false,
   ),
   'ts_created' => 
+  array (
+    'embedded' => false,
+    'is_multiple' => false,
+  ),
+  'ts_updated' => 
   array (
     'embedded' => false,
     'is_multiple' => false,
@@ -58,12 +63,6 @@ class OrderWithEmbeddedTransfer extends AbstractTransfer
     'embedded' => true,
     'is_multiple' => false,
     'type' => 'Hitmeister\\Component\\Api\\Transfers\\AddressTransfer',
-  ),
-  'order_invoices' => 
-  array (
-    'embedded' => true,
-    'is_multiple' => true,
-    'type' => 'Hitmeister\\Component\\Api\\Transfers\\OrderInvoiceTransfer',
   ),
 );
         return $properties;

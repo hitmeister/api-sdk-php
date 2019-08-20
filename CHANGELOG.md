@@ -2,6 +2,12 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+### 1.32.1 - 2019-08-20
+
+### Added
+
+- New Query Parameter `ts_updated:from` added to the `orders/seller/` endpoint.
+
 ### 1.32.0 - 2019-08-19
 
 ### Added

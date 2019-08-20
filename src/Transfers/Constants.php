@@ -100,13 +100,13 @@ class Constants
     const TYPE_CREDIT_SELLER = 'credit_seller';
     const TYPE_INVOICE_BUYER = 'invoice_buyer';
     const TYPE_CREDIT_BUYER = 'credit_buyer';
-    const MIME_TYPE_APPLICATION_PDF = 'application/pdf';
     const MIME_TYPE_IMAGE_JPEG = 'image/jpeg';
     const MIME_TYPE_IMAGE_PNG = 'image/png';
     const MIME_TYPE_IMAGE_GIF = 'image/gif';
     const MIME_TYPE_IMAGE_TIFF = 'image/tiff';
     const MIME_TYPE_APPLICATION_MSEXCEL = 'application/msexcel';
     const MIME_TYPE_APPLICATION_MSPOWERPOINT = 'application/mspowerpoint';
+    const MIME_TYPE_APPLICATION_PDF = 'application/pdf';
     const MIME_TYPE_TEXT_PLAIN = 'text/plain';
     const MIME_TYPE_TEXT_COMMA_SEPARATED_VALUES = 'text/comma-separated-values';
     const MIME_TYPE_TEXT_CSV = 'text/csv';
