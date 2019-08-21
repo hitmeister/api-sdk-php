@@ -34,7 +34,7 @@ class OrdersNamespace extends AbstractNamespace
 	{
 		return $this->buildFind()
 			->addDateTimeParam('ts_created:from', $dateTimeFrom)
-			->addDateParam('ts_updated:from', $dateTimeUpdatedFrom)
+			->addDateParam('ts_units_updated:from', $dateTimeUpdatedFrom)
 			->setLimit($limit)
 			->setOffset($offset)
 			->find();

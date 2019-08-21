@@ -21,7 +21,7 @@ class OrdersNamespaceTest extends TransportAwareTestCase
 				\Mockery::any(),
 				[
 					'ts_created:from' => date(Request::DATE_TIME_FORMAT, $createdTime),
-					'ts_updated:from' => date(Request::DATE_TIME_FORMAT, $updatedTime),
+					'ts_units_updated:from' => date(Request::DATE_TIME_FORMAT, $updatedTime),
 					'limit' => 30,
 					'offset' => 0,
 				],
