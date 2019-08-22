@@ -41,7 +41,7 @@ class OrdersNamespaceTest extends TransportAwareTestCase
 			]);
 
 		$namespace = new OrdersNamespace($this->transport);
-		$result = $namespace->find($createdTime);
+		$result = $namespace->find($createdTime, $updatedTime);
 
 		$this->assertInstanceOf('\Iterator', $result);
 		$result = iterator_to_array($result);
