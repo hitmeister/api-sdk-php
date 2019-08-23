@@ -6,7 +6,7 @@ All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this
 
 ### Added
 
-- New Query Parameter `ts_updated:from` added to the `orders/seller/` endpoint.
+- New Query Parameter `ts_units_updated:from` added to the `orders/seller/` endpoint.
 
 ### 1.32.0 - 2019-08-19
 
