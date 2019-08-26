@@ -2,6 +2,12 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+### 1.33.1 - 2019-08-26
+
+### Added
+
+- Added `delivery_time_min` and `delivery_time_max` fields to order-units entity.
+
 ### 1.33.0 - 2019-08-26
 
 ### Added
