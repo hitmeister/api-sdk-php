@@ -8,13 +8,13 @@ namespace Hitmeister\Component\Api\Transfers;
  * @codeCoverageIgnore
  *
  * @property string $id_order
- * @property string $ts_created
- * @property int $seller_units_count
- * @property string $ts_units_updated
+ * @property string $original_name
+ * @property string $mime_type
+ * @property string $data
  *
  *
  */
-class OrderSellerTransfer extends AbstractTransfer
+class OrderInvoiceAddTransfer extends AbstractTransfer
 {
     /**
      * @return array
@@ -27,17 +27,17 @@ class OrderSellerTransfer extends AbstractTransfer
     'embedded' => false,
     'is_multiple' => false,
   ),
-  'ts_created' => 
+  'original_name' => 
   array (
     'embedded' => false,
     'is_multiple' => false,
   ),
-  'seller_units_count' => 
+  'mime_type' => 
   array (
     'embedded' => false,
     'is_multiple' => false,
   ),
-  'ts_units_updated' => 
+  'data' => 
   array (
     'embedded' => false,
     'is_multiple' => false,
@@ -49,10 +49,10 @@ class OrderSellerTransfer extends AbstractTransfer
     /**
      * @param array $data
      *
-     * @return OrderSellerTransfer
+     * @return OrderInvoiceAddTransfer
      */
     public static function make(array $data)
     {
-        return AbstractTransfer::makeTransfer('Hitmeister\Component\Api\Transfers\OrderSellerTransfer', $data);
+        return AbstractTransfer::makeTransfer('Hitmeister\Component\Api\Transfers\OrderInvoiceAddTransfer', $data);
     }
 }

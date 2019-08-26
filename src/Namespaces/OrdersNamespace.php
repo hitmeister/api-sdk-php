@@ -25,14 +25,16 @@ class OrdersNamespace extends AbstractNamespace
 
 	/**
 	 * @param \DateTime|int|string $dateTimeFrom
+	 * @param \DateTime|int|string $dateTimeUpdatedFrom
 	 * @param int                  $limit
 	 * @param int                  $offset
 	 * @return Cursor|OrderSellerTransfer[]
 	 */
-	public function find($dateTimeFrom = null, $limit = 30, $offset = 0)
+	public function find($dateTimeFrom = null, $dateTimeUpdatedFrom = null, $limit = 30, $offset = 0)
 	{
 		return $this->buildFind()
 			->addDateTimeParam('ts_created:from', $dateTimeFrom)
+			->addDateTimeParam('ts_units_updated:from', $dateTimeUpdatedFrom)
 			->setLimit($limit)
 			->setOffset($offset)
 			->find();

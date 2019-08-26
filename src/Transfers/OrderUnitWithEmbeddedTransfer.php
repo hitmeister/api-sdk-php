@@ -19,6 +19,8 @@ namespace Hitmeister\Component\Api\Transfers;
  * @property string $note
  * @property string $unit_condition
  * @property string $delivery_time
+ * @property int $delivery_time_min
+ * @property int $delivery_time_max
  * @property string $delivery_time_expires
  * @property int $shipping_rate
  * @property string $cancel_reason
@@ -98,6 +100,16 @@ class OrderUnitWithEmbeddedTransfer extends AbstractTransfer
     'is_multiple' => false,
   ),
   'delivery_time' => 
+  array (
+    'embedded' => false,
+    'is_multiple' => false,
+  ),
+  'delivery_time_min' => 
+  array (
+    'embedded' => false,
+    'is_multiple' => false,
+  ),
+  'delivery_time_max' => 
   array (
     'embedded' => false,
     'is_multiple' => false,

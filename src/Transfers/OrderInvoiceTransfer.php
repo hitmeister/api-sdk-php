@@ -7,14 +7,16 @@ namespace Hitmeister\Component\Api\Transfers;
  *
  * @codeCoverageIgnore
  *
+ * @property int $id_invoice
  * @property string $id_order
+ * @property string $original_name
+ * @property string $mime_type
+ * @property string $url
  * @property string $ts_created
- * @property int $seller_units_count
- * @property string $ts_units_updated
  *
  *
  */
-class OrderSellerTransfer extends AbstractTransfer
+class OrderInvoiceTransfer extends AbstractTransfer
 {
     /**
      * @return array
@@ -22,22 +24,32 @@ class OrderSellerTransfer extends AbstractTransfer
     public function getProperties()
     {
         static $properties = array (
+  'id_invoice' => 
+  array (
+    'embedded' => false,
+    'is_multiple' => false,
+  ),
   'id_order' => 
   array (
     'embedded' => false,
     'is_multiple' => false,
   ),
+  'original_name' => 
+  array (
+    'embedded' => false,
+    'is_multiple' => false,
+  ),
+  'mime_type' => 
+  array (
+    'embedded' => false,
+    'is_multiple' => false,
+  ),
+  'url' => 
+  array (
+    'embedded' => false,
+    'is_multiple' => false,
+  ),
   'ts_created' => 
-  array (
-    'embedded' => false,
-    'is_multiple' => false,
-  ),
-  'seller_units_count' => 
-  array (
-    'embedded' => false,
-    'is_multiple' => false,
-  ),
-  'ts_units_updated' => 
   array (
     'embedded' => false,
     'is_multiple' => false,
@@ -49,10 +61,10 @@ class OrderSellerTransfer extends AbstractTransfer
     /**
      * @param array $data
      *
-     * @return OrderSellerTransfer
+     * @return OrderInvoiceTransfer
      */
     public static function make(array $data)
     {
-        return AbstractTransfer::makeTransfer('Hitmeister\Component\Api\Transfers\OrderSellerTransfer', $data);
+        return AbstractTransfer::makeTransfer('Hitmeister\Component\Api\Transfers\OrderInvoiceTransfer', $data);
     }
 }

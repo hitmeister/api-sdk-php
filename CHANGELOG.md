@@ -2,6 +2,57 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.33.1 - 2019-08-26
+
+### Added
+
+- Added `delivery_time_min` and `delivery_time_max` fields to order-units entity.
+
+## 1.33.0 - 2019-08-26
+
+### Added
+
+- New Query Parameter `ts_units_updated:from` added to the `orders/seller/` endpoint.
+
+## 1.32.0 - 2019-08-19
+
+### Added
+
+- Added the following endpoints:
+    - GET `/order-invoices/seller`
+    - GET `/order-invoices/{id_order_invoice}/`
+    - POST `/order-invoices/`
+    - DELETE `/order-invoices/{id_order_invoice}/`
+- Added embedded Field `order_invoices` to `/orders/{id_order}` endpoint
+
+    
+## 1.31.1 - 2019-08-15
+
+### Changed
+
+- Allow adding shipment information (tracking numbers) for already marked as send order units via `POST /shipments/`.
+
+## 1.30.1 - 2019-07-19
+
+### Changed
+
+- The endpoint `/returns/` now responds with a location header containing `/returns/{id_return}/`.
+
+
+## 1.30.0 - 2019-05-28
+
+### Added
+
+- Added `delivery_time_min` and `delivery_time_max` fields to units endpoint.
+
+
+## 1.29.0 - 2019-05-23
+
+### Changed
+
+- Modified `/tickets/seller/` and `/tickets/{id_ticket}/` Endpoints to now deliver a more differentiated set of claim reasons, named claim topics.
+
+
 ## 1.28.0 - 2019-05-17
 
 ### Added

@@ -9,12 +9,14 @@ use Hitmeister\Component\Api\Namespaces\ClaimsNamespace;
 use Hitmeister\Component\Api\Namespaces\ImportFilesNamespace;
 use Hitmeister\Component\Api\Namespaces\ItemsNamespace;
 use Hitmeister\Component\Api\Namespaces\OrdersNamespace;
+use Hitmeister\Component\Api\Namespaces\OrderInvoicesNamespace;
 use Hitmeister\Component\Api\Namespaces\OrderUnitsNamespace;
 use Hitmeister\Component\Api\Namespaces\ProductDataNamespace;
 use Hitmeister\Component\Api\Namespaces\ProductDataStatusNamespace;
 use Hitmeister\Component\Api\Namespaces\ReportsNamespace;
 use Hitmeister\Component\Api\Namespaces\ReturnsNamespace;
 use Hitmeister\Component\Api\Namespaces\ReturnUnitsNamespace;
+use Hitmeister\Component\Api\Namespaces\ShipmentsNamespace;
 use Hitmeister\Component\Api\Namespaces\ShippingGroupsNamespace;
 use Hitmeister\Component\Api\Namespaces\StatusNamespace;
 use Hitmeister\Component\Api\Namespaces\SubscriptionsNamespace;
@@ -35,7 +37,7 @@ use Hitmeister\Component\Api\Transport\Transport;
  */
 class Client
 {
-	const VERSION = '1.28.0';
+	const VERSION = '1.33.1';
 
 	/** @var Transport */
 	private $transport;
@@ -61,6 +63,9 @@ class Client
 	/** @var OrdersNamespace */
 	private $ordersNs;
 
+	/** @var OrderInvoicesNamespace */
+	private $orderInvoicesNs;
+
 	/** @var OrderUnitsNamespace */
 	private $orderUnitsNs;
 
@@ -78,6 +83,9 @@ class Client
 
 	/** @var ReturnUnitsNamespace */
 	private $returnUnitsNs;
+
+	/** @var ShipmentsNamespace */
+	private $shipmentsNs;
 
 	/** @var ShippingGroupsNamespace */
 	private $shippingGroupsNs;
@@ -115,12 +123,14 @@ class Client
 		$this->importFilesNs = new ImportFilesNamespace($this->transport);
 		$this->itemsNs = new ItemsNamespace($this->transport);
 		$this->ordersNs = new OrdersNamespace($this->transport);
+		$this->orderInvoicesNs = new OrderInvoicesNamespace($this->transport);
 		$this->orderUnitsNs = new OrderUnitsNamespace($this->transport);
 		$this->productDataNs = new ProductDataNamespace($this->transport);
 		$this->productDataStatusNs = new ProductDataStatusNamespace($this->transport);
 		$this->reportsNs = new ReportsNamespace($this->transport);
 		$this->returnsNs = new ReturnsNamespace($this->transport);
 		$this->returnUnitsNs = new ReturnUnitsNamespace($this->transport);
+		$this->shipmentsNs = new ShipmentsNamespace($this->transport);
 		$this->shippingGroupsNs = new ShippingGroupsNamespace($this->transport);
 		$this->statusNs = new StatusNamespace($this->transport);
 		$this->subscriptionsNs = new SubscriptionsNamespace($this->transport);
@@ -195,6 +205,14 @@ class Client
 	}
 
 	/**
+	 * @return OrderInvoicesNamespace
+	 */
+	public function orderInvoices()
+	{
+		return $this->orderInvoicesNs;
+	}
+
+	/**
 	 * @return OrderUnitsNamespace
 	 */
 	public function orderUnits()
@@ -240,6 +258,14 @@ class Client
 	public function returnUnits()
 	{
 		return $this->returnUnitsNs;
+	}
+
+	/**
+	 * @return ShipmentsNamespace
+	 */
+	public function shipments()
+	{
+		return $this->shipmentsNs;
 	}
 
 	/**
