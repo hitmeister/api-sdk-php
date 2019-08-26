@@ -23,7 +23,7 @@ class Find extends AbstractEndpoint
 	 */
 	public function getParamWhiteList()
 	{
-		return ['ts_created:from', 'limit', 'offset'];
+		return ['ts_created:from', 'ts_units_updated:from', 'limit', 'offset'];
 	}
 
 	/**
