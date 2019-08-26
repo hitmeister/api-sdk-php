@@ -54,6 +54,7 @@ The client has a number of "namespaces", which generally expose API functionalit
 | `importFiles()`       | To send inventory data for multiple items at once                    |
 | `items()`             | Retrieve the product data                                            |
 | `orders()`            | Retrieve the orders data                                             |
+| `orderInvoices()`     | Retrieve and manage order invoices data                              |
 | `orderUnits()`        | Retrieve and manage your order units                                 |
 | `productData()`       | Upload or change your product data for an EAN                        |
 | `productDataStatus()` | Retrieve the status of your product data                             |
