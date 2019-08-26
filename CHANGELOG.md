@@ -7,6 +7,7 @@ All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this
 ### Added
 
 - New Query Parameter `ts_units_updated:from` added to the `orders/seller/` endpoint.
+- Added `delivery_time_min` and `delivery_time_max` fields to order-units entity.
 
 ### 1.32.0 - 2019-08-19
 
