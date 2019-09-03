@@ -2,6 +2,12 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.34.0 - 2019-09-04
+
+### Added
+
+- Added `id_item_uncontaminated` field to `/items/` endpoint. `0` corresponds to the `null` value.
+
 ## 1.33.1 - 2019-08-26
 
 ### Added
