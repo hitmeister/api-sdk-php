@@ -17,6 +17,7 @@ namespace Hitmeister\Component\Api\Transfers;
  * @property string $real_mgb_article_number
  * @property int $age_rating
  * @property boolean $is_valid
+ * @property int $id_item_uncontaminated
  *
  *
  */
@@ -74,6 +75,11 @@ class ItemTransfer extends AbstractTransfer
     'is_multiple' => false,
   ),
   'is_valid' => 
+  array (
+    'embedded' => false,
+    'is_multiple' => false,
+  ),
+  'id_item_uncontaminated' => 
   array (
     'embedded' => false,
     'is_multiple' => false,
