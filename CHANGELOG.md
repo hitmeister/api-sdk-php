@@ -2,6 +2,12 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.33.2 - 2019-09-05
+
+### Added
+
+- Added `minimum value` and `maximum value` to every identifier in query.
+
 ## 1.33.1 - 2019-08-26
 
 ### Added
