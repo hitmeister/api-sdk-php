@@ -2,6 +2,13 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.33.4 - 2019-09-10
+
+### Added
+
+- Changed `$defaultListLimit` from 20 to 30 for `GET /units/seller/` as described in
+  	    documentation.
+  	    
 ## 1.33.3 - 2019-09-10
 
 ### Added
