@@ -2,6 +2,13 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.33.3 - 2019-09-10
+
+### Added
+
+- Increased `maximim` value from 1000 to 65535 for `claim_message_text` to enable writing longer
+  	    messages.
+
 ## 1.33.2 - 2019-09-05
 
 ### Added
