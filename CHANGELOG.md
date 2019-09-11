@@ -2,7 +2,7 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
-## 1.33.5 - 2019-09-10
+## 1.33.5 - 2019-09-11
 
 ### Added
 
