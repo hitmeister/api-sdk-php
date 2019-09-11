@@ -2,6 +2,13 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.33.5 - 2019-09-10
+
+### Added
+
+- Overwrote `$HM_PRODUCT` for `attributes, categories, items, product-data,
+  	    product-data-status` controllers to log errors with correct `product` value.
+  	    
 ## 1.33.4 - 2019-09-10
 
 ### Added
