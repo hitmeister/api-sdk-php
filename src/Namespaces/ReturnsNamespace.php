@@ -108,14 +108,14 @@ class ReturnsNamespace extends AbstractNamespace
 		return $resultRequest['json'];
 	}
 
-    /**
-     * @param $id
-     * @param array $orderUnitIds
-     * @param string $reason
-     * @param string $note
-     * @return mixed
-     */
-	public function upsert($id, array $orderUnitIds, string $reason, string $note)
+	/**
+	 * @param int $id
+	 * @param array $orderUnitIds
+	 * @param string $reason
+	 * @param string $note
+	 * @return mixed
+	 */
+	public function upsert(int $id, array $orderUnitIds, string $reason, string $note)
 	{
 		$data = new OrderUnitReturnTransfer();
 		$data->id_order_unit = $orderUnitIds;
