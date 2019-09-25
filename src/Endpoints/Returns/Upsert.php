@@ -8,9 +8,9 @@ use Hitmeister\Component\Api\Transfers\OrderUnitReturnTransfer;
 use Hitmeister\Component\Api\Endpoints\Traits\UriPatternId;
 use Hitmeister\Component\Api\Endpoints\Traits\RequestPut;
 use Hitmeister\Component\Api\Endpoints\Traits\EmptyParamWhiteList;
-use Hitmeister\Component\Api\Endpoints\Traits\BodyTransfer
+use Hitmeister\Component\Api\Endpoints\Traits\BodyTransfer;
 
-class Put extends AbstractEndpoint implements IdAware
+class Upsert extends AbstractEndpoint implements IdAware
 {
 	use UriPatternId;
     use RequestPut;
