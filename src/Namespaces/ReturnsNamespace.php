@@ -6,6 +6,7 @@ use Hitmeister\Component\Api\Cursor;
 use Hitmeister\Component\Api\Endpoints\Returns\Find;
 use Hitmeister\Component\Api\Endpoints\Returns\Get;
 use Hitmeister\Component\Api\Endpoints\Returns\Post;
+use Hitmeister\Component\Api\Endpoints\Returns\Put;
 use Hitmeister\Component\Api\FindBuilder;
 use Hitmeister\Component\Api\Helper\Response;
 use Hitmeister\Component\Api\Namespaces\Traits\PerformWithId;
@@ -102,6 +103,29 @@ class ReturnsNamespace extends AbstractNamespace
 		$endpoint = new Post($this->getTransport());
 		$endpoint->setTransfer($data);
 		$resultRequest = $endpoint->performRequest();
+
+		Response::checkBody($resultRequest);
+		return $resultRequest['json'];
+	}
+
+	/**
+	 * @param $id
+	 * @param array $orderUnitIds
+	 * @param string $reason
+	 * @param string $note
+	 * @return mixed
+	 * @throws \Hitmeister\Component\Api\Exceptions\ServerException
+	 */
+	public function put($id, array $orderUnitIds, string $reason, string $note)
+	{
+		$data = new OrderUnitReturnTransfer();
+		$data->id_order_unit = $orderUnitIds;
+		$data->reason = $reason;
+		$data->note = $note;
+
+		$endpoint = new Put($this->getTransport());
+		$endpoint->setTransfer($data);
+		$resultRequest = $endpoint->performWithId($endpoint, $id);
 
 		Response::checkBody($resultRequest);
 		return $resultRequest['json'];
