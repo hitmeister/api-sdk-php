@@ -2,6 +2,12 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.34.1 2019-09-26
+
+### Fixed
+
+- Adjust `hm-collection-range` header in `GET /orders/seller/
+
 ## 1.34.0 - 2019-09-26
 
 ### Added
@@ -13,7 +19,7 @@ All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this
 
 ### Added
 
-- Changed `$defaultListLimit` from 20 to 30 for `GET /units/seller/` as described in
+- Changed `defaultListLimit` from 20 to 30 for `GET /units/seller/` as described in
   	    documentation.
   	    
 ## 1.33.3 - 2019-09-10
