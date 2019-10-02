@@ -2,6 +2,12 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.34.1 - 2019-10-4
+
+### Changed
+
+-Replaced `Hitmeister` with `real`/`real.de` in documentation.
+
 ## 1.33.4 - 2019-09-10
 
 ### Added
