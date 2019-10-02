@@ -2,6 +2,39 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.34.1 2019-09-26
+
+### Fixed
+
+- Adjust `hm-collection-range` header in `GET /orders/seller/
+
+## 1.34.0 - 2019-09-26
+
+### Added
+
+- Added the following endpoints:
+    - UPSERT `/returns/{id_return}/`    
+
+## 1.33.4 - 2019-09-10
+
+### Added
+
+- Changed `defaultListLimit` from 20 to 30 for `GET /units/seller/` as described in
+  	    documentation.
+  	    
+## 1.33.3 - 2019-09-10
+
+### Added
+
+- Increased `maximim` value from 1000 to 65535 for `claim_message_text` to enable writing longer
+  	    messages.
+
+## 1.33.2 - 2019-09-05
+
+### Added
+
+- Added `minimum value` and `maximum value` to every identifier in query.
+
 ## 1.33.1 - 2019-08-26
 
 ### Added
