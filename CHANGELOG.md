@@ -2,6 +2,13 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.34.0 - 2019-09-26
+
+### Added
+
+- Added the following endpoints:
+    - UPSERT `/returns/{id_return}/`    
+
 ## 1.33.4 - 2019-09-10
 
 ### Added
