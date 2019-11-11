@@ -2,6 +2,12 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.35.0 - 2019-11-11
+
+### Added
+- Property `additional_attributes` to `ProductDataTransfer` transfer
+
+
 ## 1.34.1 2019-09-26
 
 ### Fixed
