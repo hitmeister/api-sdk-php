@@ -2,15 +2,74 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
-### 1.31.1 - 2019-07-30
+## 1.35.0 - 2019-11-11
+
+### Added
+- Property `additional_attributes` to `ProductDataTransfer` transfer
+
+
+## 1.34.1 2019-09-26
+
+### Fixed
+
+- Adjust `hm-collection-range` header in `GET /orders/seller/
+
+## 1.34.0 - 2019-09-26
 
 ### Added
 
-- Added the following endpoints:<br>
+- Added the following endpoints:
+    - UPSERT `/returns/{id_return}/`    
+
+## 1.33.4 - 2019-09-10
+
+### Added
+
+- Changed `defaultListLimit` from 20 to 30 for `GET /units/seller/` as described in
+  	    documentation.
+  	    
+## 1.33.3 - 2019-09-10
+
+### Added
+
+- Increased `maximim` value from 1000 to 65535 for `claim_message_text` to enable writing longer
+  	    messages.
+
+## 1.33.2 - 2019-09-05
+
+### Added
+
+- Added `minimum value` and `maximum value` to every identifier in query.
+
+## 1.33.1 - 2019-08-26
+
+### Added
+
+- Added `delivery_time_min` and `delivery_time_max` fields to order-units entity.
+
+## 1.33.0 - 2019-08-26
+
+### Added
+
+- New Query Parameter `ts_units_updated:from` added to the `orders/seller/` endpoint.
+
+## 1.32.0 - 2019-08-19
+
+### Added
+
+- Added the following endpoints:
     - GET `/order-invoices/seller`
     - GET `/order-invoices/{id_order_invoice}/`
     - POST `/order-invoices/`
     - DELETE `/order-invoices/{id_order_invoice}/`
+- Added embedded Field `order_invoices` to `/orders/{id_order}` endpoint
+
+    
+## 1.31.1 - 2019-08-15
+
+### Changed
+
+- Allow adding shipment information (tracking numbers) for already marked as send order units via `POST /shipments/`.
 
 ## 1.30.1 - 2019-07-19
 

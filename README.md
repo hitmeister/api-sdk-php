@@ -54,12 +54,14 @@ The client has a number of "namespaces", which generally expose API functionalit
 | `importFiles()`       | To send inventory data for multiple items at once                    |
 | `items()`             | Retrieve the product data                                            |
 | `orders()`            | Retrieve the orders data                                             |
+| `orderInvoices()`     | Retrieve and manage order invoices data                              |
 | `orderUnits()`        | Retrieve and manage your order units                                 |
 | `productData()`       | Upload or change your product data for an EAN                        |
 | `productDataStatus()` | Retrieve the status of your product data                             |
 | `reports()`           | Generate and retrieve summary reports                                |
 | `returns()`           | Retrieve the returns from your sales                                 |
 | `returnUnits()`       | Accept, reject or repair returns from your sales                     |
+| `shipments()`         | Add shipment information to order units                              |
 | `shippingGroups()`    | Retrieve the shipping groups data                                    |
 | `status()`            | System status                                                        |
 | `subscriptions()`     | Push notifications management                                        |

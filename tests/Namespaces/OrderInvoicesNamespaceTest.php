@@ -5,7 +5,6 @@ namespace Hitmeister\Component\Api\Tests\Namespaces;
 use Hitmeister\Component\Api\Exceptions\ResourceNotFoundException;
 use Hitmeister\Component\Api\Namespaces\OrderInvoicesNamespace;
 use Hitmeister\Component\Api\Tests\TransportAwareTestCase;
-use Hitmeister\Component\Api\Transfers\OrderInvoiceListTransfer;
 use Hitmeister\Component\Api\Transfers\OrderInvoiceTransfer;
 
 class OrderInvoicesNamespaceTest extends TransportAwareTestCase
@@ -44,7 +43,7 @@ class OrderInvoicesNamespaceTest extends TransportAwareTestCase
 			]);
 
 		$namespace = new OrderInvoicesNamespace($this->transport);
-		/** @var OrderInvoiceListTransfer[] $result */
+		/** @var OrderInvoiceTransfer[] $result */
 		$result = iterator_to_array($namespace->find(5, 10));
 
 		$this->assertCount(2, $result);

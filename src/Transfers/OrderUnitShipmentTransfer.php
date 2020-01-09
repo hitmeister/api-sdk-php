@@ -7,14 +7,12 @@ namespace Hitmeister\Component\Api\Transfers;
  *
  * @codeCoverageIgnore
  *
- * @property string $id_order
- * @property string $original_name
- * @property string $mime_type
- * @property string $data
+ * @property int $id_order_unit
+ * @property ShipmentInformationTransfer $shipment_information
  *
  *
  */
-class OrderInvoiceAddTransfer extends AbstractTransfer
+class OrderUnitShipmentTransfer extends AbstractTransfer
 {
     /**
      * @return array
@@ -22,25 +20,16 @@ class OrderInvoiceAddTransfer extends AbstractTransfer
     public function getProperties()
     {
         static $properties = array (
-  'id_order' => 
+  'id_order_unit' => 
   array (
     'embedded' => false,
     'is_multiple' => false,
   ),
-  'original_name' => 
+  'shipment_information' => 
   array (
     'embedded' => false,
     'is_multiple' => false,
-  ),
-  'mime_type' => 
-  array (
-    'embedded' => false,
-    'is_multiple' => false,
-  ),
-  'data' => 
-  array (
-    'embedded' => false,
-    'is_multiple' => false,
+    'type' => 'Hitmeister\\Component\\Api\\Transfers\\ShipmentInformationTransfer',
   ),
 );
         return $properties;
@@ -49,10 +38,10 @@ class OrderInvoiceAddTransfer extends AbstractTransfer
     /**
      * @param array $data
      *
-     * @return OrderInvoiceAddTransfer
+     * @return OrderUnitShipmentTransfer
      */
     public static function make(array $data)
     {
-        return AbstractTransfer::makeTransfer('Hitmeister\Component\Api\Transfers\OrderInvoiceAddTransfer', $data);
+        return AbstractTransfer::makeTransfer('Hitmeister\Component\Api\Transfers\OrderUnitShipmentTransfer', $data);
     }
 }

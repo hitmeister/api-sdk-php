@@ -16,6 +16,7 @@ namespace Hitmeister\Component\Api\Transfers;
  * @property array $mpn
  * @property array $list_price
  * @property array $picture
+ * @property array $additional_attributes
  *
  *
  */
@@ -71,6 +72,12 @@ class ProductDataTransfer extends AbstractTransfer
   array (
     'embedded' => false,
     'is_multiple' => true,
+  ),
+  'additional_attributes' => 
+  array (
+    'embedded' => false,
+    'is_multiple' => true,
+    'type' => 'Hitmeister\\Component\\Api\\Transfers\\AdditionalAttributeTransfer',
   ),
 );
         return $properties;

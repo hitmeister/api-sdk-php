@@ -13,7 +13,6 @@ use Hitmeister\Component\Api\FindBuilder;
 use Hitmeister\Component\Api\Helper\Response;
 use Hitmeister\Component\Api\Namespaces\Traits\PerformWithId;
 use Hitmeister\Component\Api\Transfers\OrderInvoiceAddTransfer;
-use Hitmeister\Component\Api\Transfers\OrderInvoiceListTransfer;
 use Hitmeister\Component\Api\Transfers\OrderInvoiceTransfer;
 
 class OrderInvoicesNamespace extends AbstractNamespace
@@ -26,14 +25,14 @@ class OrderInvoicesNamespace extends AbstractNamespace
 	 * @param int $limit
 	 * @param int $offset
 	 *
-	 * @return Cursor|OrderInvoiceListTransfer[]
+	 * @return Cursor|OrderInvoiceTransfer[]
 	 * @throws ApiException
 	 */
 	public function find($limit = 30, $offset = 0)
 	{
 		$findBuilder = new FindBuilder(
 			new Find($this->getTransport()),
-			'\Hitmeister\Component\Api\Transfers\OrderInvoiceListTransfer'
+			'\Hitmeister\Component\Api\Transfers\OrderInvoiceTransfer'
 		);
 
 		return $findBuilder
