@@ -28,11 +28,13 @@ class ShipmentsNamespace extends AbstractNamespace
 	 */
 	public function post($orderUnitId, $carrierCode, $trackingNumber)
 	{
+        $shipmentInformation = new ShipmentInformationTransfer();
+        $shipmentInformation->carrier_code = $carrierCode;
+        $shipmentInformation->tracking_number = $trackingNumber;
+
 		$data = new OrderUnitShipmentTransfer();
 		$data->id_order_unit = $orderUnitId;
-		$shipmentInformation = new ShipmentInformationTransfer();
-		$shipmentInformation->carrier_code = $carrierCode;
-		$shipmentInformation->tracking_number = $trackingNumber;
+		$data->shipment_information = $shipmentInformation;
 
 		$endpoint = new Post($this->getTransport());
 		$endpoint->setTransfer($data);
