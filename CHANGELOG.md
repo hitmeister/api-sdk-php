@@ -2,6 +2,11 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.35.1 - 2020-02-13
+
+### Fixed
+- Property `shipment_information` of `OrderUnitShipmentTransfer` should not be empty
+
 ## 1.35.0 - 2019-11-11
 
 ### Added
