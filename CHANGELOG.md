@@ -2,6 +2,21 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.36.0 - 2020-03-11
+
+### Added
+- Added the following carriers:
+    - `4PX`
+    - `China Post`
+    - `Chukou1 Logistics`
+    - `DHL Hong Kong`
+    - `Flyt Express`
+    - `Hong Kong Post`
+    - `SFC Service`
+    - `Wanb Express`
+    - `Yanwen`
+    - `Yun Express`
+
 ## 1.35.1 - 2020-02-13
 
 ### Fixed
