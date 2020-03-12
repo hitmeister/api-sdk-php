@@ -11,8 +11,7 @@ namespace Hitmeister\Component\Api\Transfers;
  * @property string $item_not_ready_reason
  * @property int $id_item
  * @property float $item_quality
- * @property bool $item_isvalid
- * @property array $missing_mandatory_attributes
+ * @property array $missing_attributes
  * @property array $min_one_missing_attributes
  * @property string $update_status
  * @property string $update_fail_reason
@@ -48,12 +47,7 @@ class ProductDataStatusTransfer extends AbstractTransfer
     'embedded' => false,
     'is_multiple' => false,
   ),
-  'item_isvalid' => 
-  array (
-    'embedded' => false,
-    'is_multiple' => false,
-  ),
-  'missing_mandatory_attributes' => 
+  'missing_attributes' => 
   array (
     'embedded' => false,
     'is_multiple' => true,
