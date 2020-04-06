@@ -107,7 +107,30 @@ class ReportsNamespaceTest extends TransportAwareTestCase
 		$this->assertEquals(123456, $result);
 	}
 
-	public function testCancellations()
+    public function testAccountListingWithListingPrice()
+    {
+        $this->transport
+            ->shouldReceive('performRequest')
+            ->once()
+            ->withArgs([
+                'POST',
+                'reports/account-listing-with-listing-price/',
+                [], // no params
+                null, // no body
+                \Mockery::any(),
+            ])
+            ->andReturn([
+                'headers' => [
+                    'Location' => ['/reports/123456/'],
+                ],
+            ]);
+
+        $namespace = new ReportsNamespace($this->transport);
+        $result = $namespace->accountListingWithListingPrice();
+        $this->assertEquals(123456, $result);
+    }
+
+    public function testCancellations()
 	{
 		$this->transport
 			->shouldReceive('performRequest')
