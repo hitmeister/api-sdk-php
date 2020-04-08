@@ -68,7 +68,24 @@ class UnitsNamespace extends AbstractNamespace
 			->setLimit($limit)
 			->setOffset($offset)
 			->find();
-	}
+    }
+    
+	/**
+	 * @param int|string $idOffer
+	 * @param string[]   $embedded
+	 * @param int        $limit
+	 * @param int        $offset
+	 * @return Cursor|UnitSellerTransfer[]
+	 */
+	public function find($idOffer = null, $embedded = null, $limit = 30, $offset = 0)
+	{
+		return $this->buildFind()
+			->addParam('id_offer', $idOffer)
+			->addParam('embedded', $embedded)
+			->setLimit($limit)
+			->setOffset($offset)
+			->find();
+	}    
 
 	/**
 	 * @return FindBuilder
