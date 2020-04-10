@@ -105,6 +105,48 @@ class UnitsNamespaceTest extends TransportAwareTestCase
 		$this->assertInstanceOf('\Hitmeister\Component\Api\Transfers\UnitSellerTransfer', $result[0]);
 		$this->assertEquals(350822415008, $result[0]->id_unit);
 		$this->assertEquals('new', $result[0]->condition);
+    }
+    
+    public function testFind()
+	{
+		$this->transport
+			->shouldReceive('performRequest')
+			->once()
+			->withArgs([
+				\Mockery::any(),
+				\Mockery::any(),
+				[
+					'id_offer' => '136',
+					'embedded' => 'item',
+					'limit' => 30,
+					'offset' => 0,
+				],
+				\Mockery::any(),
+				\Mockery::any(),
+			])
+			->andReturn([
+				'headers' => [
+					'Hm-Collection-Range' => ['1-2/2'],
+				],
+				'json' => [
+					[
+						'id_unit' => 350822415008,
+						'condition' => 'new'
+					]
+				]
+			]);
+
+		$namespace = new UnitsNamespace($this->transport);
+		$result = $namespace->find('136', ['item']);
+
+		$this->assertInstanceOf('\Iterator', $result);
+		$result = iterator_to_array($result);
+
+		/** @var \Hitmeister\Component\Api\Transfers\UnitSellerTransfer[] $result */
+		$this->assertEquals(1, count($result));
+		$this->assertInstanceOf('\Hitmeister\Component\Api\Transfers\UnitSellerTransfer', $result[0]);
+		$this->assertEquals(350822415008, $result[0]->id_unit);
+		$this->assertEquals('new', $result[0]->condition);
 	}
 
 	public function testGetEmbedded()
