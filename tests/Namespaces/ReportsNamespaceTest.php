@@ -107,14 +107,14 @@ class ReportsNamespaceTest extends TransportAwareTestCase
 		$this->assertEquals(123456, $result);
 	}
 
-    public function testAccountListingWithListingPrice()
+    public function testAccountListingWithShopPrice()
     {
         $this->transport
             ->shouldReceive('performRequest')
             ->once()
             ->withArgs([
                 'POST',
-                'reports/account-listing-with-listing-price/',
+                'reports/account-listing-with-shop-price/',
                 [], // no params
                 null, // no body
                 \Mockery::any(),
@@ -126,7 +126,7 @@ class ReportsNamespaceTest extends TransportAwareTestCase
             ]);
 
         $namespace = new ReportsNamespace($this->transport);
-        $result = $namespace->accountListingWithListingPrice();
+        $result = $namespace->accountListingWithShopPrice();
         $this->assertEquals(123456, $result);
     }
 

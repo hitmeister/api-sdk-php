@@ -4,7 +4,7 @@ namespace Hitmeister\Component\Api\Namespaces;
 
 use Hitmeister\Component\Api\Cursor;
 use Hitmeister\Component\Api\Endpoints\Reports\AccountListing;
-use Hitmeister\Component\Api\Endpoints\Reports\AccountListingWithListingPrice;
+use Hitmeister\Component\Api\Endpoints\Reports\AccountListingWithShopPrice;
 use Hitmeister\Component\Api\Endpoints\Reports\Bookings;
 use Hitmeister\Component\Api\Endpoints\Reports\BookingsNew;
 use Hitmeister\Component\Api\Endpoints\Reports\Cancellations;
@@ -89,9 +89,9 @@ class ReportsNamespace extends AbstractNamespace
     /**
      * @return int
      */
-    public function accountListingWithListingPrice()
+    public function accountListingWithShopPrice()
     {
-        $endpoint = new AccountListingWithListingPrice($this->getTransport());
+        $endpoint = new AccountListingWithShopPrice($this->getTransport());
         $resultRequest = $endpoint->performRequest();
 
         return Response::extractId($resultRequest, '/reports/%d/');

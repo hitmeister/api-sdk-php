@@ -2,13 +2,13 @@
 
 namespace Hitmeister\Component\Api\Endpoints\Reports;
 
-class AccountListingWithListingPrice extends Post
+class AccountListingWithShopPrice extends Post
 {
 	/**
 	 * {@inheritdoc}
 	 */
 	public function getURI()
 	{
-		return 'reports/account-listing-with-listing-price/';
+		return 'reports/account-listing-with-shop-price/';
 	}
 }
