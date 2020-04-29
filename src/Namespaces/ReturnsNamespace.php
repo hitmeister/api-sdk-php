@@ -93,7 +93,7 @@ class ReturnsNamespace extends AbstractNamespace
 	 * @throws \Hitmeister\Component\Api\Exceptions\ServerException
 	 * @return array
 	 */
-	public function post(array $orderUnitIds, string $reason, string $note)
+	public function post(array $orderUnitIds, $reason, $note)
 	{
 		$data = new OrderUnitReturnTransfer();
 		$data->id_order_unit = $orderUnitIds;
@@ -115,7 +115,7 @@ class ReturnsNamespace extends AbstractNamespace
 	 * @param string $note
 	 * @return mixed
 	 */
-	public function upsert(int $id, array $orderUnitIds, string $reason, string $note)
+	public function upsert($id, array $orderUnitIds, $reason, $note)
 	{
 		$data = new OrderUnitReturnTransfer();
 		$data->id_order_unit = $orderUnitIds;
