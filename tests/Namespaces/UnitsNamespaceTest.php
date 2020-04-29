@@ -107,7 +107,7 @@ class UnitsNamespaceTest extends TransportAwareTestCase
 		$this->assertEquals('new', $result[0]->condition);
     }
     
-    public function testFind()
+    public function testFindByIdOffer()
 	{
 		$this->transport
 			->shouldReceive('performRequest')
@@ -137,7 +137,7 @@ class UnitsNamespaceTest extends TransportAwareTestCase
 			]);
 
 		$namespace = new UnitsNamespace($this->transport);
-		$result = $namespace->find('136', ['item']);
+		$result = $namespace->findByIdOffer('136', ['item']);
 
 		$this->assertInstanceOf('\Iterator', $result);
 		$result = iterator_to_array($result);

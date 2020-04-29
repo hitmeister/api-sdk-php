@@ -77,7 +77,7 @@ class UnitsNamespace extends AbstractNamespace
 	 * @param int        $offset
 	 * @return Cursor|UnitSellerTransfer[]
 	 */
-	public function find($idOffer = null, $embedded = null, $limit = 30, $offset = 0)
+	public function findByIdOrder($idOffer, $embedded = null, $limit = 30, $offset = 0)
 	{
 		return $this->buildFind()
 			->addParam('id_offer', $idOffer)
