@@ -2,6 +2,14 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.37.0 - 2020-04-30
+
+### Fixed
+- compatability with PHP 5.6 and lower
+
+### Added
+- new endpoint to create new `AccountListing` report
+
 
 ## 1.36.0 - 2020-03-12
 
