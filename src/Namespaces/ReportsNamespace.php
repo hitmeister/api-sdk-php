@@ -4,6 +4,7 @@ namespace Hitmeister\Component\Api\Namespaces;
 
 use Hitmeister\Component\Api\Cursor;
 use Hitmeister\Component\Api\Endpoints\Reports\AccountListing;
+use Hitmeister\Component\Api\Endpoints\Reports\AccountListingWithShopPrice;
 use Hitmeister\Component\Api\Endpoints\Reports\Bookings;
 use Hitmeister\Component\Api\Endpoints\Reports\BookingsNew;
 use Hitmeister\Component\Api\Endpoints\Reports\Cancellations;
@@ -40,8 +41,8 @@ class ReportsNamespace extends AbstractNamespace
 	use PerformWithId;
 
 	/**
-	 * @param int    $limit
-	 * @param int    $offset
+	 * @param int $limit
+	 * @param int $offset
 	 * @param string $sort
 	 * @return Cursor|ReportTransfer[]
 	 */
@@ -80,6 +81,17 @@ class ReportsNamespace extends AbstractNamespace
 	public function accountListing()
 	{
 		$endpoint = new AccountListing($this->getTransport());
+		$resultRequest = $endpoint->performRequest();
+
+		return Response::extractId($resultRequest, '/reports/%d/');
+	}
+
+	/**
+	 * @return int
+	 */
+	public function accountListingWithShopPrice()
+	{
+		$endpoint = new AccountListingWithShopPrice($this->getTransport());
 		$resultRequest = $endpoint->performRequest();
 
 		return Response::extractId($resultRequest, '/reports/%d/');
@@ -164,7 +176,7 @@ class ReportsNamespace extends AbstractNamespace
 	}
 
 	/**
-	 * @param array                $statuses
+	 * @param array $statuses
 	 * @param \DateTime|int|string $dateTimeFrom
 	 * @param \DateTime|int|string $dateTimeTo
 	 * @return int
