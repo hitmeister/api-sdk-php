@@ -41,8 +41,8 @@ class ReportsNamespace extends AbstractNamespace
 	use PerformWithId;
 
 	/**
-	 * @param int    $limit
-	 * @param int    $offset
+	 * @param int $limit
+	 * @param int $offset
 	 * @param string $sort
 	 * @return Cursor|ReportTransfer[]
 	 */
@@ -86,16 +86,16 @@ class ReportsNamespace extends AbstractNamespace
 		return Response::extractId($resultRequest, '/reports/%d/');
 	}
 
-    /**
-     * @return int
-     */
-    public function accountListingWithShopPrice()
-    {
-        $endpoint = new AccountListingWithShopPrice($this->getTransport());
-        $resultRequest = $endpoint->performRequest();
+	/**
+	 * @return int
+	 */
+	public function accountListingWithShopPrice()
+	{
+		$endpoint = new AccountListingWithShopPrice($this->getTransport());
+		$resultRequest = $endpoint->performRequest();
 
-        return Response::extractId($resultRequest, '/reports/%d/');
-    }
+		return Response::extractId($resultRequest, '/reports/%d/');
+	}
 
 	/**
 	 * @return int
@@ -176,7 +176,7 @@ class ReportsNamespace extends AbstractNamespace
 	}
 
 	/**
-	 * @param array                $statuses
+	 * @param array $statuses
 	 * @param \DateTime|int|string $dateTimeFrom
 	 * @param \DateTime|int|string $dateTimeTo
 	 * @return int

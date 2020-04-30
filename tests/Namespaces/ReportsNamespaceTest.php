@@ -23,28 +23,32 @@ class ReportsNamespaceTest extends TransportAwareTestCase
 		$this->transport
 			->shouldReceive('performRequest')
 			->once()
-			->withArgs([
-				\Mockery::any(),
-				\Mockery::any(),
+			->withArgs(
 				[
-					'sort' => 'id_report:asc',
-					'limit' => 20,
-					'offset' => 0,
-				],
-				\Mockery::any(),
-				\Mockery::any(),
-			])
-			->andReturn([
-				'headers' => [
-					'Hm-Collection-Range' => ['1-1/1'],
-				],
-				'json' => [
+					\Mockery::any(),
+					\Mockery::any(),
 					[
-						'id_report' => 460258,
-						'date_requested' => '2015-09-22'
-					]
+						'sort' => 'id_report:asc',
+						'limit' => 20,
+						'offset' => 0,
+					],
+					\Mockery::any(),
+					\Mockery::any(),
 				]
-			]);
+			)
+			->andReturn(
+				[
+					'headers' => [
+						'Hm-Collection-Range' => ['1-1/1'],
+					],
+					'json' => [
+						[
+							'id_report' => 460258,
+							'date_requested' => '2015-09-22',
+						],
+					],
+				]
+			);
 
 		$namespace = new ReportsNamespace($this->transport);
 		$result = $namespace->find();
@@ -61,12 +65,14 @@ class ReportsNamespaceTest extends TransportAwareTestCase
 
 	public function testGet()
 	{
-		$this->transport->shouldReceive('performRequest')->once()->andReturn([
-			'json' => [
-				'id_report' => 460258,
-				'date_requested' => '2015-09-22'
+		$this->transport->shouldReceive('performRequest')->once()->andReturn(
+			[
+				'json' => [
+					'id_report' => 460258,
+					'date_requested' => '2015-09-22',
+				],
 			]
-		]);
+		);
 
 		$namespace = new ReportsNamespace($this->transport);
 		$result = $namespace->get(460258);
@@ -89,64 +95,76 @@ class ReportsNamespaceTest extends TransportAwareTestCase
 		$this->transport
 			->shouldReceive('performRequest')
 			->once()
-			->withArgs([
-				'POST',
-				'reports/account-listing/',
-				[], // no params
-				null, // no body
-				\Mockery::any(),
-			])
-			->andReturn([
-				'headers' => [
-					'Location' => ['/reports/123456/'],
-				],
-			]);
+			->withArgs(
+				[
+					'POST',
+					'reports/account-listing/',
+					[], // no params
+					null, // no body
+					\Mockery::any(),
+				]
+			)
+			->andReturn(
+				[
+					'headers' => [
+						'Location' => ['/reports/123456/'],
+					],
+				]
+			);
 
 		$namespace = new ReportsNamespace($this->transport);
 		$result = $namespace->accountListing();
 		$this->assertEquals(123456, $result);
 	}
 
-    public function testAccountListingWithShopPrice()
-    {
-        $this->transport
-            ->shouldReceive('performRequest')
-            ->once()
-            ->withArgs([
-                'POST',
-                'reports/account-listing-with-shop-price/',
-                [], // no params
-                null, // no body
-                \Mockery::any(),
-            ])
-            ->andReturn([
-                'headers' => [
-                    'Location' => ['/reports/123456/'],
-                ],
-            ]);
-
-        $namespace = new ReportsNamespace($this->transport);
-        $result = $namespace->accountListingWithShopPrice();
-        $this->assertEquals(123456, $result);
-    }
-
-    public function testCancellations()
+	public function testAccountListingWithShopPrice()
 	{
 		$this->transport
 			->shouldReceive('performRequest')
 			->once()
-			->withArgs([
-				'POST',
-				'reports/cancellations/',
-				[], // no params
-				null, // no body
-				\Mockery::any(),
-			])
-			->andReturn([
-				'headers' => [
-					'Location' => ['/reports/123456/'],
-				],
-			]);
+			->withArgs(
+				[
+					'POST',
+					'reports/account-listing-with-shop-price/',
+					[], // no params
+					null, // no body
+					\Mockery::any(),
+				]
+			)
+			->andReturn(
+				[
+					'headers' => [
+						'Location' => ['/reports/123456/'],
+					],
+				]
+			);
+
+		$namespace = new ReportsNamespace($this->transport);
+		$result = $namespace->accountListingWithShopPrice();
+		$this->assertEquals(123456, $result);
+	}
+
+	public function testCancellations()
+	{
+		$this->transport
+			->shouldReceive('performRequest')
+			->once()
+			->withArgs(
+				[
+					'POST',
+					'reports/cancellations/',
+					[], // no params
+					null, // no body
+					\Mockery::any(),
+				]
+			)
+			->andReturn(
+				[
+					'headers' => [
+						'Location' => ['/reports/123456/'],
+					],
+				]
+			);
 
 		$namespace = new ReportsNamespace($this->transport);
 		$result = $namespace->cancellations();
@@ -158,18 +176,22 @@ class ReportsNamespaceTest extends TransportAwareTestCase
 		$this->transport
 			->shouldReceive('performRequest')
 			->once()
-			->withArgs([
-				'POST',
-				'reports/competitors-comparer/',
-				[], // no params
-				null, // no body
-				\Mockery::any(),
-			])
-			->andReturn([
-				'headers' => [
-					'Location' => ['/reports/123456/'],
-				],
-			]);
+			->withArgs(
+				[
+					'POST',
+					'reports/competitors-comparer/',
+					[], // no params
+					null, // no body
+					\Mockery::any(),
+				]
+			)
+			->andReturn(
+				[
+					'headers' => [
+						'Location' => ['/reports/123456/'],
+					],
+				]
+			);
 
 		$namespace = new ReportsNamespace($this->transport);
 		$result = $namespace->competitorsComparer();
@@ -184,21 +206,25 @@ class ReportsNamespaceTest extends TransportAwareTestCase
 		$this->transport
 			->shouldReceive('performRequest')
 			->once()
-			->withArgs([
-				'POST',
-				'reports/bookings/',
-				[], // no params
+			->withArgs(
 				[
-					'date_from' => Request::formatDate($from),
-					'date_to' => Request::formatDate($to),
-				],
-				\Mockery::any(),
-			])
-			->andReturn([
-				'headers' => [
-					'Location' => ['/reports/123456/'],
-				],
-			]);
+					'POST',
+					'reports/bookings/',
+					[], // no params
+					[
+						'date_from' => Request::formatDate($from),
+						'date_to' => Request::formatDate($to),
+					],
+					\Mockery::any(),
+				]
+			)
+			->andReturn(
+				[
+					'headers' => [
+						'Location' => ['/reports/123456/'],
+					],
+				]
+			);
 
 		$namespace = new ReportsNamespace($this->transport);
 		$result = $namespace->bookings($from, $to);
@@ -213,22 +239,26 @@ class ReportsNamespaceTest extends TransportAwareTestCase
 		$this->transport
 			->shouldReceive('performRequest')
 			->once()
-			->withArgs([
-				'POST',
-				'reports/sales/',
-				[], // no params
+			->withArgs(
 				[
-					'status' => ['received'],
-					'ts_from' => Request::formatDateTime($from),
-					'ts_to' => Request::formatDateTime($to),
-				],
-				\Mockery::any(),
-			])
-			->andReturn([
-				'headers' => [
-					'Location' => ['/reports/123456/'],
-				],
-			]);
+					'POST',
+					'reports/sales/',
+					[], // no params
+					[
+						'status' => ['received'],
+						'ts_from' => Request::formatDateTime($from),
+						'ts_to' => Request::formatDateTime($to),
+					],
+					\Mockery::any(),
+				]
+			)
+			->andReturn(
+				[
+					'headers' => [
+						'Location' => ['/reports/123456/'],
+					],
+				]
+			);
 
 		$namespace = new ReportsNamespace($this->transport);
 		$result = $namespace->sales(['received'], $from, $to);
@@ -240,20 +270,24 @@ class ReportsNamespaceTest extends TransportAwareTestCase
 		$this->transport
 			->shouldReceive('performRequest')
 			->once()
-			->withArgs([
-				'POST',
-				'reports/product-data-import-file-errors/',
-				[], // no params
+			->withArgs(
 				[
-					'id_import_file' => 10,
-				],
-				\Mockery::any(),
-			])
-			->andReturn([
-				'headers' => [
-					'Location' => ['/reports/123456/'],
-				],
-			]);
+					'POST',
+					'reports/product-data-import-file-errors/',
+					[], // no params
+					[
+						'id_import_file' => 10,
+					],
+					\Mockery::any(),
+				]
+			)
+			->andReturn(
+				[
+					'headers' => [
+						'Location' => ['/reports/123456/'],
+					],
+				]
+			);
 
 		$namespace = new ReportsNamespace($this->transport);
 		$result = $namespace->productDataImportErrors(10);
@@ -265,18 +299,22 @@ class ReportsNamespaceTest extends TransportAwareTestCase
 		$this->transport
 			->shouldReceive('performRequest')
 			->once()
-			->withArgs([
-				'POST',
-				'reports/product-data-changes/',
-				[], // no params
-				null, // no body
-				\Mockery::any(),
-			])
-			->andReturn([
-				'headers' => [
-					'Location' => ['/reports/42/'],
-				],
-			]);
+			->withArgs(
+				[
+					'POST',
+					'reports/product-data-changes/',
+					[], // no params
+					null, // no body
+					\Mockery::any(),
+				]
+			)
+			->andReturn(
+				[
+					'headers' => [
+						'Location' => ['/reports/42/'],
+					],
+				]
+			);
 
 		$namespace = new ReportsNamespace($this->transport);
 		$result = $namespace->productDataChanges();
@@ -288,18 +326,22 @@ class ReportsNamespaceTest extends TransportAwareTestCase
 		$this->transport
 			->shouldReceive('performRequest')
 			->once()
-			->withArgs([
-				'POST',
-				'reports/eans-not-found/',
-				[], // no params
-				null, // no body
-				\Mockery::any(),
-			])
-			->andReturn([
-				'headers' => [
-					'Location' => ['/reports/42/'],
-				],
-			]);
+			->withArgs(
+				[
+					'POST',
+					'reports/eans-not-found/',
+					[], // no params
+					null, // no body
+					\Mockery::any(),
+				]
+			)
+			->andReturn(
+				[
+					'headers' => [
+						'Location' => ['/reports/42/'],
+					],
+				]
+			);
 
 		$namespace = new ReportsNamespace($this->transport);
 		$result = $namespace->eansNotFound();
