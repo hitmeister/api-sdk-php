@@ -22,7 +22,7 @@ if (!is_array($transfersData)) {
 $rootDir = __DIR__ . '/..';
 
 use Memio\Memio\Config\Build;
-use Memio\Model\Objekt as MemioObject;
+use Memio\Model\Object;
 use Memio\Model\File;
 use Memio\Model\Phpdoc\StructurePhpdoc;
 use Memio\Model\Phpdoc\Description;
@@ -46,7 +46,7 @@ $baseNamespace = 'Hitmeister\\Component\\Api\\Transfers\\';
 $enum = [];
 
 foreach ($transfersData as $name => $data) {
-	$obj = MemioObject::make($baseNamespace . $name . 'Transfer');
+	$obj = Object::make($baseNamespace . $name . 'Transfer');
 	$obj->setPhpdoc(
 		StructurePhpdoc::make()
 			->setDescription(
@@ -55,7 +55,7 @@ foreach ($transfersData as $name => $data) {
 					->addLine('@codeCoverageIgnore')
 			)
 	);
-	$obj->extend(MemioObject::make($baseNamespace . 'AbstractTransfer'));
+	$obj->extend(Object::make($baseNamespace . 'AbstractTransfer'));
 
 	$map = [];
 
@@ -109,7 +109,7 @@ BODY
 }
 
 // Some constants
-$obj = MemioObject::make($baseNamespace . 'Constants');
+$obj = Object::make($baseNamespace . 'Constants');
 $obj->setPhpdoc(
 	StructurePhpdoc::make()
 		->setDescription(
@@ -131,14 +131,14 @@ $generatedCode = $prettyPrinter->generateCode($file);
 file_put_contents($file->getFilename(), $generatedCode);
 
 /**
- * @param MemioObject $obj
- * @param array       $map
- * @param array       $data
- * @param array       $enum
- * @param string      $name
- * @param bool        $embedded
+ * @param Memio\Model\Object $obj
+ * @param array              $map
+ * @param array              $data
+ * @param array              $enum
+ * @param string             $name
+ * @param bool               $embedded
  */
-function processProperties(MemioObject $obj, array &$map, array $data, array &$enum, $name, $embedded = false)
+function processProperties(Memio\Model\Object $obj, array &$map, array $data, array &$enum, $name, $embedded = false)
 {
 	global $wrongTypes, $transfersData, $baseNamespace;
 
