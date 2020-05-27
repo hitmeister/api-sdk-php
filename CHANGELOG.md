@@ -7,9 +7,6 @@ All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this
 ### Added
 - new fields `dangerous_goods_li_shipping` and `danger_label_9A` in `items`-endpoint
 
-### Fixed
-- dev_tools generator
-
 ## 1.37.0 - 2020-04-30
 
 ### Added
