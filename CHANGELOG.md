@@ -2,6 +2,11 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.39.0 -2020-06-30
+
+### Added
+- new method `findByIdOffer` to find units by id offer
+
 ## 1.38.0 - 2020-05-27
 
 ### Added
