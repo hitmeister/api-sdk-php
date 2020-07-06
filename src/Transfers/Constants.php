@@ -209,6 +209,7 @@ class Constants
     const CARRIER_CODE_CHINA_POST = 'China Post';
     const CARRIER_CODE_CHRONOPOST = 'Chronopost';
     const CARRIER_CODE_CHUKOU1_LOGISTICS = 'Chukou1 Logistics';
+    const CARRIER_CODE_CNE_EXPRESS = 'CNE Express';
     const CARRIER_CODE_CORREOS = 'Correos';
     const CARRIER_CODE_DACHSER = 'Dachser';
     const CARRIER_CODE_MARKTANLIEFERUNG = 'Marktanlieferung';
@@ -237,6 +238,7 @@ class Constants
     const CARRIER_CODE_KUEHNE_NAGEL = 'Kuehne & Nagel';
     const CARRIER_CODE_LA_POSTE = 'La Poste';
     const CARRIER_CODE_POST_ITALIANE = 'Post Italiane';
+    const CARRIER_CODE_POSTNL = 'PostNL';
     const CARRIER_CODE_RHENUS = 'Rhenus';
     const CARRIER_CODE_SCHENKER = 'Schenker';
     const CARRIER_CODE_SEUR = 'Seur';
@@ -247,6 +249,7 @@ class Constants
     const CARRIER_CODE_TRANS_O_FLEX = 'trans-o-flex';
     const CARRIER_CODE_UPS = 'UPS';
     const CARRIER_CODE_WANB_EXPRESS = 'Wanb Express';
+    const CARRIER_CODE_WINIT = 'Winit';
     const CARRIER_CODE_YANWEN = 'Yanwen';
     const CARRIER_CODE_YUN_EXPRESS = 'Yun Express';
     const CARRIER_CODE_ZUFALL = 'Zufall';
