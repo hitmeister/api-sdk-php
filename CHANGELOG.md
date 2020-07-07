@@ -2,6 +2,14 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.40.0 - 2020-07-06
+
+### Added
+- Added the following carriers:
+    - `CNE Express`
+    - `PostNL`
+    - `Winit`
+
 ## 1.39.0 -2020-06-30
 
 ### Added
