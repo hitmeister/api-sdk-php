@@ -17,21 +17,26 @@ use Hitmeister\Component\Api\Tests\TransportAwareTestCase;
  */
 class UpsertTest extends TransportAwareTestCase
 {
-	public function testInstance()
+	/**
+	 * @dataProvider eanDataProvider
+	 *
+	 * @param string $ean
+	 */
+	public function testInstance($ean)
 	{
 		/** @var \Mockery\Mock|\Hitmeister\Component\Api\Transfers\ProductDataTransfer $transfer */
 		$transfer = \Mockery::mock('\Hitmeister\Component\Api\Transfers\ProductDataTransfer');
 		$transfer->shouldReceive('toArray')->once()->andReturn(['condition' => 'new']);
 
 		$update = new Upsert($this->transport);
-		$update->setId('1231231231232');
+		$update->setId($ean);
 		$update->setTransfer($transfer);
 
 		$this->assertInstanceOf('\Hitmeister\Component\Api\Transfers\ProductDataTransfer', $update->getTransfer());
-		$this->assertEquals('1231231231232', $update->getId());
+		$this->assertEquals($ean, $update->getId());
 		$this->assertEquals([], $update->getParamWhiteList());
 		$this->assertEquals('PUT', $update->getMethod());
-		$this->assertEquals('product-data/1231231231232/', $update->getURI());
+		$this->assertEquals(sprintf('product-data/%s/', $ean), $update->getURI());
 
 		$body = $update->getBody();
 		$this->assertArrayHasKey('condition', $body);
@@ -45,5 +50,16 @@ class UpsertTest extends TransportAwareTestCase
 	{
 		$update = new Upsert($this->transport);
 		$update->getURI();
+	}
+
+	/**
+	 * @return string[]
+	 */
+	public function eanDataProvider()
+	{
+		return [
+			['1231231231232'],
+			['0123123123123'],
+		];
 	}
 }

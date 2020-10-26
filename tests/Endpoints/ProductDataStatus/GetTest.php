@@ -16,14 +16,19 @@ use Hitmeister\Component\Api\Tests\TransportAwareTestCase;
  */
 class GetTest extends TransportAwareTestCase
 {
-	public function testInstance()
+	/**
+	 * @dataProvider eanDataProvider
+	 *
+	 * @param string $ean
+	 */
+	public function testInstance($ean)
 	{
 		$get = new Get($this->transport);
-		$get->setId('1231231231232');
-		$this->assertEquals('1231231231232', $get->getId());
+		$get->setId($ean);
+		$this->assertEquals($ean, $get->getId());
 		$this->assertEquals([], $get->getParamWhiteList());
 		$this->assertEquals('GET', $get->getMethod());
-		$this->assertEquals('product-data-status/1231231231232/', $get->getURI());
+		$this->assertEquals(sprintf('product-data-status/%s/', $ean), $get->getURI());
 	}
 
 	/**
@@ -34,5 +39,16 @@ class GetTest extends TransportAwareTestCase
 	{
 		$get = new Get($this->transport);
 		$get->getURI();
+	}
+
+	/**
+	 * @return string[]
+	 */
+	public function eanDataProvider()
+	{
+		return [
+			['1231231231232'],
+			['0123123123123'],
+		];
 	}
 }

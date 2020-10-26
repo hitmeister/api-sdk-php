@@ -28,6 +28,6 @@ class Delete extends AbstractEndpoint implements IdAware
 	 */
 	protected function getUriPattern()
 	{
-		return 'product-data/%d/';
+		return 'product-data/%s/';
 	}
 }
