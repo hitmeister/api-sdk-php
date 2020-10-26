@@ -28,6 +28,6 @@ class Get extends AbstractEndpoint implements IdAware
 	 */
 	protected function getUriPattern()
 	{
-		return 'product-data-status/%d/';
+		return 'product-data-status/%s/';
 	}
 }

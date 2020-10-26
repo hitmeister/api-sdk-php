@@ -35,4 +35,14 @@ class GetTest extends TransportAwareTestCase
 		$get = new Get($this->transport);
 		$get->getURI();
 	}
+
+    public function testItWillUseEANAsStringWhenGetUri()
+    {
+        $expectedEan = '033200011101';
+
+        $sut = new Get($this->transport);
+        $sut->setId($expectedEan);
+
+        $this->assertEquals("product-data-status/{$expectedEan}/", $sut->getURI());
+    }
 }
