@@ -16,14 +16,19 @@ use Hitmeister\Component\Api\Tests\TransportAwareTestCase;
  */
 class DeleteTest extends TransportAwareTestCase
 {
-	public function testInstance()
+	/**
+	 * @dataProvider eanDataProvider
+	 *
+	 * @param string $ean
+	 */
+	public function testInstance($ean)
 	{
 		$delete = new Delete($this->transport);
-		$delete->setId("1231231231232");
-		$this->assertEquals("1231231231232", $delete->getId());
+		$delete->setId($ean);
+		$this->assertEquals($ean, $delete->getId());
 		$this->assertEquals([], $delete->getParamWhiteList());
 		$this->assertEquals('DELETE', $delete->getMethod());
-		$this->assertEquals('product-data/1231231231232/', $delete->getURI());
+		$this->assertEquals(sprintf('product-data/%s/', $ean), $delete->getURI());
 	}
 
 	/**
@@ -34,5 +39,16 @@ class DeleteTest extends TransportAwareTestCase
 	{
 		$delete = new Delete($this->transport);
 		$delete->getURI();
+	}
+
+	/**
+	 * @return string[]
+	 */
+	public function eanDataProvider()
+	{
+		return [
+			['1231231231232'],
+			['0123123123123'],
+		];
 	}
 }

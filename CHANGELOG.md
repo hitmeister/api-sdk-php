@@ -2,6 +2,16 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.41.0 - 2020-10-27
+
+### Fixed
+- Fixed EAN parameter with leading zeros to be accepted in the following endpoints
+    - PUT `product-data/%s/`
+    - PATCH `product-data/%s/`
+    - GET `product-data/%s/`
+    - DELETE `product-data/%s/`
+    - GET `product-data-status/%s/`
+
 ## 1.40.0 - 2020-07-06
 
 ### Added
