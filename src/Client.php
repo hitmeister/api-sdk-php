@@ -293,11 +293,11 @@ class Client
 	}
 
 	/**
-	 * @return ClaimMessagesNamespace
+	 * @return TicketMessagesNamespace
 	 */
 	public function ticketMessages()
 	{
-		return $this->claimMessagesNs;
+		return $this->ticketMessagesNs;
 	}
 
 	/**
