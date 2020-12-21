@@ -37,5 +37,9 @@ class ClientTest extends TransportAwareTestCase
 		$this->assertInstanceOf('\Hitmeister\Component\Api\Namespaces\StatusNamespace', $client->status());
 		$this->assertInstanceOf('\Hitmeister\Component\Api\Namespaces\SubscriptionsNamespace', $client->subscriptions());
 		$this->assertInstanceOf('\Hitmeister\Component\Api\Namespaces\UnitsNamespace', $client->units());
+		$this->assertInstanceOf('\Hitmeister\Component\Api\Namespaces\TicketsNamespace', $client->tickets());
+		$this->assertInstanceOf('\Hitmeister\Component\Api\Namespaces\TicketMessagesNamespace', $client->ticketMessages());
+		$this->assertInstanceOf('\Hitmeister\Component\Api\Namespaces\OrderInvoicesNamespace', $client->orderInvoices());
+		$this->assertInstanceOf('\Hitmeister\Component\Api\Namespaces\WarehousesNamespace', $client->warehouses());
 	}
 }
