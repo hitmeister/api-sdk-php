@@ -31,6 +31,7 @@ namespace Hitmeister\Component\Api\Transfers;
  * @property AddressTransfer $shipping_address
  * @property InvoiceTransfer $invoice
  * @property ItemTransfer $item
+ * @property string $order_received_timestamp
  *
  *
  */
@@ -167,6 +168,11 @@ class OrderUnitTransfer extends AbstractTransfer
     'embedded' => false,
     'is_multiple' => false,
     'type' => 'Hitmeister\\Component\\Api\\Transfers\\ItemTransfer',
+  ),
+  'order_received_timestamp' =>
+  array (
+    'embedded' => false,
+    'is_multiple' => false,
   ),
 );
         return $properties;
