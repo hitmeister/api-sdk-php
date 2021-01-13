@@ -183,7 +183,7 @@ class OrderUnitWithEmbeddedTransfer extends AbstractTransfer
     'is_multiple' => false,
     'type' => 'Hitmeister\\Component\\Api\\Transfers\\ReturnUnitTransfer',
   ),
-  'delivery_attempt_at' =>
+  'delivery_attempt_timestamp' =>
   array (
     'embedded' => true,
     'is_multiple' => false,
