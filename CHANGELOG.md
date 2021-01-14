@@ -2,6 +2,13 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.42.0 - 2021-01-20
+
+### Added
+- Added the following fields:
+  - `order_received_timestamp` to the `/order-units/seller` endpoint 
+  - `delivery_attempt_timestamp` to the `/order-units/{id_order_unit}`
+
 ## 1.41.0 - 2020-10-27
 
 ### Fixed
