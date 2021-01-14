@@ -34,7 +34,7 @@ namespace Hitmeister\Component\Api\Transfers;
  *
  * @property array $tickets
  * @property ReturnUnitTransfer $return_unit
- * @property string $delivery_attempt_at
+ * @property string $delivery_attempt_timestamp
  *
  */
 class OrderUnitWithEmbeddedTransfer extends AbstractTransfer
