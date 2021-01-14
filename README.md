@@ -1,10 +1,10 @@
-# Real.de Onlineshop - API SDK for PHP [![Build Status](https://travis-ci.org/hitmeister/api-sdk-php.svg?branch=develop)](https://travis-ci.org/hitmeister/api-sdk-php)
+# Kaufland.de Onlineshop - API SDK for PHP [![Build Status](https://travis-ci.org/hitmeister/api-sdk-php.svg?branch=develop)](https://travis-ci.org/hitmeister/api-sdk-php)
 
 [![Latest Stable Version](http://img.shields.io/github/release/hitmeister/api-sdk-php.svg)](https://packagist.org/packages/hitmeister/api-sdk)
 [![Coverage Status](https://coveralls.io/repos/github/hitmeister/api-sdk-php/badge.svg?branch=master)](https://coveralls.io/github/hitmeister/api-sdk-php?branch=master)
 [![Total Downloads](http://img.shields.io/packagist/dt/hitmeister/api-sdk.svg)](https://packagist.org/packages/hitmeister/api-sdk)
 
-PHP client for [Real.de Onlineshop API](https://www.real.de/api/v1/).
+PHP client for [Kaufland.de Onlineshop API](https://www.kaufland.de/api/v1/).
 
 ## Install
 
@@ -26,7 +26,7 @@ This section will give you a quick overview of the client and how the major func
 
 ### Create client
 
-Before starting, you will need the API keys from your [API settings page](https://www.real.de/account/apisettings/).
+Before starting, you will need the API keys from your [API settings page](https://www.kaufland.de/account/apisettings/).
 
 Include the autoloader in your main project (if you haven’t already), and instantiate a new client.
 
@@ -113,7 +113,7 @@ $items = $client->items()->findByEan('0885909781652');
 
 ### Send inventory data
 
-According to the [API documentation](https://www.real.de/api/v1/?page=product-data#uploading-and-updating-items) you have two options:
+According to the [API documentation](https://www.kaufland.de/api/v1/?page=product-data#uploading-and-updating-items) you have two options:
 
 #### To upload your product data as CSV file
 

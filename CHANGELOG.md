@@ -1,6 +1,6 @@
 # Changelog
 
-All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
+All Notable changes to `Kaufland (formerly Real) - API SDK for PHP` will be documented in this file.
 
 ## 1.41.0 - 2020-10-27
 

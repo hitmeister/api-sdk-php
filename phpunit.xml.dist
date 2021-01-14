@@ -9,7 +9,7 @@
          colors="true"
          verbose="true">
     <testsuites>
-        <testsuite name="Hitmeister API PHP SDK">
+        <testsuite name="Kaufland API PHP SDK">
             <directory suffix="Test.php">tests</directory>
         </testsuite>
     </testsuites>
