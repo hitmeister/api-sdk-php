@@ -94,6 +94,9 @@ class RequestBuilder
 			'client' => [
 				'connect_timeout' => 30,
 				'timeout' => 60,
+				'curl' => [
+					CURLOPT_FOLLOWLOCATION => true
+				]
 			],
 			'version' => 1.1,
 		];
