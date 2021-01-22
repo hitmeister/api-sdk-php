@@ -120,6 +120,11 @@ class OrderUnitWithEmbeddedTransfer extends AbstractTransfer
     'embedded' => false,
     'is_multiple' => false,
   ),
+  'order_received_timestamp' => 
+  array (
+    'embedded' => false,
+    'is_multiple' => false,
+  ),
   'shipping_rate' => 
   array (
     'embedded' => false,
