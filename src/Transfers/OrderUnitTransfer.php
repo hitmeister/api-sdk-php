@@ -22,6 +22,7 @@ namespace Hitmeister\Component\Api\Transfers;
  * @property int $delivery_time_min
  * @property int $delivery_time_max
  * @property string $delivery_time_expires
+ * @property string $order_received_timestamp
  * @property int $shipping_rate
  * @property string $cancel_reason
  * @property int $vat
@@ -31,7 +32,6 @@ namespace Hitmeister\Component\Api\Transfers;
  * @property AddressTransfer $shipping_address
  * @property InvoiceTransfer $invoice
  * @property ItemTransfer $item
- * @property string $order_received_timestamp
  *
  *
  */
@@ -118,6 +118,11 @@ class OrderUnitTransfer extends AbstractTransfer
     'embedded' => false,
     'is_multiple' => false,
   ),
+  'order_received_timestamp' => 
+  array (
+    'embedded' => false,
+    'is_multiple' => false,
+  ),
   'shipping_rate' => 
   array (
     'embedded' => false,
@@ -168,11 +173,6 @@ class OrderUnitTransfer extends AbstractTransfer
     'embedded' => false,
     'is_multiple' => false,
     'type' => 'Hitmeister\\Component\\Api\\Transfers\\ItemTransfer',
-  ),
-  'order_received_timestamp' =>
-  array (
-    'embedded' => false,
-    'is_multiple' => false,
   ),
 );
         return $properties;

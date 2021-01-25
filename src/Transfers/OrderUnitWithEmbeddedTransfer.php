@@ -22,6 +22,7 @@ namespace Hitmeister\Component\Api\Transfers;
  * @property int $delivery_time_min
  * @property int $delivery_time_max
  * @property string $delivery_time_expires
+ * @property string $order_received_timestamp
  * @property int $shipping_rate
  * @property string $cancel_reason
  * @property int $vat
@@ -188,7 +189,7 @@ class OrderUnitWithEmbeddedTransfer extends AbstractTransfer
     'is_multiple' => false,
     'type' => 'Hitmeister\\Component\\Api\\Transfers\\ReturnUnitTransfer',
   ),
-  'delivery_attempt_timestamp' =>
+  'delivery_attempt_timestamp' => 
   array (
     'embedded' => true,
     'is_multiple' => false,
