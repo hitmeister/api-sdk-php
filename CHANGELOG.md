@@ -2,6 +2,26 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.44.0 - 2021-01-29
+
+### Added
+- Added the following fields:
+  - `order_received_timestamp` to the `/order-units/seller` endpoint 
+  - `delivery_attempt_timestamp` to the `/order-units/{id_order_unit}`
+  
+## 1.43.0 - 2021-01-27
+
+### Added
+- Allow the request to follow redirects
+
+## 1.42.0 - 2020-12-21
+
+### Fixed
+- variable usage in Client.php
+
+### Added
+- assertions to the ClientTest.php
+
 ## 1.41.0 - 2020-10-27
 
 ### Fixed
