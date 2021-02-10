@@ -2,6 +2,17 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.45.0 - 2021-02-12
+
+### Added
+- Added the following carriers:
+    - `DHL Ecommerce`
+    - `DPD UK`
+    - `Hua Han Logistics`
+    - `UBI Smart Parcel`
+    - `YDH`
+    - `PostNL 3S`
+
 ## 1.44.0 - 2021-01-29
 
 ### Added
