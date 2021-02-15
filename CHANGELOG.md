@@ -1,6 +1,6 @@
 # Changelog
 
-All Notable changes to `Kaufland (formerly Real) - API SDK for PHP` will be documented in this file.
+All Notable changes to `Kaufland API SDK for PHP` will be documented in this file.
 
 ## 1.44.0 - 2021-01-29
 
@@ -186,7 +186,7 @@ All Notable changes to `Kaufland (formerly Real) - API SDK for PHP` will be docu
 
 ### Added
 
-- A new endpoint `/returns/` with a possibility to [initialize returns manually](https://www.real.de/api/v1/?page=returns#returning-order-units).
+- A new endpoint `/returns/` with a possibility to [initialize returns manually](https://www.kaufland.de/api/v1/?page=returns#returning-order-units).
 
 ## 1.25.0 - 2018-09-03
 

@@ -20,7 +20,7 @@ class RequestBuilder
 	protected $schema = 'https';
 
 	/** @var string */
-	protected $host = 'www.real.de';
+	protected $host = 'www.kaufland.de';
 
 	/** @var string */
 	protected $uri = '/api/v1/';
@@ -56,7 +56,7 @@ class RequestBuilder
 	 */
     public static function defaultApiUrl()
     {
-        $defaultApiUrl = 'https://www.real.de/api/v1/'; // trailing slash is required
+        $defaultApiUrl = 'https://www.kaufland.de/api/v1/'; // trailing slash is required
 
         return self::getLastRedirectUrl($defaultApiUrl);
     }
