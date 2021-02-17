@@ -3,6 +3,7 @@
 namespace Hitmeister\Component\Api\Transport;
 
 use GuzzleHttp\Ring\Future\FutureArrayInterface;
+use Hitmeister\Component\Api\Middleware;
 
 /**
  * Class Transport
@@ -21,14 +22,24 @@ class Transport
 	/** @var RequestBuilder */
 	private $requestBuilder;
 
+	/** @var string */
+	private $clientKey;
+
+	/** @var string */
+	private $clientSecret;
+
 	/**
-	 * @param callable       $handler
+	 * @param callable $handler
 	 * @param RequestBuilder $requestBuilder
+	 * @param string $clientKey
+	 * @param string $clientSecret
 	 */
-	public function __construct(callable $handler, RequestBuilder $requestBuilder)
+	public function __construct(callable $handler, RequestBuilder $requestBuilder, string $clientKey = '', string $clientSecret = '')
 	{
 		$this->handler = $handler;
 		$this->requestBuilder = $requestBuilder;
+		$this->clientKey = $clientKey;
+		$this->clientSecret = $clientSecret;
 	}
 
 	/**
@@ -50,11 +61,22 @@ class Transport
 		}
 
 		// To be able to change some options
-		$request = array_merge_recursive($request, $options);
+		$request = array_merge($request, $options);
 
 		// Run
 		$handler = $this->handler;
 		$result = $handler($request);
+
+		// If there is a redirect, resign the request and send it to the new location
+		if (preg_match('/^3/', $result['status'])) {
+			$redirectUrl = $result['headers']['Location'][0];
+
+			$options['headers']['Host'] = [parse_url($redirectUrl)['host']];
+
+			$this->handler = Middleware::signRequest($handler, $this->clientKey, $this->clientSecret);
+
+			return self::performRequest($method, $uri, $params, $body, $options);
+		}
 
 		if ($result instanceof FutureArrayInterface) {
 			do {
