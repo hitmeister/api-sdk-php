@@ -44,6 +44,18 @@ class Middleware
 				Security::signRequest($clientSecret, $request['http_method'], Core::url($request), $body, $now);
 			$request['headers']['HM-Signature'] = [$signature];
 
+			// If there is a redirect, resign the request
+			$response = $handler($request);
+			if (preg_match('/^3/', $response['status'])) {
+				$redirectUrl = $response['headers']['Location'][0];
+
+				$request['headers']['Host'] = [parse_url($redirectUrl)['host']];
+
+				$handler = self::signRequest($handler, $clientKey, $clientSecret);
+
+				return $handler($request);
+			}
+
 			// Send the request using the handler and return the response.
 			return $handler($request);
 		};
