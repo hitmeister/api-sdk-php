@@ -217,10 +217,12 @@ class Constants
     const CARRIER_CODE_DHL = 'DHL';
     const CARRIER_CODE_DHL_2_MH = 'DHL 2 MH';
     const CARRIER_CODE_DHL_EXPRESS = 'DHL Express';
+    const CARRIER_CODE_DHL_ECOMMERCE = 'DHL Ecommerce';
     const CARRIER_CODE_DHL_FREIGHT = 'DHL Freight';
     const CARRIER_CODE_DHL_HONG_KONG = 'DHL Hong Kong';
     const CARRIER_CODE_DPD = 'DPD';
     const CARRIER_CODE_DPD_FRANCE = 'DPD France';
+    const CARRIER_CODE_DPD_UK = 'DPD UK';
     const CARRIER_CODE_DTL = 'dtl';
     const CARRIER_CODE_EMONS = 'Emons';
     const CARRIER_CODE_FEDEX = 'Fedex';
@@ -232,6 +234,7 @@ class Constants
     const CARRIER_CODE_HERMES = 'Hermes';
     const CARRIER_CODE_HERMES_2_MH = 'Hermes 2 MH';
     const CARRIER_CODE_HONG_KONG_POST = 'Hong Kong Post';
+    const CARRIER_CODE_HUA_HAN_LOGISTICS = 'Hua Han Logistics';
     const CARRIER_CODE_IDS_LOGISTIK = 'IDS Logistik';
     const CARRIER_CODE_ILOXX = 'Iloxx';
     const CARRIER_CODE_ILOXX_SPEDITION = 'Iloxx Spedition';
@@ -239,6 +242,7 @@ class Constants
     const CARRIER_CODE_LA_POSTE = 'La Poste';
     const CARRIER_CODE_POST_ITALIANE = 'Post Italiane';
     const CARRIER_CODE_POSTNL = 'PostNL';
+    const CARRIER_CODE_POSTNL_3S = 'PostNL 3S';
     const CARRIER_CODE_RHENUS = 'Rhenus';
     const CARRIER_CODE_SCHENKER = 'Schenker';
     const CARRIER_CODE_SEUR = 'Seur';
@@ -247,10 +251,12 @@ class Constants
     const CARRIER_CODE_TNT = 'TNT';
     const CARRIER_CODE_TRANS_FM = 'Trans FM';
     const CARRIER_CODE_TRANS_O_FLEX = 'trans-o-flex';
+    const CARRIER_CODE_UBI_SMART_PARCEL = 'UBI Smart Parcel';
     const CARRIER_CODE_UPS = 'UPS';
     const CARRIER_CODE_WANB_EXPRESS = 'Wanb Express';
     const CARRIER_CODE_WINIT = 'Winit';
     const CARRIER_CODE_YANWEN = 'Yanwen';
+    const CARRIER_CODE_YDH = 'YDH';
     const CARRIER_CODE_YUN_EXPRESS = 'Yun Express';
     const CARRIER_CODE_ZUFALL = 'Zufall';
     const REASON_RETURN = 'return';

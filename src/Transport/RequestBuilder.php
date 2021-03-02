@@ -3,7 +3,6 @@
 namespace Hitmeister\Component\Api\Transport;
 
 use Hitmeister\Component\Api\Client;
-use Hitmeister\Component\Api\Exceptions\RuntimeException;
 
 /**
  * Class RequestBuilder
@@ -54,12 +53,10 @@ class RequestBuilder
 	 * @return string
 	 * @codeCoverageIgnore
 	 */
-    public static function defaultApiUrl()
-    {
-        $defaultApiUrl = 'https://www.kaufland.de/api/v1/'; // trailing slash is required
-
-        return self::getLastRedirectUrl($defaultApiUrl);
-    }
+	public static function defaultApiUrl()
+	{
+		return 'https://www.real.de/api/v1/'; // trailing slash is required
+	}
 
 	/**
 	 * @return string
@@ -108,27 +105,4 @@ class RequestBuilder
 
 		return $request;
 	}
-
-    /**
-     * @param string $baseUrl
-     */
-    public static function getLastRedirectUrl($baseUrl)
-    {
-        $ch = curl_init($baseUrl);
-        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_HEADER, 1);
-        curl_exec($ch);
-
-        $lastUrl = curl_getinfo($ch, CURLINFO_EFFECTIVE_URL);
-
-        if (curl_error($ch)) {
-            curl_close($ch);
-            throw new RuntimeException('Couldn\'t redirect to final URL.');
-        }
-
-        curl_close($ch);
-
-        return $lastUrl;
-    }
 }

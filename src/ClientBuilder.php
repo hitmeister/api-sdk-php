@@ -100,7 +100,7 @@ class ClientBuilder
 	 */
 	public function setBaseUrl($baseUrl)
 	{
-    		$this->baseUrl = RequestBuilder::getLastRedirectUrl(rtrim($baseUrl, '/') . '/');
+		$this->baseUrl = rtrim($baseUrl, '/') . '/';
 		return $this;
 	}
 
