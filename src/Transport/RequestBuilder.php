@@ -55,7 +55,7 @@ class RequestBuilder
 	 */
 	public static function defaultApiUrl()
 	{
-		return 'https://www.real.de/api/v1/'; // trailing slash is required
+		return 'https://www.kaufland.de/api/v1/'; // trailing slash is required
 	}
 
 	/**
