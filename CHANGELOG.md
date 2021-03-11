@@ -1,6 +1,6 @@
 # Changelog
 
-All Notable changes to `Kaufland API SDK for PHP` will be documented in this file.
+All Notable changes to `Kaufland.de API SDK for PHP` will be documented in this file.
 
 ## 1.45.0 - 2021-02-12
 
