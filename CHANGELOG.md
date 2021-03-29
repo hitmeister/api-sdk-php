@@ -2,6 +2,16 @@
 
 All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
 
+## 1.46.0 - 2021-04-03
+
+### Added
+- Added the following carriers:
+    - `Czech Post`
+    - `DPD Romania`
+    - `DSV`
+    - `Slovakia Post`
+    - `WnDirect`
+    
 ## 1.45.0 - 2021-02-12
 
 ### Added
