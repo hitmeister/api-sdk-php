@@ -211,6 +211,7 @@ class Constants
     const CARRIER_CODE_CHUKOU1_LOGISTICS = 'Chukou1 Logistics';
     const CARRIER_CODE_CNE_EXPRESS = 'CNE Express';
     const CARRIER_CODE_CORREOS = 'Correos';
+    const CARRIER_CODE_CZECH_POST = 'Czech Post';
     const CARRIER_CODE_DACHSER = 'Dachser';
     const CARRIER_CODE_MARKTANLIEFERUNG = 'Marktanlieferung';
     const CARRIER_CODE_DEUTSCHE_POST = 'Deutsche Post';
@@ -223,7 +224,9 @@ class Constants
     const CARRIER_CODE_DPD = 'DPD';
     const CARRIER_CODE_DPD_FRANCE = 'DPD France';
     const CARRIER_CODE_DPD_UK = 'DPD UK';
+    const CARRIER_CODE_DPD_RO = 'DPD Romania';
     const CARRIER_CODE_DTL = 'dtl';
+    const CARRIER_CODE_DSV = 'DSV';
     const CARRIER_CODE_EMONS = 'Emons';
     const CARRIER_CODE_FEDEX = 'Fedex';
     const CARRIER_CODE_FLYT_EXPRESS = 'Flyt Express';
@@ -246,6 +249,7 @@ class Constants
     const CARRIER_CODE_RHENUS = 'Rhenus';
     const CARRIER_CODE_SCHENKER = 'Schenker';
     const CARRIER_CODE_SEUR = 'Seur';
+    const CARRIER_CODE_SLOVAKIA_POST = 'Slovakia Post';
     const CARRIER_CODE_SFC_SERVICE = 'SFC Service';
     const CARRIER_CODE_SPEDITION_GUETTLER = 'Spedition Guettler';
     const CARRIER_CODE_TNT = 'TNT';
@@ -255,6 +259,7 @@ class Constants
     const CARRIER_CODE_UPS = 'UPS';
     const CARRIER_CODE_WANB_EXPRESS = 'Wanb Express';
     const CARRIER_CODE_WINIT = 'Winit';
+    const CARRIER_CODE_WNDIRECT = 'WnDirect';
     const CARRIER_CODE_YANWEN = 'Yanwen';
     const CARRIER_CODE_YDH = 'YDH';
     const CARRIER_CODE_YUN_EXPRESS = 'Yun Express';
