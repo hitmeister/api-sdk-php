@@ -12,7 +12,7 @@ use Hitmeister\Component\Api\Tests\TransportAwareTestCase;
  * @package  Hitmeister\Component\Api\Tests\Endpoints\OrderUnits
  * @author   Oleksandr Dombrovskyi <oleksandr.dombrovskyi@real-digital.de>
  * @license  https://opensource.org/licenses/MIT MIT
- * @link     https://www.hitmeister.de/api/v1/
+ * @link     https://www.kaufland.de/api/v1/
  */
 class FulfilTest extends TransportAwareTestCase
 {

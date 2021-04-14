@@ -1,10 +1,10 @@
 {
     "name": "hitmeister/api-sdk",
-    "description": "Real.de onlineshop API SDK for PHP",
+    "description": "Kaufland.de onlineshop API SDK for PHP",
     "type": "library",
     "authors": [
         {
-            "name": "Real.de Onlineshop Developers",
+            "name": "Kaufland.de Onlineshop Developers",
             "email": "opensource@real-digital.de"
         }
     ],
@@ -16,9 +16,12 @@
         "api",
         "real.de",
         "real.digital",
-        "real-digital"
+        "real-digital",
+        "kaufland",
+        "kaufland-sdk",
+        "kaufland.de"
     ],
-    "homepage": "https://www.real.de/api/v1/",
+    "homepage": "https://www.kaufland.de/api/v1/",
     "support": {
         "email": "opensource@real-digital.de",
         "source": "https://github.com/hitmeister/api-sdk-php",

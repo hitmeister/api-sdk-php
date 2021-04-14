@@ -1,6 +1,6 @@
 # Changelog
 
-All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this file.
+All Notable changes to `Kaufland.de API SDK for PHP` will be documented in this file.
 
 ## 1.46.0 - 2021-04-03
 
@@ -207,7 +207,7 @@ All Notable changes to `Hitmeister - API SDK for PHP` will be documented in this
 
 ### Added
 
-- A new endpoint `/returns/` with a possibility to [initialize returns manually](https://www.real.de/api/v1/?page=returns#returning-order-units).
+- A new endpoint `/returns/` with a possibility to [initialize returns manually](https://www.kaufland.de/api/v1/?page=returns#returning-order-units).
 
 ## 1.25.0 - 2018-09-03
 

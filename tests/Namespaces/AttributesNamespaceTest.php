@@ -13,7 +13,7 @@ use Hitmeister\Component\Api\Tests\TransportAwareTestCase;
  * @package  Hitmeister\Component\Api\Tests\Namespaces
  * @author   Maksim Naumov <maksim.naumov@hitmeister.de>
  * @license  https://opensource.org/licenses/MIT MIT
- * @link     https://www.hitmeister.de/api/v1/
+ * @link     https://www.kaufland.de/api/v1/
  */
 class AttributesNamespaceTest extends TransportAwareTestCase
 {
