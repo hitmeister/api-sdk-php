@@ -10,6 +10,7 @@ namespace Hitmeister\Component\Api\Transfers;
  * @property int $id_order_unit
  * @property string $id_order
  * @property string $ts_created
+ * @property boolean $is_marketplace_deemed_supplier
  * @property string $ts_updated
  * @property string $status
  * @property int $price
@@ -54,6 +55,11 @@ class OrderUnitTransfer extends AbstractTransfer
     'is_multiple' => false,
   ),
   'ts_created' => 
+  array (
+    'embedded' => false,
+    'is_multiple' => false,
+  ),
+  'is_marketplace_deemed_supplier' => 
   array (
     'embedded' => false,
     'is_multiple' => false,

@@ -53,6 +53,8 @@ class Constants
     const TYPE_SI_VOLT = 'Si_Volt';
     const TYPE_SI_VOLUME_PERCENT = 'Si_VolumePercent';
     const TYPE_SI_WATT = 'Si_Watt';
+    const TYPE_SI_KILOMETER_PER_HOUR = 'Si_KilometerPerHour';
+    const TYPE_SI_WATT_PER_HOUR = 'Si_WattPerHour';
     const STATUS_OPENED = 'opened';
     const STATUS_BUYER_CLOSED = 'buyer_closed';
     const STATUS_SELLER_CLOSED = 'seller_closed';
@@ -123,6 +125,7 @@ class Constants
     const MIME_TYPE_APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_SHEET = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
     const MIME_TYPE_APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_SHEETAPPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_SHEET = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheetapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
     const MIME_TYPE_APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_WORDPROCESSINGML_DOCUMENT = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+    const MIME_TYPE_APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_WORDPROCESSINGML_DOCUMENTAPPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_WORDPROCESSINGML_DOCUMENT = 'application/vnd.openxmlformats-officedocument.wordprocessingml.documentapplication/vnd.openxmlformats-officedocument.wordprocessingml.document';
     const MIME_TYPE_APPLICATION_MSWORD = 'application/msword';
     const MIME_TYPE_AUDIO_WAV = 'audio/wav';
     const MIME_TYPE_AUDIO_X_WAV = 'audio/x-wav';
@@ -213,7 +216,6 @@ class Constants
     const CARRIER_CODE_CORREOS = 'Correos';
     const CARRIER_CODE_CZECH_POST = 'Czech Post';
     const CARRIER_CODE_DACHSER = 'Dachser';
-    const CARRIER_CODE_MARKTANLIEFERUNG = 'Marktanlieferung';
     const CARRIER_CODE_DEUTSCHE_POST = 'Deutsche Post';
     const CARRIER_CODE_DHL = 'DHL';
     const CARRIER_CODE_DHL_2_MH = 'DHL 2 MH';
@@ -223,8 +225,8 @@ class Constants
     const CARRIER_CODE_DHL_HONG_KONG = 'DHL Hong Kong';
     const CARRIER_CODE_DPD = 'DPD';
     const CARRIER_CODE_DPD_FRANCE = 'DPD France';
+    const CARRIER_CODE_DPD_ROMANIA = 'DPD Romania';
     const CARRIER_CODE_DPD_UK = 'DPD UK';
-    const CARRIER_CODE_DPD_RO = 'DPD Romania';
     const CARRIER_CODE_DTL = 'dtl';
     const CARRIER_CODE_DSV = 'DSV';
     const CARRIER_CODE_EMONS = 'Emons';
@@ -249,8 +251,8 @@ class Constants
     const CARRIER_CODE_RHENUS = 'Rhenus';
     const CARRIER_CODE_SCHENKER = 'Schenker';
     const CARRIER_CODE_SEUR = 'Seur';
-    const CARRIER_CODE_SLOVAKIA_POST = 'Slovakia Post';
     const CARRIER_CODE_SFC_SERVICE = 'SFC Service';
+    const CARRIER_CODE_SLOVAKIA_POST = 'Slovakia Post';
     const CARRIER_CODE_SPEDITION_GUETTLER = 'Spedition Guettler';
     const CARRIER_CODE_TNT = 'TNT';
     const CARRIER_CODE_TRANS_FM = 'Trans FM';
@@ -259,7 +261,7 @@ class Constants
     const CARRIER_CODE_UPS = 'UPS';
     const CARRIER_CODE_WANB_EXPRESS = 'Wanb Express';
     const CARRIER_CODE_WINIT = 'Winit';
-    const CARRIER_CODE_WNDIRECT = 'WnDirect';
+    const CARRIER_CODE_WN_DIRECT = 'WnDirect';
     const CARRIER_CODE_YANWEN = 'Yanwen';
     const CARRIER_CODE_YDH = 'YDH';
     const CARRIER_CODE_YUN_EXPRESS = 'Yun Express';
@@ -408,6 +410,7 @@ class Constants
     const LOCATION_EE = 'EE';
     const LOCATION_EG = 'EG';
     const LOCATION_EH = 'EH';
+    const LOCATION_EN = 'EN';
     const LOCATION_ER = 'ER';
     const LOCATION_ES = 'ES';
     const LOCATION_ET = 'ET';
@@ -673,6 +676,7 @@ class Constants
     const COUNTRY_EE = 'EE';
     const COUNTRY_EG = 'EG';
     const COUNTRY_EH = 'EH';
+    const COUNTRY_EN = 'EN';
     const COUNTRY_ER = 'ER';
     const COUNTRY_ES = 'ES';
     const COUNTRY_ET = 'ET';
