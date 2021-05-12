@@ -2,6 +2,15 @@
 
 All Notable changes to `Kaufland.de API SDK for PHP` will be documented in this file.
 
+## 1.47.0 - 2021-05-17
+
+### Added
+Added the field `is_marketplace_deemed_supplier` to the following endpoints:
+  - `/orders/seller/`
+  - `/orders/{id_order}/`
+  - `/order-units/seller/`
+  - `/order-units/{id_order_unit}/`
+
 ## 1.46.0 - 2021-04-03
 
 ### Added
