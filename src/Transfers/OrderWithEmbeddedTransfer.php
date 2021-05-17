@@ -9,6 +9,7 @@ namespace Hitmeister\Component\Api\Transfers;
  *
  * @property string $id_order
  * @property string $ts_created
+ * @property boolean $is_marketplace_deemed_supplier
  *
  * @property AddressTransfer $billing_address
  * @property BuyerTransfer $buyer
@@ -31,6 +32,11 @@ class OrderWithEmbeddedTransfer extends AbstractTransfer
     'is_multiple' => false,
   ),
   'ts_created' => 
+  array (
+    'embedded' => false,
+    'is_multiple' => false,
+  ),
+  'is_marketplace_deemed_supplier' => 
   array (
     'embedded' => false,
     'is_multiple' => false,
