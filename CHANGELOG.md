@@ -2,6 +2,14 @@
 
 All Notable changes to `Kaufland.de API SDK for PHP` will be documented in this file.
 
+## 1.48.0 - 2021-06-29
+
+### Added
+- Added the following carriers:
+  - `Austrian Post`
+  - `Geis`
+  - `PPL`
+
 ## 1.47.0 - 2021-05-17
 
 ### Added
