@@ -207,6 +207,7 @@ class Constants
     const REASON_NO_REACTION_BUYER = 'NoReactionBuyer';
     const CARRIER_CODE_OTHER = 'Other';
     const CARRIER_CODE_OTHER_HAULER = 'Other Hauler';
+    const CARRIER_CODE_AUSTRIAN_POST = 'Austrian Post';
     const CARRIER_CODE_BURSPED = 'Bursped';
     const CARRIER_CODE_CARGOLINE = 'Cargoline';
     const CARRIER_CODE_CHINA_POST = 'China Post';
@@ -233,6 +234,7 @@ class Constants
     const CARRIER_CODE_FEDEX = 'Fedex';
     const CARRIER_CODE_FLYT_EXPRESS = 'Flyt Express';
     const CARRIER_CODE_4PX = '4PX';
+    const CARRIER_CODE_GEIS = 'Geis';
     const CARRIER_CODE_GEL = 'GEL';
     const CARRIER_CODE_GLS = 'GLS';
     const CARRIER_CODE_HELLMANN = 'Hellmann';
@@ -248,6 +250,7 @@ class Constants
     const CARRIER_CODE_POST_ITALIANE = 'Post Italiane';
     const CARRIER_CODE_POSTNL = 'PostNL';
     const CARRIER_CODE_POSTNL_3S = 'PostNL 3S';
+    const CARRIER_CODE_PPL = 'PPL';
     const CARRIER_CODE_RHENUS = 'Rhenus';
     const CARRIER_CODE_SCHENKER = 'Schenker';
     const CARRIER_CODE_SEUR = 'Seur';
