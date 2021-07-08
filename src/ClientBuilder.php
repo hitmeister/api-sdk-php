@@ -33,6 +33,9 @@ class ClientBuilder
 	/** @var string */
 	private $baseUrl;
 
+	/** @var string */
+	private $userAgent;
+
 	/** @var callable */
 	private $handler;
 
@@ -105,6 +108,16 @@ class ClientBuilder
 	}
 
 	/**
+	 * @param string $userAgent
+	 * @return $this
+	 */
+	public function setUserAgent($userAgent)
+	{
+		$this->userAgent = $userAgent;
+		return $this;
+	}
+
+	/**
 	 * @param callable $handler
 	 * @return $this
 	 */
@@ -141,7 +154,7 @@ class ClientBuilder
 		$this->handler = Middleware::processResponse($this->handler, $this->logger);
 
 		if (null === $this->transport)
-			$this->transport = new Transport($this->handler, new RequestBuilder($this->baseUrl));
+			$this->transport = new Transport($this->handler, new RequestBuilder($this->baseUrl, $this->userAgent));
 
 		return new Client($this->transport);
 	}

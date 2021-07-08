@@ -29,8 +29,9 @@ class RequestBuilder
 
 	/**
 	 * @param string $apiUrl
+     * @param null|string $userAgent
 	 */
-	public function __construct($apiUrl = null)
+	public function __construct($apiUrl = null, $userAgent = null)
 	{
 		if (null === $apiUrl) {
 			$apiUrl = static::defaultApiUrl();
@@ -46,6 +47,10 @@ class RequestBuilder
 		}
 		if (isset($urlComponents['path'])) {
 			$this->uri = rtrim($urlComponents['path'], '/') . '/';
+		}
+
+		if($userAgent) {
+			$this->userAgent = $userAgent;
 		}
 	}
 
