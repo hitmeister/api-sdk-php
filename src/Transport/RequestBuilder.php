@@ -29,7 +29,7 @@ class RequestBuilder
 
 	/**
 	 * @param string $apiUrl
-     * @param null|string $userAgent
+     	 * @param null|string $userAgent
 	 */
 	public function __construct($apiUrl = null, $userAgent = null)
 	{
