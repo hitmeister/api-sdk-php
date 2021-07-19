@@ -27,6 +27,7 @@ This section will give you a quick overview of the client and how the major func
 ### Create client
 
 Before starting, you will need the API keys from your [API settings page](https://www.kaufland.de/account/apisettings/).
+Also please provide the name of your partner solution name to the setUserAgent() field.
 
 Include the autoloader in your main project (if you haven’t already), and instantiate a new client.
 
@@ -38,6 +39,7 @@ use Hitmeister\Component\Api\ClientBuilder;
 $client = ClientBuilder::create()
 	->setClientKey('YOUR_CLIENT_KEY')
 	->setClientSecret('YOUR_CLIENT_SECRET')
+	->setUserAgent('YOUR_USER_AGENT')
 	->build();
 ```
 
