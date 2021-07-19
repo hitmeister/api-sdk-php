@@ -100,6 +100,9 @@ class Middleware
 
 						// Save unique request ID to the exception
 						$requestId = isset($response['headers']['X-Request-ID'][0]) ? $response['headers']['X-Request-ID'][0] : '';
+						if ($requestId === '') {
+							$requestId = isset($response['headers']['x-request-id'][0]) ? $response['headers']['x-request-id'][0] : '';
+						}
 						$exception->setRequestId($requestId);
 
 						Logger::logState($logger, $request, $response, $exception, LogLevel::ERROR);
