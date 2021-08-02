@@ -2,6 +2,11 @@
 
 All Notable changes to `Kaufland.de API SDK for PHP` will be documented in this file.
 
+## 1.49.0 - 2021-08-02
+- Added the following carriers:
+  - `Cargo International`
+  - `Redur Spain`
+
 ## 1.48.0 - 2021-06-29
 
 ### Added
