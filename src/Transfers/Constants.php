@@ -210,6 +210,7 @@ class Constants
     const CARRIER_CODE_AUSTRIAN_POST = 'Austrian Post';
     const CARRIER_CODE_BURSPED = 'Bursped';
     const CARRIER_CODE_CARGOLINE = 'Cargoline';
+    const CARRIER_CODE_CARGO_INTERNATIONAL = 'Cargo International';
     const CARRIER_CODE_CHINA_POST = 'China Post';
     const CARRIER_CODE_CHRONOPOST = 'Chronopost';
     const CARRIER_CODE_CHUKOU1_LOGISTICS = 'Chukou1 Logistics';
@@ -251,6 +252,7 @@ class Constants
     const CARRIER_CODE_POSTNL = 'PostNL';
     const CARRIER_CODE_POSTNL_3S = 'PostNL 3S';
     const CARRIER_CODE_PPL = 'PPL';
+    const CARRIER_CODE_REDUR_SPAIN = 'Redur Spain';
     const CARRIER_CODE_RHENUS = 'Rhenus';
     const CARRIER_CODE_SCHENKER = 'Schenker';
     const CARRIER_CODE_SEUR = 'Seur';
