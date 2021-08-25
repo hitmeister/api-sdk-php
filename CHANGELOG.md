@@ -2,6 +2,13 @@
 
 All Notable changes to `Kaufland.de API SDK for PHP` will be documented in this file.
 
+## 1.50.0 - 2021-08-18
+- Added the following carriers:
+  - `Amazon Logistics DE (Swiship)`
+  - `GLS Italy`
+  - `Jersey Post`
+  - `Raben Group`
+
 ## 1.49.0 - 2021-08-02
 - Added the following carriers:
   - `Cargo International`

@@ -207,6 +207,7 @@ class Constants
     const REASON_NO_REACTION_BUYER = 'NoReactionBuyer';
     const CARRIER_CODE_OTHER = 'Other';
     const CARRIER_CODE_OTHER_HAULER = 'Other Hauler';
+    const CARRIER_CODE_AMAZON_LOGISTICS_DE_SWISHIP = 'Amazon Logistics DE (Swiship)';
     const CARRIER_CODE_AUSTRIAN_POST = 'Austrian Post';
     const CARRIER_CODE_BURSPED = 'Bursped';
     const CARRIER_CODE_CARGOLINE = 'Cargoline';
@@ -238,6 +239,7 @@ class Constants
     const CARRIER_CODE_GEIS = 'Geis';
     const CARRIER_CODE_GEL = 'GEL';
     const CARRIER_CODE_GLS = 'GLS';
+    const CARRIER_CODE_GLS_ITALY = 'GLS Italy';
     const CARRIER_CODE_HELLMANN = 'Hellmann';
     const CARRIER_CODE_HERMES = 'Hermes';
     const CARRIER_CODE_HERMES_2_MH = 'Hermes 2 MH';
@@ -246,12 +248,14 @@ class Constants
     const CARRIER_CODE_IDS_LOGISTIK = 'IDS Logistik';
     const CARRIER_CODE_ILOXX = 'Iloxx';
     const CARRIER_CODE_ILOXX_SPEDITION = 'Iloxx Spedition';
+    const CARRIER_CODE_JERSEY_POST = 'Jersey Post';
     const CARRIER_CODE_KUEHNE_NAGEL = 'Kuehne & Nagel';
     const CARRIER_CODE_LA_POSTE = 'La Poste';
     const CARRIER_CODE_POST_ITALIANE = 'Post Italiane';
     const CARRIER_CODE_POSTNL = 'PostNL';
     const CARRIER_CODE_POSTNL_3S = 'PostNL 3S';
     const CARRIER_CODE_PPL = 'PPL';
+    const CARRIER_CODE_RABEN_GROUP = 'Raben Group';
     const CARRIER_CODE_REDUR_SPAIN = 'Redur Spain';
     const CARRIER_CODE_RHENUS = 'Rhenus';
     const CARRIER_CODE_SCHENKER = 'Schenker';
