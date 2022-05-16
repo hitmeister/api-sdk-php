@@ -9,6 +9,7 @@ namespace Hitmeister\Component\Api\Transfers;
  *
  * @property string $carrier_code
  * @property string $tracking_number
+ * @property string $source_country
  *
  *
  */
@@ -26,6 +27,11 @@ class ShipmentInformationTransfer extends AbstractTransfer
     'is_multiple' => false,
   ),
   'tracking_number' => 
+  array (
+    'embedded' => false,
+    'is_multiple' => false,
+  ),
+  'source_country' => 
   array (
     'embedded' => false,
     'is_multiple' => false,

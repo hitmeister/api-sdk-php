@@ -8,7 +8,7 @@ use Hitmeister\Component\Api\Endpoints\Traits\BodyTransfer;
 use Hitmeister\Component\Api\Endpoints\Traits\EmptyParamWhiteList;
 use Hitmeister\Component\Api\Endpoints\Traits\RequestPatch;
 use Hitmeister\Component\Api\Endpoints\Traits\UriPatternId;
-use Hitmeister\Component\Api\Transfers\OrderUnitSendTransfer;
+use Hitmeister\Component\Api\Transfers\ShipmentInformationTransfer;
 
 /**
  * Class Send
@@ -26,10 +26,7 @@ class Send extends AbstractEndpoint implements IdAware
 	use EmptyParamWhiteList;
 	use BodyTransfer;
 
-	/**
-	 * @param OrderUnitSendTransfer $transfer
-	 */
-	public function setTransfer(OrderUnitSendTransfer $transfer)
+	public function setTransfer(ShipmentInformationTransfer $transfer)
 	{
 		$this->transfer = $transfer;
 	}

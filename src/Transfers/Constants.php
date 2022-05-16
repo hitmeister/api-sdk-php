@@ -109,6 +109,7 @@ class Constants
     const MIME_TYPE_IMAGE_TIFF = 'image/tiff';
     const MIME_TYPE_APPLICATION_MSEXCEL = 'application/msexcel';
     const MIME_TYPE_APPLICATION_MSPOWERPOINT = 'application/mspowerpoint';
+    const MIME_TYPE_APPLICATION_JSON = 'application/json';
     const MIME_TYPE_TEXT_PLAIN = 'text/plain';
     const MIME_TYPE_TEXT_COMMA_SEPARATED_VALUES = 'text/comma-separated-values';
     const MIME_TYPE_TEXT_CSV = 'text/csv';
@@ -129,6 +130,7 @@ class Constants
     const MIME_TYPE_APPLICATION_MSWORD = 'application/msword';
     const MIME_TYPE_AUDIO_WAV = 'audio/wav';
     const MIME_TYPE_AUDIO_X_WAV = 'audio/x-wav';
+    const MIME_TYPE_APPLICATION_CDFV2 = 'application/CDFV2';
     const ITEM_NOT_READY_REASON_BLACKLISTED = 'BLACKLISTED';
     const ITEM_NOT_READY_REASON_PORN_FORBIDDEN = 'PORN_FORBIDDEN';
     const ITEM_NOT_READY_REASON_MISSING_ATTRIBUTES = 'MISSING_ATTRIBUTES';
@@ -207,7 +209,7 @@ class Constants
     const REASON_NO_REACTION_BUYER = 'NoReactionBuyer';
     const CARRIER_CODE_OTHER = 'Other';
     const CARRIER_CODE_OTHER_HAULER = 'Other Hauler';
-    const CARRIER_CODE_AMAZON_LOGISTICS_DE_SWISHIP = 'Amazon Logistics DE (Swiship)';
+    const CARRIER_CODE_AMAZON_LOGISTICS_DE_SWISHIP_ = 'Amazon Logistics DE (Swiship)';
     const CARRIER_CODE_AUSTRIAN_POST = 'Austrian Post';
     const CARRIER_CODE_BURSPED = 'Bursped';
     const CARRIER_CODE_CARGOLINE = 'Cargoline';
@@ -333,6 +335,7 @@ class Constants
     const TOPIC_PRODUCT_AVAILABILITY = 'product_availability';
     const TOPIC_PRODUCT_OTHER_QUESTION = 'product_other_question';
     const TOPIC_ACCOUNT_CASH_OUT_BALANCE = 'account_cash_out_balance';
+    const TOPIC_OLD_DEVICE_TAKE_BACK = 'old_device_take_back';
     const TOPIC_OTHER_QUESTION = 'other_question';
     const TOPIC_FRAUD = 'fraud';
     const REASON_PRODUCT_NOT_AS_DESCRIBED = 'product_not_as_described';
