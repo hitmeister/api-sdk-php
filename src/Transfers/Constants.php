@@ -209,7 +209,7 @@ class Constants
     const REASON_NO_REACTION_BUYER = 'NoReactionBuyer';
     const CARRIER_CODE_OTHER = 'Other';
     const CARRIER_CODE_OTHER_HAULER = 'Other Hauler';
-    const CARRIER_CODE_AMAZON_LOGISTICS_DE_SWISHIP_ = 'Amazon Logistics DE (Swiship)';
+    const CARRIER_CODE_AMAZON_LOGISTICS_DE_SWISHIP = 'Amazon Logistics DE (Swiship)';
     const CARRIER_CODE_AUSTRIAN_POST = 'Austrian Post';
     const CARRIER_CODE_BURSPED = 'Bursped';
     const CARRIER_CODE_CARGOLINE = 'Cargoline';
