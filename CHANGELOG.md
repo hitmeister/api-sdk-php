@@ -2,6 +2,9 @@
 
 All Notable changes to `Kaufland.de API SDK for PHP` will be documented in this file.
 
+## 1.51.0 - 2022-05-17
+- Added source country field on the order unit send endpoint
+
 ## 1.50.0 - 2021-08-18
 - Added the following carriers:
   - `Amazon Logistics DE (Swiship)`

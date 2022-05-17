@@ -4,6 +4,7 @@ namespace Hitmeister\Component\Api\Tests\Endpoints\OrderUnits;
 
 use Hitmeister\Component\Api\Endpoints\OrderUnits\Send;
 use Hitmeister\Component\Api\Tests\TransportAwareTestCase;
+use Hitmeister\Component\Api\Transfers\ShipmentInformationTransfer;
 
 /**
  * Class SendTest
@@ -18,14 +19,14 @@ class SendTest extends TransportAwareTestCase
 {
 	public function testInstance()
 	{
-		/** @var \Mockery\Mock|\Hitmeister\Component\Api\Transfers\OrderUnitSendTransfer $transfer */
-		$transfer = \Mockery::mock('\Hitmeister\Component\Api\Transfers\OrderUnitSendTransfer');
+		/** @var \Mockery\Mock|\Hitmeister\Component\Api\Transfers\ShipmentInformationTransfer $transfer */
+		$transfer = \Mockery::mock('\Hitmeister\Component\Api\Transfers\ShipmentInformationTransfer');
 		$transfer->shouldReceive('toArray')->once()->andReturn(['tracking_number' => 'TX123456']);
 
 		$send = new Send($this->transport);
 		$send->setId(1);
 		$send->setTransfer($transfer);
-		$this->assertInstanceOf('\Hitmeister\Component\Api\Transfers\OrderUnitSendTransfer', $send->getTransfer());
+		$this->assertInstanceOf('\Hitmeister\Component\Api\Transfers\ShipmentInformationTransfer', $send->getTransfer());
 		$this->assertEquals([], $send->getParamWhiteList());
 		$this->assertEquals('PATCH', $send->getMethod());
 		$this->assertEquals('order-units/1/send/', $send->getURI());

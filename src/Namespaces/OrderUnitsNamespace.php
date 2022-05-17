@@ -15,10 +15,10 @@ use Hitmeister\Component\Api\FindBuilder;
 use Hitmeister\Component\Api\Namespaces\Traits\PerformWithId;
 use Hitmeister\Component\Api\Transfers\OrderUnitCancelTransfer;
 use Hitmeister\Component\Api\Transfers\OrderUnitRefundTransfer;
-use Hitmeister\Component\Api\Transfers\OrderUnitSendTransfer;
 use Hitmeister\Component\Api\Transfers\OrderUnitShipmentTransfer;
 use Hitmeister\Component\Api\Transfers\OrderUnitTransfer;
 use Hitmeister\Component\Api\Transfers\OrderUnitWithEmbeddedTransfer;
+use Hitmeister\Component\Api\Transfers\ShipmentInformationTransfer;
 
 /**
  * Class OrderUnitsNamespace
@@ -121,16 +121,20 @@ class OrderUnitsNamespace extends AbstractNamespace
 	 * @param int         $id
 	 * @param string|null $carrierCode
 	 * @param string|null $trackingNumber
+	 * @param string|null $sourceCountry
 	 * @return bool
 	 */
-	public function send($id, $carrierCode = null, $trackingNumber = null)
+	public function send($id, $carrierCode = null, $trackingNumber = null, $sourceCountry = null)
 	{
-		$data = new OrderUnitSendTransfer();
+		$data = new ShipmentInformationTransfer();
 		if (null !== $carrierCode) {
 			$data->carrier_code = $carrierCode;
 		}
 		if (null !== $trackingNumber) {
 			$data->tracking_number = $trackingNumber;
+		}
+		if (null !== $sourceCountry) {
+			$data->source_country = $sourceCountry;
 		}
 
 		$endpoint = new Send($this->getTransport());
