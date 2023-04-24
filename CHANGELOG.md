@@ -2,6 +2,10 @@
 
 All Notable changes to `Kaufland.de API SDK for PHP` will be documented in this file.
 
+## 1.54.0 - 2023-04-26
+### Removed
+  - `/reports/bookings/`
+ 
 ## 1.51.0 - 2022-05-17
 - Added source country field on the order unit send endpoint
 
