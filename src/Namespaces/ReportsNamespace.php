@@ -5,7 +5,6 @@ namespace Hitmeister\Component\Api\Namespaces;
 use Hitmeister\Component\Api\Cursor;
 use Hitmeister\Component\Api\Endpoints\Reports\AccountListing;
 use Hitmeister\Component\Api\Endpoints\Reports\AccountListingWithShopPrice;
-use Hitmeister\Component\Api\Endpoints\Reports\Bookings;
 use Hitmeister\Component\Api\Endpoints\Reports\BookingsNew;
 use Hitmeister\Component\Api\Endpoints\Reports\Cancellations;
 use Hitmeister\Component\Api\Endpoints\Reports\CompetitorsComparer;
@@ -114,25 +113,6 @@ class ReportsNamespace extends AbstractNamespace
 	public function competitorsComparer()
 	{
 		$endpoint = new CompetitorsComparer($this->getTransport());
-		$resultRequest = $endpoint->performRequest();
-
-		return Response::extractId($resultRequest, '/reports/%d/');
-	}
-
-	/**
-	 * @param \DateTime|int|string $dateFrom
-	 * @param \DateTime|int|string $dateTo
-	 * @return int
-	 */
-	public function bookings($dateFrom, $dateTo)
-	{
-		$data = new ReportRequestBookingsTransfer();
-		$data->date_from = Request::formatDate($dateFrom);
-		$data->date_to = Request::formatDate($dateTo);
-
-		$endpoint = new Bookings($this->getTransport());
-		$endpoint->setTransfer($data);
-
 		$resultRequest = $endpoint->performRequest();
 
 		return Response::extractId($resultRequest, '/reports/%d/');

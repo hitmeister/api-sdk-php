@@ -198,39 +198,6 @@ class ReportsNamespaceTest extends TransportAwareTestCase
 		$this->assertEquals(123456, $result);
 	}
 
-	public function testBookings()
-	{
-		$from = time() - 100;
-		$to = $from + 200;
-
-		$this->transport
-			->shouldReceive('performRequest')
-			->once()
-			->withArgs(
-				[
-					'POST',
-					'reports/bookings/',
-					[], // no params
-					[
-						'date_from' => Request::formatDate($from),
-						'date_to' => Request::formatDate($to),
-					],
-					\Mockery::any(),
-				]
-			)
-			->andReturn(
-				[
-					'headers' => [
-						'Location' => ['/reports/123456/'],
-					],
-				]
-			);
-
-		$namespace = new ReportsNamespace($this->transport);
-		$result = $namespace->bookings($from, $to);
-		$this->assertEquals(123456, $result);
-	}
-
 	public function testSales()
 	{
 		$from = time() - 100;
