@@ -144,9 +144,7 @@ abstract class AbstractTransfer implements \JsonSerializable
 		return $result;
 	}
 
-	/**
-	 * @return string
-	 */
+	#[\ReturnTypeWillChange]
 	public function jsonSerialize()
 	{
 		return $this->toArray();
