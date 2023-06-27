@@ -34,11 +34,10 @@ class Response
 	 */
 	public static function extractCursorPosition(array &$data)
 	{
-		if (!isset($data['headers']['Hm-Collection-Range'][0])) {
-			throw new ServerException('Response header "Hm-Collection-Range" is missing.');
-		}
+		$range = static::getHeaderValue($data['headers'], 'Hm-Collection-Range');
+
 		$matches = [];
-		if (!preg_match('/(\d+)-(\d+)\/(\d+)/', $data['headers']['Hm-Collection-Range'][0], $matches)) {
+		if (!preg_match('/(\d+)-(\d+)\/(\d+)/', $range, $matches)) {
 			throw new ServerException('Response header "Hm-Collection-Range" has wrong format.');
 		}
 
@@ -57,18 +56,38 @@ class Response
 	 */
 	public static function extractId(array &$data, $pattern)
 	{
-		if (!isset($data['headers']['Location'][0])) {
-			throw new ServerException('Response header "Location" is missing.');
-		}
+		$location = static::getHeaderValue($data['headers'], 'Location');
 
 		$id = null;
-		$count = sscanf($data['headers']['Location'][0], $pattern, $id);
+		$count = sscanf($location, $pattern, $id);
 
 		if (1 !== $count) {
 			throw new ServerException(sprintf('Response header "Location" has wrong format. Expected "%s", got "%s".',
-				$pattern, $data['headers']['Location'][0]));
+				$pattern, $location));
 		}
 
 		return (int)$id;
+	}
+
+	/**
+	 * A HTTP1 and HTTP/2 compatible way of getting the header-value.
+	 *
+	 * @param array  $headers
+	 * @param string $key The uppercase name of the header
+	 * @return mixed
+	 * @throws ServerException when the header is missing
+	 */
+	protected static function getHeaderValue(array $headers, $key)
+	{
+		if (isset($headers[$key][0])) {
+			return $headers[$key][0];
+		}
+
+		$lowercase = strtolower($key);
+		if (isset($headers[$lowercase][0])) {
+			return $headers[$lowercase][0];
+		}
+
+		throw new ServerException("Response header \"$key\" is missing.");
 	}
 }
