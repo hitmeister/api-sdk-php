@@ -44,23 +44,22 @@ class ItemsNamespace extends AbstractNamespace
 	 * @param array  $embedded
 	 * @return ItemWithEmbeddedTransfer|null
 	 */
-	public function findByEan($ean, array $embedded = null)
-	{
-		$list = $this->buildFind()
-			->addParam('ean', $ean)
-			->addParam('embedded', $embedded)
-			->find();
-
-		return $list->total() ? $list->current() : null;
-	}
-
-	/**
-	 * @return FindBuilder
-	 */
-	public function buildFind()
+	public function findByEan($ean, array $embedded = null, string $storefront = 'de')
 	{
 		$endpoint = new Find($this->getTransport());
-		return new FindBuilder($endpoint, '\Hitmeister\Component\Api\Transfers\ItemWithEmbeddedTransfer');
+
+		// Ask for embedded fields
+		if (!empty($embedded)) {
+			$endpoint->setParams([
+				'embedded' => $embedded,
+			]);
+		}
+		$endpoint->setParams([
+			'storefront' => $storefront,
+		]);
+
+		$result = $this->performWithId($endpoint, $ean);
+		return $result ? ItemWithEmbeddedTransfer::make($result) : null;
 	}
 
 	/**
