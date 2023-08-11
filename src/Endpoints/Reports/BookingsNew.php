@@ -5,7 +5,7 @@ namespace Hitmeister\Component\Api\Endpoints\Reports;
 use Hitmeister\Component\Api\Endpoints\Traits\BodyTransfer;
 use Hitmeister\Component\Api\Transfers\ReportRequestBookingsNewTransfer;
 
-class BookingsNew extends Post
+class BookingsNew extends PostVersion
 {
 	use BodyTransfer;
 

@@ -2,8 +2,11 @@
 
 namespace Hitmeister\Component\Api\Endpoints\Reports;
 
+use Hitmeister\Component\Api\Endpoints\AbstractEndpoint;
+use Hitmeister\Component\Api\Endpoints\Traits\RequestPost;
+
 /**
- * Class AccountListing
+ * Class PostVersion
  *
  * @category PHP-SDK
  * @package  Hitmeister\Component\Api\Endpoints\Reports
@@ -11,13 +14,15 @@ namespace Hitmeister\Component\Api\Endpoints\Reports;
  * @license  https://opensource.org/licenses/MIT MIT
  * @link     https://www.hitmeister.de/api/v1/
  */
-class AccountListing extends PostVersion
+abstract class PostVersion extends AbstractEndpoint
 {
+	use RequestPost;
+
 	/**
-	 * {@inheritdoc}
+	 * @return array
 	 */
-	public function getURI()
+	public function getParamWhiteList()
 	{
-		return 'reports/account-listing/';
+		return ['version'];
 	}
 }
