@@ -63,6 +63,15 @@ class ItemsNamespace extends AbstractNamespace
 	}
 
 	/**
+	 * @return FindBuilder
+	 */
+	public function buildFind()
+	{
+		$endpoint = new Find($this->getTransport());
+		return new FindBuilder($endpoint, '\Hitmeister\Component\Api\Transfers\ItemWithEmbeddedTransfer');
+	}
+
+	/**
 	 * @param int   $id
 	 * @param array $embedded
 	 * @return ItemWithEmbeddedTransfer|null
