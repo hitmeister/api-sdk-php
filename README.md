@@ -4,6 +4,9 @@
 [![Coverage Status](https://coveralls.io/repos/github/hitmeister/api-sdk-php/badge.svg?branch=master)](https://coveralls.io/github/hitmeister/api-sdk-php?branch=master)
 [![Total Downloads](http://img.shields.io/packagist/dt/hitmeister/api-sdk.svg)](https://packagist.org/packages/hitmeister/api-sdk)
 
+> **The v1 API doesn't exist anymore, and this package is abandoned and no longer maintained.** No new versions will be released.
+> The API version 2 is available at [this url](https://sellerapi.kaufland.com/).
+
 PHP client for [Kaufland.de Onlineshop API](https://www.kaufland.de/api/v1/).
 
 ## Install
