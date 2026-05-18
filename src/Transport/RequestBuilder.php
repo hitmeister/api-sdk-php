@@ -19,10 +19,10 @@ class RequestBuilder
 	protected $schema = 'https';
 
 	/** @var string */
-	protected $host = 'www.kaufland.de';
+	protected $host = 'sellerapi.kaufland.com';
 
 	/** @var string */
-	protected $uri = '/api/v1/';
+	protected $uri = '/v2/';
 
 	/** @var string */
 	protected $userAgent;
@@ -60,7 +60,7 @@ class RequestBuilder
 	 */
 	public static function defaultApiUrl()
 	{
-		return 'https://www.kaufland.de/api/v1/'; // trailing slash is required
+		return 'https://sellerapi.kaufland.com/v2/'; // trailing slash is required
 	}
 
 	/**

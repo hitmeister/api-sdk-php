@@ -3,7 +3,9 @@
 namespace Hitmeister\Component\Api\Endpoints\Items;
 
 use Hitmeister\Component\Api\Endpoints\AbstractEndpoint;
+use Hitmeister\Component\Api\Endpoints\Interfaces\IdAware;
 use Hitmeister\Component\Api\Endpoints\Traits\RequestGet;
+use Hitmeister\Component\Api\Endpoints\Traits\UriPatternId;
 
 /**
  * Class Find
@@ -14,23 +16,23 @@ use Hitmeister\Component\Api\Endpoints\Traits\RequestGet;
  * @license  https://opensource.org/licenses/MIT MIT
  * @link     https://www.hitmeister.de/api/v1/
  */
-class Find extends AbstractEndpoint
+class Find extends AbstractEndpoint implements IdAware
 {
-	use RequestGet;
+	use RequestGet, UriPatternId;
 
 	/**
 	 * {@inheritdoc}
 	 */
 	public function getParamWhiteList()
 	{
-		return ['q', 'ean', 'embedded', 'limit', 'offset'];
+		return ['storefront', 'q', 'embedded', 'limit', 'offset'];
 	}
 
 	/**
 	 * {@inheritdoc}
 	 */
-	public function getURI()
+	public function getURIPattern()
 	{
-		return 'items/';
+		return 'products/ean/%s';
 	}
 }
